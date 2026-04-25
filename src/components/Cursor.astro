@@ -1,0 +1,117 @@
+---
+---
+
+<div id="cursor" aria-hidden="true">
+  <div class="cursor__dot"></div>
+  <div class="cursor__ring"></div>
+</div>
+
+<style>
+  #cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .cursor__dot {
+    width: 6px;
+    height: 6px;
+    background: var(--clr-sage);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.2s var(--ease-out-expo),
+      height 0.2s var(--ease-out-expo),
+      background 0.2s ease,
+      opacity 0.3s ease;
+  }
+
+  .cursor__ring {
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid var(--clr-sage);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.35s var(--ease-out-expo),
+      height 0.35s var(--ease-out-expo),
+      border-color 0.25s ease,
+      opacity 0.3s ease;
+    opacity: 0.55;
+  }
+
+  #cursor.is-hovering .cursor__dot {
+    width: 10px;
+    height: 10px;
+    background: var(--clr-olive);
+  }
+  #cursor.is-hovering .cursor__ring {
+    width: 58px;
+    height: 58px;
+    opacity: 1;
+    border-color: var(--clr-olive);
+  }
+
+  #cursor.is-link .cursor__dot { background: var(--clr-sage-dark); }
+  #cursor.is-link .cursor__ring {
+    width: 50px;
+    height: 50px;
+    border-color: var(--clr-sage);
+    opacity: 0.8;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    #cursor { display: none; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  const cursor = document.getElementById('cursor')!;
+  const dot    = cursor.querySelector('.cursor__dot') as HTMLElement;
+  const ring   = cursor.querySelector('.cursor__ring') as HTMLElement;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX  = mouseX;
+  let ringY  = mouseY;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    gsap.set(dot, { x: mouseX, y: mouseY });
+  });
+
+  gsap.ticker.add(() => {
+    ringX += (mouseX - ringX) * 0.11;
+    ringY += (mouseY - ringY) * 0.11;
+    gsap.set(ring, { x: ringX, y: ringY });
+  });
+
+  document.addEventListener('mouseleave', () => {
+    gsap.to([dot, ring], { opacity: 0, duration: 0.3 });
+  });
+  document.addEventListener('mouseenter', () => {
+    gsap.to([dot, ring], { opacity: 1, duration: 0.3 });
+  });
+
+  function bindHover() {
+    document.querySelectorAll('a, button, [data-cursor-hover]').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+    });
+    document.querySelectorAll('.nav__links a, .doctor-card__link, .location-card__phone').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-link'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-link'));
+    });
+  }
+
+  // Rebind after loader to catch dynamically rendered elements
+  window.addEventListener('loader:complete', bindHover);
+  bindHover();
+</script>

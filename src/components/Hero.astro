@@ -1,0 +1,379 @@
+---
+---
+
+<section id="hero" aria-label="Hero">
+  <div class="hero__bg-parallax"></div>
+  <div class="hero__grid">
+
+    <div class="hero__left">
+      <p class="hero__eyebrow">Chennai &nbsp;·&nbsp; Coimbatore &nbsp;·&nbsp; Bangalore</p>
+      <h1 class="hero__heading">
+        <span class="hero__heading-line">Best Orofacial</span>
+        <span class="hero__heading-line">Pain Treatment</span>
+        <span class="hero__heading-line hero__heading-line--accent">in India.</span>
+      </h1>
+      <p class="hero__sub">
+        Led by Dr.&nbsp;Dhivya Dilipkumar — India's foremost TMJ &amp; orofacial
+        pain specialist with 26+ years of transformative expertise.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary" data-magnetic data-cursor-hover>
+          Book Consultation
+        </a>
+        <a href="#services" class="btn btn--ghost" data-magnetic data-cursor-hover>
+          Our Services
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__right" aria-hidden="true">
+      <div class="hero__art">
+        <div class="hero__art-ring hero__art-ring--1"></div>
+        <div class="hero__art-ring hero__art-ring--2"></div>
+        <div class="hero__art-core"></div>
+        <div class="hero__art-arc"></div>
+        <div class="hero__art-dot hero__art-dot--1"></div>
+        <div class="hero__art-dot hero__art-dot--2"></div>
+        <div class="hero__art-line"></div>
+      </div>
+      <div class="hero__stat-pill">
+        <span class="hero__stat-num">4.9<span class="hero__stat-star">★</span></span>
+        <span class="hero__stat-label">Average Rating</span>
+      </div>
+      <div class="hero__stat-pill hero__stat-pill--2">
+        <span class="hero__stat-num">3000<span class="hero__stat-plus">+</span></span>
+        <span class="hero__stat-label">Happy Patients</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero__scroll-hint" aria-label="Scroll down">
+    <span class="hero__scroll-text">Scroll</span>
+    <span class="hero__scroll-line"><span></span></span>
+  </div>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--space-32) var(--gutter) var(--space-16);
+  }
+
+  .hero__bg-parallax {
+    position: absolute;
+    inset: -20%;
+    background:
+      radial-gradient(ellipse 70% 60% at 75% 45%, rgba(206, 196, 167, 0.3) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(112, 126, 87, 0.08) 0%, transparent 60%);
+    will-change: transform;
+  }
+
+  .hero__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-16);
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Left column */
+  .hero__eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 300;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-bottom: var(--space-6);
+    opacity: 0;
+  }
+
+  .hero__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-hero);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--clr-olive);
+    margin-bottom: var(--space-8);
+  }
+  .hero__heading-line {
+    display: block;
+    overflow: hidden;
+  }
+  .hero__heading-line--accent {
+    font-style: italic;
+    color: var(--clr-sage);
+  }
+  /* SplitType .word spans */
+  .hero__heading .word {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .hero__sub {
+    max-width: 46ch;
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--clr-olive);
+    margin-bottom: var(--space-10);
+    opacity: 0;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    opacity: 0;
+  }
+
+  /* Right column — CSS art */
+  .hero__right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 420px;
+  }
+
+  .hero__art {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    will-change: transform;
+  }
+
+  .hero__art-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hero__art-ring--1 {
+    width: 340px;
+    height: 340px;
+    border-color: rgba(206, 196, 167, 0.5);
+    animation: ring-breathe 7s ease-in-out infinite;
+  }
+  .hero__art-ring--2 {
+    width: 230px;
+    height: 230px;
+    border-color: rgba(112, 126, 87, 0.35);
+    animation: ring-breathe 7s ease-in-out 1.2s infinite reverse;
+  }
+  .hero__art-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--clr-sand-pale) 0%, var(--clr-sand-light) 100%);
+    border: 1px solid var(--clr-sand-light);
+  }
+  .hero__art-arc {
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 75px;
+    border: 2px solid var(--clr-sage);
+    border-bottom: none;
+    border-radius: 150px 150px 0 0;
+    opacity: 0.45;
+  }
+  .hero__art-line {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--clr-sand-light), transparent);
+  }
+  .hero__art-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--clr-sage);
+  }
+  .hero__art-dot--1 {
+    width: 10px;
+    height: 10px;
+    top: 18%;
+    right: 22%;
+    opacity: 0.6;
+    animation: dot-float 4s ease-in-out infinite;
+  }
+  .hero__art-dot--2 {
+    width: 6px;
+    height: 6px;
+    bottom: 22%;
+    left: 18%;
+    opacity: 0.4;
+    animation: dot-float 4s ease-in-out 1.5s infinite reverse;
+  }
+
+  @keyframes ring-breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    50%       { transform: translate(-50%, -50%) scale(1.03); opacity: 1; }
+  }
+  @keyframes dot-float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  /* Floating stat pills */
+  .hero__stat-pill {
+    position: absolute;
+    background: var(--clr-cream);
+    border: 1px solid var(--clr-sand-light);
+    border-radius: 14px;
+    padding: var(--space-3) var(--space-6);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  .hero__stat-pill { bottom: 10px; right: -10px; }
+  .hero__stat-pill--2 { top: 10px; left: -10px; }
+
+  .hero__stat-num {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--clr-olive);
+    line-height: 1;
+  }
+  .hero__stat-star, .hero__stat-plus {
+    color: var(--clr-sage);
+    font-size: 0.75em;
+  }
+  .hero__stat-label {
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  /* Scroll hint */
+  .hero__scroll-hint {
+    position: absolute;
+    bottom: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    opacity: 0;
+  }
+  .hero__scroll-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    font-weight: 300;
+  }
+  .hero__scroll-line {
+    width: 1px;
+    height: 48px;
+    overflow: hidden;
+  }
+  .hero__scroll-line span {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background: var(--clr-sage);
+    animation: scroll-drop 2s ease-in-out infinite;
+  }
+  @keyframes scroll-drop {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__right { display: none; }
+    #hero { padding-top: clamp(7rem, 18vw, 10rem); align-items: flex-start; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import SplitType from 'split-type';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener('loader:complete', () => {
+    // Split heading into words
+    const split = new SplitType('.hero__heading', {
+      types: 'words',
+      tagName: 'span',
+    });
+
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+    tl
+      .to('.hero__eyebrow', { opacity: 1, y: 0, duration: 0.9 })
+      .to('.hero__heading .word', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: { amount: 0.65 },
+      }, '-=0.5')
+      .to('.hero__sub', { opacity: 0.85, duration: 0.8 }, '-=0.6')
+      .to('.hero__actions', { opacity: 1, duration: 0.7 }, '-=0.55')
+      .to('.hero__stat-pill', {
+        opacity: 1,
+        y: 0,
+        stagger: 0.12,
+        duration: 0.7,
+      }, '-=0.4')
+      .to('.hero__scroll-hint', { opacity: 1, duration: 0.6 }, '-=0.3');
+  });
+
+  // Parallax
+  ScrollTrigger.create({
+    trigger: '#hero',
+    start: 'top top',
+    end: 'bottom top',
+    onUpdate(self) {
+      gsap.set('.hero__bg-parallax', { y: self.progress * 90 });
+      gsap.set('.hero__art',         { y: self.progress * -50 });
+    },
+  });
+
+  // Magnetic buttons
+  document.querySelectorAll('[data-magnetic]').forEach((btn) => {
+    const el = btn as HTMLElement;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width  / 2)) * 0.28;
+      const dy = (e.clientY - (rect.top  + rect.height / 2)) * 0.28;
+      gsap.to(el, { x: dx, y: dy, duration: 0.4, ease: 'power2.out' });
+    });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
+    });
+  });
+</script>

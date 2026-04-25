@@ -1,0 +1,233 @@
+---
+---
+
+<section id="locations" class="section locations">
+  <div class="locations__header">
+    <span class="section__label">Find Us</span>
+    <h2 class="locations__heading">Our <em>Locations</em></h2>
+  </div>
+
+  <div class="locations__grid">
+
+    <article class="location-card">
+      <div class="location-card__top">
+        <span class="location-card__city">Chennai</span>
+        <span class="location-card__badge location-card__badge--open">Open</span>
+      </div>
+      <div class="location-card__divider"></div>
+      <address class="location-card__address">
+        GF-3, Vasanth Apartments,<br />
+        Nolambur, Mogappair West,<br />
+        Chennai – 600 037, Tamil Nadu
+      </address>
+      <div class="location-card__detail">
+        <span class="location-card__detail-label">Hours</span>
+        <span class="location-card__detail-value">Mon–Sat: 9AM–8PM &nbsp;·&nbsp; Sun: 10AM–8PM</span>
+      </div>
+      <a href="tel:+919884520520" class="location-card__phone" data-cursor-hover>
+        +91 9884 520 520
+      </a>
+    </article>
+
+    <article class="location-card">
+      <div class="location-card__top">
+        <span class="location-card__city">Coimbatore</span>
+        <span class="location-card__badge location-card__badge--open">Open</span>
+      </div>
+      <div class="location-card__divider"></div>
+      <address class="location-card__address">
+        988, Thadagam Main Road,<br />
+        R.S. Puram,<br />
+        Coimbatore – 641 002, Tamil Nadu
+      </address>
+      <div class="location-card__detail">
+        <span class="location-card__detail-label">Hours</span>
+        <span class="location-card__detail-value">Mon–Sat: 9AM–8PM &nbsp;·&nbsp; Sun: 10AM–8PM</span>
+      </div>
+      <a href="tel:+919884520520" class="location-card__phone" data-cursor-hover>
+        +91 9884 520 520
+      </a>
+    </article>
+
+    <article class="location-card location-card--soon">
+      <div class="location-card__top">
+        <span class="location-card__city">Bangalore</span>
+        <span class="location-card__badge location-card__badge--soon">Coming Soon</span>
+      </div>
+      <div class="location-card__divider"></div>
+      <p class="location-card__coming-text">
+        We're expanding to Karnataka, bringing our world-class orofacial pain
+        expertise to Bangalore. Be the first to know when we open.
+      </p>
+      <a
+        href="mailto:doctor@dilipdentalcentre.com?subject=Bangalore Opening Alert"
+        class="location-card__phone"
+        data-cursor-hover
+      >
+        Get Notified →
+      </a>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  .locations {
+    background: var(--clr-cream);
+  }
+
+  .locations__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .locations__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    color: var(--clr-olive);
+  }
+  .locations__heading em {
+    font-style: italic;
+    color: var(--clr-sage);
+  }
+
+  .locations__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .location-card {
+    background: var(--clr-sand-pale);
+    border-radius: 4px;
+    padding: var(--space-10);
+    border: 1px solid var(--clr-sand-light);
+    transition:
+      transform 0.4s var(--ease-out-expo),
+      box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  .location-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .location-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .location-card__city {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    color: var(--clr-olive);
+    line-height: 1;
+  }
+
+  .location-card__badge {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 100px;
+  }
+  .location-card__badge--open  {
+    background: rgba(112, 126, 87, 0.15);
+    color: var(--clr-sage);
+  }
+  .location-card__badge--soon {
+    background: rgba(107, 100, 69, 0.08);
+    color: var(--clr-olive);
+  }
+
+  .location-card__divider {
+    height: 1px;
+    background: rgba(107, 100, 69, 0.1);
+  }
+
+  .location-card__address {
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--clr-olive);
+    opacity: 0.82;
+    font-size: var(--text-sm);
+    flex: 1;
+  }
+
+  .location-card__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .location-card__detail-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+  }
+  .location-card__detail-value {
+    font-size: var(--text-xs);
+    font-weight: 300;
+    color: var(--clr-olive);
+    opacity: 0.75;
+  }
+
+  .location-card__phone {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--clr-olive);
+    transition: color 0.2s ease;
+    letter-spacing: 0.03em;
+    margin-top: auto;
+  }
+  .location-card__phone:hover { color: var(--clr-sage); }
+
+  .location-card--soon {
+    border-style: dashed;
+    background: transparent;
+  }
+  .location-card__coming-text {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--clr-olive);
+    opacity: 0.7;
+    flex: 1;
+  }
+
+  @media (max-width: 900px) {
+    .locations__grid { grid-template-columns: 1fr; max-width: 520px; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.location-card', {
+    scrollTrigger: { trigger: '.locations__grid', start: 'top 82%' },
+    opacity: 1,
+    y: 0,
+    stagger: 0.18,
+    duration: 1.1,
+    ease: 'power3.out',
+  });
+</script>

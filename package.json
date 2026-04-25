@@ -1,0 +1,16 @@
+{
+  "name": "dr-dilip-dental-centre",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.16.18",
+    "gsap": "^3.12.5",
+    "@studio-freight/lenis": "^1.0.42",
+    "split-type": "^0.3.4"
+  }
+}

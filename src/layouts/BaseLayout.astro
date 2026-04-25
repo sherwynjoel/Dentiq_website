@@ -1,0 +1,191 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Dr. Dilip Dental Centre | Best Orofacial Pain Treatment in India',
+  description = 'India\'s leading TMJ & orofacial pain specialist. 3000+ patients, 4.9★ rating, 26+ years of excellence. Clinics in Chennai, Coimbatore & Bangalore.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body class="is-loading">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* ─── Design Tokens ─────────────────────────────────────────── */
+  :root {
+    --clr-cream:      #ebe6d6;
+    --clr-sand-light: #cec4a7;
+    --clr-sand-pale:  #ded5b9;
+    --clr-olive:      #6b6445;
+    --clr-sage:       #707e57;
+    --clr-sage-dark:  #4f5a3c;
+    --clr-gold:       #c9a84c;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Jost', system-ui, sans-serif;
+
+    --text-xs:   clamp(0.7rem,  1.4vw, 0.8rem);
+    --text-sm:   clamp(0.85rem, 1.7vw, 0.95rem);
+    --text-base: clamp(1rem,    2vw,   1.1rem);
+    --text-lg:   clamp(1.1rem,  2.2vw, 1.3rem);
+    --text-xl:   clamp(1.4rem,  2.8vw, 1.8rem);
+    --text-2xl:  clamp(2rem,    4vw,   3rem);
+    --text-3xl:  clamp(2.8rem,  5.5vw, 4.5rem);
+    --text-hero: clamp(3.5rem,  7.5vw, 7.5rem);
+
+    --space-1:  0.25rem;
+    --space-2:  0.5rem;
+    --space-3:  0.75rem;
+    --space-4:  1rem;
+    --space-6:  1.5rem;
+    --space-8:  2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+
+    --max-width: 1380px;
+    --gutter:    clamp(1.25rem, 5vw, 5rem);
+
+    --glass-bg:     rgba(235, 230, 214, 0.65);
+    --glass-border: rgba(206, 196, 167, 0.5);
+    --glass-blur:   blur(18px);
+
+    --shadow-soft:  0 2px 20px rgba(107, 100, 69, 0.07);
+    --shadow-card:  0 8px 40px rgba(107, 100, 69, 0.12);
+    --shadow-lift:  0 20px 60px rgba(107, 100, 69, 0.18);
+  }
+
+  /* ─── Reset ──────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: auto; }
+
+  body {
+    background-color: var(--clr-cream);
+    color: var(--clr-olive);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none;
+    overflow-x: hidden;
+  }
+
+  body.is-loading { overflow: hidden; }
+
+  @media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+  }
+
+  img, video { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul, ol { list-style: none; }
+  button { font-family: inherit; border: none; background: none; cursor: none; }
+
+  /* ─── Shared utility classes ─────────────────────────────────── */
+  .section {
+    padding: var(--space-32) var(--gutter);
+  }
+
+  .section__label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-bottom: var(--space-4);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-8);
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: transform 0.25s var(--ease-out-expo),
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+    position: relative;
+    will-change: transform;
+  }
+
+  .btn--primary {
+    background: var(--clr-sage);
+    color: var(--clr-cream);
+    box-shadow: 0 4px 24px rgba(112, 126, 87, 0.3);
+  }
+  .btn--primary:hover {
+    background: var(--clr-sage-dark);
+    box-shadow: 0 8px 36px rgba(112, 126, 87, 0.45);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--clr-olive);
+    border: 1px solid var(--clr-sand-light);
+  }
+  .btn--ghost:hover { background: rgba(206, 196, 167, 0.3); }
+
+  .btn--light {
+    background: var(--clr-cream);
+    color: var(--clr-olive);
+  }
+  .btn--light:hover { background: var(--clr-sand-pale); }
+</style>
+
+<script>
+  import Lenis from '@studio-freight/lenis';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+  });
+
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time: number) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  (window as any).lenis = lenis;
+</script>

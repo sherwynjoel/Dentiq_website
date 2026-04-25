@@ -1,0 +1,306 @@
+---
+const services = [
+  { num: '01', title: 'Sleep Dentistry', desc: 'Comfortable, anxiety-free dental treatment while you rest in deep sedation.' },
+  { num: '02', title: 'Orofacial Pain', desc: 'Comprehensive diagnosis and treatment of complex facial and jaw pain disorders.' },
+  { num: '03', title: 'TMJ Treatment', desc: "India's most advanced temporomandibular joint therapy and rehabilitation." },
+  { num: '04', title: 'Migraine Management', desc: 'Dentally-driven migraine relief through occlusal and neuromuscular interventions.' },
+  { num: '05', title: 'Dental Implants', desc: 'Permanent, natural-looking tooth restoration using premium titanium implants.' },
+  { num: '06', title: 'Invisalign', desc: 'Virtually invisible orthodontic aligners for a perfectly aligned smile.' },
+  { num: '07', title: 'Root Canal Therapy', desc: 'Painless, precision endodontic care using rotary and laser-assisted techniques.' },
+  { num: '08', title: 'Teeth Whitening', desc: 'Professional-grade whitening delivering a radiant, confident smile in one session.' },
+  { num: '09', title: 'Cosmetic Dentistry', desc: "Veneers, bonding, and smile makeovers crafted with an artist's eye." },
+  { num: '10', title: 'Pediatric Dentistry', desc: 'Gentle, child-friendly care building healthy dental habits from the very start.' },
+];
+---
+
+<section id="services" class="services" data-lenis-prevent>
+  <div class="services__pin-wrapper">
+    <div class="services__sticky-label">
+      <span class="section__label">What We Treat</span>
+      <h2 class="services__heading">
+        Our<br /><em>Services</em>
+      </h2>
+      <p class="services__count">
+        <span class="services__count-num">10</span>
+        Specialisations
+      </p>
+    </div>
+
+    <div class="services__track-outer">
+      <div class="services__track">
+        {services.map((s) => (
+          <article class="service-card">
+            <span class="service-card__num">{s.num}</span>
+            <div class="service-card__body">
+              <h3 class="service-card__title">{s.title}</h3>
+              <p class="service-card__desc">{s.desc}</p>
+            </div>
+            <div class="service-card__line"></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile fallback: vertical list -->
+  <div class="services__mobile">
+    <div class="services__mobile-header">
+      <span class="section__label">What We Treat</span>
+      <h2 class="services__heading">Our <em>Services</em></h2>
+    </div>
+    <div class="services__mobile-grid">
+      {services.map((s) => (
+        <article class="service-card-mobile">
+          <span class="service-card-mobile__num">{s.num}</span>
+          <h3 class="service-card-mobile__title">{s.title}</h3>
+          <p class="service-card-mobile__desc">{s.desc}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Desktop horizontal scroll version */
+  .services {
+    background: var(--clr-sand-pale);
+    position: relative;
+  }
+
+  .services__pin-wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    align-items: stretch;
+  }
+
+  .services__sticky-label {
+    flex-shrink: 0;
+    width: 28vw;
+    min-width: 260px;
+    padding: 0 var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(107, 100, 69, 0.12);
+  }
+
+  .services__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--clr-olive);
+    margin-bottom: var(--space-8);
+  }
+  .services__heading em {
+    font-style: italic;
+    color: var(--clr-sage);
+  }
+
+  .services__count {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+  .services__count-num {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    color: var(--clr-olive);
+    line-height: 1;
+  }
+
+  .services__track-outer {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .services__track {
+    display: flex;
+    gap: var(--space-5);
+    padding: 0 var(--space-10);
+    will-change: transform;
+  }
+
+  .service-card {
+    flex-shrink: 0;
+    width: 290px;
+    height: 380px;
+    background: var(--clr-cream);
+    border-radius: 4px;
+    padding: var(--space-8) var(--space-8) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(206, 196, 167, 0.7);
+    transition:
+      transform 0.4s var(--ease-out-expo),
+      box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lift);
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--clr-sage), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out-expo);
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-card__num {
+    font-family: var(--font-display);
+    font-size: 5.5rem;
+    font-weight: 300;
+    color: var(--clr-sand-light);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    display: block;
+    transition: color 0.3s ease;
+  }
+  .service-card:hover .service-card__num { color: rgba(206, 196, 167, 0.5); }
+
+  .service-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--clr-olive);
+    line-height: 1.2;
+    margin-bottom: var(--space-4);
+  }
+
+  .service-card__desc {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--clr-olive);
+    opacity: 0.72;
+  }
+
+  .service-card__line {
+    width: 30px;
+    height: 1px;
+    background: var(--clr-sage);
+    opacity: 0.5;
+  }
+
+  /* Mobile version */
+  .services__mobile { display: none; }
+
+  @media (max-width: 900px) {
+    .services__pin-wrapper { display: none; }
+    .services__mobile {
+      display: block;
+      padding: var(--space-24) var(--gutter);
+    }
+    .services__mobile-header {
+      margin-bottom: var(--space-12);
+    }
+    .services__mobile-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-5);
+    }
+    .service-card-mobile {
+      background: var(--clr-cream);
+      border-radius: 4px;
+      padding: var(--space-8);
+      border: 1px solid var(--clr-sand-light);
+    }
+    .service-card-mobile__num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--clr-sand-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: var(--space-4);
+    }
+    .service-card-mobile__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 500;
+      color: var(--clr-olive);
+      margin-bottom: var(--space-3);
+    }
+    .service-card-mobile__desc {
+      font-size: var(--text-sm);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--clr-olive);
+      opacity: 0.75;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 901px)', () => {
+    const track      = document.querySelector('.services__track') as HTMLElement;
+    const trackOuter = document.querySelector('.services__track-outer') as HTMLElement;
+
+    if (!track || !trackOuter) return;
+
+    const getScrollWidth = () => track.scrollWidth - trackOuter.clientWidth + 80;
+
+    const tween = gsap.to('.services__track', {
+      x: () => -getScrollWidth(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.services',
+        start: 'top top',
+        end: () => `+=${getScrollWidth() * 1.15}`,
+        scrub: 1.2,
+        pin: '.services',
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // Cards stagger in when section enters
+    gsap.from('.service-card', {
+      scrollTrigger: { trigger: '.services', start: 'top 85%' },
+      opacity: 0,
+      y: 50,
+      stagger: 0.06,
+      duration: 0.9,
+      ease: 'power3.out',
+    });
+
+    return () => { tween.kill(); };
+  });
+
+  mm.add('(max-width: 900px)', () => {
+    gsap.from('.service-card-mobile', {
+      scrollTrigger: { trigger: '.services__mobile-grid', start: 'top 85%' },
+      opacity: 0,
+      y: 40,
+      stagger: 0.07,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+  });
+</script>

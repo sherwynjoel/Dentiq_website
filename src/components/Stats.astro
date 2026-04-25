@@ -1,0 +1,170 @@
+---
+const stats = [
+  { num: '3000', suffix: '+', label: 'Patients Treated', isFloat: false },
+  { num: '4.9',  suffix: '★', label: 'Average Rating',  isFloat: true  },
+  { num: '99',   suffix: '%', label: 'Patient Satisfaction', isFloat: false },
+  { num: '20',   suffix: '+', label: 'Years of Excellence',  isFloat: false },
+];
+---
+
+<section id="stats" class="stats" aria-label="Our achievements">
+  <div class="stats__inner">
+    {stats.map((s, i) => (
+      <div class="stats__item">
+        <div class="stats__number-row">
+          <span
+            class="stats__num"
+            data-target={s.num}
+            data-float={String(s.isFloat)}
+          >0</span>
+          <span class="stats__suffix">{s.suffix}</span>
+        </div>
+        <p class="stats__label">{s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats {
+    background: var(--clr-olive);
+    padding: var(--space-32) var(--gutter);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(235, 230, 214, 0.06);
+    pointer-events: none;
+  }
+  .stats::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -8%;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    border: 1px solid rgba(112, 126, 87, 0.12);
+    pointer-events: none;
+  }
+
+  .stats__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats__item {
+    text-align: center;
+    position: relative;
+    padding: var(--space-8) var(--space-4);
+  }
+  .stats__item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: rgba(235, 230, 214, 0.12);
+  }
+  .stats__item:last-child::after { display: none; }
+
+  .stats__number-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    line-height: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .stats__num {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 300;
+    color: var(--clr-cream);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    tabular-nums: normal;
+  }
+
+  .stats__suffix {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    color: var(--clr-sage);
+    font-weight: 300;
+    line-height: 1;
+    padding-bottom: 0.1em;
+  }
+
+  .stats__label {
+    font-size: var(--text-xs);
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clr-sand-light);
+    opacity: 0.75;
+  }
+
+  @media (max-width: 700px) {
+    .stats__inner { grid-template-columns: repeat(2, 1fr); }
+    .stats__item:nth-child(2)::after { display: none; }
+  }
+  @media (max-width: 420px) {
+    .stats__inner { grid-template-columns: 1fr; }
+    .stats__item::after { display: none; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll<HTMLElement>('.stats__num').forEach((el) => {
+    const target  = parseFloat(el.dataset.target!);
+    const isFloat = el.dataset.float === 'true';
+
+    ScrollTrigger.create({
+      trigger: '#stats',
+      start: 'top 78%',
+      once: true,
+      onEnter() {
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2.4,
+          ease: 'power2.out',
+          onUpdate() {
+            el.textContent = isFloat
+              ? obj.val.toFixed(1)
+              : Math.floor(obj.val).toLocaleString();
+          },
+        });
+      },
+    });
+  });
+
+  gsap.from('.stats__item', {
+    scrollTrigger: { trigger: '#stats', start: 'top 82%' },
+    opacity: 0,
+    y: 55,
+    stagger: 0.15,
+    duration: 1.1,
+    ease: 'power3.out',
+  });
+</script>

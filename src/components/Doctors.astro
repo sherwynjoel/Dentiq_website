@@ -1,0 +1,252 @@
+---
+---
+
+<section id="doctors" class="section doctors">
+  <div class="doctors__header">
+    <span class="section__label">The Specialists</span>
+    <h2 class="doctors__heading">Meet Our <em>Doctors</em></h2>
+  </div>
+
+  <div class="doctors__grid">
+
+    <article class="doctor-card">
+      <div class="doctor-card__portrait">
+        <div class="doctor-card__portrait-inner doctor-card__portrait-inner--1">
+          <span class="doctor-card__initials">DD</span>
+        </div>
+        <div class="doctor-card__portrait-ring"></div>
+      </div>
+      <div class="doctor-card__content">
+        <h3 class="doctor-card__name">Dr. Dhivya Dilipkumar</h3>
+        <p class="doctor-card__title">TMJ &amp; Orofacial Pain Specialist</p>
+        <p class="doctor-card__meta">MDS · 26+ Years Experience · Co-Founder</p>
+        <p class="doctor-card__bio">
+          India's foremost orofacial pain specialist, leading the way in
+          non-surgical TMJ and migraine management through advanced diagnostics.
+        </p>
+        <a href="#contact" class="doctor-card__link" data-cursor-hover>
+          Book with Dr. Dhivya&nbsp;→
+        </a>
+      </div>
+    </article>
+
+    <article class="doctor-card">
+      <div class="doctor-card__portrait">
+        <div class="doctor-card__portrait-inner doctor-card__portrait-inner--2">
+          <span class="doctor-card__initials">DK</span>
+        </div>
+        <div class="doctor-card__portrait-ring"></div>
+      </div>
+      <div class="doctor-card__content">
+        <h3 class="doctor-card__name">Dr. Dilip Kumar</h3>
+        <p class="doctor-card__title">Founder &amp; Principal Dentist</p>
+        <p class="doctor-card__meta">BDS MDS · Senior Dental Surgeon · Co-Founder</p>
+        <p class="doctor-card__bio">
+          A visionary dental surgeon whose patient-first philosophy built Dr.
+          Dilip Dental Centre into one of South India's most trusted practices.
+        </p>
+        <a href="#contact" class="doctor-card__link" data-cursor-hover>
+          Book with Dr. Dilip&nbsp;→
+        </a>
+      </div>
+    </article>
+
+    <article class="doctor-card doctor-card--team">
+      <div class="doctor-card__team-count">
+        40<span>+</span>
+      </div>
+      <div class="doctor-card__content">
+        <h3 class="doctor-card__name">Our Full Team</h3>
+        <p class="doctor-card__title">Doctors &amp; Nursing Staff</p>
+        <p class="doctor-card__bio">
+          A multidisciplinary team of specialists — dentists, physiotherapists,
+          neurologists, and dedicated nursing staff — united by a single purpose:
+          your complete orofacial wellbeing.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  .doctors {
+    background: var(--clr-cream);
+  }
+
+  .doctors__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .doctors__heading {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    color: var(--clr-olive);
+  }
+  .doctors__heading em {
+    font-style: italic;
+    color: var(--clr-sage);
+  }
+
+  .doctors__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .doctor-card {
+    background: var(--clr-sand-pale);
+    border-radius: 4px;
+    padding: var(--space-10);
+    border: 1px solid var(--clr-sand-light);
+    transition:
+      transform 0.4s var(--ease-out-expo),
+      box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  .doctor-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--shadow-lift);
+  }
+
+  .doctor-card__portrait {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin-bottom: var(--space-6);
+  }
+  .doctor-card__portrait-inner {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  .doctor-card__portrait-inner--1 {
+    background: linear-gradient(135deg, var(--clr-sand-light) 0%, var(--clr-sage) 100%);
+  }
+  .doctor-card__portrait-inner--2 {
+    background: linear-gradient(135deg, var(--clr-sand-light) 0%, #8a9e6c 100%);
+  }
+  .doctor-card__portrait-ring {
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid var(--clr-sand-light);
+    transition: border-color 0.3s ease, inset 0.3s ease;
+  }
+  .doctor-card:hover .doctor-card__portrait-ring {
+    inset: -8px;
+    border-color: var(--clr-sage);
+  }
+
+  .doctor-card__initials {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--clr-cream);
+    letter-spacing: 0.05em;
+  }
+
+  .doctor-card__name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--clr-olive);
+    margin-bottom: var(--space-2);
+    line-height: 1.2;
+  }
+
+  .doctor-card__title {
+    font-size: var(--text-xs);
+    font-weight: 400;
+    color: var(--clr-sage);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+
+  .doctor-card__meta {
+    font-size: var(--text-xs);
+    font-weight: 300;
+    color: var(--clr-olive);
+    opacity: 0.65;
+    margin-bottom: var(--space-5);
+    letter-spacing: 0.04em;
+  }
+
+  .doctor-card__bio {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--clr-olive);
+    opacity: 0.8;
+    margin-bottom: var(--space-6);
+  }
+
+  .doctor-card__link {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--clr-sage);
+    letter-spacing: 0.04em;
+    transition: letter-spacing 0.25s ease, opacity 0.2s ease;
+    display: inline-block;
+  }
+  .doctor-card__link:hover {
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .doctor-card--team {
+    border-style: dashed;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .doctor-card--team:hover { transform: translateY(-8px) !important; }
+
+  .doctor-card__team-count {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-weight: 300;
+    color: var(--clr-olive);
+    line-height: 1;
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.03em;
+  }
+  .doctor-card__team-count span {
+    color: var(--clr-sage);
+  }
+
+  @media (max-width: 900px) {
+    .doctors__grid { grid-template-columns: 1fr; max-width: 520px; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.doctor-card', {
+    scrollTrigger: { trigger: '.doctors__grid', start: 'top 82%' },
+    opacity: 1,
+    y: 0,
+    stagger: 0.18,
+    duration: 1.1,
+    ease: 'power3.out',
+  });
+</script>

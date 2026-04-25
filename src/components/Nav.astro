@@ -1,0 +1,232 @@
+---
+---
+
+<header id="nav" role="banner">
+  <nav class="nav__inner" aria-label="Main navigation">
+    <a href="#hero" class="nav__logo">
+      Dr. Dilip
+      <span>Dental Centre</span>
+    </a>
+
+    <ul class="nav__links" role="list">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Our Team</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li>
+        <a href="#contact" class="nav__cta" data-cursor-hover>Book Visit</a>
+      </li>
+    </ul>
+
+    <button
+      class="nav__hamburger"
+      aria-label="Open menu"
+      aria-expanded="false"
+      id="nav-toggle"
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile drawer -->
+<div id="nav-drawer" aria-hidden="true">
+  <div class="drawer__inner">
+    <ul role="list">
+      <li><a href="#services" class="drawer__link">Services</a></li>
+      <li><a href="#doctors" class="drawer__link">Our Team</a></li>
+      <li><a href="#locations" class="drawer__link">Locations</a></li>
+      <li><a href="#contact" class="drawer__link drawer__cta">Book Visit</a></li>
+    </ul>
+    <p class="drawer__phone">+91 9884 520 520</p>
+  </div>
+</div>
+
+<style>
+  #nav {
+    position: fixed;
+    top: var(--space-6);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: calc(100% - var(--space-8));
+    max-width: 920px;
+    transition: top 0.4s var(--ease-out-expo);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-6);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    box-shadow: var(--shadow-soft);
+    transition:
+      padding 0.4s var(--ease-out-expo),
+      box-shadow 0.4s ease,
+      background 0.4s ease;
+  }
+
+  #nav.is-scrolled .nav__inner {
+    padding: var(--space-2) var(--space-6);
+    box-shadow: var(--shadow-card);
+    background: rgba(235, 230, 214, 0.88);
+  }
+
+  .nav__logo {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--clr-olive);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .nav__logo span {
+    display: block;
+    font-size: 0.58em;
+    font-weight: 300;
+    font-family: var(--font-body);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-top: 2px;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .nav__links a {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--clr-olive);
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav__links a:not(.nav__cta)::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--clr-sage);
+    transition: width 0.3s var(--ease-out-expo);
+  }
+  .nav__links a:not(.nav__cta):hover::after { width: 100%; }
+  .nav__links a:not(.nav__cta):hover { color: var(--clr-sage); }
+
+  .nav__cta {
+    background: var(--clr-sage);
+    color: var(--clr-cream) !important;
+    padding: 0.5rem 1.4rem;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-size: var(--text-xs) !important;
+    transition: background 0.25s ease !important;
+  }
+  .nav__cta:hover { background: var(--clr-sage-dark) !important; }
+
+  .nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: var(--space-2);
+    cursor: none;
+  }
+  .nav__hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--clr-olive);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav__hamburger.is-open span:first-child { transform: rotate(45deg) translate(4.5px, 4.5px); }
+  .nav__hamburger.is-open span:last-child  { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+  @media (max-width: 768px) {
+    .nav__links { display: none; }
+    .nav__hamburger { display: flex; }
+  }
+
+  /* Mobile drawer */
+  #nav-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    background: var(--clr-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  #nav-drawer.is-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .drawer__inner { text-align: center; }
+  .drawer__inner ul { display: flex; flex-direction: column; gap: var(--space-8); }
+
+  .drawer__link {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    color: var(--clr-olive);
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+  }
+  .drawer__link:hover { color: var(--clr-sage); }
+  .drawer__cta {
+    color: var(--clr-sage) !important;
+    font-style: italic;
+  }
+
+  .drawer__phone {
+    margin-top: var(--space-12);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--clr-sage);
+  }
+</style>
+
+<script>
+  const nav    = document.getElementById('nav')!;
+  const toggle = document.getElementById('nav-toggle')!;
+  const drawer = document.getElementById('nav-drawer')!;
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+    drawer.classList.toggle('is-open', open);
+    drawer.setAttribute('aria-hidden', String(!open));
+  });
+
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+    });
+  });
+</script>

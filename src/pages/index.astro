@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Cursor from '../components/Cursor.astro';
+import Loader from '../components/Loader.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Stats from '../components/Stats.astro';
+import Doctors from '../components/Doctors.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Locations from '../components/Locations.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Cursor />
+  <Loader />
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Stats />
+    <Doctors />
+    <Testimonials />
+    <Locations />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>

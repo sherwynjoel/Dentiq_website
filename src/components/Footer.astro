@@ -1,0 +1,161 @@
+---
+---
+
+<footer id="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <p class="footer__logo">Dr. Dilip Dental Centre</p>
+        <p class="footer__tagline">Best Orofacial Pain Treatment in India</p>
+        <p class="footer__desc">
+          Award-winning, board-certified dental hospital specialising in TMJ,
+          orofacial pain, and comprehensive dental care.
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <p class="footer__nav-title">Navigate</p>
+        <a href="#services">Services</a>
+        <a href="#doctors">Our Team</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Book Visit</a>
+      </nav>
+
+      <div class="footer__contact-col">
+        <p class="footer__nav-title">Contact</p>
+        <a href="tel:+919884520520">+91 9884 520 520</a>
+        <a href="mailto:doctor@dilipdentalcentre.com">doctor@dilipdentalcentre.com</a>
+        <p class="footer__hours">Mon–Sat: 9AM–8PM</p>
+        <p class="footer__hours">Sun: 10AM–8PM</p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2025 Dr. Dilip Dental Centre. All rights reserved.</p>
+      <p class="footer__cities">Chennai &nbsp;·&nbsp; Coimbatore &nbsp;·&nbsp; Bangalore</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  #footer {
+    background: var(--clr-olive);
+    padding: var(--space-16) var(--gutter) var(--space-8);
+    border-top: 1px solid rgba(235, 230, 214, 0.08);
+  }
+
+  .footer__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .footer__top {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: var(--space-16);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid rgba(235, 230, 214, 0.08);
+    margin-bottom: var(--space-8);
+  }
+
+  .footer__logo {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    color: var(--clr-cream);
+    margin-bottom: var(--space-2);
+    letter-spacing: 0.02em;
+  }
+
+  .footer__tagline {
+    font-size: var(--text-xs);
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-bottom: var(--space-5);
+  }
+
+  .footer__desc {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--clr-sand-light);
+    opacity: 0.6;
+    max-width: 34ch;
+  }
+
+  .footer__nav-title {
+    font-size: var(--text-xs);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clr-sage);
+    margin-bottom: var(--space-5);
+  }
+
+  .footer__nav,
+  .footer__contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer__nav a,
+  .footer__contact-col a {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--clr-sand-light);
+    opacity: 0.7;
+    letter-spacing: 0.03em;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  .footer__nav a:hover,
+  .footer__contact-col a:hover {
+    opacity: 1;
+    color: var(--clr-cream);
+  }
+
+  .footer__hours {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--clr-sand-light);
+    opacity: 0.5;
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .footer__bottom p {
+    font-size: var(--text-xs);
+    font-weight: 300;
+    color: var(--clr-sand-light);
+    opacity: 0.45;
+    letter-spacing: 0.06em;
+  }
+
+  .footer__cities {
+    letter-spacing: 0.12em;
+    font-family: var(--font-display);
+    font-style: italic;
+    opacity: 0.35 !important;
+    font-size: var(--text-sm) !important;
+  }
+
+  @media (max-width: 900px) {
+    .footer__top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer__brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 600px) {
+    .footer__top { grid-template-columns: 1fr; }
+  }
+</style>

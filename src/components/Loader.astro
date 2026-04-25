@@ -1,0 +1,149 @@
+---
+---
+
+<div id="loader" aria-hidden="true">
+  <div class="loader__curtain loader__curtain--top"></div>
+  <div class="loader__curtain loader__curtain--bottom"></div>
+  <div class="loader__content">
+    <div class="loader__line-wrap">
+      <span class="loader__name">Dr. Dilip</span>
+    </div>
+    <div class="loader__line-wrap">
+      <span class="loader__name loader__name--italic">Dental Centre</span>
+    </div>
+    <span class="loader__tagline">Best Orofacial Pain Treatment in India</span>
+  </div>
+</div>
+
+<style>
+  #loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    pointer-events: all;
+  }
+
+  .loader__curtain {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: var(--clr-cream);
+  }
+  .loader__curtain--top    { top: 0; }
+  .loader__curtain--bottom { bottom: 0; }
+
+  .loader__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    z-index: 1;
+  }
+
+  .loader__line-wrap {
+    overflow: hidden;
+    line-height: 1.1;
+  }
+
+  .loader__name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 5rem);
+    font-weight: 300;
+    color: var(--clr-olive);
+    letter-spacing: 0.06em;
+    transform: translateY(105%);
+  }
+  .loader__name--italic {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--clr-sage);
+  }
+
+  .loader__tagline {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 300;
+    color: var(--clr-sage);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-top: var(--space-6);
+    opacity: 0;
+  }
+
+  .loader__progress {
+    position: absolute;
+    bottom: var(--space-12);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .loader__bar {
+    width: 80px;
+    height: 1px;
+    background: var(--clr-sand-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .loader__bar-fill {
+    position: absolute;
+    inset: 0;
+    background: var(--clr-sage);
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({ delay: 0.1 });
+
+  tl
+    .to('.loader__name', {
+      y: 0,
+      duration: 1.1,
+      stagger: 0.12,
+      ease: 'power4.out',
+    })
+    .to('.loader__tagline', {
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out',
+    }, '-=0.5')
+    // hold
+    .to({}, { duration: 0.9 })
+    // fade out content
+    .to('.loader__content', {
+      opacity: 0,
+      duration: 0.35,
+      ease: 'power2.in',
+    })
+    // curtain split
+    .to('.loader__curtain--top', {
+      yPercent: -100,
+      duration: 1.05,
+      ease: 'power4.inOut',
+    }, '-=0.05')
+    .to('.loader__curtain--bottom', {
+      yPercent: 100,
+      duration: 1.05,
+      ease: 'power4.inOut',
+    }, '<')
+    .call(() => {
+      const loader = document.getElementById('loader')!;
+      loader.style.display = 'none';
+      document.body.classList.remove('is-loading');
+      ScrollTrigger.refresh();
+      window.dispatchEvent(new CustomEvent('loader:complete'));
+    });
+</script>
