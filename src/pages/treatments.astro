@@ -24,13 +24,19 @@ import { treatmentsData } from '../data/treatmentsData.js';
         <input type="text" id="t-search" placeholder="Search treatments..." class="t-search-input" />
       </div>
 
-      <div class="t-grid" id="t-grid">
+      <div class="t-rows" id="t-rows">
         {treatmentsData.map((cat) => (
-          <div class="t-card" data-name={cat.name.toLowerCase()}>
-            <div class="t-card__icon" set:html={cat.icon}></div>
-            <h3 class="t-card__title">{cat.name}</h3>
-            {cat.catchy && <p class="t-card__catchy">{cat.catchy}</p>}
-            <a href={`/treatments/${cat.id}`} class="t-card__link">View Details &rarr;</a>
+          <div class="t-row" data-name={cat.name.toLowerCase()}>
+            <div class="t-row__content">
+              <div class="t-row__icon" set:html={cat.icon}></div>
+              <h2 class="t-row__title">{cat.name}</h2>
+              {cat.catchy && <p class="t-row__catchy">{cat.catchy}</p>}
+              <p class="t-row__desc">{cat.desc}</p>
+              <a href={`/treatments/${cat.id}`} class="t-row__link btn btn--primary">View Details</a>
+            </div>
+            <div class="t-row__image-container">
+              <img src={cat.image} alt={cat.name} class="t-row__image" />
+            </div>
           </div>
         ))}
       </div>
@@ -44,7 +50,8 @@ import { treatmentsData } from '../data/treatmentsData.js';
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
 
   .treatments-hero {
-    background: var(--clr-navy);
+    position: relative;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
     padding: 10rem 0 6rem;
     text-align: center;
     color: var(--clr-white);
@@ -60,7 +67,7 @@ import { treatmentsData } from '../data/treatmentsData.js';
 
   .t-search-container {
     max-width: 600px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 5rem;
   }
   .t-search-input {
     width: 100%;
@@ -81,68 +88,95 @@ import { treatmentsData } from '../data/treatmentsData.js';
     background: var(--clr-white);
   }
 
-  .t-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2.5rem;
-  }
-
-  .t-card {
-    background: var(--clr-off-white);
-    padding: 2.5rem;
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--clr-light-gray);
+  .t-rows {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .t-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--clr-gold);
+    gap: 8rem;
   }
 
-  .t-card__icon {
-    width: 64px;
-    height: 64px;
-    background: var(--clr-white);
-    border-radius: 50%;
+  .t-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .t-row:nth-child(even) {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+  }
+  .t-row:nth-child(even) .t-row__content {
+    direction: ltr;
+  }
+
+  @media (max-width: 900px) {
+    .t-row, .t-row:nth-child(even) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      direction: ltr;
+    }
+  }
+
+  .t-row__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .t-row__icon {
+    width: 56px;
+    height: 56px;
+    background: var(--clr-gold-pale);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--clr-gold);
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-sm);
-  }
-  .t-card__title { font-family: var(--font-heading); font-size: 1.4rem; color: var(--clr-navy); margin-bottom: 0.8rem; }
-  .t-card__catchy { font-size: 0.85rem; color: var(--clr-text-mid); line-height: 1.5; margin-bottom: 1.5rem; font-weight: 300; }
-  .t-card__link {
-    font-size: 0.9rem;
-    font-weight: 600;
     color: var(--clr-navy);
-    text-decoration: none;
-    margin-top: auto;
-    transition: color 0.2s ease;
+    margin-bottom: 1.5rem;
   }
-  .t-card__link:hover {
-    color: var(--clr-gold);
+  
+  .t-row__title { font-family: var(--font-heading); font-size: 2rem; color: var(--clr-navy); margin-bottom: 1rem; }
+  .t-row__catchy { font-size: var(--text-base); color: var(--clr-gold); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.4; }
+  .t-row__desc { font-size: var(--text-sm); color: var(--clr-text-body); line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
+
+  .t-row__image-container {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .t-row__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .t-row:hover .t-row__image {
+    transform: scale(1.05);
+  }
+
+  .t-row__link {
+    padding: 12px 32px;
+    font-size: 0.9rem;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 600;
   }
 </style>
 
 <script>
   const searchInput = document.getElementById('t-search') as HTMLInputElement;
-  const cards = document.querySelectorAll('.t-card') as NodeListOf<HTMLElement>;
+  const rows = document.querySelectorAll('.t-row') as NodeListOf<HTMLElement>;
 
   searchInput?.addEventListener('input', (e) => {
     const query = (e.target as HTMLInputElement).value.toLowerCase();
-    cards.forEach(card => {
-      const name = card.dataset.name || '';
+    rows.forEach(row => {
+      const name = row.dataset.name || '';
       if (name.includes(query)) {
-        card.style.display = 'flex';
+        row.style.display = 'grid';
       } else {
-        card.style.display = 'none';
+        row.style.display = 'none';
       }
     });
   });
