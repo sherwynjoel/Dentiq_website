@@ -1,11 +1,11 @@
 ---
 const testimonials = [
-  { text: "Initially I came here with TMJ issue for past 2 years. I visited other dentists but those treatments did not give me proper cure but now I am completely cured. Trust me — visit Dr. Dhivya and she will thoroughly analyse the issue and give you proper treatment.", name: "Harsha Baskaran", city: "Chennai", stars: 5 },
-  { text: "I had severe jaw pain and facial pains for more than 5 years. I visited many specialists — ENT, ortho, neurologist. Came to know about Dr. Dhivya from Instagram. After 4 weeks of treatment I am totally pain free. I have never been this happy.", name: "Deepikask", city: "Chennai", stars: 5 },
-  { text: "Doctor Dilip is so experienced that he gave me the best solution without surgery. He was gentle and attentive. Post removal they called the next morning to check if everything was okay. None of the dental centres do this.", name: "Nadir Farhan", city: "Chennai", stars: 5 },
+  { text: "Initially I came here with TMJ issue for past 2 years. I visited other dentists but those treatments did not give me proper cure but now I am completely cured. Trust me — visit Dr. Jane and she will thoroughly analyse the issue and give you proper treatment.", name: "Harsha Baskaran", city: "Chennai", stars: 5 },
+  { text: "I had severe jaw pain and facial pains for more than 5 years. I visited many specialists — ENT, ortho, neurologist. Came to know about Dr. Jane from Instagram. After 4 weeks of treatment I am totally pain free. I have never been this happy.", name: "Deepikask", city: "Chennai", stars: 5 },
+  { text: "Doctor John is so experienced that he gave me the best solution without surgery. He was gentle and attentive. Post removal they called the next morning to check if everything was okay. None of the dental centres do this.", name: "Nadir Farhan", city: "Chennai", stars: 5 },
   { text: "With my recent root canal treatment, each member from the reception to dental assistant played an integral role in making my experience comfortable and smooth. Thank you all.", name: "Sunilkumar Balan", city: "Chennai", stars: 5 },
   { text: "Totally advanced X-ray technology. Laser root canal with absolutely no pain. Appointment fixed with our convenience. Overall had a great experience and will recommend this clinic.", name: "Pavithra Balachandran", city: "Chennai", stars: 5 },
-  { text: "From past 5 years I was suffering with facial pains and headaches. After 5 weeks of treatment I am totally pain free. Thanks to Dr Dhivya mam. They treat patients very kindly.", name: "Rizwana Amanulla", city: "Chennai", stars: 5 },
+  { text: "From past 5 years I was suffering with facial pains and headaches. After 5 weeks of treatment I am totally pain free. Thanks to Dr Jane mam. They treat patients very kindly.", name: "Rizwana Amanulla", city: "Chennai", stars: 5 },
 ];
 ---
 
@@ -59,7 +59,7 @@ const testimonials = [
 
 <style>
   .testimonials {
-    background: var(--clr-navy);
+    background: var(--clr-white);
     padding: var(--space-32) var(--gutter);
   }
 
@@ -80,7 +80,7 @@ const testimonials = [
     font-family: var(--font-heading);
     font-size: var(--text-3xl);
     font-weight: 600;
-    color: var(--clr-white);
+    color: var(--clr-navy);
     line-height: 1.2;
     margin-bottom: var(--space-4);
   }
@@ -92,7 +92,7 @@ const testimonials = [
   .testimonials__sub {
     font-size: var(--text-sm);
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--clr-text-mid);
     letter-spacing: 0.06em;
   }
 
@@ -104,8 +104,8 @@ const testimonials = [
   }
 
   .testi-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--clr-off-white);
+    border: 1px solid var(--clr-light-gray);
     border-radius: var(--radius-lg);
     padding: var(--space-8);
     display: flex;
@@ -117,9 +117,10 @@ const testimonials = [
       transform 0.35s var(--ease-out-expo);
   }
   .testi-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(201, 153, 42, 0.35);
+    background: var(--clr-white);
+    border-color: var(--clr-gold);
     transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
   }
 
   .testi-card--featured {
@@ -134,7 +135,7 @@ const testimonials = [
   .testi-card--featured .testi-card__stars { color: var(--clr-navy); }
   .testi-card--featured .testi-card__text { color: var(--clr-navy); }
   .testi-card--featured .testi-card__name { color: var(--clr-navy); }
-  .testi-card--featured .testi-card__city { color: rgba(11,37,69,0.7); }
+  .testi-card--featured .testi-card__city { color: rgba(78, 72, 50, 0.7); }
   .testi-card--featured .testi-card__avatar {
     background: var(--clr-navy);
     color: var(--clr-gold);
@@ -152,7 +153,7 @@ const testimonials = [
     font-style: italic;
     font-weight: 300;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--clr-text-dark);
     flex: 1;
   }
 
@@ -166,15 +167,15 @@ const testimonials = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(201, 153, 42, 0.2);
-    border: 1px solid rgba(201, 153, 42, 0.4);
+    background: rgba(78, 72, 50, 0.1);
+    border: 1px solid rgba(78, 72, 50, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
     font-size: var(--text-base);
     font-weight: 600;
-    color: var(--clr-gold);
+    color: var(--clr-navy);
     flex-shrink: 0;
   }
 
@@ -183,7 +184,7 @@ const testimonials = [
     font-style: normal;
     font-size: var(--text-xs);
     font-weight: 700;
-    color: var(--clr-white);
+    color: var(--clr-navy);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 2px;
@@ -192,7 +193,7 @@ const testimonials = [
   .testi-card__city {
     font-size: var(--text-xs);
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--clr-text-mid);
     letter-spacing: 0.06em;
   }
 

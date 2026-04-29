@@ -10,7 +10,7 @@ const isContact    = pathname.startsWith('/contact');
 <header id="nav" class={isHome ? 'is-home-nav' : ''} role="banner">
   <div class="nav__top-bar">
     <div class="nav__top-inner">
-      <span class="nav__top-promo">New Patients — <a href="/contact" class="link-gold">Book Free Consultation</a></span>
+      <span class="nav__top-promo">New Patients — <a href="#contact" class="link-gold">Book Free Consultation</a></span>
       <div class="nav__top-contact">
         <a href="tel:+918489488999">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px; vertical-align: middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -33,9 +33,8 @@ const isContact    = pathname.startsWith('/contact');
       <li><a href="/about"      class={isAbout      ? 'nav__active' : ''}>About</a></li>
       <li><a href="/treatments" class={isTreatments ? 'nav__active' : ''}>Treatments</a></li>
       <li><a href="/blog"       class={isBlog       ? 'nav__active' : ''}>Blog</a></li>
-      <li><a href="/contact"    class={isContact    ? 'nav__active' : ''}>Contact</a></li>
       <li>
-        <a href="/contact" class="nav__cta" data-cursor-hover>Book Appointment</a>
+        <a href="#contact" class="nav__cta" data-cursor-hover>Book Appointment</a>
       </li>
     </ul>
 
@@ -59,8 +58,7 @@ const isContact    = pathname.startsWith('/contact');
       <li><a href="/about"      class="drawer__link">About</a></li>
       <li><a href="/treatments" class="drawer__link">Treatments</a></li>
       <li><a href="/blog"       class="drawer__link">Blog</a></li>
-      <li><a href="/contact"    class="drawer__link">Contact</a></li>
-      <li><a href="/contact"    class="drawer__link drawer__cta">Book Appointment</a></li>
+      <li><a href="#contact"    class="drawer__link drawer__cta">Book Appointment</a></li>
     </ul>
     <p class="drawer__phone">+91 84894 88999</p>
   </div>
@@ -78,6 +76,9 @@ const isContact    = pathname.startsWith('/contact');
 
   #nav.is-home-nav:not(.is-scrolled) .nav__links a {
     color: var(--clr-navy);
+  }
+  #nav.is-home-nav:not(.is-scrolled) .nav__logo-img {
+    filter: none;
   }
   #nav.is-home-nav:not(.is-scrolled) .nav__links a:not(.nav__cta):hover {
     color: var(--clr-gold);
@@ -150,6 +151,11 @@ const isContact    = pathname.startsWith('/contact');
   #nav.is-scrolled .nav__inner {
     padding-top: var(--space-4);
     padding-bottom: var(--space-4);
+  }
+
+  .nav__logo-img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.4s ease;
   }
 
   .nav__logo {

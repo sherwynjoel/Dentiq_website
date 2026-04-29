@@ -25,7 +25,7 @@ const {
   </head>
   <body class="is-loading">
     <!-- Sticky Booking Sidebar -->
-    <a href="/contact" class="sticky-sidebar">Book Appointment</a>
+    <a href="#contact" class="sticky-sidebar">Book Appointment</a>
     <slot />
   </body>
 </html>
@@ -94,7 +94,7 @@ const {
   /* ─── Reset ──────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     scroll-padding-top: 100px;
   }
   section[id] {
@@ -266,27 +266,10 @@ const {
 </style>
 
 <script>
-  import Lenis from '@studio-freight/lenis';
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  // Lenis smooth scrolling removed to restore normal scroll speed.
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 2,
-  });
-
-  lenis.on('scroll', ScrollTrigger.update);
-
-  gsap.ticker.add((time: number) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
-
-  (window as any).lenis = lenis;
+  // Remove 'is-loading' class if Loader is not present
+  if (!document.getElementById('loader')) {
+    document.body.classList.remove('is-loading');
+  }
 </script>

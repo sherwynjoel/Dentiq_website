@@ -61,12 +61,15 @@ const reasons = [
   }
 
   .reasons__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-8);
   }
 
   .reason-card {
+    flex: 1 1 280px;
+    max-width: 320px;
     display: flex;
     gap: var(--space-5);
     padding: var(--space-6);
@@ -85,12 +88,12 @@ const reasons = [
     font-family: var(--font-heading);
     font-size: var(--text-2xl);
     font-weight: 700;
-    color: var(--clr-gold-pale);
+    color: var(--clr-gold);
     line-height: 1;
     transition: color 0.3s ease;
   }
   .reason-card:hover .reason-card__num {
-    color: var(--clr-gold);
+    color: var(--clr-navy);
   }
 
   .reason-card__content h3 {

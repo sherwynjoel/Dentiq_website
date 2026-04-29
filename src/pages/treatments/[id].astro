@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Cursor from '../../components/Cursor.astro';
 import { treatmentsData } from '../../data/treatmentsData.js';
+import Contact from '../../components/Contact.astro';
 
 export async function getStaticPaths() {
   return treatmentsData.map((treatment) => ({
@@ -54,6 +55,7 @@ const { treatment } = Astro.props;
     </div>
   </section>
 
+  <Contact />
   <Footer />
 </BaseLayout>
 

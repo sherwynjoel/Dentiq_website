@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <BaseLayout title="About Us | DentiQ Superspeciality Laser Dental Hospital Erode" description="DentiQ is Erode's best dental hospital in Palayapalayam. Our expert superspecialists provide 5-star comfort and world-class sterile dental care.">
@@ -42,16 +43,7 @@ import Cursor from '../components/Cursor.astro';
           </div>
         </div>
         <div class="care-visual">
-          <div class="care-stats">
-            <div class="care-stat">
-              <span class="stat-num">5 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-top:-4px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
-              <span class="stat-label">Luxury Comfort</span>
-            </div>
-            <div class="care-stat">
-              <span class="stat-num">&lt; 5m</span>
-              <span class="stat-label">Waiting Time</span>
-            </div>
-          </div>
+          <img src="/2B3A7857.JPG" alt="Fellowship Award Ceremony" class="care-img" />
         </div>
       </div>
     </div>
@@ -181,22 +173,23 @@ import Cursor from '../components/Cursor.astro';
         <div class="final-card final-card--gold">
           <h3>Affordable Cost</h3>
           <p>The cost of cosmetic dentistry with us is affordable and we offer the most effective treatments that will fit every pocket. Expert care shouldn't be out of reach.</p>
-          <a href="/contact" class="btn btn--light">View Pricing</a>
+          <a href="#contact" class="btn btn--light">Call for Pricing</a>
         </div>
       </div>
     </div>
   </section>
 
+  <Contact />
   <Footer />
 </BaseLayout>
 
 <style>
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .section--dark { background: var(--clr-navy); color: var(--clr-white); }
+  .section--dark { background: var(--clr-white); color: var(--clr-text-dark); }
   .section-header { text-align: center; margin-bottom: var(--space-16); }
   .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; }
   .section__heading em { font-style: italic; color: var(--clr-gold); }
-  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; }
+  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: var(--clr-text-mid); }
 
   /* Hero */
   .about-hero {
@@ -218,39 +211,36 @@ import Cursor from '../components/Cursor.astro';
   .about-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.8; }
 
   /* Our Care */
-  .our-care { padding: var(--space-32) 0; }
+  .our-care { padding: var(--space-32) 0; background: var(--clr-off-white); }
   .care-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
   .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
   .featured-quote { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); font-style: italic; padding-left: var(--space-8); border-left: 4px solid var(--clr-gold); margin-top: var(--space-8); line-height: 1.4; }
   .care-visual {
-    background: linear-gradient(rgba(11, 37, 69, 0.3), rgba(11, 37, 69, 0.7)), url('https://images.unsplash.com/photo-1588776814546-1ffce47267a5?auto=format&fit=crop&q=80&w=800') center/cover no-repeat;
-    border-radius: var(--radius-xl);
-    height: 400px;
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: var(--space-8);
+    width: 100%;
+  }
+  .care-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
   }
-  .care-stats { display: flex; gap: var(--space-4); width: 100%; }
-  .care-stat { flex: 1; background: var(--clr-gold); color: var(--clr-white); padding: var(--space-6); border-radius: var(--radius-lg); text-align: center; }
-  .stat-num { display: block; font-family: var(--font-heading); font-size: var(--text-2xl); font-weight: 700; margin-bottom: 4px; }
-  .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; }
 
   /* Comforts */
-  .comforts { padding: var(--space-32) 0; }
+  .comforts { padding: var(--space-32) 0; background: var(--clr-white); }
   .comforts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
-  .comfort-item { background: rgba(255,255,255,0.05); padding: var(--space-8); border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease; }
-  .comfort-item:hover { transform: translateY(-5px); border-color: var(--clr-gold); }
-  .comfort-icon { font-size: 2.5rem; margin-bottom: var(--space-5); }
-  .comfort-item h3 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-3); color: var(--clr-gold); }
-  .comfort-item p { font-size: var(--text-sm); line-height: 1.7; color: rgba(255,255,255,0.7); }
+  .comfort-item { background: var(--clr-off-white); padding: var(--space-8); border-radius: var(--radius-lg); border: 1px solid var(--clr-light-gray); transition: transform 0.3s ease; }
+  .comfort-item:hover { transform: translateY(-5px); border-color: var(--clr-gold); background: var(--clr-white); box-shadow: var(--shadow-md); }
+  .comfort-icon { font-size: 2.5rem; margin-bottom: var(--space-5); color: var(--clr-gold); }
+  .comfort-item h3 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-3); color: var(--clr-navy); }
+  .comfort-item p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); }
 
   /* Comprehensive */
-  .comprehensive { padding: var(--space-32) 0; }
+  .comprehensive { padding: var(--space-32) 0; background: var(--clr-off-white); }
   .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
   .comp-left p { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-5); color: var(--clr-text-body); font-weight: 300; }
-  .health-box { background: var(--clr-off-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
+  .health-box { background: var(--clr-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
   .health-box h4 { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); margin-bottom: var(--space-4); }
   .health-box p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-5); }
   .health-box ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
@@ -258,18 +248,18 @@ import Cursor from '../components/Cursor.astro';
   .health-box li::before { content: '✦'; margin-right: 8px; }
 
   /* Sterile */
-  .sterile { padding: var(--space-32) 0; }
+  .sterile { padding: var(--space-32) 0; background: var(--clr-white); }
   .dual-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: rgba(255,255,255,0.72); font-weight: 300; }
+  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
   .column strong { color: var(--clr-gold); }
 
   /* Final Note */
-  .final-note { padding: var(--space-32) 0; }
+  .final-note { padding: var(--space-32) 0; background: var(--clr-off-white); }
   .final-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-6); }
-  .final-card { background: var(--clr-off-white); padding: var(--space-10); border-radius: var(--radius-xl); }
+  .final-card { background: var(--clr-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
   .final-card h3 { font-family: var(--font-heading); font-size: var(--text-2xl); color: var(--clr-navy); margin-bottom: var(--space-5); }
   .final-card p { font-size: var(--text-base); line-height: 1.8; color: var(--clr-text-body); font-weight: 300; }
-  .final-card--gold { background: var(--clr-gold); color: var(--clr-white); display: flex; flex-direction: column; gap: var(--space-6); }
+  .final-card--gold { background: var(--clr-gold); color: var(--clr-white); display: flex; flex-direction: column; gap: var(--space-6); border: none; }
   .final-card--gold h3 { color: var(--clr-white); }
   .final-card--gold p { color: rgba(255,255,255,0.9); }
 
