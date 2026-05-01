@@ -1,7 +1,23 @@
 ---
+import indianSmile1 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_1_1777610291924.png";
+import indianSmile2 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_2_1777610372994.png";
+import indianSmile3 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_3_1777610388266.png";
+
+const slides = [
+  indianSmile1.src,
+  indianSmile2.src,
+  indianSmile3.src
+];
 ---
 
 <section id="hero" aria-label="Hero">
+  <!-- Slideshow Backgrounds -->
+  <div class="hero__slideshow">
+    {slides.map((src, index) => (
+      <div class={`hero__slide ${index === 0 ? 'active' : ''}`} style={`background-image: url('${src}')`}></div>
+    ))}
+  </div>
+
   <!-- Background gradient overlay -->
   <div class="hero__bg"></div>
   <div class="hero__pattern"></div>
@@ -52,32 +68,7 @@
       </div>
     </div>
 
-    <!-- Right: floating info card -->
-    <div class="hero__right" aria-hidden="true">
-      <div class="hero__image-container">
-        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800" alt="Perfect White Teeth" class="hero__img" />
-      </div>
 
-      <!-- Floating badges -->
-      <div class="hero__badge hero__badge--1">
-        <span class="hero__badge-icon">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        </span>
-        <span>TMJ Specialist</span>
-      </div>
-      <div class="hero__badge hero__badge--2">
-        <span class="hero__badge-icon">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        </span>
-        <span>Sleep Dentistry</span>
-      </div>
-      <div class="hero__badge hero__badge--3">
-        <span class="hero__badge-icon">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-        </span>
-        <span>Migraine Relief</span>
-      </div>
-    </div>
   </div>
 
 
@@ -89,9 +80,28 @@
     min-height: 100svh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(244,241,234,0.92) 100%), url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
     padding: 7rem var(--gutter) var(--space-20);
     overflow: hidden;
+  }
+
+  .hero__slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero__slide {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 6s linear;
+    transform: scale(1.05);
+  }
+  .hero__slide.active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   /* Background texture */
@@ -99,9 +109,12 @@
     position: absolute;
     inset: 0;
     background:
+      linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+      linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 65%),
       radial-gradient(ellipse 60% 70% at 75% 50%, rgba(206,196,167,0.15) 0%, transparent 65%),
       radial-gradient(ellipse 40% 40% at 10% 80%, rgba(206,196,167,0.1) 0%, transparent 60%);
     pointer-events: none;
+    z-index: 0;
   }
   .hero__pattern {
     position: absolute;
@@ -115,7 +128,7 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: 1fr;
     gap: var(--space-16);
     align-items: center;
     max-width: var(--max-width);
@@ -124,6 +137,9 @@
   }
 
   /* Left */
+  .hero__left {
+    max-width: 650px;
+  }
   .hero__heading {
     font-family: var(--font-heading);
     font-size: var(--text-hero);
@@ -136,7 +152,7 @@
   }
   .hero__heading em {
     font-style: italic;
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
   }
 
   .hero__sub {
@@ -231,106 +247,6 @@
     flex-shrink: 0;
   }
 
-  /* Right – card */
-  .hero__right {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 460px;
-    opacity: 0;
-  }
-
-  .hero__image-container {
-    width: 100%;
-    max-width: 340px;
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: 0 24px 64px rgba(78, 72, 50, 0.15);
-    animation: float-card 5s ease-in-out infinite;
-  }
-  .hero__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @keyframes float-card {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-10px); }
-  }
-
-  .hero__card-icon {
-    font-size: 2rem;
-    width: 56px;
-    height: 56px;
-    background: var(--clr-gold-pale);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .hero__card-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--clr-navy);
-    line-height: 1.2;
-  }
-  .hero__card-text {
-    font-size: var(--text-sm);
-    color: var(--clr-text-mid);
-    line-height: 1.65;
-  }
-  .hero__card-hours {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    background: var(--clr-off-white);
-    border-radius: var(--radius-md);
-    margin: var(--space-2) 0;
-  }
-  .hero__card-hour-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--text-xs);
-    color: var(--clr-text-body);
-    font-weight: 400;
-  }
-  .hero__card-hour-row span:last-child { font-weight: 600; color: var(--clr-navy); }
-  .hero__card-btn { width: 100%; font-size: var(--text-xs) !important; padding: 12px 20px !important; }
-
-  /* Floating badges */
-  .hero__badge {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    background: var(--clr-white);
-    color: var(--clr-navy);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 8px 16px;
-    border-radius: var(--radius-pill);
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--clr-light-gray);
-    white-space: nowrap;
-  }
-  .hero__badge-icon {
-    color: var(--clr-gold);
-    font-size: 0.8rem;
-  }
-  .hero__badge--1 { top: 12%;  left: -5%;  animation: badge-float 4s ease-in-out infinite; }
-  .hero__badge--2 { top: 45%;  right: -8%; animation: badge-float 4s ease-in-out 1.3s infinite; }
-  .hero__badge--3 { bottom: 8%; left: 5%;  animation: badge-float 4s ease-in-out 2.1s infinite; }
-
-  @keyframes badge-float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-7px); }
-  }
 
   /* Scroll hint */
   .hero__scroll-hint {
@@ -362,7 +278,6 @@
   @media (max-width: 1024px) {
     #hero { align-items: flex-start; padding-top: 8.5rem; min-height: auto; padding-bottom: 6rem; }
     .hero__grid { grid-template-columns: 1fr; gap: var(--space-10); }
-    .hero__right { display: none; }
     .hero__heading { font-size: 2.8rem; line-height: 1.1; }
     .hero__sub { font-size: 1.1rem; }
   }
@@ -392,18 +307,27 @@
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
     tl
-      .to('.section__label', { opacity: 1, y: 0, duration: 0.8 })
-      .to('.hero__heading', { opacity: 1, y: 0, duration: 1 }, '-=0.4')
-      .to('.hero__sub',     { opacity: 1, duration: 0.8 }, '-=0.6')
-      .to('.hero__actions', { opacity: 1, duration: 0.7 }, '-=0.5')
-      .to('.hero__stats',   { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
-      .to('.hero__right',   { opacity: 1, x: 0, duration: 0.9 }, '-=0.5')
-      .to('.hero__scroll-hint', { opacity: 1, duration: 0.5 }, '-=0.2');
+      .to('.section__label', { opacity: 1, y: 0, duration: 0.5 })
+      .to('.hero__heading', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
+      .to('.hero__sub',     { opacity: 1, duration: 0.5 }, '-=0.4')
+      .to('.hero__actions', { opacity: 1, duration: 0.5 }, '-=0.4')
+      .to('.hero__stats',   { opacity: 1, y: 0, duration: 0.5 }, '-=0.4')
+      .to('.hero__scroll-hint', { opacity: 1, duration: 0.4 }, '-=0.2');
   });
 
   // Initial state
   gsap.set(['.hero__heading','.hero__stats'], { y: 40 });
-  gsap.set('.hero__right', { x: 60 });
+
+  // Slideshow Logic
+  const slideElements = document.querySelectorAll('.hero__slide');
+  let currentSlide = 0;
+  if(slideElements.length > 1) {
+    setInterval(() => {
+      slideElements[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slideElements.length;
+      slideElements[currentSlide].classList.add('active');
+    }, 5000);
+  }
 
   // Parallax on scroll
   ScrollTrigger.create({

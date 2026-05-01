@@ -97,7 +97,7 @@
         <div class="footer__doctors-grid">
           <ul>
             <li>Dr. Jane Smith, MDS</li>
-            <li>Dr. John Doe, MDS</li>
+            <li>Dr. Bala Murugan, MDS</li>
             <li>Dr. Robert Johnson, MDS</li>
           </ul>
           <ul>
@@ -133,8 +133,9 @@
 <style>
   #footer {
     background: var(--clr-navy);
-    color: rgba(255, 255, 255, 0.75);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--clr-white);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--space-16);
   }
 
   .footer__inner {
@@ -201,7 +202,7 @@
   }
   .info-card--featured .info-card__icon {
     background: var(--clr-gold);
-    color: var(--clr-white);
+    color: var(--clr-navy);
   }
 
   /* Doctors List */
@@ -212,7 +213,8 @@
   }
   .footer__doctors-grid ul li {
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.5);
+    color: var(--clr-white);
+    opacity: 0.7;
     margin-bottom: 6px;
     font-weight: 300;
   }
@@ -251,7 +253,8 @@
     font-size: var(--text-xs);
     font-weight: 300;
     line-height: 1.9;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--clr-white);
+    opacity: 0.8;
     max-width: 30ch;
     margin-bottom: var(--space-6);
   }
@@ -300,11 +303,12 @@
   .footer__nav a {
     font-size: var(--text-xs);
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.55);
-    transition: color 0.2s ease;
+    color: var(--clr-white);
+    opacity: 0.8;
+    transition: all 0.2s ease;
     position: relative;
   }
-  .footer__nav a:hover { color: var(--clr-gold); }
+  .footer__nav a:hover { color: var(--clr-gold); opacity: 1; }
 
   /* Contact column */
   .footer__contact {
@@ -316,7 +320,8 @@
     font-size: var(--text-xs);
     font-weight: 300;
     line-height: 1.85;
-    color: rgba(255, 255, 255, 0.55);
+    color: var(--clr-white);
+    opacity: 0.8;
   }
   .footer__contact strong { color: var(--clr-gold); font-weight: 600; }
 

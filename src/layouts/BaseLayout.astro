@@ -38,6 +38,7 @@ const {
     --clr-navy-light:  #707e57; /* Muted Sage Green from palette */
     --clr-gold:        #cec4a7; /* Warm Tan from palette replacing Gold */
     --clr-gold-light:  #d8cfb3; /* Slightly lighter Tan */
+    --clr-gold-dark:   #9c8f6f; /* Darker tan for readable text on light backgrounds */
     --clr-gold-pale:   rgba(206, 196, 167, 0.15); /* Tan pale */
     --clr-white:       #fcfaf6; /* Very warm white */
     --clr-off-white:   #ebe6d6; /* Light Creamy Beige from palette */
@@ -73,10 +74,10 @@ const {
     --space-24: 6rem;
     --space-32: 8rem;
 
-    --radius-sm:  6px;
-    --radius-md:  12px;
-    --radius-lg:  20px;
-    --radius-xl:  32px;
+    --radius-sm:  12px;
+    --radius-md:  20px;
+    --radius-lg:  32px;
+    --radius-xl:  48px;
     --radius-pill: 100px;
 
     --ease-out-expo:    cubic-bezier(0.16, 1, 0.3, 1);
@@ -85,7 +86,7 @@ const {
     --max-width: 1240px;
     --gutter:    clamp(1.25rem, 5vw, 4rem);
 
-    --shadow-sm:   0 2px 12px rgba(78, 72, 50, 0.08); /* Derived from #4e4832 */
+    --shadow-sm:   0 2px 12px rgba(78, 72, 50, 0.08);
     --shadow-md:   0 6px 28px rgba(78, 72, 50, 0.13);
     --shadow-lg:   0 16px 56px rgba(78, 72, 50, 0.18);
     --shadow-gold: 0 6px 28px rgba(206, 196, 167, 0.30);
@@ -103,6 +104,10 @@ const {
 
   body {
     background-color: var(--clr-white);
+    background-image: linear-gradient(rgba(252, 250, 246, 0.94), rgba(252, 250, 246, 0.94)), url('/modern-studio-bg.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     color: var(--clr-text-dark);
     font-family: var(--font-body);
     font-size: var(--text-base);
@@ -125,15 +130,46 @@ const {
   button { font-family: inherit; border: none; background: none; cursor: pointer; }
 
   /* ─── Section wrapper ────────────────────────────────────────── */
+  section {
+    position: relative;
+    border-radius: 0 0 64px 64px;
+    margin-bottom: -64px;
+    padding-bottom: calc(var(--space-32) + 64px) !important;
+    background-color: var(--clr-white); /* fallback */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  }
+  @media (max-width: 768px) {
+    section {
+      border-radius: 0 0 40px 40px;
+      margin-bottom: -40px;
+      padding-bottom: calc(var(--space-32) + 40px) !important;
+    }
+  }
+
+  /* Z-index stacking for sections so previous section overlaps next section */
+  /* Z-index stacking for sections so previous section overlaps next section */
+  main > section:nth-child(1) { z-index: 20; }
+  main > section:nth-child(2) { z-index: 19; }
+  main > section:nth-child(3) { z-index: 18; }
+  main > section:nth-child(4) { z-index: 17; }
+  main > section:nth-child(5) { z-index: 16; }
+  main > section:nth-child(6) { z-index: 15; }
+  main > section:nth-child(7) { z-index: 14; }
+  main > section:nth-child(8) { z-index: 13; }
+  main > section:nth-child(9) { z-index: 12; }
+  main > section:nth-child(10) { z-index: 11; }
+  main > section:nth-child(11) { z-index: 10; }
+  main > section:nth-child(12) { z-index: 9; }
+
   .section {
     padding: var(--space-32) var(--gutter);
   }
   .section--dark {
-    background: var(--clr-navy);
+    background-color: var(--clr-navy) !important;
     color: var(--clr-white);
   }
   .section--light {
-    background: var(--clr-off-white);
+    background-color: var(--clr-off-white) !important;
   }
 
   /* ─── Section label pill ─────────────────────────────────────── */
@@ -146,7 +182,7 @@ const {
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
     background: var(--clr-gold-pale);
     padding: 5px 14px;
     border-radius: var(--radius-pill);
@@ -182,7 +218,7 @@ const {
 
   .btn--primary {
     background: var(--clr-gold);
-    color: #fff;
+    color: var(--clr-navy);
     box-shadow: var(--shadow-gold);
   }
   .btn--primary:hover {
@@ -242,21 +278,22 @@ const {
     transform-origin: left bottom;
     z-index: 1000;
     background: var(--clr-gold);
-    color: var(--clr-white);
+    color: var(--clr-navy);
     padding: 12px 28px;
     text-decoration: none;
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
     box-shadow: 4px 0 16px rgba(0,0,0,0.25);
     transition: background 0.3s ease, transform 0.3s ease;
     display: block;
     white-space: nowrap;
   }
   .sticky-sidebar:hover {
-    background: var(--clr-navy-mid);
+    background: var(--clr-gold-dark);
+    color: var(--clr-white);
     transform: translateY(-50%) rotate(-90deg) scale(1.03);
   }
 

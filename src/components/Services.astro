@@ -85,7 +85,7 @@ const services = [
     font-family: var(--font-heading);
     font-size: var(--text-3xl);
     font-weight: 600;
-    color: var(--clr-navy);
+    color: var(--clr-white);
     line-height: 1.15;
     margin-bottom: var(--space-4);
   }
@@ -97,7 +97,8 @@ const services = [
   .services__sub {
     font-size: var(--text-base);
     font-weight: 300;
-    color: var(--clr-text-mid);
+    color: var(--clr-white);
+    opacity: 0.8;
     line-height: 1.7;
   }
 
@@ -116,6 +117,7 @@ const services = [
     border: 1px solid var(--clr-light-gray);
     display: flex;
     flex-direction: column;
+    height: 100%;
     transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
   }
   .service-card:hover {
@@ -180,7 +182,7 @@ const services = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
     text-decoration: none;
     transition: gap 0.3s ease;
   }

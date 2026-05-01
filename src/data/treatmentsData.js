@@ -55,7 +55,7 @@ export const treatmentsData = [
       'Dark Gums Depigmentation',
       'Tooth Jewel Placement'
     ],
-    lead: 'Dr. John Doe',
+    lead: 'Dr. Bala Murugan',
     leadDesc: 'Our lead cosmetic dentist has completed thousands of cases, giving patients natural results that improve both aesthetics and function.',
     cta: 'Consult: +91 84894 88999'
   },

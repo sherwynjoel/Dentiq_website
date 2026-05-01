@@ -38,8 +38,9 @@ const needs = [
 
 <style>
   .needs {
-    background: var(--clr-white);
-    padding: var(--space-16) var(--gutter) var(--space-32);
+    background: var(--clr-navy) !important;
+    color: var(--clr-white);
+    padding: var(--space-32) var(--gutter);
     position: relative;
     overflow: hidden;
   }
@@ -66,7 +67,7 @@ const needs = [
   }
   .needs__heading {
     font-size: var(--text-3xl);
-    color: var(--clr-navy);
+    color: var(--clr-white);
     line-height: 1.2;
     margin-bottom: var(--space-4);
   }
@@ -76,7 +77,8 @@ const needs = [
   }
   .needs__sub {
     font-size: var(--text-base);
-    color: var(--clr-text-mid);
+    color: var(--clr-white);
+    opacity: 0.8;
     font-weight: 300;
   }
 
@@ -95,6 +97,7 @@ const needs = [
     border: 1px solid var(--clr-light-gray);
     border-radius: var(--radius-xl);
     text-decoration: none;
+    height: 100%;
     transition: background 0.4s var(--ease-out-expo), border-color 0.4s var(--ease-out-expo), transform 0.4s var(--ease-out-expo);
     position: relative;
   }
@@ -113,7 +116,7 @@ const needs = [
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
     flex-shrink: 0;
     transition: background 0.3s ease, color 0.3s ease;
   }
@@ -135,14 +138,14 @@ const needs = [
     line-height: 1.5;
     font-weight: 300;
   }
-  .need-card:hover .need-card__content h3 { color: var(--clr-gold); }
+  .need-card:hover .need-card__content h3 { color: var(--clr-gold-dark); }
 
   .need-card__arrow {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%) translateX(10px);
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
     opacity: 0;
     transition: all 0.3s ease;
   }

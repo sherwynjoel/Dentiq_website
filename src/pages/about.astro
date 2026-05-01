@@ -25,25 +25,31 @@ import Contact from '../components/Contact.astro';
     </div>
   </section>
 
-  <!-- Our Care -->
-  <section class="our-care">
+  <!-- Comprehensive Care -->
+  <section class="comprehensive">
     <div class="container">
-      <div class="care-grid">
-        <div class="care-content">
-          <span class="section__label">Welcome to DentiQ</span>
-          <h2 class="section__heading">Our <em>Care</em></h2>
-          <p class="care-text">
-            When you visit DentiQ for the first time, you’ll be amazed at our service and ambience. We are the best dental facility in the heart of Erode with state-of-the-art equipment and superspecialist team of Doctors. 
+      <div class="comp-grid">
+        <div class="comp-left">
+          <h2 class="section__heading">Comprehensive <em>Dental & General Health</em></h2>
+          <p>
+            We believe that preventive care and education are the keys to optimal dental health. We strive to provide “Comprehensive dental health care.” That’s why we focus on thorough exams – checking the overall health of your teeth and gums, performing oral cancer exams, and taking x-rays when necessary.
           </p>
-          <p class="care-text">
-            Our patients are consulted right away and sometimes in virtually very very less waiting time. Our exceptional team is committed to providing comfortable and gentle dentistry.
+          <p>
+            We also emphasize routine cleanings, flossing, sealants, and fluoride application that are helpful in preventing dental disease.
           </p>
-          <div class="featured-quote">
-            "Get yourself pampered with 5 Star comforts while you are on the way to an everlasting bright happy smile!"
-          </div>
         </div>
-        <div class="care-visual">
-          <img src="/2B3A7857.JPG" alt="Fellowship Award Ceremony" class="care-img" />
+        <div class="comp-right">
+          <div class="health-box">
+            <h4>The Health Connection</h4>
+            <p>Not only are we focused on the beauty of your smile, we’re also concerned about your health. Countless studies have demonstrated a link between poor oral health and systemic diseases such as:</p>
+            <ul>
+              <li>Heart Disease & Stroke</li>
+              <li>Diabetes & Dementia</li>
+              <li>Rheumatoid Arthritis</li>
+              <li>Skin Diseases</li>
+              <li>Pregnancy Complications</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -104,31 +110,25 @@ import Contact from '../components/Contact.astro';
     </div>
   </section>
 
-  <!-- Comprehensive Care -->
-  <section class="comprehensive">
+  <!-- Our Care -->
+  <section class="our-care">
     <div class="container">
-      <div class="comp-grid">
-        <div class="comp-left">
-          <h2 class="section__heading">Comprehensive <em>Dental & General Health</em></h2>
-          <p>
-            We believe that preventive care and education are the keys to optimal dental health. We strive to provide “Comprehensive dental health care.” That’s why we focus on thorough exams – checking the overall health of your teeth and gums, performing oral cancer exams, and taking x-rays when necessary.
+      <div class="care-grid">
+        <div class="care-content">
+          <span class="section__label">Welcome to DentiQ</span>
+          <h2 class="section__heading">Our <em>Care</em></h2>
+          <p class="care-text">
+            When you visit DentiQ for the first time, you’ll be amazed at our service and ambience. We are the best dental facility in the heart of Erode with state-of-the-art equipment and superspecialist team of Doctors. 
           </p>
-          <p>
-            We also emphasize routine cleanings, flossing, sealants, and fluoride application that are helpful in preventing dental disease.
+          <p class="care-text">
+            Our patients are consulted right away and sometimes in virtually very very less waiting time. Our exceptional team is committed to providing comfortable and gentle dentistry.
           </p>
-        </div>
-        <div class="comp-right">
-          <div class="health-box">
-            <h4>The Health Connection</h4>
-            <p>Not only are we focused on the beauty of your smile, we’re also concerned about your health. Countless studies have demonstrated a link between poor oral health and systemic diseases such as:</p>
-            <ul>
-              <li>Heart Disease & Stroke</li>
-              <li>Diabetes & Dementia</li>
-              <li>Rheumatoid Arthritis</li>
-              <li>Skin Diseases</li>
-              <li>Pregnancy Complications</li>
-            </ul>
+          <div class="featured-quote">
+            "Get yourself pampered with 5 Star comforts while you are on the way to an everlasting bright happy smile!"
           </div>
+        </div>
+        <div class="care-visual">
+          <img src="/Screenshot%202026-04-29%20221706.png" alt="Dr. Dilip performing dental procedure" class="care-img" />
         </div>
       </div>
     </div>
@@ -144,9 +144,6 @@ import Contact from '../components/Contact.astro';
           <p>
             Infection control is of paramount importance for us. We are proud to say we are the <strong>only clinic in the whole of Erode</strong> to use world-class <strong>Class B Autoclave</strong> to sterilize our instruments.
           </p>
-          <p>
-            To protect our patients and ourselves, we strictly maintain sterilization and cross-contamination prevention protocols as recommended by the ADA, OSHA, and the CDC.
-          </p>
         </div>
         <div class="column">
           <span class="section__label section__label--light">Latest Technology</span>
@@ -154,15 +151,12 @@ import Contact from '../components/Contact.astro';
           <p>
             We pride ourselves in providing the latest treatment options. We constantly update ourselves attending international dental conventions, lectures, and meetings to stay informed of latest techniques and products.
           </p>
-          <p>
-            Being members of various professional dental associations helps us stay abreast of the latest recommendations for state-of-the-art dental care.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experience & Cost -->
+  <!-- Final Note -->
   <section class="final-note">
     <div class="container">
       <div class="final-grid">
@@ -185,17 +179,34 @@ import Contact from '../components/Contact.astro';
 
 <style>
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .section--dark { background: var(--clr-white); color: var(--clr-text-dark); }
+  .section--dark { background: var(--clr-navy) !important; color: var(--clr-white); }
   .section-header { text-align: center; margin-bottom: var(--space-16); }
   .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; }
   .section__heading em { font-style: italic; color: var(--clr-gold); }
-  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: var(--clr-text-mid); }
+  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; }
+
+  /* Section Overlap Logic */
+  section {
+    position: relative;
+    border-radius: 0 0 64px 64px;
+    margin-bottom: -64px;
+    padding-bottom: calc(var(--space-32) + 64px) !important;
+  }
+  
+  section:nth-child(1) { z-index: 20; }
+  section:nth-child(2) { z-index: 19; }
+  section:nth-child(3) { z-index: 18; }
+  section:nth-child(4) { z-index: 17; }
+  section:nth-child(5) { z-index: 16; }
+  section:nth-child(6) { z-index: 15; }
+  section:nth-child(7) { z-index: 14; }
+  section:nth-child(8) { z-index: 13; }
 
   /* Hero */
   .about-hero {
     position: relative;
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
-    padding: 10rem var(--gutter) 6rem;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('/hero-bg-about.png') center/cover no-repeat;
+    padding: 10rem var(--gutter) 10rem;
     overflow: hidden;
     text-align: center;
   }
@@ -213,7 +224,7 @@ import Contact from '../components/Contact.astro';
   /* Our Care */
   .our-care { padding: var(--space-32) 0; background: var(--clr-off-white); }
   .care-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
-  .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
+  .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: var(--clr-navy); font-weight: 400; }
   .featured-quote { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); font-style: italic; padding-left: var(--space-8); border-left: 4px solid var(--clr-gold); margin-top: var(--space-8); line-height: 1.4; }
   .care-visual {
     position: relative;
@@ -234,7 +245,7 @@ import Contact from '../components/Contact.astro';
   .comfort-item:hover { transform: translateY(-5px); border-color: var(--clr-gold); background: var(--clr-white); box-shadow: var(--shadow-md); }
   .comfort-icon { font-size: 2.5rem; margin-bottom: var(--space-5); color: var(--clr-gold); }
   .comfort-item h3 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-3); color: var(--clr-navy); }
-  .comfort-item p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); }
+  .comfort-item p { font-size: var(--text-sm); line-height: 1.7; color: inherit; opacity: 0.8; }
 
   /* Comprehensive */
   .comprehensive { padding: var(--space-32) 0; background: var(--clr-off-white); }
@@ -250,7 +261,7 @@ import Contact from '../components/Contact.astro';
   /* Sterile */
   .sterile { padding: var(--space-32) 0; background: var(--clr-white); }
   .dual-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
+  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: inherit; opacity: 0.8; font-weight: 300; }
   .column strong { color: var(--clr-gold); }
 
   /* Final Note */
@@ -273,9 +284,9 @@ import Contact from '../components/Contact.astro';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.about-hero__content > *', { y: 40, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', delay: 0.2 });
+  gsap.from('.about-hero__content > *', { y: 15, opacity: 0, stagger: 0.08, duration: 0.4, ease: 'power2.out' });
   gsap.from('.care-content > *, .comfort-item, .health-box, .column', {
-    scrollTrigger: { trigger: '.our-care', start: 'top 85%' },
-    y: 50, opacity: 0, stagger: 0.1, duration: 1, ease: 'power3.out'
+    scrollTrigger: { trigger: '.our-care', start: 'top 90%' },
+    y: 20, opacity: 0, stagger: 0.04, duration: 0.4, ease: 'power2.out'
   });
 </script>
