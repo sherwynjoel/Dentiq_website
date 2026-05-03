@@ -1,15 +1,12 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  site: 'https://www.dentiqsuperspeciality.com',
   output: 'static',
-  vite: {
-    server: {
-      fs: {
-        allow: [
-          "C:/Users/Sherwyn joel/.gemini",
-          "C:/Users/Sherwyn joel/OneDrive/Desktop/stockfish/stockfish"
-        ]
-      }
-    }
-  }
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+    }),
+  ],
 });

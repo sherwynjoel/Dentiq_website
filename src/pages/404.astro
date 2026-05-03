@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | DentiQ Superspeciality"
+  description="The page you're looking for doesn't exist. Return to DentiQ's homepage to book an appointment or explore our dental services."
+>
+  <Cursor />
+  <Nav />
+
+  <main id="main-content">
+    <section class="not-found">
+      <div class="not-found__inner">
+        <div class="not-found__icon" aria-hidden="true">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+            <path d="m15 10-5 5m0-5 5 5"/>
+          </svg>
+        </div>
+
+        <span class="section__label">Error 404</span>
+        <h1 class="not-found__heading">Page Not Found</h1>
+        <p class="not-found__sub">
+          Looks like this page took an unplanned vacation. Let's get you back on track.
+        </p>
+
+        <div class="not-found__actions">
+          <a href="/" class="btn btn--primary">Back to Homepage</a>
+          <a href="/#contact" class="btn btn--navy">Book Appointment</a>
+        </div>
+
+        <div class="not-found__links">
+          <p>Or try one of these:</p>
+          <ul>
+            <li><a href="/treatments">Our Treatments</a></li>
+            <li><a href="/about">About DentiQ</a></li>
+            <li><a href="/blog">Dental Blog</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem var(--gutter) 6rem;
+    background: var(--clr-off-white);
+    text-align: center;
+  }
+
+  .not-found__inner {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .not-found__icon {
+    width: 120px;
+    height: 120px;
+    background: var(--clr-gold-pale);
+    border: 1px solid rgba(206, 196, 167, 0.3);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-gold-dark);
+    margin-bottom: var(--space-4);
+  }
+
+  .not-found__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    color: var(--clr-navy);
+    line-height: 1.15;
+  }
+
+  .not-found__sub {
+    font-size: var(--text-lg);
+    color: var(--clr-text-body);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 44ch;
+  }
+
+  .not-found__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-4);
+  }
+
+  .not-found__links {
+    margin-top: var(--space-8);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--clr-light-gray);
+    width: 100%;
+  }
+
+  .not-found__links p {
+    font-size: var(--text-sm);
+    color: var(--clr-text-mid);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  .not-found__links ul {
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .not-found__links a {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--clr-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .not-found__links a:hover {
+    color: var(--clr-gold-dark);
+  }
+</style>
