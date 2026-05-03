@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#4e4832"/>
+  <!-- Tooth shape -->
+  <path d="M20 18 C20 14 24 12 28 12 C30 12 31 13 32 14 C33 13 34 12 36 12 C40 12 44 14 44 18 C44 24 42 30 40 36 C39 40 38 44 36 46 C35 48 33 48 32 46 C31 48 29 48 28 46 C26 44 25 40 24 36 C22 30 20 24 20 18 Z" fill="#cec4a7"/>
+</svg>

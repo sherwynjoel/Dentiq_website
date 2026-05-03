@@ -70,7 +70,9 @@
         <h3 class="contact__form-title">Book Online Consultation</h3>
         <p class="contact__form-sub">Fill in your details and we'll call you back shortly.</p>
 
-        <form class="contact__form" id="contact-form" novalidate>
+        <form class="contact__form" id="contact-form" name="appointment" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="appointment" />
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
           <div class="contact__form-group">
             <label for="cf-name">Your Name *</label>
             <input type="text" id="cf-name" name="name" placeholder="e.g. Ravi Kumar" required />
@@ -372,21 +374,53 @@
     x: 40, opacity: 0, duration: 1, ease: 'power3.out',
   });
 
-  // Form submission (demo)
+  // Form submission with Netlify
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const btn  = document.getElementById('cf-submit') as HTMLButtonElement;
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    btn.textContent = '✓ Request Sent!';
-    btn.style.background = '#228b45';
+
+    // Basic client-side validation
+    const name = (form.querySelector('#cf-name') as HTMLInputElement)?.value.trim();
+    const phone = (form.querySelector('#cf-phone') as HTMLInputElement)?.value.trim();
+    if (!name || !phone) {
+      alert('Please fill in your name and phone number.');
+      return;
+    }
+
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Request Appointment';
-      btn.style.background = '';
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as any).toString(),
+      });
+
+      if (response.ok) {
+        btn.textContent = '✓ Request Sent!';
+        btn.style.background = '#228b45';
+        setTimeout(() => {
+          btn.textContent = 'Request Appointment';
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3500);
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch {
+      btn.textContent = 'Error — Try Again';
+      btn.style.background = '#c0392b';
       btn.disabled = false;
-      form.reset();
-    }, 3500);
+      setTimeout(() => {
+        btn.textContent = 'Request Appointment';
+        btn.style.background = '';
+      }, 3000);
+    }
   });
 
 

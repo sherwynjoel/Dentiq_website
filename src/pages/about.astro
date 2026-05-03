@@ -128,7 +128,7 @@ import Contact from '../components/Contact.astro';
           </div>
         </div>
         <div class="care-visual">
-          <img src="/Screenshot%202026-04-29%20221706.png" alt="Dr. Dilip performing dental procedure" class="care-img" />
+          <img src="/Screenshot%202026-04-29%20221706.png" alt="Dr. Bala Murugan performing a dental procedure at DentiQ" class="care-img" loading="lazy" />
         </div>
       </div>
     </div>
@@ -185,22 +185,6 @@ import Contact from '../components/Contact.astro';
   .section__heading em { font-style: italic; color: var(--clr-gold); }
   .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; }
 
-  /* Section Overlap Logic */
-  section {
-    position: relative;
-    border-radius: 0 0 64px 64px;
-    margin-bottom: -64px;
-    padding-bottom: calc(var(--space-32) + 64px) !important;
-  }
-  
-  section:nth-child(1) { z-index: 20; }
-  section:nth-child(2) { z-index: 19; }
-  section:nth-child(3) { z-index: 18; }
-  section:nth-child(4) { z-index: 17; }
-  section:nth-child(5) { z-index: 16; }
-  section:nth-child(6) { z-index: 15; }
-  section:nth-child(7) { z-index: 14; }
-  section:nth-child(8) { z-index: 13; }
 
   /* Hero */
   .about-hero {

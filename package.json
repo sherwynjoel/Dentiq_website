@@ -1,5 +1,5 @@
 {
-  "name": "dr-dilip-dental-centre",
+  "name": "dentiq-superspeciality",
   "type": "module",
   "version": "1.0.0",
   "scripts": {
@@ -8,9 +8,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.1.6",
     "astro": "^4.16.18",
     "gsap": "^3.12.5",
-    "@studio-freight/lenis": "^1.0.42",
     "split-type": "^0.3.4"
   }
 }

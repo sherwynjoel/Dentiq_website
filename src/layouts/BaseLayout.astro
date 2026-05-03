@@ -1,12 +1,17 @@
 ---
+const SITE_URL = 'https://www.dentiqsuperspeciality.com';
+
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 const {
   title = 'Best Dental Hospital in Erode | DentiQ Superspeciality',
   description = 'DentiQ Superspeciality Laser Dental Hospital in Palayapalayam, Erode. Expert dental team providing 5-star comfort and world-class sterile dental care.',
+  ogImage = `${SITE_URL}/og-image.jpg`,
 } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 ---
 
 <!DOCTYPE html>
@@ -15,15 +20,84 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="DentiQ Superspeciality" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- PWA & Mobile -->
+    <meta name="theme-color" content="#4e4832" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
     <title>{title}</title>
+
+    <!-- Fonts with display=swap to prevent FOIT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap"
     />
+
+    <!-- Local Business JSON-LD Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "DentiQ Superspeciality Laser Dental Hospital",
+        "description": "Erode's premier superspeciality dental hospital offering laser dentistry, implants, smile design, Invisalign, and more.",
+        "url": "https://www.dentiqsuperspeciality.com",
+        "telephone": "+918489488999",
+        "email": "info@dentiqsuperspeciality.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Palayapalayam, Near Perundurai Road",
+          "addressLocality": "Erode",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "638011",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "11.3410",
+          "longitude": "77.7172"
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:00", "closes": "20:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "10:00", "closes": "20:00" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "500"
+        },
+        "priceRange": "₹₹",
+        "image": "https://www.dentiqsuperspeciality.com/og-image.jpg"
+      }
+    </script>
   </head>
   <body class="is-loading">
+    <!-- Skip to main content (accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Sticky Booking Sidebar -->
     <a href="#contact" class="sticky-sidebar">Book Appointment</a>
     <slot />
@@ -97,6 +171,16 @@ const {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+  }
+
+  /* ─── Reduced Motion ─────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html { scroll-behavior: auto; }
   }
   section[id] {
     scroll-margin-top: 100px;
@@ -267,6 +351,27 @@ const {
     background: linear-gradient(90deg, var(--clr-gold), var(--clr-gold-light));
     border-radius: 99px;
     margin-bottom: var(--space-6);
+  }
+
+  /* ─── Skip Link ──────────────────────────────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-4);
+    background: var(--clr-navy);
+    color: var(--clr-white);
+    padding: 10px 20px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.2s ease;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--clr-gold);
+    outline-offset: 2px;
   }
 
   /* ─── Global Features ─── */
