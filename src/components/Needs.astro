@@ -11,7 +11,7 @@ const needs = [
 ];
 ---
 
-<section id="needs" class="needs section--dark">
+<section id="needs" class="needs">
   <div class="needs__inner">
     <div class="needs__header">
       <span class="section__label section__label--light">Your Treatment Need?</span>
@@ -38,8 +38,8 @@ const needs = [
 
 <style>
   .needs {
-    background: var(--clr-navy) !important;
-    color: var(--clr-white);
+    background: var(--clr-white);
+    color: var(--clr-navy);
     padding: var(--space-32) var(--gutter);
     position: relative;
     overflow: hidden;
@@ -48,7 +48,7 @@ const needs = [
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 10% 90%, rgba(206,196,167,0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 10% 90%, rgba(0,0,0,0.01) 0%, transparent 50%);
     pointer-events: none;
   }
 
@@ -67,18 +67,17 @@ const needs = [
   }
   .needs__heading {
     font-size: var(--text-3xl);
-    color: var(--clr-white);
+    color: var(--clr-navy);
     line-height: 1.2;
     margin-bottom: var(--space-4);
   }
   .needs__heading em {
-    color: var(--clr-gold);
+    color: var(--clr-gold-dark);
     font-style: italic;
   }
   .needs__sub {
     font-size: var(--text-base);
-    color: var(--clr-white);
-    opacity: 0.8;
+    color: var(--clr-text-body);
     font-weight: 300;
   }
 
@@ -111,7 +110,7 @@ const needs = [
   .need-card__icon {
     width: 60px;
     height: 60px;
-    background: rgba(206,196,167,0.15);
+    background: var(--clr-gold-pale);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
