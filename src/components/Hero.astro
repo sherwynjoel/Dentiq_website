@@ -63,30 +63,6 @@ const slides = [
         </div>
       </div>
     </div>
-
-    <div class="hero__right">
-      <div class="hero__image-wrapper">
-        <div class="hero__image-bg"></div>
-        <img src="/Photograph.jpg" alt="Dr. Dilip" class="hero__doctor-image" />
-        
-        <!-- Floating badge -->
-        <div class="hero__badge">
-          <div class="hero__badge-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="hero__badge-text">
-            <strong>Trusted Care</strong>
-            <span>Verified Specialist</span>
-          </div>
-        </div>
-
-        <!-- Name & Title -->
-        <div class="hero__doctor-info">
-          <h3>Dr. Bala Murugan</h3>
-          <p>MDS &middot; Smile Design Specialist</p>
-        </div>
-      </div>
-    </div>
   </div>
 
 
@@ -127,10 +103,9 @@ const slides = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-      linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,0) 65%),
-      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(206,196,167,0.15) 0%, transparent 65%),
-      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(206,196,167,0.1) 0%, transparent 60%);
+      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%),
+      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(206,196,167,0.15) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
   }
@@ -145,18 +120,21 @@ const slides = [
   .hero__grid {
     position: relative;
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-12);
+    display: flex;
+    justify-content: center;
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
+    text-align: center;
   }
 
   /* Left */
   .hero__left {
-    max-width: 650px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero__heading {
     font-family: var(--font-heading);
@@ -179,12 +157,13 @@ const slides = [
     line-height: 1.8;
     color: var(--clr-text-body);
     margin-bottom: var(--space-10);
-    max-width: 50ch;
+    max-width: 60ch;
     opacity: 0;
   }
 
   .hero__actions {
     display: flex;
+    justify-content: center;
     gap: var(--space-4);
     margin-bottom: var(--space-12);
     opacity: 0;
@@ -229,7 +208,7 @@ const slides = [
     flex-wrap: wrap;
     opacity: 0;
     padding: var(--space-6) var(--space-8);
-    background: var(--clr-white);
+    background: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--clr-light-gray);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(10px);
@@ -265,168 +244,11 @@ const slides = [
     flex-shrink: 0;
   }
 
-  /* Right Side - Image */
-  .hero__right {
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-    perspective: 1000px;
-  }
-
-  .hero__image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    aspect-ratio: 0.85;
-    border-radius: var(--radius-xl);
-    opacity: 0;
-    transform: translateX(40px) rotateY(-10deg);
-  }
-
-  .hero__image-bg {
-    position: absolute;
-    inset: -20px;
-    background: var(--clr-gold-pale);
-    border-radius: inherit;
-    z-index: -1;
-    transform: rotate(3deg);
-  }
-
-  .hero__doctor-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-    box-shadow: var(--shadow-lg);
-    border: 8px solid var(--clr-white);
-  }
-
-  .hero__badge {
-    position: absolute;
-    bottom: 30px;
-    left: -40px;
-    background: var(--clr-white);
-    padding: 16px 24px;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--clr-off-white);
-    z-index: 2;
-  }
-
-  .hero__badge-icon {
-    width: 40px;
-    height: 40px;
-    background: var(--clr-gold);
-    color: var(--clr-navy);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero__badge-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
-
-  .hero__badge-text strong {
-    font-size: var(--text-sm);
-    color: var(--clr-navy);
-  }
-
-  .hero__badge-text span {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--clr-text-mid);
-  }
-
-  .hero__doctor-info {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: var(--clr-navy);
-    color: var(--clr-white);
-    padding: 1.25rem 1.75rem;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    z-index: 3;
-    border-left: 4px solid var(--clr-gold);
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  .hero__doctor-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 2px;
-    color: var(--clr-white);
-  }
-
-  .hero__doctor-info p {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--clr-gold);
-    font-weight: 500;
-    margin: 0;
-  }
-
-  @media (max-width: 600px) {
-    .hero__doctor-info {
-      position: relative;
-      bottom: auto;
-      right: auto;
-      margin-top: -30px;
-      width: calc(100% - 40px);
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      border-left: none;
-      border-top: 4px solid var(--clr-gold);
-    }
-  }
-
-
-  /* Scroll hint */
-  .hero__scroll-hint {
-    position: absolute;
-    bottom: var(--space-8);
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  .hero__scroll-line {
-    width: 1px;
-    height: 52px;
-    overflow: hidden;
-    display: block;
-  }
-  .hero__scroll-line span {
-    display: block;
-    width: 1px;
-    height: 100%;
-    background: var(--clr-navy);
-    animation: scroll-drop 2s ease-in-out infinite;
-  }
-  @keyframes scroll-drop {
-    0%   { transform: translateY(-100%); }
-    100% { transform: translateY(200%); }
-  }
-
   /* Responsive */
   @media (max-width: 1024px) {
     #hero { align-items: flex-start; padding-top: 8.5rem; min-height: auto; padding-bottom: 6rem; }
-    .hero__grid { grid-template-columns: 1fr; gap: var(--space-10); }
     .hero__heading { font-size: 2.8rem; line-height: 1.1; }
     .hero__sub { font-size: 1.1rem; }
-    .hero__right { justify-content: center; margin-top: var(--space-8); }
-    .hero__badge { left: 0; bottom: 20px; padding: 10px 16px; }
   }
   @media (max-width: 600px) {
     .hero__stats { 

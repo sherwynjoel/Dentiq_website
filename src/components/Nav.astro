@@ -31,7 +31,40 @@ const isContact    = pathname.startsWith('/contact');
     <ul class="nav__links" role="list">
       <li><a href="/"           class={isHome       ? 'nav__active' : ''}>Home</a></li>
       <li><a href="/about"      class={isAbout      ? 'nav__active' : ''}>About</a></li>
-      <li><a href="/treatments" class={isTreatments ? 'nav__active' : ''}>Treatments</a></li>
+      <li class="nav__dropdown">
+        <a href="/treatments" class={`nav__dropdown-toggle ${isTreatments ? 'nav__active' : ''}`}>
+          Treatments
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown-menu">
+          <div class="nav__dropdown-inner">
+            <a href="/treatments#implants" class="nav__dropdown-item">
+              <strong>Dental Implants</strong>
+              <span>Advanced Laser & Zygomatic</span>
+            </a>
+            <a href="/treatments#orthodontics" class="nav__dropdown-item">
+              <strong>Invisalign</strong>
+              <span>Clear Aligners & Braces</span>
+            </a>
+            <a href="/treatments#tmj" class="nav__dropdown-item">
+              <strong>TMJ & Migraine</strong>
+              <span>Orofacial Pain Specialist</span>
+            </a>
+            <a href="/treatments#cosmetic" class="nav__dropdown-item">
+              <strong>Cosmetic Dentistry</strong>
+              <span>Whitening & Smile Design</span>
+            </a>
+            <a href="/treatments#general" class="nav__dropdown-item">
+              <strong>General Dental</strong>
+              <span>Painless Root Canal & Fillings</span>
+            </a>
+            <a href="/treatments#pediatric" class="nav__dropdown-item">
+              <strong>Pediatric Care</strong>
+              <span>Gentle Kids Dentistry</span>
+            </a>
+          </div>
+        </div>
+      </li>
       <li><a href="/blog"       class={isBlog       ? 'nav__active' : ''}>Blog</a></li>
       <li>
         <a href="#contact" class="nav__cta" data-cursor-hover>Book Appointment</a>
@@ -255,6 +288,86 @@ const isContact    = pathname.startsWith('/contact');
   .nav__links a:not(.nav__cta):hover { color: var(--clr-white); }
   .nav__links a.nav__active { color: var(--clr-white); }
   .nav__links a.nav__active::after { width: 100%; background: var(--clr-gold); }
+
+  /* Dropdown Styles */
+  .nav__dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .nav__dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .nav__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--clr-white);
+    min-width: 280px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--clr-light-gray);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--ease-out-expo);
+    padding: var(--space-4);
+    z-index: 1100;
+  }
+  #nav.is-scrolled .nav__dropdown-menu {
+    background: var(--clr-navy);
+    border-color: rgba(255,255,255,0.1);
+  }
+  .nav__dropdown:hover .nav__dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav__dropdown-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .nav__dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
+    text-shadow: none !important;
+  }
+  .nav__dropdown-item::after { display: none !important; }
+  .nav__dropdown-item strong {
+    font-size: 0.85rem;
+    color: var(--clr-navy);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .nav__dropdown-item span {
+    font-size: 0.65rem;
+    color: var(--clr-text-mid);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+  }
+  #nav.is-scrolled .nav__dropdown-item strong { color: var(--clr-white); }
+  #nav.is-scrolled .nav__dropdown-item span { color: rgba(255,255,255,0.6); }
+
+  .nav__dropdown-item:hover {
+    background: var(--clr-off-white);
+  }
+  #nav.is-scrolled .nav__dropdown-item:hover {
+    background: rgba(255,255,255,0.05);
+  }
+  .nav__dropdown-item:hover strong {
+    color: var(--clr-gold-dark);
+  }
+  #nav.is-scrolled .nav__dropdown-item:hover strong {
+    color: var(--clr-gold);
+  }
 
   .nav__cta {
     background: var(--clr-gold) !important;
