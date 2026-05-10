@@ -14,7 +14,7 @@ import Contact from '../components/Contact.astro';
   <section class="about-hero">
     <div class="about-hero__bg"></div>
     <div class="about-hero__content">
-      <span class="section__label section__label--light">
+      <span class="section__label section__label--light" data-flicker>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
         Our Story
       </span>
@@ -25,11 +25,12 @@ import Contact from '../components/Contact.astro';
     </div>
   </section>
 
-  <!-- Comprehensive Care -->
+  <!-- Comprehensive Care (WHITE) -->
   <section class="comprehensive">
     <div class="container">
       <div class="comp-grid">
         <div class="comp-left">
+          <span class="section__label">Preventive Focus</span>
           <h2 class="section__heading">Comprehensive <em>Dental & General Health</em></h2>
           <p>
             We believe that preventive care and education are the keys to optimal dental health. We strive to provide “Comprehensive dental health care.” That’s why we focus on thorough exams – checking the overall health of your teeth and gums, performing oral cancer exams, and taking x-rays when necessary.
@@ -42,86 +43,85 @@ import Contact from '../components/Contact.astro';
           <div class="health-box">
             <h4>The Health Connection</h4>
             <p>Not only are we focused on the beauty of your smile, we’re also concerned about your health. Countless studies have demonstrated a link between poor oral health and systemic diseases such as:</p>
-            <ul>
-              <li>Heart Disease & Stroke</li>
-              <li>Diabetes & Dementia</li>
-              <li>Rheumatoid Arthritis</li>
-              <li>Skin Diseases</li>
-              <li>Pregnancy Complications</li>
-            </ul>
+            <div class="health-grid">
+              <div class="health-item"><span>Heart Disease</span></div>
+              <div class="health-item"><span>Diabetes</span></div>
+              <div class="health-item"><span>Rheumatoid Arthritis</span></div>
+              <div class="health-item"><span>Pregnancy Safety</span></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5-Star Comforts -->
-  <section class="comforts section--dark">
+  <!-- 5-Star Comforts (OFF-WHITE) -->
+  <section class="comforts">
     <div class="container">
       <div class="section-header">
-        <span class="section__label section__label--light">Unmatched Experience</span>
+        <span class="section__label">Unmatched Experience</span>
         <h2 class="section__heading">5-Star <em>Comforts</em></h2>
-        <p class="section-sub">We are the only dental clinic in Erode to treat at your comfort provided with:</p>
+        <p class="section-sub">The only dental clinic in Erode designed specifically for your comfort:</p>
       </div>
       <div class="comforts-grid">
-        <div class="comfort-item">
+        <div class="comfort-card">
           <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
           </div>
           <h3>Music & Ambience</h3>
-          <p>Headphones and in-room soothing background instrumentals to help you relax — many patients even doze off!</p>
+          <p>Headphones and soothing background instrumentals to help you relax — many patients even doze off!</p>
         </div>
-        <div class="comfort-item">
+        <div class="comfort-card">
           <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H4.5a2.5 2.5 0 1 1 1.8-4.3"/><path d="M9.6 19a2.4 2.4 0 1 1-3 3.6 2.4 2.4 0 0 1-3-3.6 2.4 2.4 0 0 1 3-3.6 2.4 2.4 0 0 1 3 3.6Z"/><path d="M20.4 19a2.4 2.4 0 1 1-3 3.6 2.4 2.4 0 0 1-3-3.6 2.4 2.4 0 0 1 3-3.6 2.4 2.4 0 0 1 3 3.6Z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M12 20v2M17.66 17.66l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41"/></svg>
           </div>
           <h3>Light Sensitivity</h3>
-          <p>Premium sunglasses provided for patients with light sensitivity during procedures.</p>
+          <p>Premium sunglasses provided to ensure your comfort under procedure lighting.</p>
         </div>
-        <div class="comfort-item">
+        <div class="comfort-card">
           <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
           </div>
           <h3>Anxiety Relief</h3>
-          <p>Sleep Eyemasks available for anxious patients to ensure a stress-free experience.</p>
+          <p>Sleep Eyemasks available for anxious patients to ensure a completely stress-free experience.</p>
         </div>
-        <div class="comfort-item">
+        <div class="comfort-card">
           <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h3>Orthopedic Support</h3>
-          <p>Head Pillows and neck supports specially designed for people with orthopedic problems.</p>
-        </div>
-        <div class="comfort-item">
-          <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
-          </div>
-          <h3>Custom Climate</h3>
-          <p>Customized aircon settings in every room to keep you perfectly comfy.</p>
-        </div>
-        <div class="comfort-item">
-          <div class="comfort-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"/><path d="M3 20h18"/><path d="M5 14h14v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"/><path d="M3 20h18"/><path d="M5 14h14v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/></svg>
           </div>
           <h3>Relaxation Chairs</h3>
-          <p>Ultra-comfortable ergonomic chairs in every room to help you relax at your appointment.</p>
+          <p>Ultra-comfortable ergonomic chairs in every room to help you relax throughout your visit.</p>
+        </div>
+        <div class="comfort-card">
+          <div class="comfort-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22v-4M8 18h8M12 8v10M12 2v6M20 12h-4M8 12H4M17.66 6.34l-2.83 2.83M9.17 14.83l-2.83 2.83M17.66 17.66l-2.83-2.83M9.17 9.17l-2.83-2.83"/></svg>
+          </div>
+          <h3>Custom Climate</h3>
+          <p>Individual aircon settings in every operatory to keep you perfectly comfy during care.</p>
+        </div>
+        <div class="comfort-card">
+          <div class="comfort-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.71-2.16 0-3a2.12 2.12 0 0 0-3 0Z"/><path d="m8 13 4 4L22 7l-4-4L8 13Z"/><path d="m15 6 4 4"/></svg>
+          </div>
+          <h3>Orthopedic Care</h3>
+          <p>Special head and neck pillows designed specifically for patients with orthopedic needs.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Care -->
-  <section class="our-care">
+  <!-- Our Care (DARK NAVY) -->
+  <section class="our-care section--dark">
     <div class="container">
       <div class="care-grid">
         <div class="care-content">
-          <span class="section__label">Welcome to DentiQ</span>
+          <span class="section__label section__label--light">Premier Hospital</span>
           <h2 class="section__heading">Our <em>Care</em></h2>
           <p class="care-text">
-            When you visit DentiQ for the first time, you’ll be amazed at our service and ambience. We are the best dental facility in the heart of Erode with state-of-the-art equipment and superspecialist team of Doctors. 
+            When you visit DentiQ for the first time, you’ll be amazed at our service and ambience. We are the best dental facility in the heart of Erode with state-of-the-art equipment and a superspecialist team.
           </p>
           <p class="care-text">
-            Our patients are consulted right away and sometimes in virtually very very less waiting time. Our exceptional team is committed to providing comfortable and gentle dentistry.
+            Our exceptional team is committed to providing comfortable and gentle dentistry with virtually zero waiting time.
           </p>
           <div class="featured-quote">
             "Get yourself pampered with 5 Star comforts while you are on the way to an everlasting bright happy smile!"
@@ -134,40 +134,40 @@ import Contact from '../components/Contact.astro';
     </div>
   </section>
 
-  <!-- Sterile & Updates -->
-  <section class="sterile section--dark">
+  <!-- Sterile & Updates (WHITE) -->
+  <section class="sterile">
     <div class="container">
       <div class="dual-columns">
         <div class="column">
-          <span class="section__label section__label--light">Highly Sterile Practice</span>
+          <span class="section__label">Highly Sterile Practice</span>
           <h2 class="section__heading">You're <em>Safe With Us</em></h2>
           <p>
-            Infection control is of paramount importance for us. We are proud to say we are the <strong>only clinic in the whole of Erode</strong> to use world-class <strong>Class B Autoclave</strong> to sterilize our instruments.
+            Infection control is of paramount importance for us. We are proud to say we are the <strong>only clinic in Erode</strong> to use a world-class <strong>Class B Autoclave</strong> to sterilize our instruments.
           </p>
         </div>
         <div class="column">
-          <span class="section__label section__label--light">Latest Technology</span>
+          <span class="section__label">Latest Technology</span>
           <h2 class="section__heading">Ever <em>Updating</em></h2>
           <p>
-            We pride ourselves in providing the latest treatment options. We constantly update ourselves attending international dental conventions, lectures, and meetings to stay informed of latest techniques and products.
+            We pride ourselves in providing the latest treatment options. We constantly update ourselves attending international dental conventions to stay informed of the latest techniques.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Final Note -->
+  <!-- Final Note (OFF-WHITE) -->
   <section class="final-note">
     <div class="container">
       <div class="final-grid">
         <div class="final-card">
           <h3>A Pleasant Experience</h3>
-          <p>Building a foundation of trust by treating our patients as special individuals is vital to our success. Our entire team is dedicated to providing you with excellent, personalized care and service to make your visits as comfortable and pleasant as possible.</p>
+          <p>Building a foundation of trust by treating our patients as special individuals is vital to our success. Our entire team is dedicated to providing you with excellent, personalized care and service to make your visits as comfortable as possible.</p>
         </div>
         <div class="final-card final-card--gold">
           <h3>Affordable Cost</h3>
-          <p>The cost of cosmetic dentistry with us is affordable and we offer the most effective treatments that will fit every pocket. Expert care shouldn't be out of reach.</p>
-          <a href="#contact" class="btn btn--light">Call for Pricing</a>
+          <p>The cost of cosmetic dentistry with us is affordable and we offer effective treatments that fit every pocket. Expert care shouldn't be out of reach.</p>
+          <a href="#contact" class="btn btn--light">Book Consultation</a>
         </div>
       </div>
     </div>
@@ -180,8 +180,8 @@ import Contact from '../components/Contact.astro';
 <style>
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
   .section--dark { background: var(--clr-navy) !important; color: var(--clr-white); }
-  .section-header { text-align: center; margin-bottom: var(--space-16); }
-  .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; }
+  .section-header { text-align: center; margin-bottom: var(--space-16); max-width: 700px; margin-left: auto; margin-right: auto; }
+  .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; line-height: 1.1; }
   .section__heading em { font-style: italic; color: var(--clr-gold); }
   .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; }
 
@@ -190,7 +190,7 @@ import Contact from '../components/Contact.astro';
     position: relative;
     border-radius: 0 0 64px 64px;
     margin-bottom: -64px;
-    padding-bottom: calc(var(--space-32) + 64px) !important;
+    padding: var(--space-32) 0 calc(var(--space-32) + 64px) !important;
   }
   
   section:nth-child(1) { z-index: 20; }
@@ -204,78 +204,76 @@ import Contact from '../components/Contact.astro';
 
   /* Hero */
   .about-hero {
-    position: relative;
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('/hero-bg-about.png') center/cover no-repeat;
-    padding: 10rem var(--gutter) 10rem;
-    overflow: hidden;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.92) 0%, rgba(91, 84, 60, 0.95) 100%), url('/modern-studio-bg.png') center/cover no-repeat;
+    padding: 12rem var(--gutter) 10rem !important;
     text-align: center;
+    border-radius: 0;
   }
   .about-hero__bg {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
-  .about-hero__content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-5); }
-  .about-hero__heading { font-family: var(--font-heading); font-size: var(--text-hero); font-weight: 600; color: var(--clr-white); line-height: 1.1; }
+  .about-hero__content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-5); }
+  .about-hero__heading { font-family: var(--font-heading); font-size: var(--text-hero); font-weight: 600; color: var(--clr-white); line-height: 1.05; }
   .about-hero__heading em { font-style: italic; color: var(--clr-gold); }
-  .about-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.72); line-height: 1.8; }
-
-  /* Our Care */
-  .our-care { padding: var(--space-32) 0; background: var(--clr-off-white); }
-  .care-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
-  .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: var(--clr-navy); font-weight: 400; }
-  .featured-quote { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); font-style: italic; padding-left: var(--space-8); border-left: 4px solid var(--clr-gold); margin-top: var(--space-8); line-height: 1.4; }
-  .care-visual {
-    position: relative;
-    width: 100%;
-  }
-  .care-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Comforts */
-  .comforts { padding: var(--space-32) 0; background: var(--clr-white); }
-  .comforts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
-  .comfort-item { background: var(--clr-off-white); padding: var(--space-8); border-radius: var(--radius-lg); border: 1px solid var(--clr-light-gray); transition: transform 0.3s ease; }
-  .comfort-item:hover { transform: translateY(-5px); border-color: var(--clr-gold); background: var(--clr-white); box-shadow: var(--shadow-md); }
-  .comfort-icon { font-size: 2.5rem; margin-bottom: var(--space-5); color: var(--clr-gold); }
-  .comfort-item h3 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-3); color: var(--clr-navy); }
-  .comfort-item p { font-size: var(--text-sm); line-height: 1.7; color: inherit; opacity: 0.8; }
+  .about-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 60ch; }
 
   /* Comprehensive */
-  .comprehensive { padding: var(--space-32) 0; background: var(--clr-off-white); }
+  .comprehensive { background: var(--clr-white); }
   .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
   .comp-left p { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-5); color: var(--clr-text-body); font-weight: 300; }
-  .health-box { background: var(--clr-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
+  
+  .health-box { background: var(--clr-off-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
   .health-box h4 { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); margin-bottom: var(--space-4); }
-  .health-box p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-5); }
-  .health-box ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
-  .health-box li { font-size: var(--text-sm); font-weight: 600; color: var(--clr-gold); }
-  .health-box li::before { content: '✦'; margin-right: 8px; }
+  .health-box p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-6); opacity: 0.8; }
+  .health-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+  .health-item { background: var(--clr-white); padding: 12px; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(78,72,50,0.05); }
+
+  /* Comforts */
+  .comforts { background: var(--clr-off-white); }
+  .comforts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  .comfort-card { background: var(--clr-white); padding: var(--space-10) var(--space-8); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); transition: all 0.4s var(--ease-out-expo); display: flex; flex-direction: column; gap: var(--space-4); }
+  .comfort-card:hover { transform: translateY(-10px); border-color: var(--clr-gold); box-shadow: var(--shadow-lg); }
+  .comfort-icon { width: 52px; height: 52px; background: var(--clr-gold-pale); color: var(--clr-gold-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
+  .comfort-card:hover .comfort-icon { background: var(--clr-gold); color: var(--clr-navy); }
+  .comfort-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-navy); font-weight: 600; }
+  .comfort-card p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); font-weight: 300; }
+
+  /* Our Care */
+  .our-care { background: var(--clr-navy); }
+  .care-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
+  .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: rgba(255,255,255,0.8); font-weight: 300; }
+  .featured-quote { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-gold); font-style: italic; padding-left: var(--space-8); border-left: 4px solid var(--clr-gold); margin-top: var(--space-8); line-height: 1.4; }
+  .care-img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); }
 
   /* Sterile */
-  .sterile { padding: var(--space-32) 0; background: var(--clr-white); }
+  .sterile { background: var(--clr-white); }
   .dual-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: inherit; opacity: 0.8; font-weight: 300; }
-  .column strong { color: var(--clr-gold); }
+  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
+  .column strong { color: var(--clr-navy); font-weight: 700; }
 
   /* Final Note */
-  .final-note { padding: var(--space-32) 0; background: var(--clr-off-white); }
+  .final-note { background: var(--clr-off-white); }
   .final-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-6); }
-  .final-card { background: var(--clr-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
+  .final-card { background: var(--clr-white); padding: var(--space-12) var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
   .final-card h3 { font-family: var(--font-heading); font-size: var(--text-2xl); color: var(--clr-navy); margin-bottom: var(--space-5); }
   .final-card p { font-size: var(--text-base); line-height: 1.8; color: var(--clr-text-body); font-weight: 300; }
-  .final-card--gold { background: var(--clr-gold); color: var(--clr-white); display: flex; flex-direction: column; gap: var(--space-6); border: none; }
+  .final-card--gold { background: var(--clr-gold); color: var(--clr-white); border: none; }
   .final-card--gold h3 { color: var(--clr-white); }
-  .final-card--gold p { color: rgba(255,255,255,0.9); }
+  .final-card--gold p { color: rgba(255,255,255,0.9); margin-bottom: var(--space-6); }
 
+  @media (max-width: 1024px) {
+    .comforts-grid { grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 900px) {
-    .care-grid, .comp-grid, .comforts-grid, .dual-columns, .final-grid { grid-template-columns: 1fr; }
+    .care-grid, .comp-grid, .dual-columns, .final-grid { grid-template-columns: 1fr; gap: var(--space-12); }
+    .about-hero { padding: 10rem var(--gutter) 8rem !important; }
+    .about-hero__heading { font-size: 2.5rem; }
+  }
+  @media (max-width: 600px) {
+    .comforts-grid { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -285,8 +283,8 @@ import Contact from '../components/Contact.astro';
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from('.about-hero__content > *', { y: 15, opacity: 0, stagger: 0.08, duration: 0.4, ease: 'power2.out' });
-  gsap.from('.care-content > *, .comfort-item, .health-box, .column', {
-    scrollTrigger: { trigger: '.our-care', start: 'top 90%' },
-    y: 20, opacity: 0, stagger: 0.04, duration: 0.4, ease: 'power2.out'
+  gsap.from('.comp-grid, .comfort-card, .care-grid, .column, .final-card', {
+    scrollTrigger: { trigger: '.comprehensive', start: 'top 90%' },
+    y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power2.out'
   });
 </script>
