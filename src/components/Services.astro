@@ -2,27 +2,27 @@
 const services = [
   {
     title: "Dental Implants",
-    desc: "Specialized in advanced restorative procedures including: Advanced Zygomatic Implants for less bone situations, Basal Implants, Bone Grafting, and Sinus lift Surgeries.",
-    beforeImg: "/implants_before_1777794155254.png",
-    afterImg: "/implants_after_1777794171891.png",
+    desc: "Permanent tooth replacement for single, multiple, and full arch missing teeth with careful planning and surgical precision.",
+    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=900",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="10" rx="2"/><path d="M12 12v10M8 22h8"/></svg>`,
-    link: "/treatments#implants"
+    link: "/treatments/implants",
+    eyebrow: "Implant Dentistry"
   },
   {
-    title: "Invisalign Clear aligners",
-    desc: "Nearly invisible, custom-made clear aligners. View your final smile before starting. Removable for eating and brushing, fitting perfectly around your professional lifestyle.",
-    beforeImg: "/invisalign_before_1777794186881.png",
-    afterImg: "/invisalign_after_1777794202267.png",
+    title: "Clear Aligners & Braces",
+    desc: "Straighten crowded teeth, bite issues, and smile alignment with removable aligners or fixed appliances.",
+    image: "https://images.unsplash.com/photo-1513224502586-d1e602410265?auto=format&fit=crop&q=80&w=900",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10h10M7 14h10M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>`,
-    link: "/treatments#orthodontics"
+    link: "/treatments/orthodontics",
+    eyebrow: "Orthodontics"
   },
   {
-    title: "TMJ Treatment",
-    desc: "Comprehensive diagnosis and treatment for Temporomandibular Joint (TMJ) disorders. Relieve jaw pain, headaches, and restore proper jaw function and alignment.",
-    beforeImg: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
-    afterImg: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800",
+    title: "Cosmetic Dentistry",
+    desc: "Smile designing, whitening, veneers, tooth contouring, and gum aesthetic corrections for confident smiles.",
+    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=900",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`,
-    link: "/treatments#tmj"
+    link: "/treatments/cosmetic",
+    eyebrow: "Smile Design"
   }
 ];
 ---
@@ -42,14 +42,8 @@ const services = [
       <a href={s.link} class="service-card-link-wrapper" data-cursor-hover>
         <article class="service-card" data-index={i}>
           <div class="service-card__split-container">
-            <div class="service-card__before">
-              <span class="service-card__status">Before</span>
-              <div class="service-card__placeholder">Image Coming Soon</div>
-            </div>
-            <div class="service-card__after">
-              <span class="service-card__status">After</span>
-              <div class="service-card__placeholder">Image Coming Soon</div>
-            </div>
+            <img src={s.image} alt={`${s.title} at DentiQ`} loading={i === 0 ? 'eager' : 'lazy'} />
+            <span class="service-card__status">{s.eyebrow}</span>
             <div class="service-card__icon-badge" set:html={s.icon}></div>
           </div>
           <div class="service-card__content">
@@ -126,7 +120,7 @@ const services = [
     gap: var(--space-8);
     max-width: var(--max-width);
     margin: 0 auto var(--space-16);
-    align-items: flex-start; /* Align to top */
+    align-items: stretch;
   }
 
   .service-card-link-wrapper {
@@ -154,26 +148,24 @@ const services = [
   }
 
   .service-card__split-container {
-    height: 320px;
+    height: 240px;
     position: relative;
-    display: flex;
-    flex-direction: column;
     background: var(--clr-off-white);
   }
-
-  .service-card__before, .service-card__after {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+  .service-card__split-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
   }
-
-  .service-card__after {
-    border-bottom: none;
-    background: rgba(206, 196, 167, 0.1);
+  .service-card-link-wrapper:hover .service-card__split-container img {
+    transform: scale(1.06);
+  }
+  .service-card__split-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(78,72,50,0.02), rgba(78,72,50,0.42));
   }
 
   .service-card__status {
@@ -185,27 +177,12 @@ const services = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 3px 8px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(252,250,246,0.18);
     color: white;
-    border-radius: 4px;
+    border-radius: var(--radius-pill);
     z-index: 2;
     backdrop-filter: blur(4px);
-  }
-
-  .service-card__after .service-card__status {
-    background: var(--clr-gold);
-    color: var(--clr-navy);
-  }
-
-  .service-card__placeholder {
-    font-size: 10px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--clr-text-mid);
-    opacity: 0.5;
-    text-align: center;
-    padding: 0 10px;
+    border: 1px solid rgba(255,255,255,0.28);
   }
 
   .service-card__icon-badge {
@@ -234,7 +211,7 @@ const services = [
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-height: 280px; /* Force consistent content area height */
+    min-height: 260px;
   }
 
   .service-card__title {
@@ -243,7 +220,7 @@ const services = [
     font-weight: 600;
     color: var(--clr-navy);
     margin-bottom: var(--space-3);
-    min-height: 3rem; /* Fixed height for title area */
+    min-height: 3rem;
     display: flex;
     align-items: center;
   }
@@ -260,7 +237,7 @@ const services = [
   .service-card__footer {
     margin-top: auto;
     padding-top: var(--space-4);
-    height: 40px; /* Fixed height for link area */
+    height: 40px;
     display: flex;
     align-items: center;
   }

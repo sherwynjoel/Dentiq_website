@@ -3,373 +3,355 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
-import Contact from '../components/Contact.astro';
+
+const featured = {
+  title: 'TMJ Disorders: Everything You Need to Know in 2024',
+  category: 'Expert Guide',
+  date: 'April 20, 2024',
+  readTime: '8 min read',
+  excerpt: 'Temporomandibular joint disorders affect millions. Our specialists break down the causes, symptoms, and the most effective modern treatments — from laser therapy to night guards.',
+  link: '#',
+};
 
 const posts = [
-  {
-    title: 'TMJ Specialist Guide: Finding Certified Care in India',
-    category: 'Expert Guide',
-    date: 'April 20, 2024',
-    excerpt: 'A deep dive into finding board-certified TMJ specialists in India for effective TMD management and long-term relief.',
-    imageIcon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7z"/><path d="M9 9h6M12 6v6"/></svg>`,
-    link: '#'
-  },
-  {
-    title: '10 Best Jaw Exercises for Chronic Pain Relief',
-    category: 'Patient Care',
-    date: 'April 05, 2024',
-    excerpt: 'A comprehensive manual on targeted stretches to alleviate jaw tension and improve TMJ function effectively at home.',
-    imageIcon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg>`,
-    link: '#'
-  },
-  {
-    title: 'Orofacial Pain Relief Options in Bangalore',
-    category: 'Regional Updates',
-    date: 'March 15, 2024',
-    excerpt: 'Exploring the latest specialized orofacial and migraine relief options available for patients in the Bangalore region.',
-    imageIcon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>`,
-    link: '#'
-  }
+  { title: '10 Best Jaw Exercises for Chronic Pain Relief', category: 'Patient Care', date: 'April 05, 2024', readTime: '5 min', excerpt: 'Targeted stretches to alleviate jaw tension and improve TMJ function effectively at home.', link: '#', color: '#4E4832' },
+  { title: 'Orofacial Pain Relief Options in South India', category: 'Regional Updates', date: 'March 15, 2024', readTime: '4 min', excerpt: 'Exploring specialised orofacial and migraine relief options for patients across Tamil Nadu.', link: '#', color: '#5B543C' },
+  { title: 'Laser Dentistry: Is It Right for You?', category: 'Technology', date: 'March 02, 2024', readTime: '6 min', excerpt: 'How laser root canal treatment eliminates pain and reduces recovery time dramatically.', link: '#', color: '#3D3828' },
+  { title: 'Children\'s Dental Anxiety: A Parent\'s Guide', category: 'Patient Care', date: 'Feb 18, 2024', readTime: '5 min', excerpt: 'Practical strategies to make dental visits stress-free for young patients and their parents.', link: '#', color: '#4E4832' },
+  { title: 'Sleep Dentistry & Snoring Solutions', category: 'Sleep Health', date: 'Feb 05, 2024', readTime: '7 min', excerpt: 'How custom oral appliances from your dentist can transform your sleep quality overnight.', link: '#', color: '#5B543C' },
+  { title: 'The Link Between Oral Health & Heart Disease', category: 'General Health', date: 'Jan 22, 2024', readTime: '6 min', excerpt: 'New research reveals how gum disease inflammation directly impacts cardiovascular health.', link: '#', color: '#3D3828' },
 ];
+
+const categories = ['All', 'Expert Guide', 'Patient Care', 'Technology', 'Sleep Health', 'General Health', 'Regional Updates'];
 ---
 
-<BaseLayout title="Dental Health Blog | Dentiq — Expert Dental Advice" description="Read the latest articles on dental health, TMJ treatment, sleep dentistry, and cosmetic procedures from the experts at Dentiq.">
+<BaseLayout title="Dental Health Blog | DentiQ — Expert Dental Advice" description="Read the latest articles on dental health, TMJ treatment, sleep dentistry, and cosmetic procedures from the experts at DentiQ.">
   <Cursor />
   <Nav />
 
-  <!-- Blog Hero -->
-  <section class="blog-hero">
-    <div class="blog-hero__bg"></div>
-    <div class="blog-hero__content">
-      <span class="section__label section__label--light">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
-        Dentiq Insights
-      </span>
-      <h1 class="blog-hero__heading">Dental Health <em>Insights</em></h1>
-      <p class="blog-hero__sub">
-        Expert advice, patient stories, and the latest advancements in dental and orofacial pain treatment.
-      </p>
-    </div>
-  </section>
+  <main>
+    <!-- Hero -->
+    <section class="blog-hero">
+      <div class="hero-dot-bg"></div>
+      <div class="hero-inner">
+        <div class="hero-label-wrap">
+          <span class="hero-eyebrow">DentiQ Insights</span>
+        </div>
+        <h1 class="hero-heading">Dental Health <em>Blog</em></h1>
+        <p class="hero-sub">Expert advice, patient stories &amp; the latest in dental science — straight from our specialists.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat__num">40+</span><span class="hero-stat__label">Articles</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hero-stat__num">7</span><span class="hero-stat__label">Categories</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="hero-stat__num">5★</span><span class="hero-stat__label">Expert Authors</span></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Blog Grid -->
-  <section class="blog-list">
-    <div class="blog-list__inner">
-      <div class="blog-grid">
-        {posts.map((post, i) => (
-          <article class="blog-card" data-index={i}>
-            <div class="blog-card__header">
-              <div class="blog-card__img-placeholder">
-                <span class="blog-card__icon" set:html={post.imageIcon}></span>
+    <!-- Featured Post -->
+    <section class="featured-section section">
+      <div class="container">
+        <div class="section-tag">Featured Article</div>
+        <a href={featured.link} class="featured-card">
+          <div class="featured-card__visual">
+            <div class="featured-card__pattern"></div>
+            <div class="featured-card__icon-wrap">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7z"/><path d="M9 9h6M12 6v6"/></svg>
+            </div>
+            <span class="featured-card__cat">{featured.category}</span>
+          </div>
+          <div class="featured-card__body">
+            <div class="featured-card__meta">
+              <span>{featured.date}</span>
+              <span class="meta-dot">·</span>
+              <span>{featured.readTime}</span>
+            </div>
+            <h2 class="featured-card__title">{featured.title}</h2>
+            <p class="featured-card__excerpt">{featured.excerpt}</p>
+            <span class="featured-card__cta">
+              Read Full Article
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section section">
+      <div class="container">
+
+        <!-- Category Filter -->
+        <div class="cat-filters" id="cat-filters">
+          {categories.map((cat, i) => (
+            <button class={`cat-btn ${i === 0 ? 'cat-btn--active' : ''}`} data-cat={cat}>{cat}</button>
+          ))}
+        </div>
+
+        <!-- Grid -->
+        <div class="posts-grid" id="posts-grid">
+          {posts.map((post) => (
+            <article class="post-card" data-category={post.category}>
+              <div class="post-card__top" style={`background: ${post.color};`}>
+                <div class="post-card__shimmer"></div>
+                <span class="post-card__cat">{post.category}</span>
               </div>
-              <div class="blog-card__tag">{post.category}</div>
+              <div class="post-card__body">
+                <div class="post-card__meta">
+                  <span>{post.date}</span>
+                  <span class="meta-dot">·</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h3 class="post-card__title"><a href={post.link}>{post.title}</a></h3>
+                <p class="post-card__excerpt">{post.excerpt}</p>
+                <a href={post.link} class="post-card__link">
+                  Read Article
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="no-results" id="no-results" style="display:none;">
+          <p>No articles in this category yet. Check back soon!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="nl-section section">
+      <div class="container">
+        <div class="nl-card">
+          <div class="nl-card__glow"></div>
+          <div class="nl-card__left">
+            <span class="nl-tag">Stay Updated</span>
+            <h2 class="nl-heading">Expert Dental<br/><em>Insights</em></h2>
+            <p class="nl-sub">Monthly tips on oral health, TMJ relief, and the latest dental technology.</p>
+          </div>
+          <form class="nl-form" onsubmit="return false;">
+            <div class="nl-input-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" placeholder="Enter your email" required id="nl-email" />
             </div>
-            <div class="blog-card__body">
-              <span class="blog-card__date">{post.date}</span>
-              <h2 class="blog-card__title">
-                <a href={post.link}>{post.title}</a>
-              </h2>
-              <p class="blog-card__excerpt">{post.excerpt}</p>
-              <a href={post.link} class="blog-card__read-more">
-                Read Article
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </article>
-        ))}
+            <button type="submit" class="nl-btn">Subscribe Now</button>
+            <p class="nl-privacy">No spam. Only high-value dental care updates.</p>
+          </form>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Pagination Placeholder -->
-      <div class="blog-pagination">
-        <button class="blog-pagination__btn blog-pagination__btn--active">1</button>
-        <button class="blog-pagination__btn">2</button>
-        <button class="blog-pagination__btn">3</button>
-        <span class="blog-pagination__dots">...</span>
-        <button class="blog-pagination__btn">12</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter">
-    <div class="newsletter__inner">
-      <div class="newsletter__content">
-        <h2 class="newsletter__heading">Stay Informed</h2>
-        <p class="newsletter__sub">Subscribe to our newsletter for the latest dental tips and clinic updates.</p>
-      </div>
-      <form class="newsletter__form">
-        <input type="email" placeholder="Your email address" required />
-        <button type="submit" class="btn btn--primary">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <Contact />
   <Footer />
 </BaseLayout>
 
 <style>
+  * { box-sizing: border-box; }
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+
   /* ── Hero ── */
   .blog-hero {
     position: relative;
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
-    padding: 10rem var(--gutter) 6rem;
-    overflow: hidden;
+    background: linear-gradient(145deg, #1a1810 0%, #2b2718 100%);
+    padding: 10rem var(--gutter) 8rem;
     text-align: center;
+    overflow: hidden;
+    border-radius: 0;
   }
-  .blog-hero__bg {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+  .hero-dot-bg {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(206,196,167,0.05) 1px, transparent 1px);
     background-size: 32px 32px;
     pointer-events: none;
   }
-  .blog-hero__content {
-    position: relative;
-    z-index: 1;
-    max-width: 720px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-5);
+  .hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .hero-eyebrow {
+    background: rgba(206,196,167,0.08); border: 1px solid rgba(206,196,167,0.15);
+    color: var(--clr-gold); padding: 8px 24px; border-radius: 99px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
   }
-  .blog-hero__heading {
-    font-family: var(--font-heading);
-    font-size: var(--text-hero);
-    font-weight: 600;
-    color: var(--clr-white);
-    line-height: 1.1;
-  }
-  .blog-hero__heading em { font-style: italic; color: var(--clr-gold); }
-  .blog-hero__sub {
-    font-size: var(--text-lg);
-    font-weight: 300;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.8;
-    max-width: 56ch;
-  }
+  .hero-heading { font-family: var(--font-heading); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0; }
+  .hero-heading em { font-style: italic; color: var(--clr-gold); font-weight: 400; }
+  .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); font-weight: 300; line-height: 1.7; max-width: 55ch; margin: 0; }
+  .hero-stats { display: flex; align-items: center; gap: var(--space-10); margin-top: var(--space-6); }
+  .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .hero-stat__num { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--clr-gold); }
+  .hero-stat__label { font-size: 0.7rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.12em; }
+  .hero-stat-divider { width: 1px; height: 30px; background: rgba(255,255,255,0.1); }
 
-  /* ── Blog Grid ── */
-  .blog-list {
-    background: var(--clr-off-white);
-    padding: var(--space-32) var(--gutter);
+  /* ── Featured ── */
+  .featured-section { background: #fdfdfb; padding: var(--space-24) var(--gutter); }
+  .section-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--clr-navy);
+    margin-bottom: var(--space-10); opacity: 0.6;
   }
-  .blog-list__inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
+  .featured-card {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    background: var(--clr-white); border-radius: 32px;
+    border: 1px solid var(--clr-light-gray); overflow: hidden;
+    text-decoration: none; box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    transition: all 0.5s var(--ease-out-expo);
   }
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: var(--space-8);
-    margin-bottom: var(--space-16);
+  .featured-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 30px 80px rgba(0,0,0,0.08); border-color: var(--clr-gold); }
+  .featured-card__visual {
+    background: #1a1810;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    min-height: 400px; overflow: hidden;
   }
-
-  .blog-card {
-    background: var(--clr-white);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    border: 1px solid var(--clr-light-gray);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
+  .featured-card__visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
   }
-  .blog-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+  .featured-card__pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(206,196,167,0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
-
-  .blog-card__header {
-    position: relative;
-    height: 220px;
-    background: var(--clr-navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+  .featured-card__icon-wrap {
+    width: 120px; height: 120px; background: rgba(206,196,167,0.1);
+    border: 1px solid rgba(206,196,167,0.2); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--clr-gold); position: relative; z-index: 1;
+    transition: transform 0.6s var(--ease-out-expo);
   }
-  .blog-card__img-placeholder {
-    width: 80px;
-    height: 80px;
-    background: rgba(206, 196, 167, 0.15);
-    border: 1px solid rgba(206, 196, 167, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--clr-gold);
-    font-size: 2.5rem;
-    position: relative;
-    z-index: 1;
-  }
-  .blog-card__header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 70% 30%, rgba(206, 196, 167, 0.1) 0%, transparent 70%);
-  }
-  .blog-card__tag {
-    position: absolute;
-    top: var(--space-5);
-    left: var(--space-5);
-    background: var(--clr-gold);
-    color: var(--clr-white);
-    padding: 4px 12px;
-    border-radius: var(--radius-pill);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .featured-card:hover .featured-card__icon-wrap { transform: scale(1.1) rotate(5deg); }
+  .featured-card__cat {
+    position: absolute; top: 32px; left: 32px;
+    background: var(--clr-gold); color: #fff;
+    padding: 6px 18px; border-radius: 99px;
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
     z-index: 2;
   }
+  .featured-card__body { padding: 4rem; display: flex; flex-direction: column; justify-content: center; gap: var(--space-6); background: #fff; }
+  .featured-card__meta { display: flex; align-items: center; gap: var(--space-3); font-size: 0.8rem; color: var(--clr-text-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+  .featured-card__title { font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: var(--clr-navy); line-height: 1.15; margin: 0; }
+  .featured-card__excerpt { font-size: 1.1rem; color: var(--clr-text-body); line-height: 1.8; font-weight: 300; margin: 0; opacity: 0.8; }
+  .featured-card__cta { display: inline-flex; align-items: center; gap: var(--space-3); font-size: 0.9rem; font-weight: 800; color: var(--clr-gold-dark); text-transform: uppercase; letter-spacing: 0.12em; transition: all 0.3s ease; }
+  .featured-card:hover .featured-card__cta { gap: var(--space-5); color: var(--clr-navy); }
 
-  .blog-card__body {
-    padding: var(--space-8);
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  /* ── Blog Section ── */
+  .blog-section { background: #fdfdfb; padding: 0 var(--gutter) var(--space-32); }
+
+  /* Category Filters */
+  .cat-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-bottom: var(--space-16); }
+  .cat-btn {
+    padding: 10px 24px; border-radius: 99px;
+    border: 1px solid var(--clr-light-gray); background: var(--clr-white);
+    color: var(--clr-text-mid); font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; transition: all 0.3s var(--ease-out-expo); letter-spacing: 0.05em;
   }
-  .blog-card__date {
-    font-size: 0.75rem;
-    color: var(--clr-text-mid);
-    margin-bottom: var(--space-3);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .cat-btn:hover { border-color: var(--clr-gold); color: var(--clr-gold-dark); transform: translateY(-2px); }
+  .cat-btn--active { background: var(--clr-navy); border-color: var(--clr-navy); color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+  /* Posts Grid */
+  .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
+  .post-card {
+    background: var(--clr-white); border-radius: 24px;
+    border: 1px solid var(--clr-light-gray); overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: all 0.5s var(--ease-out-expo);
+    opacity: 1; transform: translateY(0);
   }
-  .blog-card__title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: 600;
-    color: var(--clr-navy);
-    line-height: 1.3;
-    margin-bottom: var(--space-4);
+  .post-card.is-hidden { opacity: 0; transform: translateY(28px); }
+  .post-card:hover { transform: translateY(-12px); box-shadow: 0 20px 50px rgba(0,0,0,0.07); border-color: var(--clr-gold-pale); }
+  .post-card.hidden { display: none; }
+
+  .post-card__top {
+    position: relative; height: 160px;
+    display: flex; align-items: flex-end; padding: var(--space-6);
+    overflow: hidden;
   }
-  .blog-card__title a {
-    color: inherit;
-    transition: color 0.3s ease;
+  .post-card__shimmer {
+    position: absolute; inset: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+    pointer-events: none;
   }
-  .blog-card__title a:hover {
-    color: var(--clr-gold);
-  }
-  .blog-card__excerpt {
-    font-size: var(--text-sm);
-    color: var(--clr-text-body);
-    line-height: 1.7;
-    margin-bottom: var(--space-6);
-    flex: 1;
+  .post-card__cat {
+    position: relative; z-index: 1;
+    background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2); color: #fff;
+    padding: 6px 14px; border-radius: 99px;
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
   }
 
-  .blog-card__read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    color: var(--clr-gold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: gap 0.3s ease;
-  }
-  .blog-card__read-more:hover {
-    gap: var(--space-4);
-  }
-
-  /* ── Pagination ── */
-  .blog-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-3);
-  }
-  .blog-pagination__btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    border: 1px solid var(--clr-light-gray);
-    background: var(--clr-white);
-    color: var(--clr-navy);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .blog-pagination__btn--active,
-  .blog-pagination__btn:hover {
-    background: var(--clr-gold);
-    border-color: var(--clr-gold);
-    color: var(--clr-white);
-  }
-  .blog-pagination__dots {
-    color: var(--clr-text-mid);
-    font-weight: 600;
-  }
+  .post-card__body { padding: 2.5rem; display: flex; flex-direction: column; flex: 1; gap: var(--space-4); }
+  .post-card__meta { display: flex; align-items: center; gap: var(--space-2); font-size: 0.75rem; color: var(--clr-text-mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+  .post-card__title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--clr-navy); line-height: 1.3; margin: 0; }
+  .post-card__title a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+  .post-card__title a:hover { color: var(--clr-gold); }
+  .post-card__excerpt { font-size: 0.95rem; color: var(--clr-text-body); line-height: 1.7; font-weight: 300; flex: 1; margin: 0; opacity: 0.85; }
+  .post-card__link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 800; color: var(--clr-gold-dark); text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; margin-top: var(--space-4); transition: all 0.3s ease; }
+  .post-card:hover .post-card__link { gap: 14px; color: var(--clr-navy); }
 
   /* ── Newsletter ── */
-  .newsletter {
-    background: var(--clr-navy);
-    padding: var(--space-20) var(--gutter);
+  .nl-section { background: #fdfdfb; padding: var(--space-32) var(--gutter); }
+  .nl-card {
+    position: relative;
+    background: #1a1810;
+    border-radius: 40px; overflow: hidden;
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-12); padding: 5rem;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.15);
   }
-  .newsletter__inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: var(--space-10);
+  .nl-card__glow {
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(206,196,167,0.1) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .newsletter__content {
-    flex: 1;
-  }
-  .newsletter__heading {
-    font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    color: var(--clr-white);
-    margin-bottom: var(--space-2);
-  }
-  .newsletter__sub {
-    color: rgba(255,255,255,0.7);
-    font-size: var(--text-base);
-  }
-  .newsletter__form {
-    display: flex;
-    gap: var(--space-4);
-    min-width: 400px;
-  }
-  .newsletter__form input {
-    flex: 1;
-    padding: 12px 20px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.05);
-    color: var(--clr-white);
-    outline: none;
-  }
-  .newsletter__form input:focus {
-    border-color: var(--clr-gold);
-  }
-  .newsletter__form button {
-    white-space: nowrap;
-  }
+  .nl-card__left { position: relative; z-index: 1; display: flex; flex-direction: column; gap: var(--space-5); justify-content: center; }
+  .nl-tag { display: inline-block; background: rgba(206,196,167,0.08); border: 1px solid rgba(206,196,167,0.15); color: var(--clr-gold); padding: 6px 20px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; width: fit-content; }
+  .nl-heading { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; line-height: 1.1; margin: 0; }
+  .nl-heading em { font-style: italic; color: var(--clr-gold); font-weight: 400; }
+  .nl-sub { font-size: 1.1rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.7; margin: 0; }
 
+  .nl-form { position: relative; z-index: 1; display: flex; flex-direction: column; gap: var(--space-5); justify-content: center; }
+  .nl-input-wrap { position: relative; display: flex; align-items: center; }
+  .nl-input-wrap svg { position: absolute; left: 20px; color: rgba(255,255,255,0.3); pointer-events: none; }
+  .nl-input-wrap input {
+    width: 100%; padding: 18px 24px 18px 56px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; color: #fff; font-size: 1rem; outline: none;
+    transition: all 0.3s ease;
+  }
+  .nl-input-wrap input::placeholder { color: rgba(255,255,255,0.25); }
+  .nl-input-wrap input:focus { border-color: var(--clr-gold); background: rgba(255,255,255,0.08); }
+  .nl-btn {
+    padding: 18px 32px; background: var(--clr-gold);
+    border: none; border-radius: 16px; color: var(--clr-navy);
+    font-weight: 800; font-size: 1rem; cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .nl-btn:hover { background: #fff; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+  .nl-privacy { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin: 0; text-align: center; }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .posts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 960px) {
-    .newsletter__inner {
-      flex-direction: column;
-      text-align: center;
-    }
-    .newsletter__form {
-      min-width: 100%;
-      width: 100%;
-    }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-card__visual { min-height: 280px; }
+    .featured-card__body { padding: 2.5rem; }
+    .nl-card { grid-template-columns: 1fr; gap: var(--space-10); padding: 3rem; }
   }
-
-  @media (max-width: 600px) {
-    .blog-grid {
-      grid-template-columns: 1fr;
-    }
-    .newsletter__form {
-      flex-direction: column;
-    }
+  @media (max-width: 768px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: var(--space-6); flex-wrap: wrap; justify-content: center; }
+    .nl-card { padding: 2rem; border-radius: 24px; }
+    .blog-hero { padding: 8rem var(--gutter) 6rem; }
+    .hero-heading { font-size: 2.8rem; }
+    .hero-stats { gap: var(--space-4); }
+    .hero-stat__num { font-size: 1.4rem; }
+  }
+  @media (max-width: 500px) {
+    .featured-card__body { padding: 1.5rem; }
+    .featured-card__title { font-size: 1.6rem; }
+    .post-card__body { padding: 1.5rem; }
+    .nl-heading { font-size: 1.8rem; }
   }
 </style>
 
@@ -378,19 +360,61 @@ const posts = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.blog-hero__content > *', {
-    y: 40, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', delay: 0.2,
+  // Hero entrance
+  gsap.from('.hero-inner > *', { y: 30, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out', delay: 0.1 });
+
+  // Featured card
+  gsap.from('.featured-card', {
+    scrollTrigger: { trigger: '.featured-card', start: 'top 88%', once: true },
+    y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
   });
 
-  gsap.from('.blog-card', {
-    scrollTrigger: {
-      trigger: '.blog-grid',
-      start: 'top 85%'
-    },
-    y: 50,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 0.8,
-    ease: 'power3.out'
+  // Post cards
+  const cards = document.querySelectorAll<HTMLElement>('.post-card');
+  cards.forEach(c => c.classList.add('is-hidden'));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        const idx = Array.from(cards).filter(c => !c.classList.contains('hidden')).indexOf(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          el.classList.remove('is-hidden');
+        }, idx * 80);
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => io.observe(c));
+
+  // Newsletter
+  gsap.from('.nl-card', {
+    scrollTrigger: { trigger: '.nl-section', start: 'top 85%', once: true },
+    y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
+  });
+
+  // Category filter
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.cat-btn');
+  const postCards = document.querySelectorAll<HTMLElement>('.post-card');
+  const noResults = document.getElementById('no-results')!;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('cat-btn--active'));
+      btn.classList.add('cat-btn--active');
+      const cat = btn.dataset.cat!;
+      let visibleCount = 0;
+      postCards.forEach(card => {
+        const match = cat === 'All' || card.dataset.category === cat;
+        card.classList.toggle('hidden', !match);
+        if (match) {
+          visibleCount++;
+          // Re-observe if it was hidden
+          io.observe(card);
+        }
+      });
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
   });
 </script>

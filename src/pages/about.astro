@@ -4,276 +4,488 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
 import Contact from '../components/Contact.astro';
+import { doctorsData } from '../data/doctorsData.js';
 ---
 
-<BaseLayout title="About Us | DentiQ Superspeciality Laser Dental Hospital Erode" description="DentiQ is Erode's best dental hospital in Palayapalayam. Our expert superspecialists provide 5-star comfort and world-class sterile dental care.">
+<BaseLayout title="About Us | DentiQ Superspeciality Laser Dental Hospital Erode" description="DentiQ is Erode's best dental hospital in Palayapalayam. Built on 23 years of care and clinical excellence.">
   <Cursor />
   <Nav />
 
-  <!-- About Hero -->
-  <section class="about-hero">
-    <div class="about-hero__bg"></div>
-    <div class="about-hero__content">
-      <span class="section__label section__label--light" data-flicker>
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
-        Our Story
-      </span>
-      <h1 class="about-hero__heading">State-of-the-Art <em>Care in Erode</em></h1>
-      <p class="about-hero__sub">
-        Discover why DentiQ is the premier destination for comprehensive, comfortable, and affordable superspeciality dentistry.
-      </p>
-    </div>
-  </section>
-
-  <!-- Comprehensive Care (WHITE) -->
-  <section class="comprehensive">
-    <div class="container">
-      <div class="comp-grid">
-        <div class="comp-left">
-          <span class="section__label">Preventive Focus</span>
-          <h2 class="section__heading">Comprehensive <em>Dental & General Health</em></h2>
-          <p>
-            We believe that preventive care and education are the keys to optimal dental health. We strive to provide “Comprehensive dental health care.” That’s why we focus on thorough exams – checking the overall health of your teeth and gums, performing oral cancer exams, and taking x-rays when necessary.
-          </p>
-          <p>
-            We also emphasize routine cleanings, flossing, sealants, and fluoride application that are helpful in preventing dental disease.
-          </p>
+  <main>
+    <!-- PAGE HERO SECTION -->
+    <section class="about-hero">
+      <div class="about-hero__bg"></div>
+      <div class="about-hero__content">
+        <span class="section__label section__label--light" data-flicker>
+          Our Story
+        </span>
+        <h1 class="about-hero__heading">Erode's Most Trusted <em>Dental Hospital</em> — Built on 23 Years of Care</h1>
+        <p class="about-hero__sub">
+          DentiQ Superspeciality Laser Dental Hospital was born from a single belief: that every person in Erode deserves world-class dental care delivered with genuine warmth, clinical precision, and zero compromise on safety.
+        </p>
+        <div class="about-hero__ctas">
+          <a href="/doctors" class="btn btn--primary">Meet Our Doctors</a>
+          <a href="/treatments" class="btn btn--outline">Explore Treatments</a>
         </div>
-        <div class="comp-right">
-          <div class="health-box">
-            <h4>The Health Connection</h4>
-            <p>Not only are we focused on the beauty of your smile, we’re also concerned about your health. Countless studies have demonstrated a link between poor oral health and systemic diseases such as:</p>
-            <div class="health-grid">
-              <div class="health-item"><span>Heart Disease</span></div>
-              <div class="health-item"><span>Diabetes</span></div>
-              <div class="health-item"><span>Rheumatoid Arthritis</span></div>
-              <div class="health-item"><span>Pregnancy Safety</span></div>
+      </div>
+    </section>
+
+    <!-- SECTION 1 — OUR STORY & FOUNDING VISION -->
+    <section class="story section">
+      <div class="container">
+        <div class="story__grid">
+          <div class="story__content">
+            <span class="section__label">Who We Are</span>
+            <h2 class="section__heading">More Than a Clinic — A Mission to <em>Transform Dental Care</em> in Erode</h2>
+            <p>
+              Over two decades ago, DentiQ was founded with a purpose that goes beyond treating teeth. We saw a gap in Erode: patients were travelling to Chennai or Coimbatore for advanced dental procedures because no local facility offered superspeciality-level care. We decided to change that.
+            </p>
+            <p>
+              Today, DentiQ Superspeciality Laser Dental Hospital stands as Erode's only true superspeciality dental centre — bringing together 40+ trained specialists, cutting-edge laser technology, and a clinical environment that rivals the best hospitals in major Indian cities.
+            </p>
+            <p>
+              We have served over 10,000 families across Erode, Palayapalayam, Perundurai, and beyond. Our founding vision remains unchanged: nobody should have to leave Erode for exceptional dental treatment.
+            </p>
+          </div>
+          <div class="story__stats">
+            <div class="stat-card">
+              <span class="stat-number">23+</span>
+              <span class="stat-label">Years of Clinical Excellence</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">10,000+</span>
+              <span class="stat-label">Families Treated</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">40+</span>
+              <span class="stat-label">Superspecialists</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">4.9 ★</span>
+              <span class="stat-label">Google Rating</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 5-Star Comforts (OFF-WHITE) -->
-  <section class="comforts">
-    <div class="container">
-      <div class="section-header">
-        <span class="section__label">Unmatched Experience</span>
-        <h2 class="section__heading">5-Star <em>Comforts</em></h2>
-        <p class="section-sub">The only dental clinic in Erode designed specifically for your comfort:</p>
-      </div>
-      <div class="comforts-grid">
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-          </div>
-          <h3>Music & Ambience</h3>
-          <p>Headphones and soothing background instrumentals to help you relax — many patients even doze off!</p>
-        </div>
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M12 20v2M17.66 17.66l1.41 1.41M20 12h2M17.66 6.34l1.41-1.41"/></svg>
-          </div>
-          <h3>Light Sensitivity</h3>
-          <p>Premium sunglasses provided to ensure your comfort under procedure lighting.</p>
-        </div>
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-          </div>
-          <h3>Anxiety Relief</h3>
-          <p>Sleep Eyemasks available for anxious patients to ensure a completely stress-free experience.</p>
-        </div>
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"/><path d="M3 20h18"/><path d="M5 14h14v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/></svg>
-          </div>
-          <h3>Relaxation Chairs</h3>
-          <p>Ultra-comfortable ergonomic chairs in every room to help you relax throughout your visit.</p>
-        </div>
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22v-4M8 18h8M12 8v10M12 2v6M20 12h-4M8 12H4M17.66 6.34l-2.83 2.83M9.17 14.83l-2.83 2.83M17.66 17.66l-2.83-2.83M9.17 9.17l-2.83-2.83"/></svg>
-          </div>
-          <h3>Custom Climate</h3>
-          <p>Individual aircon settings in every operatory to keep you perfectly comfy during care.</p>
-        </div>
-        <div class="comfort-card">
-          <div class="comfort-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.71-2.16 0-3a2.12 2.12 0 0 0-3 0Z"/><path d="m8 13 4 4L22 7l-4-4L8 13Z"/><path d="m15 6 4 4"/></svg>
-          </div>
-          <h3>Orthopedic Care</h3>
-          <p>Special head and neck pillows designed specifically for patients with orthopedic needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Care (DARK NAVY) -->
-  <section class="our-care section--dark">
-    <div class="container">
-      <div class="care-grid">
-        <div class="care-content">
-          <span class="section__label section__label--light">Premier Hospital</span>
-          <h2 class="section__heading">Our <em>Care</em></h2>
-          <p class="care-text">
-            When you visit DentiQ for the first time, you’ll be amazed at our service and ambience. We are the best dental facility in the heart of Erode with state-of-the-art equipment and a superspecialist team.
+    <!-- SECTION 2 — OUR CLINICAL PHILOSOPHY -->
+    <section class="philosophy section section--light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section__label">How We Think</span>
+          <h2 class="section__heading">We Don't Just Treat Teeth — We Protect Your <em>Overall Health</em></h2>
+          <p class="section-sub">
+            At DentiQ, we practise dentistry with a whole-body perspective. Oral health is deeply connected to your general health.
           </p>
-          <p class="care-text">
-            Our exceptional team is committed to providing comfortable and gentle dentistry with virtually zero waiting time.
-          </p>
-          <div class="featured-quote">
-            "Get yourself pampered with 5 Star comforts while you are on the way to an everlasting bright happy smile!"
+        </div>
+        
+        <div class="philosophy-grid">
+          <div class="phi-card">
+            <div class="phi-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v8"/><path d="M14 2v8"/><path d="M8 10h8v4a4 4 0 0 1-8 0v-4Z"/><path d="M12 14v7"/><path d="M9 21h6"/></svg>
+            </div>
+            <h3>Diagnose First, Treat Second</h3>
+            <p>We never recommend treatment before a thorough examination. Every new patient receives a comprehensive oral health assessment — including digital X-rays and an oral cancer screening.</p>
+          </div>
+          <div class="phi-card">
+            <div class="phi-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+            </div>
+            <h3>Prevention Over Intervention</h3>
+            <p>Our clinical approach prioritises preserving your natural teeth. Routine cleanings, fluoride applications, and sealants prevent the need for complex procedures down the line.</p>
+          </div>
+          <div class="phi-card">
+            <div class="phi-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m16 11 2 2 4-4"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 12h18"/></svg>
+            </div>
+            <h3>Honest, Transparent Communication</h3>
+            <p>We explain every diagnosis in plain language. We show you your X-rays and discuss all treatment options — including the most affordable ones.</p>
           </div>
         </div>
-        <div class="care-visual">
-          <img src="/Screenshot%202026-04-29%20221706.png" alt="Dr. Dilip performing dental procedure" class="care-img" />
+
+        <div class="health-connection">
+          <div class="health-connection__content">
+            <h3>Poor Oral Health Is Linked to Serious Systemic Conditions</h3>
+            <p>Your mouth is the gateway to your body. We screen every patient for signs of conditions that commonly co-exist with poor oral health:</p>
+            <ul class="health-list">
+              <li><strong>Heart Disease</strong> — Gum bacteria can enter the bloodstream and contribute to arterial inflammation</li>
+              <li><strong>Type 2 Diabetes</strong> — Periodontal disease worsens blood sugar control, and vice versa</li>
+              <li><strong>Rheumatoid Arthritis</strong> — Shared inflammatory pathways link gum disease and joint disease</li>
+              <li><strong>Pregnancy Complications</strong> — Untreated oral infections are associated with pre-term birth risk</li>
+              <li><strong>Sleep Apnea</strong> — Dental appliances and jaw positioning play a direct role in sleep-disordered breathing</li>
+            </ul>
+            <p class="health-footer">This is why we look at you as a whole person — not just a set of teeth.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Sterile & Updates (WHITE) -->
-  <section class="sterile">
-    <div class="container">
-      <div class="dual-columns">
-        <div class="column">
-          <span class="section__label">Highly Sterile Practice</span>
-          <h2 class="section__heading">You're <em>Safe With Us</em></h2>
+    <!-- SECTION 3 — CLINICAL EXCELLENCE & TECHNOLOGY -->
+    <section class="tech section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section__label">Our Technology</span>
+          <h2 class="section__heading">World-Class Equipment, <em>Right Here in Erode</em></h2>
+          <p class="section-sub">We invest continuously in the latest dental technology for more accurate diagnoses and faster recovery.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Diode Laser Dentistry</h3>
+            <p>Replaces the scalpel for dozens of procedures. Means no bleeding, no stitches, less pain, and dramatically faster healing.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+            </div>
+            <h3>Class B Autoclave Sterilisation</h3>
+            <p>The only clinic in Erode using a Class B autoclave — the same standard used in hospital operating theatres.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="12" cy="12" r="3"/><path d="m21 7-4.5 4.5"/><path d="m3 7 4.5 4.5"/></svg>
+            </div>
+            <h3>3D Digital X-Ray (RVG)</h3>
+            <p>Delivers precise diagnostic images at up to 90% lower radiation than conventional X-rays. Instant, high-resolution images.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </div>
+            <h3>Digital Smile Design (DSD)</h3>
+            <p>See and approve your new smile before treatment starts using facial photographs and digital design software.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z"/><path d="M12 8V2"/><path d="M12 14v-2"/></svg>
+            </div>
+            <h3>WaveOne Rotary Endodontics</h3>
+            <p>Single-visit root canal treatments that are faster, more predictable, and virtually painless.</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V2"/><path d="M5 12h14"/></svg>
+            </div>
+            <h3>BPS Prosthetics</h3>
+            <p>Using Ivoclar Vivadent Switzerland materials — the global gold standard for aesthetic and long-lasting prosthetics.</p>
+          </div>
+        </div>
+        <p class="tech-closing">We attend international dental conventions every year to stay ahead of emerging techniques and bring the best of global dentistry to Erode.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — THE 5-STAR PATIENT EXPERIENCE -->
+    <section class="experience section section--light">
+      <div class="container">
+        <div class="section-header">
+          <span class="section__label">Your Comfort</span>
+          <h2 class="section__heading">A Dental Visit You'll <em>Actually Look Forward To</em></h2>
+          <p class="section-sub">DentiQ was designed to make your visit as calm, comfortable, and stress-free as possible.</p>
+        </div>
+
+        <div class="comfort-grid">
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+            <h3>Music & Ambient Sound</h3>
+            <p>Choose your playlist or listen to soothing background music through personal headphones during treatment.</p>
+          </div>
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="15" r="3"/><circle cx="18" cy="15" r="3"/><path d="M3 15h3m12 0h3m-9 0h1m-5 0h1M6 15c0-4 3-7 6-7s6 3 6 7"/></svg>
+            </div>
+            <h3>Light Comfort Eyewear</h3>
+            <p>We provide premium protective sunglasses to every patient so procedure lights never cause discomfort.</p>
+          </div>
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4v16"/><path d="M22 4v16"/><path d="M2 8h20"/><path d="M2 16h20"/></svg>
+            </div>
+            <h3>Anxiety Relief Masks</h3>
+            <p>Soft sleep eyemasks help block visual stimuli, reducing stress for anxious patients.</p>
+          </div>
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v8"/><path d="M3 20h18"/><path d="M5 14h14v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-4z"/></svg>
+            </div>
+            <h3>Ergonomic Treatment Chairs</h3>
+            <p>Every operatory is fitted with ultra-comfortable, ergonomically designed dental chairs.</p>
+          </div>
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="M2 12h20"/><path d="m19.07 4.93-14.14 14.14"/></svg>
+            </div>
+            <h3>Individual Climate Control</h3>
+            <p>Each treatment room has its own air conditioning controls. You choose the temperature.</p>
+          </div>
+          <div class="comfort-card-new">
+            <div class="comfort-icon-new">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+            </div>
+            <h3>Orthopedic Support Pillows</h3>
+            <p>Specially designed head and neck pillows for additional support during longer treatments.</p>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          <p>"Get yourself pampered with 5-star comforts — and leave with an everlasting bright, happy smile."</p>
+          <span>— The DentiQ Team</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — OUR TEAM -->
+    <section class="team section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section__label">The People Behind DentiQ</span>
+          <h2 class="section__heading">40+ Specialists, <em>One Shared Standard</em> of Care</h2>
+          <p class="section-sub">Every dentist at DentiQ is a trained postgraduate specialist in their field.</p>
+        </div>
+
+        <div class="team-grid">
+          {doctorsData.map(doctor => (
+            <div class="doctor-card">
+              <div class="doctor-card__image">
+                <div class="placeholder-img">
+                  <span>{doctor.name.split(' ')[0]} {doctor.name.split(' ')[1]}</span>
+                </div>
+              </div>
+              <div class="doctor-card__content">
+                <h3>{doctor.name}</h3>
+                <span class="doctor-card__qual">{doctor.qualifications}</span>
+                <p>{doctor.bio}</p>
+                <div class="doctor-card__tags">
+                  {doctor.specialties.slice(0, 3).map(s => <span>{s}</span>)}
+                </div>
+                <a href={`/doctors/${doctor.id}`} class="btn btn--outline btn--sm">View Full Profile</a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="team-ethos">
           <p>
-            Infection control is of paramount importance for us. We are proud to say we are the <strong>only clinic in Erode</strong> to use a world-class <strong>Class B Autoclave</strong> to sterilize our instruments.
-          </p>
-        </div>
-        <div class="column">
-          <span class="section__label">Latest Technology</span>
-          <h2 class="section__heading">Ever <em>Updating</em></h2>
-          <p>
-            We pride ourselves in providing the latest treatment options. We constantly update ourselves attending international dental conventions to stay informed of the latest techniques.
+            Beyond individual expertise, what truly defines our team is a shared culture of care. From our reception staff who greet you by name, to our dental specialists who take time to answer every question — every person at DentiQ is here because they believe you deserve the best.
           </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Final Note (OFF-WHITE) -->
-  <section class="final-note">
-    <div class="container">
-      <div class="final-grid">
-        <div class="final-card">
-          <h3>A Pleasant Experience</h3>
-          <p>Building a foundation of trust by treating our patients as special individuals is vital to our success. Our entire team is dedicated to providing you with excellent, personalized care and service to make your visits as comfortable as possible.</p>
+    <!-- SECTION 6 — WHY CHOOSE DENTIQ -->
+    <section class="why section section--dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section__label section__label--light">Why DentiQ</span>
+          <h2 class="section__heading">Six Reasons Erode <em>Trusts DentiQ</em> Above All Others</h2>
         </div>
-        <div class="final-card final-card--gold">
-          <h3>Affordable Cost</h3>
-          <p>The cost of cosmetic dentistry with us is affordable and we offer effective treatments that fit every pocket. Expert care shouldn't be out of reach.</p>
-          <a href="#contact" class="btn btn--light">Book Consultation</a>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <span class="why-number">01</span>
+            <h3>Superspeciality Under One Roof</h3>
+            <p>With 13 specialities, you never need to be referred elsewhere. Coordinated care between specialists in one place.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-number">02</span>
+            <h3>The Only Class B Sterilisation in Erode</h3>
+            <p>Infection control is not optional. Our Class B autoclave sterilisation exceeds the standard of every other clinic in Erode.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-number">03</span>
+            <h3>23+ Years of Proven Results</h3>
+            <p>Over two decades, we have transformed smiles and built relationships with thousands of Erode families. 4.9-star rating.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-number">04</span>
+            <h3>Laser Dentistry That Changes the Experience</h3>
+            <p>Our diode laser replaces invasive tools, resulting in less pain, no bleeding, and faster recovery. It is a better way to care.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-number">05</span>
+            <h3>Transparent, Affordable Pricing</h3>
+            <p>Expert care shouldn't be only for the wealthy. Our pricing is transparent and we offer affordable alternatives.</p>
+          </div>
+          <div class="why-card">
+            <span class="why-number">06</span>
+            <h3>Genuine Patient-First Culture</h3>
+            <p>We remember your name. We call you after procedures. We don't keep you waiting. It is simply who we are.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <Contact />
+    <!-- SECTION 7 — ACCREDITATIONS & AFFILIATIONS -->
+    <section class="accreditations section">
+      <div class="container">
+        <div class="accred-grid">
+          <div class="accred-content">
+            <span class="section__label">Standards We Uphold</span>
+            <h2 class="section__heading">Committed to the <em>Highest Clinical Standards</em></h2>
+            <p>
+              DentiQ follows protocols aligned with international dental best practices, including sterilisation standards consistent with EN 13060 Class B requirements, and treatment protocols informed by guidelines from the Indian Dental Association (IDA).
+            </p>
+            <p>
+              Our team participates in continuing dental education (CDE) programmes and international dental conventions every year — ensuring that the techniques we use today reflect current global evidence.
+            </p>
+          </div>
+          <div class="accred-logos">
+            <!-- Logos placeholders -->
+            <div class="logo-item">IDA Member</div>
+            <div class="logo-item">ISO Certified</div>
+            <div class="logo-item">Laser Dentistry</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 — CLOSING CTA -->
+    <section class="closing section section--light">
+      <div class="container">
+        <div class="closing__card">
+          <span class="section__label">Ready to Visit Us?</span>
+          <h2 class="section__heading">Your <em>Healthiest Smile</em> Starts Here</h2>
+          <p>Whether you need a routine check-up, are considering implants, or have been living with dental pain for years — DentiQ is ready to help.</p>
+          <div class="closing__actions">
+            <a href="#contact" class="btn btn--primary">Book Free Consultation</a>
+            <a href="tel:+918489488999" class="btn btn--navy">Call +91 84894 88999</a>
+            <a href="https://wa.me/918489488999" target="_blank" class="btn btn--outline">Chat on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
   <Footer />
 </BaseLayout>
 
 <style>
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .section--dark { background: var(--clr-navy) !important; color: var(--clr-white); }
-  .section-header { text-align: center; margin-bottom: var(--space-16); max-width: 700px; margin-left: auto; margin-right: auto; }
+  .section-header { text-align: center; margin-bottom: var(--space-16); max-width: 800px; margin-left: auto; margin-right: auto; }
   .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; line-height: 1.1; }
   .section__heading em { font-style: italic; color: var(--clr-gold); }
-  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; }
-
-  /* Section Overlap Logic */
-  section {
-    position: relative;
-    border-radius: 0 0 64px 64px;
-    margin-bottom: -64px;
-    padding: var(--space-32) 0 calc(var(--space-32) + 64px) !important;
-  }
-  
-  section:nth-child(1) { z-index: 20; }
-  section:nth-child(2) { z-index: 19; }
-  section:nth-child(3) { z-index: 18; }
-  section:nth-child(4) { z-index: 17; }
-  section:nth-child(5) { z-index: 16; }
-  section:nth-child(6) { z-index: 15; }
-  section:nth-child(7) { z-index: 14; }
-  section:nth-child(8) { z-index: 13; }
+  .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; line-height: 1.6; }
 
   /* Hero */
   .about-hero {
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.92) 0%, rgba(91, 84, 60, 0.95) 100%), url('/modern-studio-bg.png') center/cover no-repeat;
-    padding: 12rem var(--gutter) 10rem !important;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.95) 0%, rgba(91, 84, 60, 0.98) 100%), url('/modern-studio-bg.png') center/cover no-repeat;
+    padding: 14rem var(--gutter) 12rem !important;
     text-align: center;
     border-radius: 0;
   }
   .about-hero__bg {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(206, 196, 167, 0.1) 1px, transparent 1px);
     background-size: 32px 32px;
   }
-  .about-hero__content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-5); }
-  .about-hero__heading { font-family: var(--font-heading); font-size: var(--text-hero); font-weight: 600; color: var(--clr-white); line-height: 1.05; }
-  .about-hero__heading em { font-style: italic; color: var(--clr-gold); }
-  .about-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 60ch; }
+  .about-hero__content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .about-hero__heading { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 600; color: var(--clr-white); line-height: 1.1; }
+  .about-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 70ch; }
+  .about-hero__ctas { display: flex; gap: var(--space-4); margin-top: var(--space-4); }
 
-  /* Comprehensive */
-  .comprehensive { background: var(--clr-white); }
-  .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: center; }
-  .comp-left p { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-5); color: var(--clr-text-body); font-weight: 300; }
-  
-  .health-box { background: var(--clr-off-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
-  .health-box h4 { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); margin-bottom: var(--space-4); }
-  .health-box p { font-size: var(--text-sm); line-height: 1.7; margin-bottom: var(--space-6); opacity: 0.8; }
-  .health-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
-  .health-item { background: var(--clr-white); padding: 12px; border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(78,72,50,0.05); }
+  /* Story & Stats */
+  .story__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); align-items: flex-start; }
+  .story__content p { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
+  .story__stats { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .stat-card { background: var(--clr-off-white); padding: var(--space-8); border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--clr-light-gray); }
+  .stat-number { display: block; font-family: var(--font-heading); font-size: var(--text-2xl); color: var(--clr-navy); font-weight: 700; margin-bottom: var(--space-1); }
+  .stat-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--clr-gold-dark); font-weight: 600; line-height: 1.3; display: block; }
 
-  /* Comforts */
-  .comforts { background: var(--clr-off-white); }
-  .comforts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
-  .comfort-card { background: var(--clr-white); padding: var(--space-10) var(--space-8); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); transition: all 0.4s var(--ease-out-expo); display: flex; flex-direction: column; gap: var(--space-4); }
-  .comfort-card:hover { transform: translateY(-10px); border-color: var(--clr-gold); box-shadow: var(--shadow-lg); }
-  .comfort-icon { width: 52px; height: 52px; background: var(--clr-gold-pale); color: var(--clr-gold-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.3s ease; }
-  .comfort-card:hover .comfort-icon { background: var(--clr-gold); color: var(--clr-navy); }
-  .comfort-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-navy); font-weight: 600; }
-  .comfort-card p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); font-weight: 300; }
+  /* Philosophy */
+  .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); margin-bottom: var(--space-16); }
+  .phi-card { background: var(--clr-white); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); transition: transform 0.3s ease; }
+  .phi-card:hover { transform: translateY(-8px); }
+  .phi-icon { margin-bottom: var(--space-4); color: var(--clr-gold-dark); }
+  .phi-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-navy); margin-bottom: var(--space-3); }
+  .phi-card p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); font-weight: 300; }
 
-  /* Our Care */
-  .our-care { background: var(--clr-navy); }
-  .care-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
-  .care-text { font-size: var(--text-base); line-height: 1.8; margin-bottom: var(--space-6); color: rgba(255,255,255,0.8); font-weight: 300; }
-  .featured-quote { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-gold); font-style: italic; padding-left: var(--space-8); border-left: 4px solid var(--clr-gold); margin-top: var(--space-8); line-height: 1.4; }
-  .care-img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.1); }
+  .health-connection { background: var(--clr-navy); color: var(--clr-white); padding: var(--space-16); border-radius: var(--radius-xl); margin-top: var(--space-12); position: relative; overflow: hidden; }
+  .health-connection::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 20px 20px; }
+  .health-connection__content { position: relative; z-index: 1; }
+  .health-connection h3 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-6); color: var(--clr-gold); }
+  .health-list { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: var(--space-8) 0; }
+  .health-list li { font-size: var(--text-base); line-height: 1.6; padding-left: var(--space-6); position: relative; font-weight: 300; }
+  .health-list li::before { content: '→'; position: absolute; left: 0; color: var(--clr-gold); font-weight: 700; }
+  .health-footer { font-weight: 600; color: var(--clr-gold); margin-top: var(--space-8); text-transform: uppercase; letter-spacing: 0.1em; font-size: var(--text-xs); }
 
-  /* Sterile */
-  .sterile { background: var(--clr-white); }
-  .dual-columns { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-16); }
-  .column p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
-  .column strong { color: var(--clr-navy); font-weight: 700; }
+  /* Technology */
+  .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-bottom: var(--space-12); }
+  .tech-card { background: var(--clr-off-white); padding: var(--space-8); border-radius: var(--radius-lg); border: 1px solid var(--clr-light-gray); transition: all 0.3s ease; }
+  .tech-card:hover { background: var(--clr-white); border-color: var(--clr-gold); box-shadow: var(--shadow-md); }
+  .tech-icon { margin-bottom: var(--space-3); color: var(--clr-gold-dark); }
+  .tech-card h3 { font-family: var(--font-heading); font-size: var(--text-base); color: var(--clr-navy); margin-bottom: var(--space-2); }
+  .tech-card p { font-size: var(--text-xs); line-height: 1.6; color: var(--clr-text-body); font-weight: 300; }
+  .tech-closing { text-align: center; font-style: italic; color: var(--clr-text-mid); opacity: 0.8; }
 
-  /* Final Note */
-  .final-note { background: var(--clr-off-white); }
-  .final-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-6); }
-  .final-card { background: var(--clr-white); padding: var(--space-12) var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
-  .final-card h3 { font-family: var(--font-heading); font-size: var(--text-2xl); color: var(--clr-navy); margin-bottom: var(--space-5); }
-  .final-card p { font-size: var(--text-base); line-height: 1.8; color: var(--clr-text-body); font-weight: 300; }
-  .final-card--gold { background: var(--clr-gold); color: var(--clr-white); border: none; }
-  .final-card--gold h3 { color: var(--clr-white); }
-  .final-card--gold p { color: rgba(255,255,255,0.9); margin-bottom: var(--space-6); }
+  /* Comfort */
+  .comfort-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-bottom: var(--space-16); }
+  .comfort-card-new { background: var(--clr-white); padding: var(--space-8); border-radius: var(--radius-lg); border: 1px solid var(--clr-light-gray); display: flex; flex-direction: column; gap: var(--space-3); transition: border-color 0.3s ease; }
+  .comfort-card-new:hover { border-color: var(--clr-gold); }
+  .comfort-icon-new { color: var(--clr-gold-dark); }
+  .comfort-card-new h3 { font-family: var(--font-heading); font-size: var(--text-base); color: var(--clr-navy); }
+  .comfort-card-new p { font-size: var(--text-xs); line-height: 1.6; color: var(--clr-text-mid); font-weight: 300; }
 
+  .quote-block { text-align: center; max-width: 700px; margin: 0 auto; padding: var(--space-12); border-top: 1px solid var(--clr-light-gray); }
+  .quote-block p { font-family: var(--font-heading); font-size: var(--text-xl); color: var(--clr-navy); font-style: italic; margin-bottom: var(--space-4); }
+  .quote-block span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--clr-gold-dark); font-weight: 700; }
+
+  /* Team */
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8); margin-bottom: var(--space-16); }
+  .doctor-card { background: var(--clr-off-white); border-radius: var(--radius-xl); overflow: hidden; display: flex; border: 1px solid var(--clr-light-gray); }
+  .doctor-card__image { width: 40%; background: var(--clr-navy); display: flex; align-items: center; justify-content: center; }
+  .placeholder-img { text-align: center; color: var(--clr-gold); font-family: var(--font-heading); font-size: 1.5rem; opacity: 0.3; }
+  .doctor-card__content { width: 60%; padding: var(--space-8); display: flex; flex-direction: column; }
+  .doctor-card__content h3 { font-family: var(--font-heading); font-size: var(--text-lg); margin-bottom: var(--space-1); }
+  .doctor-card__qual { font-size: var(--text-xs); color: var(--clr-gold-dark); font-weight: 700; margin-bottom: var(--space-4); display: block; }
+  .doctor-card__content p { font-size: var(--text-xs); line-height: 1.6; color: var(--clr-text-body); margin-bottom: var(--space-6); flex: 1; font-weight: 300; }
+  .doctor-card__tags { display: flex; gap: var(--space-2); margin-bottom: var(--space-6); flex-wrap: wrap; }
+  .doctor-card__tags span { background: var(--clr-gold-pale); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; color: var(--clr-navy); }
+  .team-ethos { max-width: 800px; margin: 0 auto; text-align: center; font-size: var(--text-base); color: var(--clr-text-mid); line-height: 1.8; font-weight: 300; }
+
+  /* Why */
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+  .why-card { background: rgba(255,255,255,0.05); padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid rgba(255,255,255,0.1); position: relative; }
+  .why-number { position: absolute; top: var(--space-8); right: var(--space-8); font-family: var(--font-heading); font-size: 3rem; color: var(--clr-gold); opacity: 0.1; }
+  .why-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-gold); margin-bottom: var(--space-4); }
+  .why-card p { font-size: var(--text-sm); line-height: 1.7; color: rgba(255,255,255,0.7); font-weight: 300; }
+
+  /* Accreditations */
+  .accred-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-16); align-items: center; }
+  .accred-content p { font-size: var(--text-base); line-height: 1.8; margin-top: var(--space-6); color: var(--clr-text-body); font-weight: 300; }
+  .accred-logos { display: grid; grid-template-columns: 1fr; gap: var(--space-4); }
+  .logo-item { background: var(--clr-off-white); padding: var(--space-6); border-radius: var(--radius-md); text-align: center; font-weight: 700; color: var(--clr-navy); text-transform: uppercase; letter-spacing: 0.1em; border: 1px solid var(--clr-light-gray); }
+
+  /* Closing */
+  .closing__card { background: var(--clr-white); padding: var(--space-16); border-radius: var(--radius-xl); text-align: center; border: 1px solid var(--clr-light-gray); box-shadow: var(--shadow-lg); }
+  .closing__card p { max-width: 600px; margin: 0 auto var(--space-10); font-size: var(--text-lg); font-weight: 300; color: var(--clr-text-body); }
+  .closing__actions { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+  /* Responsive */
   @media (max-width: 1024px) {
-    .comforts-grid { grid-template-columns: 1fr 1fr; }
+    .philosophy-grid, .tech-grid, .comfort-grid, .why-grid { grid-template-columns: 1fr 1fr; }
+    .story__grid, .accred-grid { grid-template-columns: 1fr; }
+    .story__stats { max-width: 600px; }
   }
-  @media (max-width: 900px) {
-    .care-grid, .comp-grid, .dual-columns, .final-grid { grid-template-columns: 1fr; gap: var(--space-12); }
-    .about-hero { padding: 10rem var(--gutter) 8rem !important; }
-    .about-hero__heading { font-size: 2.5rem; }
+  @media (max-width: 768px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .doctor-card { flex-direction: column; }
+    .doctor-card__image { width: 100%; height: 200px; }
+    .doctor-card__content { width: 100%; }
+    .about-hero__ctas, .closing__actions { flex-direction: column; width: 100%; }
+    .btn { width: 100%; }
   }
   @media (max-width: 600px) {
-    .comforts-grid { grid-template-columns: 1fr; }
+    .philosophy-grid, .tech-grid, .comfort-grid, .why-grid, .story__stats { grid-template-columns: 1fr; }
+    .section__heading { font-size: 2rem; }
+    .about-hero__heading { font-size: 2.2rem; }
   }
 </style>
 
@@ -282,9 +494,24 @@ import Contact from '../components/Contact.astro';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.about-hero__content > *', { y: 15, opacity: 0, stagger: 0.08, duration: 0.4, ease: 'power2.out' });
-  gsap.from('.comp-grid, .comfort-card, .care-grid, .column, .final-card', {
-    scrollTrigger: { trigger: '.comprehensive', start: 'top 90%' },
-    y: 30, opacity: 0, stagger: 0.1, duration: 0.8, ease: 'power2.out'
-  });
+  // Hero entrance
+  gsap.from('.about-hero__content > *', { y: 20, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' });
+
+  // Scroll animations
+  const fadeUp = (selector) => {
+    gsap.from(selector, {
+      scrollTrigger: { trigger: selector, start: 'top 90%', once: true },
+      y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'
+    });
+  };
+
+  fadeUp('.story__content');
+  fadeUp('.stat-card');
+  fadeUp('.phi-card');
+  fadeUp('.tech-card');
+  fadeUp('.comfort-card-new');
+  fadeUp('.doctor-card');
+  fadeUp('.why-card');
+  fadeUp('.accred-content');
+  fadeUp('.closing__card');
 </script>

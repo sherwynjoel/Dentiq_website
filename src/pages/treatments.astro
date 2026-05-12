@@ -5,181 +5,493 @@ import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
 import { treatmentsData } from '../data/treatmentsData.js';
 import Contact from '../components/Contact.astro';
+
+const categories = [
+  { label: 'All', value: 'all' },
+  { label: 'Surgical', value: 'surgical' },
+  { label: 'Cosmetic', value: 'cosmetic' },
+  { label: 'Restorative', value: 'restorative' },
+  { label: 'Specialist', value: 'specialist' },
+];
+
+const tagMap: Record<string, string> = {
+  laser: 'specialist',
+  surgery: 'surgical',
+  cosmetic: 'cosmetic',
+  implants: 'surgical',
+  maxillofacial: 'surgical',
+  pedodontics: 'specialist',
+  conservative: 'restorative',
+  endodontics: 'restorative',
+  periodontics: 'specialist',
+  orthodontics: 'cosmetic',
+  prosthodontics: 'restorative',
+  sports: 'specialist',
+  prosthetics: 'surgical',
+};
 ---
 
 <BaseLayout title="Treatments & Specialities | DentiQ Erode" description="Explore our dental specialities at DentiQ Erode. Find dedicated care for your smile.">
   <Cursor />
   <Nav />
 
-  <section class="treatments-hero">
-    <div class="container">
-      <span class="section__label section__label--light">Comprehensive Care</span>
-      <h1 class="hero__heading">Our <em>Specialities</em></h1>
-      <p class="hero__sub">Advanced dental treatments powered by Erode's expert team.</p>
-    </div>
-  </section>
-
-  <section class="treatments-directory">
-    <div class="container">
-      <div class="t-search-container">
-        <input type="text" id="t-search" placeholder="Search treatments..." class="t-search-input" />
+  <main>
+    <!-- HERO -->
+    <section class="t-hero">
+      <div class="t-hero__bg"></div>
+      <div class="t-hero__dots"></div>
+      <div class="t-hero__inner">
+        <span class="section__label section__label--light t-hero__label">13 Specialities</span>
+        <h1 class="t-hero__heading">Our <em>Treatments</em></h1>
+        <p class="t-hero__sub">World-class dental care across every speciality — all under one trusted name in Erode.</p>
+        <div class="t-hero__stats">
+          <div class="t-hero__stat"><span class="t-hero__stat-num">13</span><span class="t-hero__stat-lbl">Specialities</span></div>
+          <div class="t-hero__stat-div"></div>
+          <div class="t-hero__stat"><span class="t-hero__stat-num">23+</span><span class="t-hero__stat-lbl">Years Expertise</span></div>
+          <div class="t-hero__stat-div"></div>
+          <div class="t-hero__stat"><span class="t-hero__stat-num">100+</span><span class="t-hero__stat-lbl">Procedures</span></div>
+        </div>
       </div>
+      <div class="t-hero__scroll">
+        <span></span>
+      </div>
+    </section>
 
-      <div class="t-rows" id="t-rows">
-        {treatmentsData.map((cat) => (
-          <div class="t-row" data-name={cat.name.toLowerCase()}>
-            <div class="t-row__content">
-              <div class="t-row__icon" set:html={cat.icon}></div>
-              <h2 class="t-row__title">{cat.name}</h2>
-              {cat.catchy && <p class="t-row__catchy">{cat.catchy}</p>}
-              <p class="t-row__desc">{cat.desc}</p>
-              <a href={`/treatments/${cat.id}`} class="t-row__link btn btn--primary">View Details</a>
-            </div>
-            <div class="t-row__image-container">
-              <img src={cat.image} alt={cat.name} class="t-row__image" />
-            </div>
+    <!-- TREATMENTS GRID -->
+    <section class="t-section section">
+      <div class="t-container">
+
+        <!-- Search + Filter Bar -->
+        <div class="t-bar">
+          <div class="t-search-wrap">
+            <svg class="t-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="t-search" placeholder="Search treatments…" class="t-search" autocomplete="off" />
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+          <div class="t-filters" id="t-filters">
+            {categories.map((c) => (
+              <button class={`t-filter ${c.value === 'all' ? 'active' : ''}`} data-cat={c.value}>{c.label}</button>
+            ))}
+          </div>
+        </div>
 
-  <Contact />
+        <!-- Empty state -->
+        <div class="t-empty" id="t-empty" style="display:none">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <p>No treatments found. Try a different search.</p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="t-grid" id="t-grid">
+          {treatmentsData.map((cat, i) => (
+            <a
+              href={`/treatments/${cat.id}`}
+              class="t-card"
+              data-cat={tagMap[cat.id] || 'specialist'}
+              data-name={cat.name.toLowerCase()}
+              data-cursor-hover
+              style={`--delay: ${(i % 6) * 0.07}s`}
+            >
+              <div class="t-card__img-wrap">
+                <img src={cat.image} alt={cat.name} class="t-card__img" loading="lazy" />
+                <div class="t-card__img-overlay"></div>
+                <span class="t-card__cat-badge">{(tagMap[cat.id] || 'specialist').charAt(0).toUpperCase() + (tagMap[cat.id] || 'specialist').slice(1)}</span>
+                <div class="t-card__icon" set:html={cat.icon}></div>
+              </div>
+              <div class="t-card__body">
+                <h2 class="t-card__title">{cat.name}</h2>
+                {cat.catchy && <p class="t-card__catchy">{cat.catchy}</p>}
+                <p class="t-card__desc">{cat.desc}</p>
+                <div class="t-card__pills">
+                  {cat.services.slice(0, 3).map((s: string) => (
+                    <span class="t-card__pill">{s}</span>
+                  ))}
+                  {cat.services.length > 3 && (
+                    <span class="t-card__pill t-card__pill--more">+{cat.services.length - 3} more</span>
+                  )}
+                </div>
+                <div class="t-card__footer">
+                  <span class="t-card__link">
+                    View Treatment
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
   <Footer />
 </BaseLayout>
 
 <style>
-  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-
-  .treatments-hero {
+  /* ── Hero ── */
+  .t-hero {
     position: relative;
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.85) 0%, rgba(91, 84, 60, 0.9) 100%), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
-    padding: 10rem 0 6rem;
+    min-height: 56vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem var(--gutter) 6rem;
     text-align: center;
-    color: var(--clr-white);
+    overflow: hidden;
+    background: var(--clr-navy);
+    border-radius: 0;
   }
-  .hero__heading { font-family: var(--font-heading); font-size: 3.5rem; margin-bottom: 1.5rem; }
-  .hero__heading em { font-style: italic; color: var(--clr-gold); }
-  .hero__sub { font-size: var(--text-lg); color: rgba(255,255,255,0.8); font-weight: 300; }
+  .t-hero__bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 70% at 50% 0%, rgba(206,196,167,0.18) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 50% at 80% 100%, rgba(107,100,69,0.22) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .t-hero__dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .t-hero__inner {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+    max-width: 760px;
+  }
+  .t-hero__label { opacity: 0; transform: translateY(20px); }
+  .t-hero__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    color: var(--clr-white);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 1rem 0 1.25rem;
+    opacity: 0; transform: translateY(30px);
+  }
+  .t-hero__heading em { font-style: italic; color: var(--clr-gold); }
+  .t-hero__sub {
+    font-size: var(--text-lg);
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 52ch;
+    margin-bottom: 2.5rem;
+    opacity: 0; transform: translateY(20px);
+  }
+  .t-hero__stats {
+    display: flex; align-items: center; gap: 2rem;
+    padding: 1.25rem 2.5rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+    opacity: 0; transform: translateY(20px);
+  }
+  .t-hero__stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .t-hero__stat-num { font-size: 1.6rem; font-weight: 700; color: var(--clr-gold); line-height: 1; }
+  .t-hero__stat-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); }
+  .t-hero__stat-div { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
+  .t-hero__scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0.45;
+  }
+  .t-hero__scroll span {
+    display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--clr-gold));
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%,100% { opacity: 0.4; transform: scaleY(0.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
 
-  .treatments-directory {
-    padding: 6rem 0;
+  /* ── Section ── */
+  .t-section {
     background: var(--clr-white);
   }
-
-  .t-search-container {
-    max-width: 600px;
-    margin: 0 auto 5rem;
+  .t-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 var(--gutter);
   }
-  .t-search-input {
+
+  /* ── Search + Filter Bar ── */
+  .t-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+  }
+  .t-search-wrap {
+    flex: 1; min-width: 220px; max-width: 360px;
+    position: relative;
+  }
+  .t-search-icon {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    color: var(--clr-text-mid); pointer-events: none;
+  }
+  .t-search {
     width: 100%;
-    padding: 16px 24px;
+    padding: 13px 20px 13px 48px;
     border-radius: var(--radius-pill);
     border: 2px solid var(--clr-light-gray);
     background: var(--clr-off-white);
     font-family: var(--font-body);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     color: var(--clr-text-dark);
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
   }
-  .t-search-input:focus {
+  .t-search:focus {
     border-color: var(--clr-navy);
-    box-shadow: 0 0 0 4px rgba(78, 72, 50, 0.1);
     background: var(--clr-white);
+    box-shadow: 0 0 0 4px rgba(78,72,50,0.08);
   }
-
-  .t-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 8rem;
+  .t-filters {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
   }
-
-  .t-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  
-  .t-row:nth-child(even) {
-    grid-template-columns: 1fr 1fr;
-    direction: rtl;
-  }
-  .t-row:nth-child(even) .t-row__content {
-    direction: ltr;
-  }
-
-  @media (max-width: 900px) {
-    .t-row, .t-row:nth-child(even) {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      direction: ltr;
-    }
-  }
-
-  .t-row__content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .t-row__icon {
-    width: 56px;
-    height: 56px;
-    background: var(--clr-gold-pale);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--clr-navy);
-    margin-bottom: 1.5rem;
-  }
-  
-  .t-row__title { font-family: var(--font-heading); font-size: 2rem; color: var(--clr-navy); margin-bottom: 1rem; }
-  .t-row__catchy { font-size: var(--text-base); color: var(--clr-gold); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.4; }
-  .t-row__desc { font-size: var(--text-sm); color: var(--clr-text-body); line-height: 1.8; margin-bottom: 2rem; font-weight: 300; }
-
-  .t-row__image-container {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-  .t-row__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  .t-row:hover .t-row__image {
-    transform: scale(1.05);
-  }
-
-  .t-row__link {
-    padding: 12px 32px;
-    font-size: 0.9rem;
+  .t-filter {
+    padding: 9px 20px;
     border-radius: var(--radius-pill);
-    text-decoration: none;
+    border: 2px solid var(--clr-light-gray);
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
     font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-text-mid);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .t-filter:hover { border-color: var(--clr-navy); color: var(--clr-navy); }
+  .t-filter.active {
+    background: var(--clr-navy);
+    border-color: var(--clr-navy);
+    color: var(--clr-white);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ── Grid ── */
+  .t-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  /* ── Card ── */
+  .t-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--clr-white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--clr-light-gray);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease, border-color 0.3s;
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  .t-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--clr-gold);
+  }
+  .t-card.t-card--hidden { display: none; }
+
+  .t-card__img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: var(--clr-off-white);
+  }
+  .t-card__img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .t-card:hover .t-card__img { transform: scale(1.07); }
+  .t-card__img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(78,72,50,0.55) 100%);
+  }
+  .t-card__cat-badge {
+    position: absolute; top: 14px; left: 14px;
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(6px);
+  }
+  .t-card__icon {
+    position: absolute; bottom: 16px; right: 16px;
+    width: 44px; height: 44px;
+    background: var(--clr-gold);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--clr-navy);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
+  .t-card:hover .t-card__icon { transform: scale(1.1) rotate(-5deg); }
+
+  .t-card__body {
+    display: flex; flex-direction: column;
+    padding: 1.75rem 1.75rem 1.5rem;
+    flex: 1;
+  }
+  .t-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--clr-navy);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .t-card__catchy {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--clr-gold-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+  .t-card__desc {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--clr-text-body);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .t-card__pills {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .t-card__pill {
+    font-size: 0.65rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--clr-gold-pale);
+    border: 1px solid rgba(206,196,167,0.3);
+    color: var(--clr-navy-mid);
+    white-space: nowrap;
+  }
+  .t-card__pill--more {
+    background: var(--clr-off-white);
+    color: var(--clr-text-mid);
+    border-color: var(--clr-light-gray);
+  }
+  .t-card__footer {
+    border-top: 1px solid var(--clr-light-gray);
+    padding-top: 1rem;
+    margin-top: auto;
+  }
+  .t-card__link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--clr-gold-dark);
+    transition: gap 0.25s ease;
+  }
+  .t-card:hover .t-card__link { gap: 10px; }
+
+  /* ── Empty State ── */
+  .t-empty {
+    text-align: center;
+    padding: 5rem 2rem;
+    color: var(--clr-text-mid);
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    opacity: 0.6;
+  }
+  .t-empty p { font-size: var(--text-base); font-weight: 300; }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .t-hero { padding: 9rem var(--gutter) 5rem; min-height: auto; }
+    .t-hero__heading { font-size: 2.6rem; }
+    .t-hero__stats { gap: 1.25rem; padding: 1rem 1.5rem; }
+    .t-bar { flex-direction: column; align-items: stretch; }
+    .t-search-wrap { max-width: 100%; }
+    .t-grid { grid-template-columns: 1fr; }
   }
 </style>
 
 <script>
-  const searchInput = document.getElementById('t-search') as HTMLInputElement;
-  const rows = document.querySelectorAll('.t-row') as NodeListOf<HTMLElement>;
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
 
-  searchInput?.addEventListener('input', (e) => {
-    const query = (e.target as HTMLInputElement).value.toLowerCase();
-    rows.forEach(row => {
-      const name = row.dataset.name || '';
-      if (name.includes(query)) {
-        row.style.display = 'grid';
+  // Hero entrance
+  const htl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  htl
+    .to('.t-hero__label', { opacity: 1, y: 0, duration: 0.6, delay: 0.2 })
+    .to('.t-hero__heading', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
+    .to('.t-hero__sub', { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
+    .to('.t-hero__stats', { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
+
+  // Cards entrance on scroll
+  const cards = document.querySelectorAll<HTMLElement>('.t-card');
+  cards.forEach((card) => {
+    gsap.to(card, {
+      scrollTrigger: { trigger: card, start: 'top 88%' },
+      opacity: 1,
+      y: 0,
+      duration: 0.65,
+      delay: parseFloat(card.style.getPropertyValue('--delay') || '0'),
+      ease: 'power3.out',
+    });
+  });
+
+  // Filter logic
+  const filters = document.querySelectorAll<HTMLButtonElement>('.t-filter');
+  const grid = document.getElementById('t-grid')!;
+  const empty = document.getElementById('t-empty')!;
+  const search = document.getElementById('t-search') as HTMLInputElement;
+
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  function applyFilter() {
+    let visible = 0;
+    cards.forEach((card) => {
+      const cat = card.dataset.cat || '';
+      const name = card.dataset.name || '';
+      const matchFilter = activeFilter === 'all' || cat === activeFilter;
+      const matchSearch = name.includes(searchQuery);
+      if (matchFilter && matchSearch) {
+        card.classList.remove('t-card--hidden');
+        visible++;
       } else {
-        row.style.display = 'none';
+        card.classList.add('t-card--hidden');
       }
     });
+    empty.style.display = visible === 0 ? 'flex' : 'none';
+  }
+
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filters.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.cat || 'all';
+      applyFilter();
+    });
+  });
+
+  search.addEventListener('input', () => {
+    searchQuery = search.value.toLowerCase().trim();
+    applyFilter();
   });
 </script>

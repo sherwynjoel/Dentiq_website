@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Cursor from '../../components/Cursor.astro';
+import Contact from '../../components/Contact.astro';
+import { doctorsData } from '../../data/doctorsData.js';
+
+export function getStaticPaths() {
+  return doctorsData.map((doctor) => ({
+    params: { id: doctor.id },
+    props: { doctor },
+  }));
+}
+
+const { doctor } = Astro.props;
+---
+
+<BaseLayout title={`${doctor.name} | DentiQ Doctors`} description={`Meet ${doctor.name}, ${doctor.role} at DentiQ Superspeciality Laser Dental Hospital.`}>
+  <Cursor />
+  <Nav />
+
+  <main>
+    <section class="doctor-hero">
+      <div class="doctor-hero__pattern"></div>
+      <div class="doctor-hero__inner">
+        <div class="doctor-hero__content">
+          <span class="section__label section__label--light">Specialist Profile</span>
+          <h1 class="doctor-hero__name">{doctor.name}</h1>
+          <p class="doctor-hero__role">{doctor.role}</p>
+          <div class="doctor-hero__meta">
+            <span class="meta-item">
+              <strong>{doctor.experience}</strong> Experience
+            </span>
+            <span class="meta-separator"></span>
+            <span class="meta-item">
+              <strong>{doctor.qualifications}</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="doctor-details section">
+      <div class="doctor-details__inner">
+        <div class="doctor-details__grid">
+          <div class="doctor-details__sidebar">
+            <div class="doctor-image-container">
+              {doctor.image ? (
+                <img src={doctor.image} alt={doctor.name} class="doctor-image" />
+              ) : (
+                <div class="doctor-image-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Professional Photo Coming Soon</span>
+                </div>
+              )}
+            </div>
+            
+            <div class="doctor-info-box">
+              <h3>Specializations</h3>
+              <ul class="specialties-list">
+                {doctor.specialties.map(specialty => (
+                  <li>{specialty}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="doctor-info-box doctor-info-box--dark">
+              <h3>Practice Hours</h3>
+              <p>{doctor.schedule}</p>
+                  <a href="#contact" class="btn btn--primary btn--full">Book Appointment</a>
+            </div>
+          </div>
+
+          <div class="doctor-details__main">
+            <div class="content-block">
+              <span class="section__label">Professional Biography</span>
+              <h2>About {doctor.name}</h2>
+              <p class="lead-text">{doctor.bio}</p>
+              <div class="main-bio">
+                {doctor.longBio.split('\n').map(p => <p>{p}</p>)}
+              </div>
+            </div>
+
+            <div class="content-block">
+              <span class="section__label">Expertise & Recognition</span>
+              <h2>Key Achievements</h2>
+              <div class="achievements-grid">
+                {doctor.achievements.map(achievement => (
+                  <div class="achievement-card">
+                    <div class="achievement-icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-2 5L9 9l11 4-5 2zm0 0l4 8 3-12-12-3 8 4z"/></svg>
+                    </div>
+                    <p>{achievement}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .doctor-hero {
+    position: relative;
+    background: linear-gradient(135deg, #1a1812, #2d2a1e);
+    padding: 12rem var(--gutter) 8rem;
+    overflow: hidden;
+  }
+
+  .doctor-hero__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(206, 196, 167, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .doctor-hero__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .doctor-hero__name {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: var(--clr-gold);
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .doctor-hero__role {
+    font-size: var(--text-xl);
+    color: var(--clr-white);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-8);
+  }
+
+  .doctor-hero__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+  }
+
+  .meta-item strong {
+    color: var(--clr-white);
+    display: block;
+    font-size: var(--text-lg);
+  }
+
+  .meta-separator {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .doctor-details {
+    background: var(--clr-white);
+    padding: var(--space-24) var(--gutter);
+  }
+
+  .doctor-details__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .doctor-details__grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--space-16);
+  }
+
+  .doctor-image-container {
+    aspect-ratio: 4 / 5;
+    background: var(--clr-off-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+    box-shadow: var(--shadow-md);
+  }
+
+  .doctor-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .doctor-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-text-light);
+    gap: var(--space-4);
+    padding: var(--space-8);
+    text-align: center;
+  }
+
+  .doctor-image-placeholder svg {
+    width: 80px;
+    opacity: 0.2;
+  }
+
+  .doctor-info-box {
+    background: var(--clr-off-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-6);
+    border: 1px solid var(--clr-light-gray);
+  }
+
+  .doctor-info-box--dark {
+    background: var(--clr-navy);
+    color: var(--clr-white);
+    border: none;
+  }
+
+  .doctor-info-box h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-4);
+    color: inherit;
+  }
+
+  .specialties-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .specialties-list li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--clr-text-body);
+  }
+
+  .specialties-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--clr-gold);
+    border-radius: 50%;
+  }
+
+  .content-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .content-block h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    color: var(--clr-navy);
+    margin: var(--space-2) 0 var(--space-6);
+  }
+
+  .lead-text {
+    font-size: var(--text-lg);
+    color: var(--clr-navy-mid);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .main-bio p {
+    color: var(--clr-text-body);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+    font-weight: 300;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .achievement-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--clr-off-white);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--clr-light-gray);
+  }
+
+  .achievement-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--clr-gold-pale);
+    color: var(--clr-gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  .achievement-card p {
+    font-size: var(--text-sm);
+    color: var(--clr-text-body);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .btn--full {
+    width: 100%;
+    margin-top: var(--space-6);
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .doctor-details__grid {
+      grid-template-columns: 300px 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .doctor-details__grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .doctor-details__sidebar {
+      order: 2;
+    }
+    
+    .doctor-hero {
+      padding: 10rem var(--gutter) 6rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .achievements-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .doctor-hero__name {
+      font-size: 2.5rem;
+    }
+  }
+</style>

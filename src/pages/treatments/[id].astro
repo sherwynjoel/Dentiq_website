@@ -14,48 +14,130 @@ export async function getStaticPaths() {
 }
 
 const { treatment } = Astro.props;
+const heroImage = treatment.heroImage ?? treatment.image;
+const detailImage = treatment.detailImage ?? treatment.image;
 ---
 
 <BaseLayout title={`${treatment.name} | DentiQ Erode`} description={treatment.desc}>
   <Cursor />
   <Nav />
 
-  <section class="treatment-hero">
-    <div class="container">
-      <span class="section__label section__label--light">Speciality Treatment</span>
-      <h1 class="t-title">{treatment.name}</h1>
-      {treatment.catchy && <div class="t-catchy">{treatment.catchy}</div>}
-      <p class="t-desc">{treatment.desc}</p>
-    </div>
-  </section>
+  <main>
+    <section class="treatment-hero" style={`--hero-image: url('${heroImage}')`}>
+      <div class="treatment-hero__overlay"></div>
+      <div class="treatment-hero__pattern"></div>
+      <div class="container treatment-hero__inner">
+        <span class="section__label section__label--light">Speciality Treatment</span>
+        <h1 class="treatment-hero__title">{treatment.name}</h1>
+        {treatment.catchy && <p class="treatment-hero__catchy">{treatment.catchy}</p>}
+        <p class="treatment-hero__desc">{treatment.desc}</p>
+      </div>
+    </section>
 
-  <section class="treatment-content">
-    <div class="container">
-      <div class="t-details-grid">
-        <div class="t-services-box">
-          <h3>Services Offered</h3>
-          <ul class="t-service-list">
+    <section class="treatment-content section">
+      <div class="container">
+        <div class="treatment-overview">
+          <div class="treatment-overview__image">
+            <img src={detailImage} alt={`${treatment.name} treatment at DentiQ`} loading="eager" />
+          </div>
+
+          <div class="treatment-overview__content">
+            <span class="section__label">Treatment Overview</span>
+            <h2>{treatment.name}</h2>
+            <p>{treatment.desc}</p>
+            {treatment.catchy && <strong>{treatment.catchy}</strong>}
+          </div>
+        </div>
+
+        {treatment.benefits && (
+          <div class="treatment-benefits">
+            <div class="treatment-benefits__header">
+              <span class="section__label">Why Choose {treatment.name}?</span>
+              <h2>The DentiQ Advantage</h2>
+            </div>
+            <div class="benefits-grid">
+              {treatment.benefits.map((benefit) => (
+                <div class="benefit-card">
+                  <h4>{benefit.title}</h4>
+                  <p>{benefit.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="treatment-services">
+          <div class="treatment-services__header">
+            <span class="section__label">Care Options</span>
+            <h2>Services Offered</h2>
+            <p>Explore the procedures and support available under this speciality.</p>
+          </div>
+
+          <ul class="treatment-service-list">
             {treatment.services.map((service) => (
-              <li>{service}</li>
+              <li class={typeof service === 'object' ? 'has-detail' : ''}>
+                {typeof service === 'object' ? (
+                  <>
+                    <div class="service-name">{service.name}</div>
+                    <div class="service-detail">{service.detail}</div>
+                  </>
+                ) : (
+                  service
+                )}
+              </li>
             ))}
           </ul>
         </div>
 
-        {treatment.lead && (
-          <div class="t-lead-card">
-            <h3>{treatment.lead}</h3>
-            <p>{treatment.leadDesc}</p>
+        {treatment.faqs && (
+          <div class="treatment-faqs">
+            <div class="treatment-faqs__header">
+              <span class="section__label">Common Questions</span>
+              <h2>Patient <em>FAQs</em></h2>
+            </div>
+            <div class="faq-list">
+              {treatment.faqs.map((faq) => (
+                <div class="faq-item">
+                  <h3>{faq.q}</h3>
+                  <p>{faq.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
-      </div>
 
-      <div class="t-cta-wrapper">
-        <a href="tel:+918489488999" class="t-cta">{treatment.cta}</a>
-      </div>
-    </div>
-  </section>
+        {treatment.care && (
+          <div class="treatment-care">
+            <div class="care-grid">
+              <div class="care-box care-box--pre">
+                <span class="care-label">Pre-Treatment Care</span>
+                <ul>
+                  {treatment.care.pre.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div class="care-box care-box--post">
+                <span class="care-label">Post-Treatment Care</span>
+                <ul>
+                  {treatment.care.post.map(item => <li>{item}</li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
 
-  <Contact />
+        <div class="treatment-cta">
+          <div>
+            <span>Ready to discuss this treatment?</span>
+            <strong>{treatment.cta}</strong>
+          </div>
+          <a href="tel:+918489488999" class="btn btn--primary">Call Now</a>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
   <Footer />
 </BaseLayout>
 
@@ -63,85 +145,356 @@ const { treatment } = Astro.props;
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
 
   .treatment-hero {
-    background: var(--clr-navy);
-    padding: 10rem 0 6rem;
+    --hero-image: none;
+    position: relative;
+    height: clamp(620px, 68svh, 760px);
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 9rem 0 5rem !important;
     text-align: center;
     color: var(--clr-white);
+    background-color: var(--clr-navy);
+    background-image:
+      linear-gradient(135deg, rgba(78, 72, 50, 0.9), rgba(78, 72, 50, 0.72)),
+      var(--hero-image);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0;
   }
-  .t-title { font-family: var(--font-heading); font-size: 3rem; color: var(--clr-white); margin-bottom: 1.5rem; }
-  .t-catchy { font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-gold); margin-bottom: 2rem; font-style: italic; }
-  .t-desc { font-size: var(--text-base); line-height: 1.8; color: rgba(255,255,255,0.8); max-width: 800px; margin: 0 auto; font-weight: 300; }
+
+  .treatment-hero__overlay,
+  .treatment-hero__pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .treatment-hero__overlay {
+    background:
+      radial-gradient(ellipse 72% 60% at 50% 28%, rgba(206, 196, 167, 0.22), transparent 68%),
+      linear-gradient(to bottom, rgba(78, 72, 50, 0.16), rgba(78, 72, 50, 0.86));
+  }
+
+  .treatment-hero__pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .treatment-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .treatment-hero__title {
+    max-width: 980px;
+    margin: var(--space-5) 0;
+    color: var(--clr-white);
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    line-height: 1.05;
+  }
+
+  .treatment-hero__catchy {
+    max-width: 760px;
+    margin-bottom: var(--space-5);
+    color: var(--clr-gold);
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-style: italic;
+    line-height: 1.45;
+  }
+
+  .treatment-hero__desc {
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: var(--text-base);
+    font-weight: 300;
+    line-height: 1.8;
+  }
 
   .treatment-content {
-    padding: 6rem 0;
+    padding: var(--space-32) 0;
     background: var(--clr-white);
   }
 
-  .t-details-grid {
+  .treatment-overview {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: var(--space-12);
+    align-items: center;
+    margin-bottom: var(--space-24);
+  }
+
+  .treatment-overview__image {
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background: var(--clr-off-white);
+    border: 1px solid var(--clr-light-gray);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .treatment-overview__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .treatment-overview__content h2,
+  .treatment-services__header h2 {
+    margin-bottom: var(--space-5);
+    color: var(--clr-navy);
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    line-height: 1.12;
+  }
+
+  .treatment-overview__content p,
+  .treatment-services__header p {
+    color: var(--clr-text-body);
+    font-size: var(--text-base);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .treatment-overview__content strong {
+    display: block;
+    margin-top: var(--space-5);
+    color: var(--clr-gold-dark);
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .treatment-services {
+    margin-bottom: var(--space-12);
+    padding: var(--space-10);
+    background: var(--clr-off-white);
+    border: 1px solid var(--clr-light-gray);
+    border-radius: var(--radius-xl);
+  }
+
+  .treatment-services__header {
+    max-width: 720px;
+    margin-bottom: var(--space-8);
+  }
+
+  .treatment-service-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .treatment-service-list li {
+    position: relative;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-5) var(--space-4) 3.25rem;
+    background: var(--clr-white);
+    border: 1px solid rgba(206, 196, 167, 0.4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    color: var(--clr-text-body);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .treatment-service-list li::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--clr-gold);
+    box-shadow: 0 0 0 6px var(--clr-gold-pale);
+  }
+
+  .treatment-service-list li.has-detail {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-1);
+    min-height: 80px;
+  }
+
+  .service-name {
+    font-weight: 700;
+    color: var(--clr-navy);
+  }
+
+  .service-detail {
+    font-size: 0.8rem;
+    color: var(--clr-text-mid);
+    opacity: 0.8;
+  }
+
+  .treatment-benefits {
+    margin-bottom: var(--space-24);
+  }
+
+  .treatment-benefits__header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .benefit-card {
+    background: var(--clr-off-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--clr-light-gray);
+    text-align: center;
+  }
+
+  .benefit-card h4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    color: var(--clr-gold-dark);
+    margin-bottom: var(--space-2);
+  }
+
+  .benefit-card p {
+    font-size: var(--text-xs);
+    line-height: 1.6;
+    color: var(--clr-text-body);
+    font-weight: 300;
+  }
+
+  @media (max-width: 1024px) {
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* FAQs */
+  .treatment-faqs { margin-bottom: var(--space-24); }
+  .treatment-faqs__header { margin-bottom: var(--space-12); text-align: center; }
+  .treatment-faqs__header h2 em { font-style: italic; color: var(--clr-gold); }
+  .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .faq-item h3 { font-family: var(--font-heading); font-size: var(--text-base); color: var(--clr-navy); margin-bottom: var(--space-3); }
+  .faq-item p { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); font-weight: 300; }
+
+  /* Care Section */
+  .treatment-care { margin-bottom: var(--space-24); }
+  .treatment-care .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+  .care-box { padding: var(--space-10); border-radius: var(--radius-xl); border: 1px solid var(--clr-light-gray); }
+  .care-box--pre { background: var(--clr-off-white); }
+  .care-box--post { background: var(--clr-gold-pale); border-color: var(--clr-gold); }
+  .care-label { display: block; font-family: var(--font-heading); font-size: var(--text-lg); color: var(--clr-navy); margin-bottom: var(--space-6); text-transform: uppercase; letter-spacing: 0.1em; }
+  .care-box ul { display: flex; flex-direction: column; gap: var(--space-3); }
+  .care-box li { font-size: var(--text-sm); line-height: 1.5; color: var(--clr-text-body); font-weight: 300; position: relative; padding-left: var(--space-6); }
+  .care-box li::before { content: '•'; position: absolute; left: 0; color: var(--clr-gold-dark); font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .faq-list, .treatment-care .care-grid { grid-template-columns: 1fr; }
+  }
+
+  .treatment-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    background: var(--clr-navy);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    color: var(--clr-white);
+  }
+
+  .treatment-cta span,
+  .treatment-cta strong {
+    display: block;
+  }
+
+  .treatment-cta span {
+    margin-bottom: var(--space-2);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: var(--text-sm);
+  }
+
+  .treatment-cta strong {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    line-height: 1.3;
+  }
+
+  .treatment-cta .btn {
+    flex-shrink: 0;
+  }
+
+  .treatment-cta .btn:hover {
+    color: var(--clr-white);
   }
 
   @media (max-width: 900px) {
-    .t-details-grid { grid-template-columns: 1fr; }
+    .treatment-hero {
+      height: 620px;
+      min-height: 0;
+      padding: 8rem 0 4rem !important;
+    }
+
+    .treatment-overview {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .treatment-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
   }
 
-  .t-services-box h3 { font-family: var(--font-heading); font-size: 1.8rem; color: var(--clr-navy); margin-bottom: 2rem; }
-  .t-service-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
   @media (max-width: 600px) {
-    .t-service-list { grid-template-columns: 1fr; }
-  }
+    .treatment-hero {
+      height: 640px;
+    }
 
-  .t-service-list li {
-    font-size: var(--text-sm);
-    color: var(--clr-text-body);
-    position: relative;
-    padding-left: 24px;
-    line-height: 1.6;
-  }
-  .t-service-list li::before {
-    content: 'Ø';
-    position: absolute;
-    left: 0;
-    color: var(--clr-gold);
-    font-weight: 700;
-  }
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
 
-  .t-lead-card {
-    background: var(--clr-off-white);
-    padding: 2.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--clr-light-gray);
-  }
-  .t-lead-card h3 { font-family: var(--font-heading); font-size: 1.4rem; color: var(--clr-navy); margin-bottom: 1rem; }
-  .t-lead-card p { font-size: 0.95rem; line-height: 1.7; color: var(--clr-text-body); font-weight: 300; }
+    .treatment-hero__title {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
 
-  .t-cta-wrapper {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  .t-cta {
-    display: inline-block;
-    background: var(--clr-navy);
-    color: var(--clr-white);
-    padding: 16px 40px;
-    border-radius: var(--radius-pill);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: var(--shadow-md);
-  }
-  .t-cta:hover {
-    transform: translateY(-3px);
-    background: var(--clr-gold);
+    .treatment-hero__catchy {
+      font-size: var(--text-lg);
+    }
+
+    .treatment-hero__desc {
+      font-size: var(--text-sm);
+    }
+
+    .treatment-content {
+      padding: var(--space-24) 0;
+    }
+
+    .treatment-services {
+      padding: var(--space-6);
+    }
+
+    .treatment-service-list {
+      grid-template-columns: 1fr;
+    }
+
+    .treatment-cta {
+      padding: var(--space-6);
+    }
+
+    .treatment-cta .btn {
+      width: 100%;
+    }
   }
 </style>

@@ -1,13 +1,13 @@
 ---
 const needs = [
-  { id: 'missing', title: "Missing Teeth", desc: "Permanent tooth replacement with Laser Implants.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7zM7 9h10M12 2v7"/></svg>` },
-  { id: 'crooked', title: "Crooked Teeth", desc: "Straighten without braces using Invisalign.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h18M3 15h18M8 3v18M16 3v18"/></svg>` },
-  { id: 'cavities', title: "Cavities", desc: "Mercury-free white fillings and painless root canals.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>` },
-  { id: 'bleeding', title: "Bleeding Gums", desc: "Laser gum therapy and ultrasonic cleaning.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
-  { id: 'discolored', title: "Discolored Teeth", desc: "Laser teeth whitening for a picture-perfect smile.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>` },
-  { id: 'broken', title: "Broken Teeth", desc: "E-Max porcelain crowns and natural veneers.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M3 7l9 5 9-5M12 12v9"/></svg>` },
-  { id: 'black', title: "Black Cavities", desc: "Advanced decay removal and smile restoration.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>` },
-  { id: 'unpleasant', title: "Unpleasant Smile?", desc: "Full mouth transformation with Digital Smile Design.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="9" r="3"/></svg>` }
+  { href: '/treatments/implants', title: "Missing Teeth", desc: "Permanent replacement with implant dentistry.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7zM7 9h10M12 2v7"/></svg>` },
+  { href: '/treatments/orthodontics', title: "Crooked Teeth", desc: "Straighten teeth with aligners or braces.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h18M3 15h18M8 3v18M16 3v18"/></svg>` },
+  { href: '/treatments/endodontics', title: "Tooth Pain", desc: "Root canal care for painful decayed teeth.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>` },
+  { href: '/treatments/periodontics', title: "Bleeding Gums", desc: "Gum treatment, cleaning, and laser care.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
+  { href: '/treatments/cosmetic', title: "Discolored Teeth", desc: "Whitening and smile-design treatments.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>` },
+  { href: '/treatments/prosthodontics', title: "Broken Teeth", desc: "Crowns, bridges, and full-mouth restoration.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2"/><path d="M3 7l9 5 9-5M12 12v9"/></svg>` },
+  { href: '/treatments/conservative', title: "Black Cavities", desc: "Decay removal and tooth-colored fillings.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>` },
+  { href: '/treatments/cosmetic', title: "Unpleasant Smile?", desc: "Full smile transformation and veneers.", icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="9" r="3"/></svg>` }
 ];
 ---
 
@@ -21,7 +21,7 @@ const needs = [
 
     <div class="needs__grid">
       {needs.map((need) => (
-        <a href={`/treatments#${need.id}`} class="need-card" data-cursor-hover>
+        <a href={need.href} class="need-card" data-cursor-hover>
           <div class="need-card__icon" set:html={need.icon}></div>
           <div class="need-card__content">
             <h3>{need.title}</h3>

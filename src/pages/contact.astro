@@ -11,55 +11,56 @@ import Locations from '../components/Locations.astro';
   <Cursor />
   <Nav />
 
-  <!-- Contact Hero -->
-  <section class="contact-hero">
-    <div class="contact-hero__bg"></div>
-    <div class="contact-hero__content">
-      <span class="section__label section__label--light">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
-        Direct Contact
-      </span>
-      <h1 class="contact-hero__heading">We're Here for <em>Your Smile</em></h1>
-      <p class="contact-hero__sub">
-        Whether you have a question about a treatment or need to book an urgent consultation, our team is ready to help.
-      </p>
-    </div>
-  </section>
-
-  <!-- Reuse the main Contact form component -->
-  <!-- We can wrap it in a container if needed or just use it as is since it is a full section -->
-  <ContactSection />
-
-  <!-- Locations Section -->
-  <Locations />
-
-  <!-- FAQ Section specifically for appointments -->
-  <section class="contact-faq">
-    <div class="contact-faq__inner">
-      <div class="contact-faq__header">
-        <span class="section__label">Helpful Information</span>
-        <h2 class="contact-faq__heading">Appointment <em>FAQs</em></h2>
+  <main>
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <div class="contact-hero__bg"></div>
+      <div class="contact-hero__content">
+        <span class="section__label section__label--light">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
+          Direct Contact
+        </span>
+        <h1 class="contact-hero__heading">We're Here for <em>Your Smile</em></h1>
+        <p class="contact-hero__sub">
+          Whether you have a question about a treatment or need to book an urgent consultation, our team is ready to help.
+        </p>
       </div>
-      <div class="contact-faq__grid">
-        <div class="faq-item">
-          <h3>Do I need an appointment?</h3>
-          <p>Yes, we operate strictly by appointment to ensure every patient gets dedicated time. However, emergency dental cases are prioritised.</p>
+    </section>
+
+    <!-- Reuse the main Contact form component -->
+    <ContactSection />
+
+    <!-- Locations Section -->
+    <Locations />
+
+    <!-- FAQ Section specifically for appointments -->
+    <section class="contact-faq section">
+      <div class="contact-faq__inner">
+        <div class="contact-faq__header">
+          <span class="section__label">Helpful Information</span>
+          <h2 class="contact-faq__heading">Appointment <em>FAQs</em></h2>
         </div>
-        <div class="faq-item">
-          <h3>What should I bring?</h3>
-          <p>Please bring any previous dental X-rays, medical records, and a list of medications you are currently taking.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Do you offer virtual consultations?</h3>
-          <p>Yes, we offer video consultations specifically for TMJ and orofacial pain initial screenings for patients living outside Chennai/Coimbatore.</p>
-        </div>
-        <div class="faq-item">
-          <h3>What is your cancellation policy?</h3>
-          <p>We request at least 24 hours notice for any cancellations or rescheduling to help us accommodate other patients.</p>
+        <div class="contact-faq__grid">
+          <div class="faq-item">
+            <h3>Do I need an appointment?</h3>
+            <p>Yes, we operate strictly by appointment to ensure every patient gets dedicated time. However, emergency dental cases are prioritised.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What should I bring?</h3>
+            <p>Please bring any previous dental X-rays, medical records, and a list of medications you are currently taking.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do you offer virtual consultations?</h3>
+            <p>Yes, we offer video consultations specifically for TMJ and orofacial pain initial screenings for patients living outside Chennai/Coimbatore.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What is your cancellation policy?</h3>
+            <p>We request at least 24 hours notice for any cancellations or rescheduling to help us accommodate other patients.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <Footer />
 </BaseLayout>
@@ -72,6 +73,7 @@ import Locations from '../components/Locations.astro';
     padding: 10rem var(--gutter) 6rem;
     overflow: hidden;
     text-align: center;
+    border-radius: 0;
   }
   .contact-hero__bg {
     position: absolute;

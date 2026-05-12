@@ -134,19 +134,29 @@ const {
     position: relative;
     border-radius: 0 0 64px 64px;
     margin-bottom: -64px;
+    padding-top: 64px; /* Space for overlap from previous section */
     padding-bottom: calc(var(--space-32) + 64px) !important;
     background-color: var(--clr-white); /* fallback */
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
   }
+  
+  /* The very first section shouldn't have top padding from overlap */
+  main > section:first-child {
+    padding-top: 0;
+  }
+
   @media (max-width: 768px) {
     section {
       border-radius: 0 0 40px 40px;
       margin-bottom: -40px;
-      padding-bottom: calc(var(--space-32) + 40px) !important;
+      padding-top: 40px;
+      padding-bottom: calc(var(--space-16) + 40px) !important;
+    }
+    main > section:first-child {
+      padding-top: 0;
     }
   }
 
-  /* Z-index stacking for sections so previous section overlaps next section */
   /* Z-index stacking for sections so previous section overlaps next section */
   main > section:nth-child(1) { z-index: 20; }
   main > section:nth-child(2) { z-index: 19; }
@@ -160,9 +170,22 @@ const {
   main > section:nth-child(10) { z-index: 11; }
   main > section:nth-child(11) { z-index: 10; }
   main > section:nth-child(12) { z-index: 9; }
+  main > section:nth-child(13) { z-index: 8; }
+  main > section:nth-child(14) { z-index: 7; }
+  main > section:nth-child(15) { z-index: 6; }
+  main > section:nth-child(16) { z-index: 5; }
+  main > section:nth-child(17) { z-index: 4; }
+  main > section:nth-child(18) { z-index: 3; }
+  main > section:nth-child(19) { z-index: 2; }
+  main > section:nth-child(20) { z-index: 1; }
 
   .section {
     padding: var(--space-32) var(--gutter);
+  }
+  @media (max-width: 768px) {
+    .section {
+      padding: var(--space-16) var(--gutter);
+    }
   }
   .section--dark {
     background-color: var(--clr-navy) !important;

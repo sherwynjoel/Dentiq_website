@@ -1,0 +1,316 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+import Contact from '../components/Contact.astro';
+import { doctorsData } from '../data/doctorsData.js';
+---
+
+<BaseLayout title="Our Doctors | DentiQ Superspeciality Laser Dental Hospital Erode" description="Meet the doctors at DentiQ Superspeciality Laser Dental Hospital in Erode.">
+  <Cursor />
+  <Nav />
+
+  <main>
+    <section class="doctors-hero">
+      <div class="doctors-hero__pattern"></div>
+      <div class="doctors-hero__content">
+        <span class="section__label section__label--light">Clinical Team</span>
+        <h1 class="doctors-hero__heading">Meet Our <em>Doctors</em></h1>
+        <p class="doctors-hero__sub">
+          Our team of highly qualified specialists is dedicated to providing you with the best possible dental care using the latest technology and techniques.
+        </p>
+      </div>
+    </section>
+
+    <section class="doctors-page section">
+      <div class="doctors-page__inner">
+        <div class="doctors-page__intro">
+          <span class="section__label">Expert Care</span>
+          <h2>Our Specialists</h2>
+          <p>
+            Each member of our clinical team brings years of experience and specialized training to DentiQ, ensuring a comprehensive approach to your oral health.
+          </p>
+        </div>
+
+        <div class="doctor-profile-grid">
+          {doctorsData.map((doctor) => (
+            <article class="doctor-profile-card">
+              <div class="doctor-profile-card__photo">
+                {doctor.image ? (
+                  <img src={doctor.image} alt={doctor.name} />
+                ) : (
+                  <div class="doctor-profile-card__placeholder">
+                    <span>{doctor.id.replace('dr-', 'Doctor ')}</span>
+                    <strong>Photo Coming Soon</strong>
+                    <small>Professional photoshoot scheduled</small>
+                  </div>
+                )}
+              </div>
+
+              <div class="doctor-profile-card__content">
+                <span class="doctor-profile-card__role">{doctor.role}</span>
+                <h3>{doctor.name}</h3>
+                <p class="doctor-profile-card__quals">{doctor.qualifications}</p>
+                <p class="doctor-profile-card__bio">{doctor.bio}</p>
+
+                <div class="doctor-profile-card__tags">
+                  {doctor.specialties.map((specialty) => (
+                    <span>{specialty}</span>
+                  ))}
+                </div>
+
+                <div class="doctor-profile-card__footer">
+                  <a href={`/doctors/${doctor.id}`} class="btn btn--primary doctor-profile-card__cta" data-cursor-hover>
+                    View Full Profile
+                  </a>
+                  <a href="#contact" class="btn btn--outline doctor-profile-card__cta" data-cursor-hover style="color: var(--clr-navy); border-color: var(--clr-gold);">
+                    Book Appointment
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .doctors-hero {
+    position: relative;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.92), rgba(91, 84, 60, 0.95));
+    padding: 11rem var(--gutter) 7rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .doctors-hero__pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+  }
+
+  .doctors-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .doctors-hero__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-hero);
+    font-weight: 600;
+    color: var(--clr-white);
+    line-height: 1.08;
+  }
+
+  .doctors-hero__heading em {
+    color: var(--clr-gold);
+    font-style: italic;
+  }
+
+  .doctors-hero__sub {
+    max-width: 58ch;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .doctors-page {
+    background: var(--clr-white);
+    padding: var(--space-32) var(--gutter);
+  }
+
+  .doctors-page__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .doctors-page__intro {
+    max-width: 700px;
+    margin-bottom: var(--space-16);
+  }
+
+  .doctors-page__intro h2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    color: var(--clr-navy);
+    line-height: 1.15;
+    margin-bottom: var(--space-4);
+  }
+
+  .doctors-page__intro p {
+    color: var(--clr-text-body);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .doctor-profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  .doctor-profile-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+    background: var(--clr-off-white);
+    border: 1px solid var(--clr-light-gray);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .doctor-profile-card__photo {
+    aspect-ratio: 4 / 3;
+    background: var(--clr-navy);
+  }
+
+  .doctor-profile-card__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .doctor-profile-card__placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    color: var(--clr-white);
+    background:
+      linear-gradient(135deg, rgba(206, 196, 167, 0.16), rgba(255, 255, 255, 0.04)),
+      var(--clr-navy);
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .doctor-profile-card__placeholder span {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clr-gold);
+  }
+
+  .doctor-profile-card__placeholder strong {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  .doctor-profile-card__placeholder small {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: var(--text-xs);
+  }
+
+  .doctor-profile-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--space-8);
+  }
+
+  .doctor-profile-card__role {
+    color: var(--clr-gold-dark);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-3);
+  }
+
+  .doctor-profile-card__content h3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--clr-navy);
+    line-height: 1.2;
+    margin-bottom: var(--space-2);
+  }
+
+  .doctor-profile-card__quals {
+    color: var(--clr-text-mid);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-5);
+  }
+
+  .doctor-profile-card__bio {
+    color: var(--clr-text-body);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .doctor-profile-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .doctor-profile-card__tags span {
+    background: var(--clr-gold-pale);
+    border: 1px solid rgba(206, 196, 167, 0.35);
+    border-radius: var(--radius-pill);
+    color: var(--clr-navy-mid);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 5px 11px;
+    text-transform: uppercase;
+  }
+
+  .doctor-profile-card__footer {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: auto;
+  }
+
+  .doctor-profile-card__cta {
+    flex: 1;
+    text-align: center;
+    font-size: 0.65rem !important;
+    padding: 10px 12px !important;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .doctor-profile-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .doctors-hero {
+      padding: 9rem var(--gutter) 5.5rem;
+    }
+
+    .doctors-page {
+      padding: var(--space-24) var(--gutter);
+    }
+
+    .doctor-profile-card__content {
+      padding: var(--space-6);
+    }
+  }
+</style>

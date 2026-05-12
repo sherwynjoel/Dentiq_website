@@ -1,10 +1,30 @@
 ---
+import { treatmentsData } from '../data/treatmentsData.js';
+import { doctorsData } from '../data/doctorsData.js';
+
 const pathname = Astro.url?.pathname ?? '/';
 const isHome       = pathname === '/' || pathname === '';
 const isAbout      = pathname.startsWith('/about');
 const isTreatments = pathname.startsWith('/treatments');
+const isDoctors    = pathname.startsWith('/doctors');
 const isBlog       = pathname.startsWith('/blog');
 const isContact    = pathname.startsWith('/contact');
+
+const treatmentSummaries: Record<string, string> = {
+  laser: 'Comfortable laser-assisted dental care',
+  surgery: 'Aesthetic facial and jaw correction',
+  cosmetic: 'Smile design, whitening, and veneers',
+  implants: 'Single, multiple, and full arch implants',
+  maxillofacial: 'Complex oral and facial surgery',
+  pedodontics: 'Gentle dental care for children',
+  conservative: 'Fillings and natural tooth preservation',
+  endodontics: 'Root canal and tooth pain care',
+  periodontics: 'Gum health and periodontal treatment',
+  orthodontics: 'Braces, aligners, and jaw alignment',
+  prosthodontics: 'Dentures, crowns, bridges, and rehab',
+  sports: 'Mouthguards and sports trauma care',
+  prosthetics: 'Facial and maxillofacial prosthetics',
+};
 ---
 
 <header id="nav" class={isHome ? 'is-home-nav' : ''} role="banner">
@@ -32,36 +52,34 @@ const isContact    = pathname.startsWith('/contact');
       <li><a href="/"           class={isHome       ? 'nav__active' : ''}>Home</a></li>
       <li><a href="/about"      class={isAbout      ? 'nav__active' : ''}>About</a></li>
       <li class="nav__dropdown">
+        <a href="/doctors" class={`nav__dropdown-toggle ${isDoctors ? 'nav__active' : ''}`}>
+          Doctors
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown-menu nav__dropdown-menu--doctors">
+          <div class="nav__dropdown-inner">
+            {doctorsData.map((doctor) => (
+              <a href={`/doctors/${doctor.id}`} class="nav__dropdown-item">
+                <strong>{doctor.name}</strong>
+                <span>{doctor.role}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </li>
+      <li class="nav__dropdown">
         <a href="/treatments" class={`nav__dropdown-toggle ${isTreatments ? 'nav__active' : ''}`}>
           Treatments
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
         </a>
         <div class="nav__dropdown-menu">
           <div class="nav__dropdown-inner">
-            <a href="/treatments#implants" class="nav__dropdown-item">
-              <strong>Dental Implants</strong>
-              <span>Advanced Laser & Zygomatic</span>
-            </a>
-            <a href="/treatments#orthodontics" class="nav__dropdown-item">
-              <strong>Invisalign</strong>
-              <span>Clear Aligners & Braces</span>
-            </a>
-            <a href="/treatments#tmj" class="nav__dropdown-item">
-              <strong>TMJ & Migraine</strong>
-              <span>Orofacial Pain Specialist</span>
-            </a>
-            <a href="/treatments#cosmetic" class="nav__dropdown-item">
-              <strong>Cosmetic Dentistry</strong>
-              <span>Whitening & Smile Design</span>
-            </a>
-            <a href="/treatments#general" class="nav__dropdown-item">
-              <strong>General Dental</strong>
-              <span>Painless Root Canal & Fillings</span>
-            </a>
-            <a href="/treatments#pediatric" class="nav__dropdown-item">
-              <strong>Pediatric Care</strong>
-              <span>Gentle Kids Dentistry</span>
-            </a>
+            {treatmentsData.map((treatment) => (
+              <a href={`/treatments/${treatment.id}`} class="nav__dropdown-item">
+                <strong>{treatment.name}</strong>
+                <span>{treatmentSummaries[treatment.id] ?? treatment.desc}</span>
+              </a>
+            ))}
           </div>
         </div>
       </li>
@@ -84,16 +102,43 @@ const isContact    = pathname.startsWith('/contact');
   </nav>
 </header>
 
-  <div id="nav-drawer" aria-hidden="true">
+<div id="nav-drawer" aria-hidden="true">
   <div class="drawer__inner">
     <ul role="list">
       <li><a href="/"           class="drawer__link">Home</a></li>
       <li><a href="/about"      class="drawer__link">About</a></li>
-      <li><a href="/treatments" class="drawer__link">Treatments</a></li>
+      <li class="drawer__item--dropdown">
+        <button class="drawer__link drawer__toggle" id="drawer-doctors-toggle">
+          Doctors
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="drawer__submenu" id="drawer-doctors-submenu">
+          {doctorsData.map((d) => (
+            <a href={`/doctors/${d.id}`} class="drawer__sub-link">{d.name}</a>
+          ))}
+          <a href="/doctors" class="drawer__sub-link drawer__sub-link--all">View All Doctors</a>
+        </div>
+      </li>
+      <li class="drawer__item--dropdown">
+        <button class="drawer__link drawer__toggle" id="drawer-treatments-toggle">
+          Treatments
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="drawer__submenu" id="drawer-treatments-submenu">
+          {treatmentsData.map((t) => (
+            <a href={`/treatments/${t.id}`} class="drawer__sub-link">{t.name}</a>
+          ))}
+          <a href="/treatments" class="drawer__sub-link drawer__sub-link--all">View All Treatments</a>
+        </div>
+      </li>
       <li><a href="/blog"       class="drawer__link">Blog</a></li>
-      <li><a href="#contact"    class="drawer__link drawer__cta">Book Appointment</a></li>
     </ul>
-    <p class="drawer__phone">+91 84894 88999</p>
+    <a href="#contact" class="drawer__cta">Book Appointment</a>
+    
+    <div class="drawer__footer">
+      <p class="drawer__phone">+91 84894 88999</p>
+      <p class="drawer__email">info@dentiqsuperspeciality.com</p>
+    </div>
   </div>
 </div>
 
@@ -118,13 +163,6 @@ const isContact    = pathname.startsWith('/contact');
   }
   #nav.is-home-nav:not(.is-scrolled) .nav__links a.nav__active {
     color: var(--clr-navy);
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__logo {
-    color: var(--clr-navy);
-    text-shadow: none;
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__logo span {
-    color: var(--clr-text-mid);
   }
   #nav.is-home-nav:not(.is-scrolled) .nav__hamburger span {
     background: var(--clr-navy);
@@ -161,13 +199,13 @@ const isContact    = pathname.startsWith('/contact');
   .nav__top-promo {
     font-weight: 700;
     color: #fff;
-    flex: 1; /* Force equal structural width */
+    flex: 1;
     text-align: right;
   }
   .nav__top-contact { 
     display: flex; 
     gap: var(--space-8); 
-    flex: 1; /* Force equal structural width */
+    flex: 1;
     justify-content: flex-start;
   }
   .nav__top-contact a { color: inherit; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
@@ -179,7 +217,7 @@ const isContact    = pathname.startsWith('/contact');
 
   #nav.is-scrolled {
     background: var(--clr-navy);
-    box-shadow: 0 2px 24px rgba(78, 72, 50, 0.25);
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
   }
   #nav.is-scrolled .nav__inner {
     padding-top: var(--space-4);
@@ -191,70 +229,18 @@ const isContact    = pathname.startsWith('/contact');
     transition: filter 0.4s ease;
   }
 
-  .nav__logo {
-    font-family: var(--font-body);
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--clr-white);
-    letter-spacing: 0.01em;
-    line-height: 1.1;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-  }
-  .nav__logo span {
-    display: block;
-    font-size: 0.55em;
-    font-weight: 400;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--clr-gold);
-    margin-top: 2px;
-    text-shadow: none;
-  }
-
   @media (max-width: 500px) {
     .nav__inner { padding: var(--space-3) var(--gutter); }
-    .nav__logo { font-size: 1.15rem; }
-    .nav__logo span { font-size: 0.48em; letter-spacing: 0.12em; margin-top: 1px; }
+    .nav__logo-img { height: 40px !important; }
   }
 
-  /* Flicker Effect */
-  [data-flicker] {
-    position: relative;
-    animation: flicker-loop 4s infinite linear;
-  }
-  @keyframes flicker-loop {
-    0%, 90%, 100% { opacity: 1; transform: translate(0); text-shadow: none; }
-    91% { opacity: 0.8; transform: translate(-1px, 1px); text-shadow: 2px 0 var(--clr-gold), -2px 0 rgba(255,255,255,0.5); }
-    93% { opacity: 1; transform: translate(1px, -1px); text-shadow: none; }
-    95% { opacity: 0.9; transform: translate(-1px, -1px); text-shadow: 1px 0 var(--clr-gold); }
-    97% { opacity: 1; transform: translate(1px, 1px); text-shadow: none; }
-  }
-
-  [data-flicker]:hover {
-    animation: flicker-glitch 0.4s infinite linear;
-  }
-  @keyframes flicker-glitch {
-    0%   { opacity: 1; transform: translate(0); text-shadow: none; }
-    20%  { opacity: 0.8; transform: translate(-1px, 1px); text-shadow: 2px 0 var(--clr-gold), -2px 0 rgba(255,255,255,0.5); }
-    40%  { opacity: 1; transform: translate(1px, -1px); text-shadow: none; }
-    60%  { opacity: 0.9; transform: translate(-1px, -1px); text-shadow: 1px 0 var(--clr-gold); }
-    80%  { opacity: 1; transform: translate(1px, 1px); text-shadow: none; }
-    100% { opacity: 1; transform: translate(0); }
-  }
-
-  .nav__top-promo {
-    font-weight: 700;
-    color: #fff;
-  }
   .link-gold {
     color: var(--clr-gold-dark);
     text-decoration: underline;
     text-underline-offset: 4px;
     transition: color 0.3s ease;
   }
-  .link-gold:hover {
-    color: #fff;
-  }
+  .link-gold:hover { color: #fff; }
 
   .nav__links {
     display: flex;
@@ -267,11 +253,10 @@ const isContact    = pathname.startsWith('/contact');
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
+    color: rgba(255, 255, 255, 0.85);
     letter-spacing: 0.12em;
     position: relative;
     transition: color 0.2s ease;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
   }
   .nav__links a:not(.nav__cta)::after {
     content: '';
@@ -307,7 +292,9 @@ const isContact    = pathname.startsWith('/contact');
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: var(--clr-white);
-    min-width: 280px;
+    width: min(760px, calc(100vw - 2rem));
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--clr-light-gray);
@@ -319,17 +306,18 @@ const isContact    = pathname.startsWith('/contact');
   }
   #nav.is-scrolled .nav__dropdown-menu {
     background: var(--clr-navy);
-    border-color: rgba(255,255,255,0.1);
+    border-color: rgba(255, 255, 255, 0.1);
   }
-  .nav__dropdown:hover .nav__dropdown-menu {
+  .nav__dropdown:hover .nav__dropdown-menu,
+  .nav__dropdown:focus-within .nav__dropdown-menu {
     opacity: 1;
     pointer-events: all;
     transform: translateX(-50%) translateY(0);
   }
   .nav__dropdown-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
   }
   .nav__dropdown-item {
     display: flex;
@@ -337,14 +325,13 @@ const isContact    = pathname.startsWith('/contact');
     padding: 10px 16px;
     border-radius: var(--radius-sm);
     transition: background 0.2s ease;
-    text-shadow: none !important;
   }
-  .nav__dropdown-item::after { display: none !important; }
   .nav__dropdown-item strong {
     font-size: 0.85rem;
     color: var(--clr-navy);
     display: block;
     margin-bottom: 2px;
+    line-height: 1.25;
   }
   .nav__dropdown-item span {
     font-size: 0.65rem;
@@ -352,22 +339,13 @@ const isContact    = pathname.startsWith('/contact');
     text-transform: none;
     letter-spacing: 0.02em;
     font-weight: 400;
+    line-height: 1.35;
   }
   #nav.is-scrolled .nav__dropdown-item strong { color: var(--clr-white); }
-  #nav.is-scrolled .nav__dropdown-item span { color: rgba(255,255,255,0.6); }
+  #nav.is-scrolled .nav__dropdown-item span { color: rgba(255, 255, 255, 0.6); }
 
-  .nav__dropdown-item:hover {
-    background: var(--clr-off-white);
-  }
-  #nav.is-scrolled .nav__dropdown-item:hover {
-    background: rgba(255,255,255,0.05);
-  }
-  .nav__dropdown-item:hover strong {
-    color: var(--clr-gold-dark);
-  }
-  #nav.is-scrolled .nav__dropdown-item:hover strong {
-    color: var(--clr-gold);
-  }
+  .nav__dropdown-item:hover { background: var(--clr-off-white); }
+  #nav.is-scrolled .nav__dropdown-item:hover { background: rgba(255, 255, 255, 0.05); }
 
   .nav__cta {
     background: var(--clr-gold) !important;
@@ -378,9 +356,7 @@ const isContact    = pathname.startsWith('/contact');
     font-size: var(--text-xs) !important;
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
-    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
-    box-shadow: var(--shadow-gold) !important;
-    text-shadow: none !important;
+    transition: background 0.25s ease, transform 0.25s ease !important;
   }
   .nav__cta:hover {
     background: var(--clr-gold-light) !important;
@@ -392,7 +368,6 @@ const isContact    = pathname.startsWith('/contact');
     flex-direction: column;
     gap: 5px;
     padding: var(--space-2);
-    cursor: none;
   }
   .nav__hamburger span {
     display: block;
@@ -411,50 +386,164 @@ const isContact    = pathname.startsWith('/contact');
     .nav__hamburger { display: flex; }
   }
 
+  @media (max-width: 1080px) {
+    .nav__dropdown-menu { width: min(420px, calc(100vw - 2rem)); }
+    .nav__dropdown-inner { grid-template-columns: 1fr; }
+  }
+
+  .nav__dropdown-menu--doctors {
+    width: 280px;
+    padding: var(--space-2);
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-inner {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
+    text-align: left;
+  }
+  #nav.is-scrolled .nav__dropdown-menu--doctors .nav__dropdown-item {
+    border-bottom-color: rgba(255,255,255,0.05);
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item:last-child {
+    border-bottom: none;
+  }
+  .nav__dropdown-menu--doctors strong {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .nav__dropdown-menu--doctors span {
+    font-size: 0.75rem;
+    margin-top: 2px;
+    opacity: 0.8;
+  }
+
   /* Mobile drawer */
   #nav-drawer {
     position: fixed;
     inset: 0;
-    z-index: 900;
-    background: var(--clr-navy);
+    z-index: 1200;
+    background: #1a1810;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    padding: 6rem var(--gutter) 4rem;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.5s var(--ease-out-expo);
+    overflow-y: auto;
   }
   #nav-drawer.is-open {
     opacity: 1;
-    pointer-events: all;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  .drawer__inner { text-align: center; }
-  .drawer__inner ul { display: flex; flex-direction: column; gap: var(--space-8); }
+  .drawer__inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .drawer__inner ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
 
   .drawer__link {
     font-family: var(--font-heading);
-    font-size: var(--text-3xl);
-    font-weight: 400;
+    font-size: clamp(2rem, 7vw, 3rem);
+    font-weight: 700;
     color: var(--clr-white);
-    transition: color 0.2s ease;
+    line-height: 1.1;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: var(--space-2) 0;
   }
   .drawer__link:hover { color: var(--clr-gold); }
-  .drawer__cta { color: var(--clr-gold) !important; font-style: italic; }
 
-  .drawer__phone {
-    margin-top: var(--space-12);
-    font-size: var(--text-sm);
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.5);
+  .drawer__toggle-icon {
+    transition: transform 0.3s ease;
+    color: var(--clr-gold);
   }
+  .drawer__toggle.is-active .drawer__toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .drawer__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
+    opacity: 0;
+    padding-left: var(--space-4);
+    pointer-events: none;
+  }
+  .drawer__submenu.is-active {
+    max-height: 2000px; /* High enough to contain all links */
+    transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .drawer__sub-link {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 10px 0;
+    display: block;
+    transition: color 0.2s ease;
+  }
+  .drawer__sub-link:hover { color: var(--clr-gold); }
+  .drawer__sub-link--all {
+    font-weight: 700;
+    color: var(--clr-gold);
+    margin-top: var(--space-2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-4);
+  }
+  
+  .drawer__cta {
+    margin-top: var(--space-8);
+    display: inline-block;
+    background: var(--clr-gold);
+    color: var(--clr-navy);
+    padding: 16px 32px;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .drawer__footer {
+    margin-top: auto;
+    padding-top: var(--space-8);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .drawer__phone { font-size: 1.2rem; font-weight: 700; color: var(--clr-gold); }
+  .drawer__email { font-size: 0.9rem; color: rgba(255, 255, 255, 0.5); }
 </style>
 
 <script>
   const nav    = document.getElementById('nav')!;
   const toggle = document.getElementById('nav-toggle')!;
   const drawer = document.getElementById('nav-drawer')!;
+  const treatmentsToggle = document.getElementById('drawer-treatments-toggle')!;
+  const treatmentsSubmenu = document.getElementById('drawer-treatments-submenu')!;
+  const doctorsToggle = document.getElementById('drawer-doctors-toggle')!;
+  const doctorsSubmenu = document.getElementById('drawer-doctors-submenu')!;
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 60);
@@ -465,6 +554,27 @@ const isContact    = pathname.startsWith('/contact');
     toggle.setAttribute('aria-expanded', String(open));
     drawer.classList.toggle('is-open', open);
     drawer.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  treatmentsToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isActive = treatmentsToggle.classList.toggle('is-active');
+    treatmentsSubmenu.classList.toggle('is-active', isActive);
+    
+    // Close other submenu
+    doctorsToggle?.classList.remove('is-active');
+    doctorsSubmenu?.classList.remove('is-active');
+  });
+
+  doctorsToggle?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isActive = doctorsToggle.classList.toggle('is-active');
+    doctorsSubmenu.classList.toggle('is-active', isActive);
+    
+    // Close other submenu
+    treatmentsToggle?.classList.remove('is-active');
+    treatmentsSubmenu?.classList.remove('is-active');
   });
 
   drawer.querySelectorAll('a').forEach(a => {
@@ -473,6 +583,13 @@ const isContact    = pathname.startsWith('/contact');
       toggle.setAttribute('aria-expanded', 'false');
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      
+      // Reset submenus
+      treatmentsToggle?.classList.remove('is-active');
+      treatmentsSubmenu?.classList.remove('is-active');
+      doctorsToggle?.classList.remove('is-active');
+      doctorsSubmenu?.classList.remove('is-active');
     });
   });
 </script>

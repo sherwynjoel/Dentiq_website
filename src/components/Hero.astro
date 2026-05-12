@@ -1,12 +1,8 @@
 ---
-import indianSmile1 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_1_1777610291924.png";
-import indianSmile2 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_2_1777610372994.png";
-import indianSmile3 from "C:/Users/Sherwyn joel/.gemini/antigravity/brain/428871a4-9722-43ce-9b86-ef882cfd310f/indian_smile_3_1777610388266.png";
-
 const slides = [
-  indianSmile1.src,
-  indianSmile2.src,
-  indianSmile3.src
+  '/Screenshot%202026-04-29%20221706.png',
+  'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=1800',
+  'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1800',
 ];
 ---
 
@@ -29,15 +25,25 @@ const slides = [
         Palayapalayam, Erode
       </span>
       <h1 class="hero__heading">
-        DentiQ <em>Friendly</em> Laser Dental Care
+        Friendly Laser Dental Care <em>in Erode</em>
       </h1>
       <p class="hero__sub">
-        We are a caring team of dental experts ready to help you with comfortable, pain-free treatments. We make sure every visit leaves you with a happy, confident smile.
+        Advanced dental care for implants, smile design, root canals, gum health, and child dentistry, delivered with calm communication and modern clinical comfort.
       </p>
       <div class="hero__actions">
         <a href="#contact" class="btn btn--primary" data-magnetic data-cursor-hover>
           Book Appointment
         </a>
+        <a href="/treatments" class="btn btn--free-consult" data-cursor-hover>
+          View Treatments
+        </a>
+      </div>
+
+      <div class="hero__trust-row" aria-label="Clinic highlights">
+        <span>Laser Dentistry</span>
+        <span>Implants</span>
+        <span>Smile Design</span>
+        <span>Kids Dental Care</span>
       </div>
 
       <!-- Stat row -->
@@ -74,7 +80,7 @@ const slides = [
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding: 7rem var(--gutter) var(--space-20);
+    padding: 8rem var(--gutter) var(--space-20);
     overflow: hidden;
   }
 
@@ -90,8 +96,8 @@ const slides = [
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out, transform 6s linear;
-    transform: scale(1.05);
+    transition: opacity 1.5s ease-in-out, transform 8s linear;
+    transform: scale(1.08);
   }
   .hero__slide.active {
     opacity: 1;
@@ -103,16 +109,16 @@ const slides = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
-      radial-gradient(circle at 50% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%),
-      radial-gradient(ellipse 60% 70% at 75% 50%, rgba(206,196,167,0.15) 0%, transparent 65%);
+      linear-gradient(90deg, rgba(252,250,246,0.92) 0%, rgba(252,250,246,0.82) 44%, rgba(252,250,246,0.54) 100%),
+      radial-gradient(ellipse 70% 70% at 50% 45%, rgba(252,250,246,0.34) 0%, transparent 72%),
+      linear-gradient(to bottom, rgba(78,72,50,0.04), rgba(78,72,50,0.24));
     pointer-events: none;
     z-index: 0;
   }
   .hero__pattern {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(78,72,50,0.05) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(78,72,50,0.065) 1px, transparent 1px);
     background-size: 32px 32px;
     pointer-events: none;
   }
@@ -131,15 +137,15 @@ const slides = [
 
   /* Left */
   .hero__left {
-    max-width: 800px;
+    max-width: 860px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .hero__heading {
     font-family: var(--font-heading);
-    font-size: var(--text-hero);
-    font-weight: 600;
+    font-size: clamp(3rem, 6.4vw, 5.7rem);
+    font-weight: 700;
     line-height: 1.08;
     color: var(--clr-navy);
     margin-bottom: var(--space-6);
@@ -155,9 +161,9 @@ const slides = [
     font-size: var(--text-lg);
     font-weight: 300;
     line-height: 1.8;
-    color: var(--clr-text-body);
+    color: var(--clr-text-dark);
     margin-bottom: var(--space-10);
-    max-width: 60ch;
+    max-width: 64ch;
     opacity: 0;
   }
 
@@ -165,14 +171,14 @@ const slides = [
     display: flex;
     justify-content: center;
     gap: var(--space-4);
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-8);
     opacity: 0;
   }
   .btn--free-consult {
     background: transparent;
-    border: 1px solid var(--clr-navy);
+    border: 1px solid rgba(78,72,50,0.35);
     color: var(--clr-navy);
-    padding: 12px 28px;
+    padding: 14px 28px;
     border-radius: var(--radius-pill);
     font-weight: 600;
     font-size: var(--text-xs);
@@ -188,16 +194,25 @@ const slides = [
     box-shadow: var(--shadow-md);
   }
 
-  @media (max-width: 500px) {
-    .hero__actions {
-      flex-direction: column;
-      width: 100%;
-    }
-    .hero__actions .btn {
-      width: 100%;
-      text-align: center;
-      justify-content: center;
-    }
+  .hero__trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+    opacity: 0;
+  }
+  .hero__trust-row span {
+    padding: 7px 13px;
+    border: 1px solid rgba(78, 72, 50, 0.14);
+    border-radius: var(--radius-pill);
+    background: rgba(252, 250, 246, 0.72);
+    color: var(--clr-navy);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
   }
 
   /* Stats row */
@@ -208,11 +223,11 @@ const slides = [
     flex-wrap: wrap;
     opacity: 0;
     padding: var(--space-6) var(--space-8);
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--clr-light-gray);
+    background: rgba(252, 250, 246, 0.88);
+    border: 1px solid rgba(78,72,50,0.12);
     border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 18px 60px rgba(78,72,50,0.18);
   }
   .hero__stat {
     display: flex;
@@ -246,23 +261,37 @@ const slides = [
 
   /* Responsive */
   @media (max-width: 1024px) {
-    #hero { align-items: flex-start; padding-top: 8.5rem; min-height: auto; padding-bottom: 6rem; }
-    .hero__heading { font-size: 2.8rem; line-height: 1.1; }
+    #hero { align-items: flex-start; padding-top: 10rem; min-height: auto; padding-bottom: 8rem; }
+    .hero__heading { font-size: 3.5rem; line-height: 1.1; }
     .hero__sub { font-size: 1.1rem; }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    .hero__heading { font-size: 2.8rem; }
     .hero__stats { 
-      gap: var(--space-4); 
-      padding: var(--space-4); 
+      padding: var(--space-6); 
       display: grid;
       grid-template-columns: 1fr 1fr;
-      text-align: center;
+      gap: var(--space-6) var(--space-4);
     }
     .hero__stat-divider { display: none; }
-    .hero__heading { font-size: 1.8rem; letter-spacing: -0.02em; }
+  }
+  @media (max-width: 500px) {
+    #hero { padding-top: 8rem; }
+    .hero__heading { font-size: 2.2rem; letter-spacing: -0.01em; }
     .hero__sub { font-size: 0.95rem; line-height: 1.7; margin-bottom: var(--space-8); }
-    .hero__stat-num { font-size: 1.3rem; }
-    .hero__stat-label { font-size: 0.6rem; }
+    .hero__stat-num { font-size: 1.4rem; }
+    .hero__stat-label { font-size: 0.65rem; }
+    .hero__trust-row { justify-content: center; gap: 8px; }
+    .hero__trust-row span { font-size: 0.6rem; padding: 5px 10px; }
+    .hero__actions {
+      flex-direction: column;
+      width: 100%;
+    }
+    .hero__actions .btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
   }
 </style>
 
@@ -280,6 +309,7 @@ const slides = [
       .to('.hero__heading', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
       .to('.hero__sub',     { opacity: 1, duration: 0.5 }, '-=0.4')
       .to('.hero__actions', { opacity: 1, duration: 0.5 }, '-=0.4')
+      .to('.hero__trust-row', { opacity: 1, duration: 0.45 }, '-=0.35')
       .to('.hero__stats',   { opacity: 1, y: 0, duration: 0.5 }, '-=0.4')
       .to('.hero__image-wrapper', { opacity: 1, x: 0, rotateY: 0, duration: 1 }, '-=0.8')
       .to('.hero__doctor-info', { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
@@ -309,6 +339,4 @@ const slides = [
       gsap.set('.hero__bg', { y: self.progress * 80 });
     },
   });
-
-
 </script>
