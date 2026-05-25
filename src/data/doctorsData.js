@@ -4,7 +4,7 @@ export const doctorsData = [
     name: 'Dr. Dilip',
     role: 'Lead Dental Specialist',
     qualifications: 'MDS, Oral & Maxillofacial Surgery',
-    image: '', // Placeholder, will be used if provided
+    image: '/dr-dilip.webp',
     bio: 'Dr. Dilip is a visionary in the field of modern dentistry, specializing in advanced laser-assisted procedures and complex maxillofacial surgeries. With over 15 years of experience, he leads the clinical team at DentiQ with a focus on patient-centric care and surgical precision.',
     longBio: 'Dr. Dilip completed his Master of Dental Surgery (MDS) in Oral & Maxillofacial Surgery from a premier medical institution. His passion for technology led him to pioneer several laser-assisted dental techniques in the region. He believes that the future of dentistry lies in minimally invasive procedures that ensure faster recovery and maximum patient comfort. At DentiQ, he has curated a team of specialists who share his commitment to excellence and clinical rigor.',
     specialties: ['Oral Surgery', 'Laser Dentistry', 'Dental Implants', 'Full Mouth Rehab'],

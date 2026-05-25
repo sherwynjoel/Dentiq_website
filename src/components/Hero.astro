@@ -1,8 +1,8 @@
 ---
 const slides = [
-  '/Screenshot%202026-04-29%20221706.png',
-  'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=1800',
-  'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1800',
+  '/hero-bg-1.webp',
+  '/hero-bg-2.webp',
+  '/hero-bg-3.webp',
 ];
 ---
 
@@ -69,6 +69,16 @@ const slides = [
         </div>
       </div>
     </div>
+
+    <div class="hero__right">
+      <div class="hero__image-wrapper">
+        <img src="/dr-dilip.webp" alt="Dr. Dilip - Lead Dental Specialist" class="hero__doctor-img" />
+        <div class="hero__doctor-info">
+          <strong>Dr. Dilip, MDS</strong>
+          <span>Oral & Maxillofacial Specialist</span>
+        </div>
+      </div>
+    </div>
   </div>
 
 
@@ -77,10 +87,11 @@ const slides = [
 <style>
   #hero {
     position: relative;
+    height: 100svh;
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding: 8rem var(--gutter) var(--space-20);
+    padding: 8.5rem var(--gutter) 2rem;
     overflow: hidden;
   }
 
@@ -109,9 +120,9 @@ const slides = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(252,250,246,0.92) 0%, rgba(252,250,246,0.82) 44%, rgba(252,250,246,0.54) 100%),
-      radial-gradient(ellipse 70% 70% at 50% 45%, rgba(252,250,246,0.34) 0%, transparent 72%),
-      linear-gradient(to bottom, rgba(78,72,50,0.04), rgba(78,72,50,0.24));
+      linear-gradient(90deg, rgba(250,246,240,0.94) 0%, rgba(250,246,240,0.85) 44%, rgba(250,246,240,0.56) 100%),
+      radial-gradient(ellipse 70% 70% at 50% 45%, rgba(250,246,240,0.34) 0%, transparent 72%),
+      linear-gradient(to bottom, rgba(45,53,42,0.03), rgba(45,53,42,0.18));
     pointer-events: none;
     z-index: 0;
   }
@@ -127,12 +138,24 @@ const slides = [
     position: relative;
     z-index: 1;
     display: flex;
+    flex-direction: column; /* Force vertical stacking on mobile */
     justify-content: center;
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
     width: 100%;
     text-align: center;
+  }
+
+  @media (min-width: 1025px) {
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: var(--space-12);
+      align-items: center;
+      text-align: left;
+      margin-top: 5rem; /* Pushed down further for a perfectly relaxed, centered layout */
+    }
   }
 
   /* Left */
@@ -142,13 +165,21 @@ const slides = [
     flex-direction: column;
     align-items: center;
   }
+
+  @media (min-width: 1025px) {
+    .hero__left {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
   .hero__heading {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 6.4vw, 5.7rem);
+    font-size: clamp(2.5rem, 4.8vw, 4rem);
     font-weight: 700;
     line-height: 1.08;
     color: var(--clr-navy);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-3);
     letter-spacing: -0.01em;
     opacity: 0;
   }
@@ -158,11 +189,11 @@ const slides = [
   }
 
   .hero__sub {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.7;
     color: var(--clr-text-dark);
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-4);
     max-width: 64ch;
     opacity: 0;
   }
@@ -171,14 +202,21 @@ const slides = [
     display: flex;
     justify-content: center;
     gap: var(--space-4);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-4);
     opacity: 0;
   }
+
+  @media (min-width: 1025px) {
+    .hero__actions {
+      justify-content: flex-start;
+    }
+  }
+
   .btn--free-consult {
     background: transparent;
     border: 1px solid rgba(78,72,50,0.35);
     color: var(--clr-navy);
-    padding: 14px 28px;
+    padding: 12px 24px;
     border-radius: var(--radius-pill);
     font-weight: 600;
     font-size: var(--text-xs);
@@ -199,16 +237,22 @@ const slides = [
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-2);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-4);
     opacity: 0;
   }
+
+  @media (min-width: 1025px) {
+    .hero__trust-row {
+      justify-content: flex-start;
+    }
+  }
   .hero__trust-row span {
-    padding: 7px 13px;
+    padding: 6px 12px;
     border: 1px solid rgba(78, 72, 50, 0.14);
     border-radius: var(--radius-pill);
     background: rgba(252, 250, 246, 0.72);
     color: var(--clr-navy);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.09em;
     text-transform: uppercase;
@@ -222,12 +266,12 @@ const slides = [
     gap: var(--space-6);
     flex-wrap: wrap;
     opacity: 0;
-    padding: var(--space-6) var(--space-8);
+    padding: var(--space-4) var(--space-6);
     background: rgba(252, 250, 246, 0.88);
     border: 1px solid rgba(78,72,50,0.12);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(16px);
-    box-shadow: 0 18px 60px rgba(78,72,50,0.18);
+    box-shadow: 0 12px 48px rgba(78,72,50,0.14);
   }
   .hero__stat {
     display: flex;
@@ -239,13 +283,13 @@ const slides = [
   }
   .hero__stat-num {
     font-family: var(--font-body);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--clr-navy);
     line-height: 1;
   }
   .hero__stat-label {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 400;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -254,14 +298,14 @@ const slides = [
   }
   .hero__stat-divider {
     width: 1px;
-    height: 36px;
+    height: 28px;
     background: var(--clr-light-gray);
     flex-shrink: 0;
   }
 
   /* Responsive */
   @media (max-width: 1024px) {
-    #hero { align-items: flex-start; padding-top: 10rem; min-height: auto; padding-bottom: 8rem; }
+    #hero { align-items: flex-start; padding-top: 10rem; height: auto; min-height: auto; padding-bottom: 8rem; }
     .hero__heading { font-size: 3.5rem; line-height: 1.1; }
     .hero__sub { font-size: 1.1rem; }
   }
@@ -293,6 +337,74 @@ const slides = [
       justify-content: center;
     }
   }
+
+  .hero__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+  @media (min-width: 1025px) {
+    .hero__right {
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      margin-top: 0.5rem; /* Balanced parallel alignment alongside the grid margin */
+      margin-bottom: 0;
+    }
+  }
+  .hero__image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 360px; /* Reduced slightly to prevent crowding on medium desktop screens */
+    aspect-ratio: 2.8 / 4;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), 0 20px 48px rgba(45, 53, 42, 0.22);
+    border: 2px solid var(--clr-gold);
+    background: var(--clr-off-white);
+  }
+  .hero__doctor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+  .hero__image-wrapper:hover .hero__doctor-img {
+    transform: scale(1.04);
+  }
+  .hero__doctor-info {
+    position: absolute;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+    background: rgba(250, 246, 240, 0.94);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(206, 196, 167, 0.35);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: left;
+  }
+  .hero__doctor-info strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    color: var(--clr-navy);
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .hero__doctor-info span {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--clr-text-mid);
+    margin-top: 2px;
+    font-weight: 500;
+  }
 </style>
 
 <script>
@@ -318,6 +430,8 @@ const slides = [
 
   // Initial state
   gsap.set(['.hero__heading','.hero__stats'], { y: 40 });
+  gsap.set('.hero__image-wrapper', { opacity: 0, x: 30, rotateY: -10 });
+  gsap.set('.hero__doctor-info', { opacity: 0, y: 20 });
 
   // Slideshow Logic
   const slideElements = document.querySelectorAll('.hero__slide');
