@@ -5,97 +5,19 @@ import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
 import Contact from '../components/Contact.astro';
 
-const caseStudies = [
-  {
-    id: 1,
-    title: "Full Smile Makeover",
-    tag: "Porcelain Veneers",
-    before: "/IMG_2782 Edited.JPG",
-    after: "/IMG_2791 Edited.JPG",
-    desc: "Patient presented with stained, uneven teeth affecting confidence. Achieved a perfectly aligned, natural-looking white smile in just 2 visits using porcelain veneers.",
-    duration: "2 visits",
-    category: "Cosmetic"
-  },
-  {
-    id: 2,
-    title: "Invisible Alignment",
-    tag: "Clear Aligners",
-    image: "/clear-aligners-erode.jpg",
-    objectPosition: "center 40%",
-    desc: "Severe crowding and bite misalignment corrected discreetly using clear aligners. No metal, no discomfort — fully removed for eating and cleaning.",
-    duration: "12 months",
-    category: "Orthodontics"
-  },
-  {
-    id: 3,
-    title: "Implant Restoration",
-    tag: "Dental Implants",
-    image: "/Implant Restoration.jpg",
-    desc: "Multiple missing teeth replaced with titanium implants and ceramic crowns. Full chewing function and natural aesthetics restored permanently.",
-    duration: "4–6 months",
-    category: "Implants"
-  },
-  {
-    id: 4,
-    title: "Laser Gum Contouring",
-    tag: "Laser Dentistry",
-    image: "/Laser Dentistry.jpg",
-    desc: "Uneven gum line corrected using diode laser with zero bleeding, zero stitches, and virtually no recovery time. Smile transformed in a single visit.",
-    duration: "1 visit",
-    category: "Laser"
-  },
-  {
-    id: 5,
-    title: "Complete Smile Rehabilitation",
-    tag: "Prosthodontics",
-    image: "/Prosthodontics & Gerodontics.jpg",
-    desc: "Full mouth rehabilitation combining crowns, bridges, and implants for a patient with severe wear and tooth loss. Restored aesthetics, function, and confidence.",
-    duration: "6–9 months",
-    category: "Prosthodontics"
-  },
-  {
-    id: 6,
-    title: "Orthodontic Correction",
-    tag: "Braces",
-    image: "/Orthodontics & Dentofacial Orthopedics.jpg",
-    desc: "Crowded anterior teeth and skeletal bite discrepancy resolved with fixed braces. Facial profile and smile balance significantly improved.",
-    duration: "18 months",
-    category: "Orthodontics"
-  }
-];
-
-const stats = [
-  { number: "10,000+", label: "Patients Treated" },
-  { number: "4.9 ★", label: "Google Rating" },
-  { number: "98%", label: "Patient Satisfaction" },
-  { number: "23+", label: "Years of Results" }
-];
-
-const testimonials = [
-  {
-    name: "Priya R.",
-    treatment: "Dental Implants",
-    quote: "I had been hiding my smile for years. After my implant treatment at DentiQ, I smile in every photo. The team made the whole process so easy.",
-    rating: 5
-  },
-  {
-    name: "Karthik S.",
-    treatment: "Clear Aligners",
-    quote: "No one even knew I was wearing aligners. My teeth are now perfectly straight and I didn't have to deal with metal braces at all.",
-    rating: 5
-  },
-  {
-    name: "Meena L.",
-    treatment: "Porcelain Veneers",
-    quote: "The before and after is unbelievable. It only took two appointments and my smile is completely transformed. Truly world-class work.",
-    rating: 5
-  }
+const placeholders = [
+  { id: 1, tag: "Treatment Type" },
+  { id: 2, tag: "Treatment Type" },
+  { id: 3, tag: "Treatment Type" },
+  { id: 4, tag: "Treatment Type" },
+  { id: 5, tag: "Treatment Type" },
+  { id: 6, tag: "Treatment Type" },
 ];
 ---
 
 <BaseLayout
   title="Patient Results & Smile Transformations | DentiQ Superspeciality Erode"
-  description="See real before and after results from DentiQ Superspeciality Laser Dental Hospital in Erode. Smile makeovers, implants, aligners, and more."
+  description="See real before and after results from DentiQ Superspeciality Laser Dental Hospital in Erode."
 >
   <Cursor />
   <Nav />
@@ -108,7 +30,7 @@ const testimonials = [
         <span class="section__label section__label--light">Real Patients. Real Results.</span>
         <h1 class="results-hero__heading">Smile Transformations That <em>Speak for Themselves</em></h1>
         <p class="results-hero__sub">
-          Every smile in our gallery belongs to a real DentiQ patient. These are not stock photos — they are the life-changing results our superspecialists deliver every day in Erode.
+          Every smile in our gallery belongs to a real DentiQ patient — life-changing results our superspecialists deliver every day in Erode.
         </p>
         <div class="results-hero__ctas">
           <a href="#cases" class="btn btn--primary">See the Results</a>
@@ -117,137 +39,50 @@ const testimonials = [
       </div>
     </section>
 
-    <!-- STATS STRIP -->
-    <section class="results-stats">
-      <div class="results-stats__inner">
-        {stats.map(s => (
-          <div class="results-stat">
-            <span class="results-stat__number">{s.number}</span>
-            <span class="results-stat__label">{s.label}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- CASE GALLERY -->
+    <!-- BEFORE / AFTER GALLERY -->
     <section id="cases" class="cases section">
       <div class="container">
         <div class="section-header">
           <span class="section__label">Transformations</span>
           <h2 class="section__heading">Before &amp; After <em>Gallery</em></h2>
-          <p class="section-sub">Each result reflects careful planning, expert technique, and a commitment to natural-looking outcomes.</p>
+          <p class="section-sub">Real results from real patients. Images coming soon.</p>
         </div>
 
         <div class="cases__grid">
-          {caseStudies.map((item, i) => (
-            <div class="case-card" data-index={i}>
+          {placeholders.map((item) => (
+            <div class="case-card">
               <div class="case-card__img-box">
-                {item.before && item.after ? (
-                  <div class="before-after">
-                    <div class="before-after__half">
-                      <img src={item.before} alt={`${item.title} - Before`} loading={i < 2 ? 'eager' : 'lazy'} />
-                      <span class="ba-label ba-label--before">Before</span>
+                <div class="before-after">
+                  <div class="before-after__half">
+                    <!-- BEFORE IMAGE: replace src with actual image path -->
+                    <div class="img-placeholder">
+                      <span>Before</span>
                     </div>
-                    <div class="before-after__divider"></div>
-                    <div class="before-after__half">
-                      <img src={item.after} alt={`${item.title} - After`} loading={i < 2 ? 'eager' : 'lazy'} />
-                      <span class="ba-label ba-label--after">After</span>
-                    </div>
-                    <div class="case-card__overlay">
-                      <span class="case-card__tag">{item.tag}</span>
-                    </div>
+                    <span class="ba-label ba-label--before">Before</span>
                   </div>
-                ) : (
-                  <>
-                    <img src={item.image} alt={item.title} loading={i < 2 ? 'eager' : 'lazy'} style={item.objectPosition ? `object-position: ${item.objectPosition}` : ''} />
-                    <div class="case-card__overlay">
-                      <span class="case-card__tag">{item.tag}</span>
+                  <div class="before-after__divider"></div>
+                  <div class="before-after__half">
+                    <!-- AFTER IMAGE: replace src with actual image path -->
+                    <div class="img-placeholder">
+                      <span>After</span>
                     </div>
-                  </>
-                )}
+                    <span class="ba-label ba-label--after">After</span>
+                  </div>
+                  <div class="case-card__overlay">
+                    <span class="case-card__tag">{item.tag}</span>
+                  </div>
+                </div>
               </div>
               <div class="case-card__content">
                 <div class="case-card__meta">
-                  <span class="case-card__category">{item.category}</span>
-                  <span class="case-card__duration">{item.duration}</span>
+                  <span class="case-card__category">Category</span>
+                  <span class="case-card__duration">Duration</span>
                 </div>
-                <h3 class="case-card__title">{item.title}</h3>
-                <p class="case-card__desc">{item.desc}</p>
+                <h3 class="case-card__title">Case Title</h3>
+                <p class="case-card__desc">Patient description goes here.</p>
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials-strip section section--light">
-      <div class="container">
-        <div class="section-header">
-          <span class="section__label">Patient Stories</span>
-          <h2 class="section__heading">What Our Patients <em>Say</em></h2>
-        </div>
-        <div class="testi-grid">
-          {testimonials.map(t => (
-            <div class="testi-card">
-              <div class="testi-stars">
-                {"★".repeat(t.rating)}
-              </div>
-              <p class="testi-quote">"{t.quote}"</p>
-              <div class="testi-author">
-                <strong>{t.name}</strong>
-                <span>{t.treatment}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="process section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section__label">How It Works</span>
-          <h2 class="section__heading">Your Journey to a <em>Better Smile</em></h2>
-          <p class="section-sub">Every transformation starts with a conversation. Here is how we make it happen.</p>
-        </div>
-        <div class="process-steps">
-          <div class="process-step">
-            <span class="step-num">01</span>
-            <h3>Free Consultation</h3>
-            <p>Meet your specialist, discuss your goals, and receive an honest assessment of your options — at no cost.</p>
-          </div>
-          <div class="process-step">
-            <span class="step-num">02</span>
-            <h3>Digital Smile Design</h3>
-            <p>See a preview of your result before treatment begins. We design your new smile using your facial photographs.</p>
-          </div>
-          <div class="process-step">
-            <span class="step-num">03</span>
-            <h3>Expert Treatment</h3>
-            <p>Carried out by a postgraduate superspecialist using the latest technology for precision and comfort.</p>
-          </div>
-          <div class="process-step">
-            <span class="step-num">04</span>
-            <h3>Your New Smile</h3>
-            <p>Walk out with the smile you always wanted. We follow up to ensure you are completely happy with the result.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLOSING CTA -->
-    <section class="results-cta section section--dark">
-      <div class="container">
-        <div class="results-cta__card">
-          <span class="section__label section__label--light">Ready to Begin?</span>
-          <h2 class="results-cta__heading">Your Transformation <em>Starts Today</em></h2>
-          <p>Join over 10,000 patients who have trusted DentiQ with their smiles. Book your free consultation and let us show you what is possible.</p>
-          <div class="results-cta__actions">
-            <a href="#contact" class="btn btn--primary">Book Free Consultation</a>
-            <a href="tel:+918489488999" class="btn btn--outline">Call +91 84894 88999</a>
-          </div>
         </div>
       </div>
     </section>
@@ -267,10 +102,10 @@ const testimonials = [
 
   /* Hero */
   .results-hero {
+    position: relative;
     background: linear-gradient(135deg, var(--clr-navy) 0%, #3a4037 100%);
-    padding: 14rem var(--gutter) 12rem !important;
+    padding: 14rem var(--gutter) 12rem;
     text-align: center;
-    border-radius: 0;
   }
   .results-hero__bg {
     position: absolute;
@@ -305,38 +140,6 @@ const testimonials = [
   }
   .results-hero__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
-  /* Stats strip */
-  .results-stats {
-    background: var(--clr-gold);
-    padding: var(--space-8) var(--gutter);
-    border-radius: 0;
-  }
-  .results-stats__inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-8);
-  }
-  .results-stat { text-align: center; }
-  .results-stat__number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    font-weight: 700;
-    color: var(--clr-navy);
-    line-height: 1;
-    margin-bottom: var(--space-2);
-  }
-  .results-stat__label {
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: 700;
-    color: var(--clr-navy);
-    opacity: 0.75;
-  }
-
   /* Cases grid */
   .cases__grid {
     display: grid;
@@ -362,15 +165,6 @@ const testimonials = [
     aspect-ratio: 4/3;
     overflow: hidden;
     background: var(--clr-off-white);
-  }
-  .case-card__img-box > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s ease;
-  }
-  .case-card:hover .case-card__img-box > img {
-    transform: scale(1.06);
   }
 
   /* Before/After split */
@@ -399,6 +193,26 @@ const testimonials = [
     z-index: 3;
     flex-shrink: 0;
   }
+
+  /* Image placeholder */
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--clr-off-white);
+    border: 2px dashed var(--clr-light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-placeholder span {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--clr-text-mid);
+    opacity: 0.5;
+  }
+
   .ba-label {
     position: absolute;
     top: var(--space-3);
@@ -453,6 +267,7 @@ const testimonials = [
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--clr-gold-dark);
+    opacity: 0.5;
   }
   .case-card__duration {
     font-size: 0.65rem;
@@ -461,6 +276,7 @@ const testimonials = [
     background: var(--clr-off-white);
     padding: 3px 10px;
     border-radius: var(--radius-pill);
+    opacity: 0.5;
   }
   .case-card__title {
     font-family: var(--font-heading);
@@ -468,143 +284,24 @@ const testimonials = [
     font-weight: 600;
     color: var(--clr-navy);
     margin-bottom: var(--space-3);
+    opacity: 0.4;
   }
   .case-card__desc {
     font-size: var(--text-sm);
     line-height: 1.7;
     color: var(--clr-text-mid);
     font-weight: 300;
+    opacity: 0.4;
   }
-
-  /* Testimonials */
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
-  }
-  .testi-card {
-    background: var(--clr-white);
-    padding: var(--space-10);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--clr-light-gray);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  .testi-card:hover {
-    border-color: var(--clr-gold);
-    box-shadow: var(--shadow-md);
-  }
-  .testi-stars {
-    color: var(--clr-gold-dark);
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-  }
-  .testi-quote {
-    font-size: var(--text-base);
-    line-height: 1.7;
-    color: var(--clr-text-body);
-    font-weight: 300;
-    font-style: italic;
-    flex: 1;
-  }
-  .testi-author { border-top: 1px solid var(--clr-light-gray); padding-top: var(--space-4); }
-  .testi-author strong { display: block; font-size: var(--text-sm); color: var(--clr-navy); font-weight: 700; }
-  .testi-author span { font-size: var(--text-xs); color: var(--clr-gold-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
-
-  /* Process */
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
-    position: relative;
-  }
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    top: 2rem;
-    left: 12%;
-    right: 12%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--clr-gold), var(--clr-gold-light));
-    z-index: 0;
-  }
-  .process-step {
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  .step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    background: var(--clr-gold);
-    color: var(--clr-navy);
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 50%;
-    margin-bottom: var(--space-6);
-    box-shadow: 0 4px 16px rgba(206,196,167,0.35);
-  }
-  .process-step h3 {
-    font-family: var(--font-heading);
-    font-size: var(--text-base);
-    color: var(--clr-navy);
-    margin-bottom: var(--space-3);
-  }
-  .process-step p {
-    font-size: var(--text-sm);
-    color: var(--clr-text-mid);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  /* Closing CTA */
-  .results-cta__card {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-6);
-  }
-  .results-cta__heading {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
-    color: var(--clr-white);
-    line-height: 1.1;
-  }
-  .results-cta__heading em { color: var(--clr-gold); font-style: italic; }
-  .results-cta__card p {
-    font-size: var(--text-lg);
-    color: rgba(255,255,255,0.75);
-    font-weight: 300;
-    line-height: 1.7;
-  }
-  .results-cta__actions { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
   /* Responsive */
   @media (max-width: 1100px) {
     .cases__grid { grid-template-columns: repeat(2, 1fr); }
-    .process-steps { grid-template-columns: repeat(2, 1fr); }
-    .process-steps::before { display: none; }
-  }
-  @media (max-width: 860px) {
-    .testi-grid { grid-template-columns: 1fr; }
-    .results-stats__inner { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .cases__grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .results-hero__ctas, .results-cta__actions { flex-direction: column; width: 100%; }
+    .results-hero__ctas { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
-    .results-stats__inner { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
   }
 </style>
 
@@ -617,28 +314,8 @@ const testimonials = [
     y: 24, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power2.out'
   });
 
-  gsap.from('.results-stat', {
-    scrollTrigger: { trigger: '.results-stats', start: 'top 90%' },
-    y: 20, opacity: 0, stagger: 0.08, duration: 0.6, ease: 'power2.out'
-  });
-
   gsap.from('.case-card', {
     scrollTrigger: { trigger: '.cases__grid', start: 'top 85%' },
     y: 40, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out'
-  });
-
-  gsap.from('.testi-card', {
-    scrollTrigger: { trigger: '.testi-grid', start: 'top 85%' },
-    y: 30, opacity: 0, stagger: 0.12, duration: 0.8, ease: 'power2.out'
-  });
-
-  gsap.from('.process-step', {
-    scrollTrigger: { trigger: '.process-steps', start: 'top 85%' },
-    y: 30, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power2.out'
-  });
-
-  gsap.from('.results-cta__card > *', {
-    scrollTrigger: { trigger: '.results-cta__card', start: 'top 88%' },
-    y: 20, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power2.out'
   });
 </script>
