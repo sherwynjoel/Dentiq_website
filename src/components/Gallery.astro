@@ -1,22 +1,24 @@
 ---
 // Note: In a real production app, these would be local assets or CMS paths.
 const transformations = [
-  { 
-    title: "Full Smile Makeover", 
-    tag: "Porcelain Veneers", 
-    image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1200",
+  {
+    title: "Full Smile Makeover",
+    tag: "Porcelain Veneers",
+    before: "/IMG_2782 Edited.JPG",
+    after: "/IMG_2791 Edited.JPG",
     desc: "Achieved perfectly straight, natural-looking white teeth in just 2 visits."
   },
   { 
     title: "Invisible Alignment", 
     tag: "Invisalign", 
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200",
+    image: "/clear-aligners-erode.jpg",
+    objectPosition: "center 40%",
     desc: "Fixed severe crowding and bite alignment without unsightly metal braces."
   },
   { 
     title: "Implant Restoration", 
     tag: "Dental Implants", 
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200",
+    image: "/Implant Restoration.jpg",
     desc: "Restored full functionality and appearance after multiple tooth loss."
   },
   { 
@@ -40,10 +42,28 @@ const transformations = [
       {transformations.map((item, i) => (
         <div class="gallery-item" data-index={i}>
           <div class="gallery-item__img-box">
-            <img src={item.image} alt={item.title} loading="lazy" />
-            <div class="gallery-item__overlay">
-              <span class="gallery-item__tag">{item.tag}</span>
-            </div>
+            {item.before && item.after ? (
+              <div class="before-after">
+                <div class="before-after__half before-after__half--before">
+                  <img src={item.before} alt={`${item.title} - Before`} loading="lazy" />
+                  <span class="before-after__label">Before</span>
+                </div>
+                <div class="before-after__half before-after__half--after">
+                  <img src={item.after} alt={`${item.title} - After`} loading="lazy" />
+                  <span class="before-after__label">After</span>
+                </div>
+                <div class="gallery-item__overlay">
+                  <span class="gallery-item__tag">{item.tag}</span>
+                </div>
+              </div>
+            ) : (
+              <>
+                <img src={item.image} alt={item.title} loading="lazy" style={item.objectPosition ? `object-position: ${item.objectPosition}` : ''} />
+                <div class="gallery-item__overlay">
+                  <span class="gallery-item__tag">{item.tag}</span>
+                </div>
+              </>
+            )}
           </div>
           <div class="gallery-item__content">
             <h3>{item.title}</h3>
@@ -113,6 +133,7 @@ const transformations = [
     position: relative;
     aspect-ratio: 4/3;
     overflow: hidden;
+    background: var(--clr-off-white);
   }
   .gallery-item__img-box img {
     width: 100%;
@@ -159,6 +180,49 @@ const transformations = [
     line-height: 1.6;
     font-weight: 300;
   }
+
+  /* Before / After */
+  .before-after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+  }
+
+  .before-after__half {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .before-after__half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s ease;
+  }
+
+  .gallery-item:hover .before-after__half img {
+    transform: scale(1.1);
+  }
+
+  .before-after__label {
+    position: absolute;
+    top: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+  }
+
 
   .gallery__cta {
     text-align: center;

@@ -2,7 +2,7 @@ export const treatmentsData = [
   {
     id: 'laser',
     name: 'Laser Dentistry',
-    image: '/laser-premium.webp',
+    image: '/Laser Dentistry.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
     catchy: 'Precision, Sterility, and Faster Recovery with Medical-Grade Diode Lasers.',
     desc: 'At DentiQ, we leverage state-of-the-art Medical Grade Diode Lasers to transform the patient experience. By replacing traditional scalpels and drills for soft-tissue procedures, we offer a treatment path that is virtually bloodless, significantly less painful, and promotes dramatically faster healing.',
@@ -45,7 +45,7 @@ export const treatmentsData = [
   {
     id: 'surgery',
     name: 'Cosmetic Surgery',
-    image: '/Cosmetic Surgery.webp',
+    image: '/Cosmetic Surgery.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>`,
     catchy: 'Artistic Facial Harmonization & Precision Cosmetic Surgery.',
     desc: 'At DentiQ, our Cosmetic Surgery department specializes in balancing facial features and restoring youthful contours. As maxillofacial experts, we possess a unique understanding of facial bone structure, allowing us to perform procedures like Rhinoplasty and Genioplasty with unmatched precision and natural-looking results. We believe in "Profile Balancing"—harmonizing the nose, chin, and jawline for a flawless aesthetic.',
@@ -87,7 +87,7 @@ export const treatmentsData = [
   {
     id: 'cosmetic',
     name: 'Cosmetic Dentistry',
-    image: '/Cosmetic Dentistry.webp.png',
+    image: '/Cosmetic Dentistry.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>`,
     catchy: 'Precision Smile Design & Minimally Invasive Esthetics.',
     desc: 'At DentiQ, we specialize in Digital Smile Design (DSD), a technology that allows you to see your new smile before we even begin. From ultra-thin laminates to professional whitening, we combine clinical precision with artistic vision to create a smile that is uniquely yours.',
@@ -128,7 +128,7 @@ export const treatmentsData = [
   {
     id: 'implants',
     name: 'Implant Dentistry',
-    image: '/Implant Dentistry.webp',
+    image: '/iimplant.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 10v4a5 5 0 0 0 10 0v-4"/><path d="M12 2v8"/><path d="M12 19v3"/></svg>`,
     catchy: 'Permanent, Lifelike Tooth Replacement with 3D Guided Precision.',
     desc: 'At DentiQ, we specialize in high-precision Implant Dentistry using 3D Computer-Guided surgery. Whether you need a single tooth replacement or a full-arch transformation (All-on-4), we use premium titanium and zirconia implants to restore your smile with a 98% success rate and a natural look and feel.',
@@ -170,7 +170,7 @@ export const treatmentsData = [
   {
     id: 'maxillofacial',
     name: 'Oral & Maxillofacial Surgery',
-    image: '/Oral & Maxillofacial Surgery .webp',
+    image: '/Oral & Maxillofacial Surgery.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
     catchy: 'Expert Surgical Precision with Virtual 3D Planning.',
     desc: 'At DentiQ, our Maxillofacial department combines board-certified surgical expertise with the latest in Virtual Surgical Planning (VSP). We handle everything from complex wisdom tooth extractions to advanced reconstructive jaw surgery and facial trauma, ensuring the highest standards of safety and aesthetic recovery.',
@@ -212,7 +212,7 @@ export const treatmentsData = [
   {
     id: 'pedodontics',
     name: 'Pediatric Dentistry',
-    image: '/Indian Child in Pediatric Dentistry.webp',
+    image: '/Pediatric Dentistry.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5c0 2.39-1.19 4.47-3 5.48v2.52l3 3V22H7v-4l3-3v-2.52c-1.81-1.01-3-3.09-3-5.48a5 5 0 0 1 5-5z"/></svg>`,
     catchy: 'Fear-Free Dental Care for Happy, Healthy Smiles.',
     desc: 'At DentiQ, we specialize in creating a fun, stress-free environment for our youngest patients. Using our "Tell-Show-Do" philosophy and advanced painless lasers, we ensure that your child’s first dental experiences are positive, building a foundation for a lifetime of healthy habits and radiant smiles.',
@@ -254,7 +254,7 @@ export const treatmentsData = [
   {
     id: 'conservative',
     name: 'Conservative Dentistry',
-    image: '/Conservative Dentistry .webp',
+    image: '/Conservative Dentistry.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7z"/></svg>`,
     catchy: 'Preserving Your Natural Smile with Biomimetic Precision.',
     desc: 'At DentiQ, we follow a "Less is More" philosophy. Our Conservative department focuses on Biomimetic Dentistry—restoring teeth using advanced materials and adhesive techniques that mimic natural enamel and dentin. By preserving maximum healthy tooth structure, we often eliminate the need for aggressive crowns and reduce the likelihood of future root canals.',
@@ -294,7 +294,7 @@ export const treatmentsData = [
   {
     id: 'endodontics',
     name: 'Endodontics',
-    image: '/Implant Dentistry.webp',
+    image: '/endodontics.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 2 4 5.5 4 9c0 2.5 1.5 4.5 3 6l1 5h8l1-5c1.5-1.5 3-3.5 3-6 0-3.5-4-7-8-7z"/></svg>`,
     catchy: 'Relieving Pain & Saving Your Natural Smile in a Single Visit.',
     desc: 'At DentiQ, we specialize in high-tech, single-sitting root canal treatments. Using advanced WaveOne Gold rotary technology and laser-assisted sterilization, we eliminate infection and save your natural teeth with maximum comfort and clinical precision. Our goal is to make root canals as routine and painless as a standard filling.',
@@ -336,7 +336,7 @@ export const treatmentsData = [
   {
     id: 'periodontics',
     name: 'Periodontics',
-    image: '/Periodontics (Gum Health Dentistry Speciality).webp',
+    image: '/Periodontics.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
     catchy: 'Advanced Gum Health & Laser-Assisted Tissue Regeneration.',
     desc: 'At DentiQ, we specialize in modern Periodontics with a focus on the oral-systemic health connection. We use the FDA-cleared LANAP protocol—a laser-based treatment that eliminates gum disease without scalpels or stitches. By managing oral inflammation, we not only save your teeth but also protect your overall health, including heart and metabolic wellness.',
@@ -378,7 +378,7 @@ export const treatmentsData = [
   {
     id: 'orthodontics',
     name: 'Orthodontics & Dentofacial Orthopedics',
-    image: '/Orthodontics and Dentofacial.webp',
+    image: '/Orthodontics & Dentofacial Orthopedics.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg>`,
     catchy: 'Sculpting Confident Smiles & Harmonious Facial Growth.',
     desc: 'At DentiQ, we go beyond just straightening teeth. Our Orthodontics & Dentofacial Orthopedics department specializes in guiding the growth of the jaw and facial skeleton in children (Phase-One treatment), while providing advanced invisible aligner solutions for adults. We combine artistic vision with 3D digital planning to create smiles that are healthy, functional, and aesthetically stunning.',
@@ -420,7 +420,7 @@ export const treatmentsData = [
   {
     id: 'prosthodontics',
     name: 'Prosthodontics & Gerodontics',
-    image: '/Prosthodontics & Gerodontics.webp',
+    image: '/Prosthodontics & Gerodontics.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>`,
     catchy: 'Swiss-Standard Precision & Compassionate Care for Seniors.',
     desc: 'At DentiQ, we provide world-class Prosthodontic solutions tailored specifically for our senior patients. We are a leading facility in Erode offering BPS (Biofunctional Prosthetic System) dentures—the Swiss standard for fit and comfort. Whether you need a single crown or a full mouth rehabilitation, we use CAD/CAM technology and biocompatible materials to restore your bite and facial support.',
@@ -462,7 +462,7 @@ export const treatmentsData = [
   {
     id: 'sports',
     name: 'Sports Dentistry',
-    image: '/Sports Dentistry.webp',
+    image: '/Sports Dentistry.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M6.7 6.7l10.6 10.6M6.7 17.3l10.6-10.6"/></svg>`,
     catchy: 'Peak Performance & Elite Protection for Every Athlete.',
     desc: 'At DentiQ, we understand that oral health is a critical component of athletic performance. Our Sports Dentistry department focuses on high-impact injury prevention through custom pressure-laminated mouthguards and expert emergency management of orofacial trauma. We help athletes stay in the game by protecting their smiles and reducing the systemic inflammation that can hinder recovery and endurance.',
@@ -504,7 +504,7 @@ export const treatmentsData = [
   {
     id: 'prosthetics',
     name: 'Maxillofacial Prosthetics',
-    image: '/Maxillofacial Prosthetics.webp',
+    image: '/Maxillofacial.jpg',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M6.7 6.7l10.6 10.6M6.7 17.3l10.6-10.6"/></svg>`,
     catchy: 'Restoring Function, Aesthetics, and Confidence through Digital Prosthetics.',
     desc: 'At DentiQ, we provide highly specialized care for patients needing replacement of facial or oral structures. Using a combination of 3D digital scanning and medical-grade silicone artistry, we create custom-fit prostheses for the eyes, ears, nose, and jaws, helping our patients regain both their vital functions and their sense of self after trauma or surgery.',

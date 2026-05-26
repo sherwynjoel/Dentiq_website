@@ -7,7 +7,8 @@ export default defineConfig({
       fs: {
         allow: [
           "C:/Users/Sherwyn joel/.gemini",
-          "C:/Users/Sherwyn joel/OneDrive/Desktop/stockfish/stockfish"
+          "C:/Users/Sherwyn joel/OneDrive/Desktop/stockfish/stockfish",
+          "C:/Users/Sherwyn joel/OneDrive/Desktop/dentiq/Dentiq"
         ]
       }
     }

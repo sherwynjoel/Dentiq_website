@@ -22,7 +22,7 @@ export const doctorsData = [
     name: 'Dr. Anitha Dilip',
     role: 'Consultant Dental Specialist',
     qualifications: 'BDS, Cosmetic Dentist',
-    image: '', // Placeholder
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&fit=crop',
     bio: 'Dr. Anitha specializes in cosmetic dentistry and smile design. Her meticulous approach to aesthetic dental care has helped hundreds of patients regain their confidence with beautiful, natural-looking smiles.',
     longBio: 'Dr. Anitha is known for her artistic eye and gentle touch. She specializes in smile makeovers, including veneers, teeth whitening, and aesthetic bonding. She believes that every smile is unique and requires a personalized approach. Her focus is not just on the functional aspects of dentistry but also on the harmony and aesthetics that contribute to a person\'s overall appearance. She is also highly experienced in pediatric dentistry, ensuring that our youngest patients have a positive and fear-free experience.',
     specialties: ['Cosmetic Dentistry', 'Smile Design', 'Teeth Whitening', 'Pediatric Dentistry'],

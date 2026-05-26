@@ -5,6 +5,7 @@ import { doctorsData } from '../data/doctorsData.js';
 const pathname = Astro.url?.pathname ?? '/';
 const isHome       = pathname === '/' || pathname === '';
 const isAbout      = pathname.startsWith('/about');
+const isResults    = pathname.startsWith('/results');
 const isTreatments = pathname.startsWith('/treatments');
 const isDoctors    = pathname.startsWith('/doctors');
 const isBlog       = pathname.startsWith('/blog');
@@ -51,6 +52,7 @@ const treatmentSummaries: Record<string, string> = {
     <ul class="nav__links" role="list">
       <li><a href="/"           class={isHome       ? 'nav__active' : ''}>Home</a></li>
       <li><a href="/about"      class={isAbout      ? 'nav__active' : ''}>About</a></li>
+      <li><a href="/results"    class={isResults    ? 'nav__active' : ''}>Results</a></li>
       <li class="nav__dropdown">
         <a href="/doctors" class={`nav__dropdown-toggle ${isDoctors ? 'nav__active' : ''}`}>
           Doctors
@@ -107,6 +109,7 @@ const treatmentSummaries: Record<string, string> = {
     <ul role="list">
       <li><a href="/"           class="drawer__link">Home</a></li>
       <li><a href="/about"      class="drawer__link">About</a></li>
+      <li><a href="/results"    class="drawer__link">Results</a></li>
       <li class="drawer__item--dropdown">
         <button class="drawer__link drawer__toggle" id="drawer-doctors-toggle">
           Doctors
