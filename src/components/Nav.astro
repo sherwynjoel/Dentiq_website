@@ -1,31 +1,12 @@
 ---
-import { treatmentsData } from '../data/treatmentsData.js';
-import { doctorsData } from '../data/doctorsData.js';
-
 const pathname = Astro.url?.pathname ?? '/';
-const isHome       = pathname === '/' || pathname === '';
-const isAbout      = pathname.startsWith('/about');
-const isResults    = pathname.startsWith('/results');
-const isTreatments = pathname.startsWith('/treatments');
-const isDoctors    = pathname.startsWith('/doctors');
-const isBlog       = pathname.startsWith('/blog');
-const isContact    = pathname.startsWith('/contact');
-
-const treatmentSummaries: Record<string, string> = {
-  laser: 'Comfortable laser-assisted dental care',
-  surgery: 'Aesthetic facial and jaw correction',
-  cosmetic: 'Smile design, whitening, and veneers',
-  implants: 'Single, multiple, and full arch implants',
-  maxillofacial: 'Complex oral and facial surgery',
-  pedodontics: 'Gentle dental care for children',
-  conservative: 'Fillings and natural tooth preservation',
-  endodontics: 'Root canal and tooth pain care',
-  periodontics: 'Gum health and periodontal treatment',
-  orthodontics: 'Braces, aligners, and jaw alignment',
-  prosthodontics: 'Dentures, crowns, bridges, and rehab',
-  sports: 'Mouthguards and sports trauma care',
-  prosthetics: 'Facial and maxillofacial prosthetics',
-};
+const isHome      = pathname === '/' || pathname === '';
+const isImplants  = pathname.startsWith('/dental-implants');
+const isTMJ       = pathname.startsWith('/tmj');
+const isAligners  = pathname.startsWith('/clear-aligners');
+const isResults   = pathname.startsWith('/results');
+const isAbout     = pathname.startsWith('/doctors') || pathname.startsWith('/about');
+const isContact   = pathname.startsWith('/contact');
 ---
 
 <header id="nav" class={isHome ? 'is-home-nav' : ''} role="banner">
@@ -44,62 +25,27 @@ const treatmentSummaries: Record<string, string> = {
       </div>
     </div>
   </div>
+
   <nav class="nav__inner" aria-label="Main navigation">
     <a href="/" class="nav__logo" aria-label="DentiQ Home">
       <img src="/logo.png" alt="DentiQ Logo" class="nav__logo-img" style="height: 50px; width: auto; display: block;" />
     </a>
 
     <ul class="nav__links" role="list">
-      <li><a href="/"           class={isHome       ? 'nav__active' : ''}>Home</a></li>
-      <li><a href="/about"      class={isAbout      ? 'nav__active' : ''}>About</a></li>
-      <li><a href="/results"    class={isResults    ? 'nav__active' : ''}>Results</a></li>
-      <li class="nav__dropdown">
-        <a href="/doctors" class={`nav__dropdown-toggle ${isDoctors ? 'nav__active' : ''}`}>
-          Doctors
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-        <div class="nav__dropdown-menu nav__dropdown-menu--doctors">
-          <div class="nav__dropdown-inner">
-            {doctorsData.map((doctor) => (
-              <a href={`/doctors/${doctor.id}`} class="nav__dropdown-item">
-                <strong>{doctor.name}</strong>
-                <span>{doctor.role}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </li>
-      <li class="nav__dropdown">
-        <a href="/treatments" class={`nav__dropdown-toggle ${isTreatments ? 'nav__active' : ''}`}>
-          Treatments
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
-        <div class="nav__dropdown-menu">
-          <div class="nav__dropdown-inner">
-            {treatmentsData.map((treatment) => (
-              <a href={`/treatments/${treatment.id}`} class="nav__dropdown-item">
-                <strong>{treatment.name}</strong>
-                <span>{treatmentSummaries[treatment.id] ?? treatment.desc}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </li>
-      <li><a href="/blog"       class={isBlog       ? 'nav__active' : ''}>Blog</a></li>
+      <li><a href="/"                        class={isHome     ? 'nav__active' : ''}>Home</a></li>
+      <li><a href="/dental-implants-erode"   class={isImplants ? 'nav__active' : ''}>Dental Implants</a></li>
+      <li><a href="/tmj-treatment-erode"     class={isTMJ      ? 'nav__active' : ''}>TMJ &amp; Orofacial Pain</a></li>
+      <li><a href="/clear-aligners-erode"    class={isAligners ? 'nav__active' : ''}>Clear Aligners</a></li>
+      <li><a href="/results"                 class={isResults  ? 'nav__active' : ''}>Patient Results</a></li>
+      <li><a href="/doctors/dr-dilip"        class={isAbout    ? 'nav__active' : ''}>About Doctor</a></li>
+      <li><a href="/contact" class={isContact ? 'nav__active' : ''}>Contact</a></li>
       <li>
-        <a href="#contact" class="nav__cta" data-cursor-hover>Book Appointment</a>
+        <a href="#contact" class="nav__cta" data-cursor-hover>Book Consultation</a>
       </li>
     </ul>
 
-    <button
-      class="nav__hamburger"
-      aria-label="Open menu"
-      aria-expanded="false"
-      id="nav-toggle"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false" id="nav-toggle">
+      <span></span><span></span><span></span>
     </button>
   </nav>
 </header>
@@ -107,37 +53,15 @@ const treatmentSummaries: Record<string, string> = {
 <div id="nav-drawer" aria-hidden="true">
   <div class="drawer__inner">
     <ul role="list">
-      <li><a href="/"           class="drawer__link">Home</a></li>
-      <li><a href="/about"      class="drawer__link">About</a></li>
-      <li><a href="/results"    class="drawer__link">Results</a></li>
-      <li class="drawer__item--dropdown">
-        <button class="drawer__link drawer__toggle" id="drawer-doctors-toggle">
-          Doctors
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="drawer__submenu" id="drawer-doctors-submenu">
-          {doctorsData.map((d) => (
-            <a href={`/doctors/${d.id}`} class="drawer__sub-link">{d.name}</a>
-          ))}
-          <a href="/doctors" class="drawer__sub-link drawer__sub-link--all">View All Doctors</a>
-        </div>
-      </li>
-      <li class="drawer__item--dropdown">
-        <button class="drawer__link drawer__toggle" id="drawer-treatments-toggle">
-          Treatments
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="drawer__submenu" id="drawer-treatments-submenu">
-          {treatmentsData.map((t) => (
-            <a href={`/treatments/${t.id}`} class="drawer__sub-link">{t.name}</a>
-          ))}
-          <a href="/treatments" class="drawer__sub-link drawer__sub-link--all">View All Treatments</a>
-        </div>
-      </li>
-      <li><a href="/blog"       class="drawer__link">Blog</a></li>
+      <li><a href="/"                       class="drawer__link">Home</a></li>
+      <li><a href="/dental-implants-erode"  class="drawer__link">Dental Implants</a></li>
+      <li><a href="/tmj-treatment-erode"    class="drawer__link">TMJ &amp; Orofacial Pain</a></li>
+      <li><a href="/clear-aligners-erode"   class="drawer__link">Clear Aligners</a></li>
+      <li><a href="/results"                class="drawer__link">Patient Results</a></li>
+      <li><a href="/doctors/dr-dilip"       class="drawer__link">About Doctor</a></li>
+      <li><a href="/contact"                class="drawer__link">Contact</a></li>
     </ul>
-    <a href="#contact" class="drawer__cta">Book Appointment</a>
-    
+    <a href="#contact" class="drawer__cta">Book Consultation</a>
     <div class="drawer__footer">
       <p class="drawer__phone">+91 84894 88999</p>
       <p class="drawer__email">info@dentiqsuperspeciality.com</p>
@@ -148,37 +72,9 @@ const treatmentSummaries: Record<string, string> = {
 <style>
   #nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     z-index: 1000;
-    transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
-  }
-
-  #nav.is-home-nav:not(.is-scrolled) .nav__links a {
-    color: var(--clr-navy);
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__logo-img {
-    filter: none;
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__links a:not(.nav__cta):hover {
-    color: var(--clr-gold-dark);
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__links a.nav__active {
-    color: var(--clr-navy);
-  }
-  #nav.is-home-nav:not(.is-scrolled) .nav__hamburger span {
-    background: var(--clr-navy);
-  }
-
-  .nav__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-4) var(--gutter);
-    max-width: calc(var(--max-width) + var(--gutter) * 2);
-    margin: 0 auto;
-    transition: padding 0.4s ease;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
   }
 
   .nav__top-bar {
@@ -199,75 +95,64 @@ const treatmentSummaries: Record<string, string> = {
     align-items: center;
     gap: var(--space-4);
   }
-  .nav__top-promo {
-    font-weight: 700;
-    color: #fff;
-    flex: 1;
-    text-align: right;
-  }
-  .nav__top-contact { 
-    display: flex; 
-    gap: var(--space-8); 
-    flex: 1;
-    justify-content: flex-start;
-  }
+  .nav__top-promo { font-weight: 700; color: #fff; flex: 1; text-align: right; }
+  .nav__top-contact { display: flex; gap: var(--space-8); flex: 1; justify-content: flex-start; }
   .nav__top-contact a { color: inherit; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
   .nav__top-contact a:hover { color: var(--clr-gold); }
+  @media (max-width: 960px) { .nav__top-bar { display: none; } }
 
-  @media (max-width: 960px) {
-    .nav__top-bar { display: none; }
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--gutter);
+    max-width: calc(var(--max-width) + var(--gutter) * 2);
+    margin: 0 auto;
   }
 
   #nav.is-scrolled {
     background: var(--clr-navy);
-    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.2);
-  }
-  #nav.is-scrolled .nav__inner {
-    padding-top: var(--space-4);
-    padding-bottom: var(--space-4);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.2);
   }
 
   .nav__logo-img {
     filter: brightness(0) invert(1);
     transition: filter 0.4s ease;
   }
+  #nav.is-home-nav:not(.is-scrolled) .nav__logo-img { filter: brightness(0); }
+  #nav.is-home-nav:not(.is-scrolled) .nav__links a:not(.nav__cta) { color: var(--clr-navy); }
+  #nav.is-home-nav:not(.is-scrolled) .nav__links a:not(.nav__cta):hover { color: var(--clr-gold-dark); }
+  #nav.is-home-nav:not(.is-scrolled) .nav__hamburger span { background: var(--clr-navy); }
 
   @media (max-width: 500px) {
     .nav__inner { padding: var(--space-3) var(--gutter); }
     .nav__logo-img { height: 40px !important; }
   }
 
-  .link-gold {
-    color: var(--clr-gold-dark);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color 0.3s ease;
-  }
+  .link-gold { color: var(--clr-gold-dark); text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s ease; }
   .link-gold:hover { color: #fff; }
 
   .nav__links {
     display: flex;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--space-6);
   }
-
   .nav__links a {
     font-family: var(--font-body);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.1em;
     position: relative;
     transition: color 0.2s ease;
+    white-space: nowrap;
   }
   .nav__links a:not(.nav__cta)::after {
     content: '';
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
+    bottom: -4px; left: 0;
+    width: 0; height: 2px;
     background: var(--clr-gold);
     border-radius: 2px;
     transition: width 0.3s var(--ease-out-expo);
@@ -277,242 +162,59 @@ const treatmentSummaries: Record<string, string> = {
   .nav__links a.nav__active { color: var(--clr-white); }
   .nav__links a.nav__active::after { width: 100%; background: var(--clr-gold); }
 
-  /* Dropdown Styles */
-  .nav__dropdown {
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .nav__dropdown-toggle {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  .nav__dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: var(--clr-white);
-    width: min(760px, calc(100vw - 2rem));
-    max-height: calc(100vh - 140px);
-    overflow-y: auto;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--clr-light-gray);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s var(--ease-out-expo);
-    padding: var(--space-4);
-    z-index: 1100;
-  }
-  #nav.is-scrolled .nav__dropdown-menu {
-    background: var(--clr-navy);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .nav__dropdown:hover .nav__dropdown-menu,
-  .nav__dropdown:focus-within .nav__dropdown-menu {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateX(-50%) translateY(0);
-  }
-  .nav__dropdown-inner {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4px;
-  }
-  .nav__dropdown-item {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 16px;
-    border-radius: var(--radius-sm);
-    transition: background 0.2s ease;
-  }
-  .nav__dropdown-item strong {
-    font-size: 0.85rem;
-    color: var(--clr-navy);
-    display: block;
-    margin-bottom: 2px;
-    line-height: 1.25;
-  }
-  .nav__dropdown-item span {
-    font-size: 0.65rem;
-    color: var(--clr-text-mid);
-    text-transform: none;
-    letter-spacing: 0.02em;
-    font-weight: 400;
-    line-height: 1.35;
-  }
-  #nav.is-scrolled .nav__dropdown-item strong { color: var(--clr-white); }
-  #nav.is-scrolled .nav__dropdown-item span { color: rgba(255, 255, 255, 0.6); }
-
-  .nav__dropdown-item:hover { background: var(--clr-off-white); }
-  #nav.is-scrolled .nav__dropdown-item:hover { background: rgba(255, 255, 255, 0.05); }
-
   .nav__cta {
     background: var(--clr-gold) !important;
     color: var(--clr-navy) !important;
-    padding: 10px 22px !important;
+    padding: 10px 20px !important;
     border-radius: var(--radius-pill) !important;
     font-weight: 600 !important;
-    font-size: var(--text-xs) !important;
+    font-size: 0.65rem !important;
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
     transition: background 0.25s ease, transform 0.25s ease !important;
   }
-  .nav__cta:hover {
-    background: var(--clr-gold-light) !important;
-    transform: translateY(-2px) !important;
-  }
+  .nav__cta:hover { background: var(--clr-gold-light) !important; transform: translateY(-2px) !important; }
 
-  .nav__hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    padding: var(--space-2);
-  }
-  .nav__hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--clr-white);
-    border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
-  }
+  .nav__hamburger { display: none; flex-direction: column; gap: 5px; padding: var(--space-2); }
+  .nav__hamburger span { display: block; width: 24px; height: 2px; background: var(--clr-white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease; }
   .nav__hamburger.is-open span:first-child  { transform: rotate(45deg) translate(5px, 5px); }
   .nav__hamburger.is-open span:nth-child(2) { opacity: 0; width: 0; }
   .nav__hamburger.is-open span:last-child   { transform: rotate(-45deg) translate(5px, -5px); }
 
-  @media (max-width: 860px) {
-    .nav__links { display: none; }
-    .nav__hamburger { display: flex; }
-  }
-
-  @media (max-width: 1080px) {
-    .nav__dropdown-menu { width: min(420px, calc(100vw - 2rem)); }
-    .nav__dropdown-inner { grid-template-columns: 1fr; }
-  }
-
-  .nav__dropdown-menu--doctors {
-    width: 280px;
-    padding: var(--space-2);
-  }
-  .nav__dropdown-menu--doctors .nav__dropdown-inner {
-    grid-template-columns: 1fr;
-    gap: 2px;
-  }
-  .nav__dropdown-menu--doctors .nav__dropdown-item {
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.03);
-    text-align: left;
-  }
-  #nav.is-scrolled .nav__dropdown-menu--doctors .nav__dropdown-item {
-    border-bottom-color: rgba(255,255,255,0.05);
-  }
-  .nav__dropdown-menu--doctors .nav__dropdown-item:last-child {
-    border-bottom: none;
-  }
-  .nav__dropdown-menu--doctors strong {
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
-  .nav__dropdown-menu--doctors span {
-    font-size: 0.75rem;
-    margin-top: 2px;
-    opacity: 0.8;
-  }
+  @media (max-width: 1080px) { .nav__links { gap: var(--space-4); } }
+  @media (max-width: 860px) { .nav__links { display: none; } .nav__hamburger { display: flex; } }
 
   /* Mobile drawer */
   #nav-drawer {
-    position: fixed;
-    inset: 0;
-    z-index: 1200;
+    position: fixed; inset: 0; z-index: 1200;
     background: #1a1810;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
     padding: 6rem var(--gutter) 4rem;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0; visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.5s var(--ease-out-expo);
     overflow-y: auto;
   }
-  #nav-drawer.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+  #nav-drawer.is-open { opacity: 1; visibility: visible; transform: translateY(0); }
 
-  .drawer__inner {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .drawer__inner ul {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
+  .drawer__inner { flex: 1; display: flex; flex-direction: column; }
+  .drawer__inner ul { display: flex; flex-direction: column; gap: var(--space-2); }
 
   .drawer__link {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(1.6rem, 6vw, 2.5rem);
     font-weight: 700;
     color: var(--clr-white);
     line-height: 1.1;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    transition: color 0.3s ease;
+    display: block;
     width: 100%;
     text-align: left;
-    background: none;
-    border: none;
+    background: none; border: none;
     padding: var(--space-2) 0;
   }
   .drawer__link:hover { color: var(--clr-gold); }
 
-  .drawer__toggle-icon {
-    transition: transform 0.3s ease;
-    color: var(--clr-gold);
-  }
-  .drawer__toggle.is-active .drawer__toggle-icon {
-    transform: rotate(180deg);
-  }
-
-  .drawer__submenu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.4s ease;
-    opacity: 0;
-    padding-left: var(--space-4);
-    pointer-events: none;
-  }
-  .drawer__submenu.is-active {
-    max-height: 2000px; /* High enough to contain all links */
-    transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  .drawer__sub-link {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 10px 0;
-    display: block;
-    transition: color 0.2s ease;
-  }
-  .drawer__sub-link:hover { color: var(--clr-gold); }
-  .drawer__sub-link--all {
-    font-weight: 700;
-    color: var(--clr-gold);
-    margin-top: var(--space-2);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--space-4);
-  }
-  
   .drawer__cta {
     margin-top: var(--space-8);
     display: inline-block;
@@ -520,33 +222,23 @@ const treatmentSummaries: Record<string, string> = {
     color: var(--clr-navy);
     padding: 16px 32px;
     border-radius: var(--radius-pill);
-    font-size: 1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 1rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.1em;
     text-align: center;
   }
-
   .drawer__footer {
-    margin-top: auto;
-    padding-top: var(--space-8);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    margin-top: auto; padding-top: var(--space-8);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; flex-direction: column; gap: var(--space-2);
   }
   .drawer__phone { font-size: 1.2rem; font-weight: 700; color: var(--clr-gold); }
-  .drawer__email { font-size: 0.9rem; color: rgba(255, 255, 255, 0.5); }
+  .drawer__email { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
 </style>
 
 <script>
   const nav    = document.getElementById('nav')!;
   const toggle = document.getElementById('nav-toggle')!;
   const drawer = document.getElementById('nav-drawer')!;
-  const treatmentsToggle = document.getElementById('drawer-treatments-toggle')!;
-  const treatmentsSubmenu = document.getElementById('drawer-treatments-submenu')!;
-  const doctorsToggle = document.getElementById('drawer-doctors-toggle')!;
-  const doctorsSubmenu = document.getElementById('drawer-doctors-submenu')!;
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 60);
@@ -560,26 +252,6 @@ const treatmentSummaries: Record<string, string> = {
     document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  treatmentsToggle?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isActive = treatmentsToggle.classList.toggle('is-active');
-    treatmentsSubmenu.classList.toggle('is-active', isActive);
-    
-    // Close other submenu
-    doctorsToggle?.classList.remove('is-active');
-    doctorsSubmenu?.classList.remove('is-active');
-  });
-
-  doctorsToggle?.addEventListener('click', (e) => {
-    e.preventDefault();
-    const isActive = doctorsToggle.classList.toggle('is-active');
-    doctorsSubmenu.classList.toggle('is-active', isActive);
-    
-    // Close other submenu
-    treatmentsToggle?.classList.remove('is-active');
-    treatmentsSubmenu?.classList.remove('is-active');
-  });
-
   drawer.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       toggle.classList.remove('is-open');
@@ -587,12 +259,6 @@ const treatmentSummaries: Record<string, string> = {
       drawer.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
-      
-      // Reset submenus
-      treatmentsToggle?.classList.remove('is-active');
-      treatmentsSubmenu?.classList.remove('is-active');
-      doctorsToggle?.classList.remove('is-active');
-      doctorsSubmenu?.classList.remove('is-active');
     });
   });
 </script>

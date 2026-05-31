@@ -1,0 +1,136 @@
+---
+const pillars = [
+  {
+    title: "Advanced Technology",
+    desc: "Digital scans, CBCT imaging, precision implant planning and modern treatment protocols for superior outcomes.",
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3 2-2 3 3"/></svg>`
+  },
+  {
+    title: "Exceptional Hygiene",
+    desc: "Strict sterilization and infection control standards across all treatment areas — your safety is non-negotiable.",
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>`
+  },
+  {
+    title: "Comfortable Experience",
+    desc: "Designed to reduce anxiety and improve comfort — from the reception lounge to the treatment chair.",
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`
+  },
+  {
+    title: "Personalised Care",
+    desc: "Every treatment plan is tailored to your specific condition, budget and goals — never a one-size-fits-all approach.",
+    icon: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M18 14l2 2 4-4"/></svg>`
+  }
+];
+---
+
+<section id="why-dentiq" class="why">
+  <div class="why__inner">
+    <div class="why__header">
+      <span class="section__label">The DentiQ Difference</span>
+      <h2 class="why__heading">Why Patients Choose <em>DentiQ</em></h2>
+      <p class="why__sub">Four principles that define every patient experience at our clinic.</p>
+    </div>
+
+    <div class="why__grid">
+      {pillars.map((p, i) => (
+        <div class="why-card">
+          <div class="why-card__icon" set:html={p.icon}></div>
+          <div class="why-card__num">0{i + 1}</div>
+          <h3 class="why-card__title">{p.title}</h3>
+          <p class="why-card__desc">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why {
+    background: var(--clr-off-white);
+    padding: var(--space-32) var(--gutter);
+  }
+  .why__inner { max-width: var(--max-width); margin: 0 auto; }
+  .why__header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    max-width: 640px;
+    margin-left: auto; margin-right: auto;
+  }
+  .why__heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--clr-navy);
+    line-height: 1.1;
+    margin-bottom: var(--space-4);
+  }
+  .why__heading em { font-style: italic; color: var(--clr-gold-dark); }
+  .why__sub { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.6; }
+
+  .why__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .why-card {
+    background: var(--clr-white);
+    border: 1px solid var(--clr-light-gray);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    position: relative;
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease, border-color 0.3s ease;
+  }
+  .why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--clr-gold);
+  }
+
+  .why-card__icon {
+    color: var(--clr-gold-dark);
+    margin-bottom: var(--space-5);
+  }
+  .why-card__num {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--clr-gold);
+    opacity: 0.18;
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-6);
+    line-height: 1;
+  }
+  .why-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--clr-navy);
+    margin-bottom: var(--space-3);
+  }
+  .why-card__desc {
+    font-size: var(--text-sm);
+    color: var(--clr-text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  @media (max-width: 1024px) { .why__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px)  { .why__grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.why__header', {
+    scrollTrigger: { trigger: '#why-dentiq', start: 'top 82%' },
+    y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+  });
+  gsap.from('.why-card', {
+    scrollTrigger: { trigger: '.why__grid', start: 'top 85%' },
+    y: 40, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out'
+  });
+</script>

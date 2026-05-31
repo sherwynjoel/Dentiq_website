@@ -6,10 +6,10 @@
   <div class="loader__curtain loader__curtain--bottom"></div>
   <div class="loader__content">
     <div class="loader__logo">
-      <span class="loader__logo-main">DentiQ</span>
-      <span class="loader__logo-sub">Laser Dental Hospital</span>
+      <img src="/logo.png" alt="DentiQ" class="loader__logo-main" />
+      <span class="loader__logo-sub">Superspeciality Dental Implant TMJ Headache Sleep Medicine Clinic</span>
     </div>
-    <span class="loader__tagline">Erode Hospital — Superspeciality Care</span>
+    <span class="loader__tagline">Best Dental Clinic in Erode</span>
     <div class="loader__bar-wrap">
       <div class="loader__bar-fill"></div>
     </div>
@@ -55,22 +55,21 @@
 
   .loader__logo-main {
     display: block;
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
-    font-weight: 600;
-    color: var(--clr-white);
-    letter-spacing: 0.02em;
+    width: clamp(160px, 30vw, 260px);
+    height: auto;
     transform: translateY(105%);
-    line-height: 1.1;
+    filter: brightness(0) invert(1);
   }
   .loader__logo-sub {
     display: block;
     font-family: var(--font-body);
-    font-size: clamp(0.75rem, 1.8vw, 1rem);
+    font-size: clamp(0.6rem, 1.4vw, 0.8rem);
     font-weight: 400;
     color: var(--clr-gold);
-    letter-spacing: 0.32em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+    text-align: center;
+    max-width: 420px;
     transform: translateY(105%);
     margin-top: var(--space-2);
   }

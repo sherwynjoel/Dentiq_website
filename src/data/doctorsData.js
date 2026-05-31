@@ -1,12 +1,12 @@
 export const doctorsData = [
   {
     id: 'dr-dilip',
-    name: 'Dr. Dilip',
-    role: 'Lead Dental Specialist',
-    qualifications: 'MDS, Oral & Maxillofacial Surgery',
+    name: 'Dr. T. Balamurugan',
+    role: 'Implantologist | Prosthodontist | TMJ & Facial Pain | Dental Sleep Medicine Specialist',
+    qualifications: 'M.D.S., F.I.C.O.I.(USA), F.T.O.D.(USA)',
     image: '/dr-dilip.webp',
-    bio: 'Dr. Dilip is a visionary in the field of modern dentistry, specializing in advanced laser-assisted procedures and complex maxillofacial surgeries. With over 15 years of experience, he leads the clinical team at DentiQ with a focus on patient-centric care and surgical precision.',
-    longBio: 'Dr. Dilip completed his Master of Dental Surgery (MDS) in Oral & Maxillofacial Surgery from a premier medical institution. His passion for technology led him to pioneer several laser-assisted dental techniques in the region. He believes that the future of dentistry lies in minimally invasive procedures that ensure faster recovery and maximum patient comfort. At DentiQ, he has curated a team of specialists who share his commitment to excellence and clinical rigor.',
+    bio: 'Dr. BalaMurugan.T is a specialist in TMJ disorders, facial pain, advanced dental implants, cosmetic dentistry, and Invisalign. With over 15 years of experience, he leads the clinical team at DentiQ with a focus on patient-centric care and precision.',
+    longBio: 'Dr. BalaMurugan.T completed his Master of Dental Surgery (MDS) in Oral & Maxillofacial Surgery. He specialises in TMJ and facial pain management, advanced dental implant surgery, cosmetic smile design, and Invisalign clear aligner therapy. He believes in minimally invasive, technology-driven dentistry that ensures faster recovery and maximum patient comfort. At DentiQ, he has built a team of superspecialists who share his commitment to clinical excellence.',
     specialties: ['Oral Surgery', 'Laser Dentistry', 'Dental Implants', 'Full Mouth Rehab'],
     experience: '15+ Years',
     achievements: [

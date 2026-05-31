@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+import Contact from '../components/Contact.astro';
+
+export function getStaticPaths() {
+  const cities = [
+    { slug: 'coimbatore', name: 'Coimbatore' },
+    { slug: 'salem',      name: 'Salem' },
+    { slug: 'tirupur',    name: 'Tirupur' },
+    { slug: 'namakkal',   name: 'Namakkal' },
+  ];
+
+  const services = [
+    {
+      slug: 'dental-implants',
+      name: 'Dental Implants',
+      headline: (city: string) => `Dental Implants Near ${city}`,
+      subheadline: (city: string) => `Advanced dental implants for patients from ${city} — at DentiQ Superspeciality Clinic, Erode. Fellowship-trained implantologist with USA credentials.`,
+      description: (city: string) => `Looking for dental implants near ${city}? Visit DentiQ Erode — just a short drive away. Dr. T. Balamurugan, F.I.C.O.I.(USA), provides advanced permanent tooth replacement for patients from ${city}, Coimbatore, Salem, Tirupur and Namakkal.`,
+      cta: 'Book Implant Consultation',
+      link: '/dental-implants-erode',
+    },
+    {
+      slug: 'clear-aligners',
+      name: 'Clear Aligners',
+      headline: (city: string) => `Clear Aligners Near ${city}`,
+      subheadline: (city: string) => `Invisible teeth straightening for patients from ${city} — at DentiQ Superspeciality Clinic, Erode. No metal braces, no discomfort.`,
+      description: (city: string) => `Looking for clear aligners near ${city}? DentiQ Erode offers advanced Invisalign-style aligner treatment for adults and professionals from ${city} and surrounding areas.`,
+      cta: 'Book Smile Assessment',
+      link: '/clear-aligners-erode',
+    },
+    {
+      slug: 'tmj-treatment',
+      name: 'TMJ Treatment',
+      headline: (city: string) => `TMJ Specialist Near ${city}`,
+      subheadline: (city: string) => `Jaw pain, facial pain and TMJ disorder specialist for patients from ${city} — at DentiQ Superspeciality Clinic, Erode.`,
+      description: (city: string) => `Suffering from jaw pain or headaches near ${city}? Visit Dr. T. Balamurugan at DentiQ Erode — F.T.O.D.(USA) fellowship-trained TMJ and orofacial pain specialist — one of the very few in Tamil Nadu.`,
+      cta: 'Book TMJ Evaluation',
+      link: '/tmj-treatment-erode',
+    },
+  ];
+
+  return cities.flatMap(city =>
+    services.map(service => ({
+      params: { cityservice: `${service.slug}-${city.slug}` },
+      props: { city, service }
+    }))
+  );
+}
+
+const { city, service } = Astro.props;
+---
+
+<BaseLayout
+  title={`${service.name} in ${city.name} | DentiQ Superspeciality Erode`}
+  description={service.description(city.name)}
+>
+  <Cursor />
+  <Nav />
+  <main>
+
+    <section class="city-hero">
+      <div class="city-hero__bg"></div>
+      <div class="city-hero__content">
+        <span class="section__label section__label--light">DentiQ · Erode — Serving {city.name}</span>
+        <h1 class="city-hero__heading">{service.headline(city.name)} — <em>at DentiQ Erode</em></h1>
+        <p class="city-hero__sub">{service.subheadline(city.name)}</p>
+        <div class="city-hero__ctas">
+          <a href={service.link} class="btn btn--primary">{service.cta}</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-why">
+      <div class="city-container">
+        <div class="city-why__grid">
+          <div class="city-why__text">
+            <span class="section__label">Why Travel to DentiQ Erode</span>
+            <h2>Superspeciality Care — <em>Worth the Drive</em></h2>
+            <p>DentiQ is not a general dental clinic. It is a superspeciality centre with a fellowship-trained specialist for {service.name.toLowerCase()} — a level of expertise that is rare in Tamil Nadu.</p>
+            <ul>
+              <li>Dr. T. Balamurugan — M.D.S., F.I.C.O.I.(USA), F.T.O.D.(USA)</li>
+              <li>Advanced digital diagnostic technology</li>
+              <li>Transparent treatment planning and pricing</li>
+              <li>Patients from {city.name}, Coimbatore, Salem, Tirupur and Namakkal</li>
+            </ul>
+            <a href={service.link} class="btn btn--primary" style="margin-top:2rem; display:inline-block;">Learn More About {service.name}</a>
+          </div>
+          <div class="city-why__cta-card">
+            <h3>Book Your Consultation</h3>
+            <p>Call or WhatsApp to book your appointment. We accommodate patients travelling from {city.name}.</p>
+            <a href="tel:+918489488999" class="city-phone">+91 84894 88999</a>
+            <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp" style="width:100%; justify-content:center; margin-top:1rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              WhatsApp Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .city-container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+
+  .city-hero { position: relative; background: linear-gradient(135deg, var(--clr-navy) 0%, #3a4037 100%); padding: 14rem var(--gutter) 10rem; text-align: center; }
+  .city-hero__bg { position: absolute; inset: 0; background-image: radial-gradient(rgba(206,196,167,0.1) 1px, transparent 1px); background-size: 32px 32px; }
+  .city-hero__content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .city-hero__heading { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; color: var(--clr-white); line-height: 1.1; }
+  .city-hero__heading em { font-style: italic; color: var(--clr-gold); }
+  .city-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 72ch; }
+  .city-hero__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
+
+  .city-why { padding: var(--space-24) var(--gutter); background: var(--clr-white); }
+  .city-why__grid { display: grid; grid-template-columns: 1fr 360px; gap: var(--space-16); align-items: start; }
+  .city-why__text h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; color: var(--clr-navy); line-height: 1.2; margin: var(--space-3) 0 var(--space-5); }
+  .city-why__text h2 em { font-style: italic; color: var(--clr-gold-dark); }
+  .city-why__text p { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.7; margin-bottom: var(--space-5); }
+  .city-why__text ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
+  .city-why__text li { font-size: var(--text-sm); color: var(--clr-text-mid); padding-left: var(--space-5); position: relative; }
+  .city-why__text li::before { content: '✓'; position: absolute; left: 0; color: var(--clr-gold-dark); font-weight: 700; }
+
+  .city-why__cta-card { background: var(--clr-navy); border-radius: var(--radius-xl); padding: var(--space-8); display: flex; flex-direction: column; }
+  .city-why__cta-card h3 { font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: var(--clr-white); margin-bottom: var(--space-3); }
+  .city-why__cta-card p { font-size: var(--text-sm); color: rgba(255,255,255,0.65); font-weight: 300; line-height: 1.65; margin-bottom: var(--space-5); }
+  .city-phone { display: block; font-size: var(--text-xl); font-weight: 700; color: var(--clr-gold); text-decoration: none; }
+
+  .btn--whatsapp { background: #25D366; color: #fff; padding: 12px 24px; border-radius: var(--radius-pill); font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; transition: all 0.3s ease; }
+  .btn--whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  @media (max-width: 900px) { .city-why__grid { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .city-hero__ctas { flex-direction: column; width: 100%; } .btn { width: 100%; justify-content: center; } }
+</style>

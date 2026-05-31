@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+import Contact from '../components/Contact.astro';
+
+const forWhom = [
+  { title: "Working Professionals", desc: "Straighten your teeth discreetly — no one at work will notice you're in treatment." },
+  { title: "Adults", desc: "It's never too late. Clear aligners work just as well for adults as for teenagers." },
+  { title: "College Students", desc: "Comfortable, removable, and completely invisible — ideal for campus life." },
+  { title: "Mild to Moderate Cases", desc: "Crowding, spacing, overbite, underbite and crossbite can all be treated with aligners." }
+];
+
+const faqs = [
+  { q: "How do clear aligners work?", a: "A series of custom-made, removable plastic trays gradually shift your teeth into the correct position. You change to a new tray every 1–2 weeks, with each tray moving teeth slightly closer to the final position." },
+  { q: "Are clear aligners as effective as braces?", a: "For mild to moderate alignment issues, clear aligners are equally effective. For complex cases, Dr. Balamurugan will advise whether aligners or fixed braces are more appropriate." },
+  { q: "How long does aligner treatment take?", a: "Most treatments take between 6–18 months depending on the complexity. A quick assessment gives a more accurate timeline for your specific case." },
+  { q: "Can I eat normally with aligners?", a: "Yes — aligners are fully removable. You take them out when eating or drinking anything other than water. This means no food restrictions during treatment." },
+  { q: "How much do clear aligners cost in Erode?", a: "Cost depends on the number of trays and complexity of your case. After a smile assessment, we provide a complete treatment plan with transparent pricing." }
+];
+---
+
+<BaseLayout
+  title="Clear Aligners in Erode | Invisible Braces | Invisalign Specialist | DentiQ"
+  description="Straighten your teeth without metal braces. Clear aligner specialist in Erode — serving Coimbatore, Salem, Tirupur and Namakkal. Book your smile assessment today."
+>
+  <Cursor />
+  <Nav />
+  <main>
+
+    <!-- HERO -->
+    <section class="lp-hero">
+      <div class="lp-hero__bg"></div>
+      <div class="lp-hero__content">
+        <span class="section__label section__label--light">DentiQ Aligner Centre · Erode</span>
+        <h1 class="lp-hero__heading">Straighten Your Teeth <em>Without Metal Braces</em></h1>
+        <p class="lp-hero__sub">
+          Clear, removable and virtually invisible aligners for adults, professionals and students. No metal, no discomfort, no restrictions. Serving Erode, Coimbatore, Tirupur, Salem and Namakkal.
+        </p>
+        <div class="lp-hero__ctas">
+          <a href="#contact" class="btn btn--primary">Book Smile Assessment</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IS IT FOR -->
+    <section class="lp-section lp-section--light">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label">Is It For You?</span>
+          <h2 class="lp-heading">Clear Aligners Are <em>Perfect For</em></h2>
+        </div>
+        <div class="whom-grid">
+          {forWhom.map(w => (
+            <div class="whom-card">
+              <h3>{w.title}</h3>
+              <p>{w.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="lp-section lp-section--dark">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label section__label--light">How It Works</span>
+          <h2 class="lp-heading lp-heading--light">Your Journey to a <em>Straighter Smile</em></h2>
+        </div>
+        <div class="steps-grid">
+          {[
+            { num: "01", title: "Smile Assessment", desc: "Digital scan and photographs to evaluate your teeth and design your treatment plan." },
+            { num: "02", title: "Custom Aligner Fabrication", desc: "A series of precision-made clear trays manufactured to your exact tooth map." },
+            { num: "03", title: "Wear & Progress", desc: "Change trays every 1–2 weeks. Regular check-ins to monitor progress and make adjustments." },
+            { num: "04", title: "Your New Smile", desc: "Treatment complete. Retainers provided to maintain your results long-term." }
+          ].map(s => (
+            <div class="step-card">
+              <span class="step-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="lp-section lp-section--off">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label">Common Questions</span>
+          <h2 class="lp-heading">Frequently Asked <em>Questions</em></h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map(f => (
+            <details class="faq-item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="lp-cta">
+      <div class="lp-container lp-cta__inner">
+        <h2>Ready for a <em>Straighter Smile?</em></h2>
+        <p>Book a free smile assessment and find out if clear aligners are the right option for you.</p>
+        <div class="lp-cta__btns">
+          <a href="#contact" class="btn btn--primary">Book Smile Assessment</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .lp-container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+  .lp-header { text-align: center; margin-bottom: var(--space-12); max-width: 700px; margin-left: auto; margin-right: auto; }
+  .lp-heading { font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--clr-navy); line-height: 1.15; margin-bottom: var(--space-4); }
+  .lp-heading em { font-style: italic; color: var(--clr-gold-dark); }
+  .lp-heading--light { color: var(--clr-white); }
+  .lp-heading--light em { color: var(--clr-gold); }
+  .lp-sub { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.7; }
+  .lp-section { padding: var(--space-24) var(--gutter); }
+  .lp-section--light { background: var(--clr-white); }
+  .lp-section--off   { background: var(--clr-off-white); }
+  .lp-section--dark  { background: var(--clr-navy); }
+
+  .lp-hero { position: relative; background: linear-gradient(135deg, var(--clr-navy) 0%, #3a4037 100%); padding: 14rem var(--gutter) 10rem; text-align: center; }
+  .lp-hero__bg { position: absolute; inset: 0; background-image: radial-gradient(rgba(206,196,167,0.1) 1px, transparent 1px); background-size: 32px 32px; }
+  .lp-hero__content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .lp-hero__heading { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: var(--clr-white); line-height: 1.1; }
+  .lp-hero__heading em { font-style: italic; color: var(--clr-gold); }
+  .lp-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 72ch; }
+  .lp-hero__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
+
+  .whom-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+  .whom-card { background: var(--clr-off-white); border: 1px solid var(--clr-light-gray); border-radius: var(--radius-xl); padding: var(--space-8); transition: border-color 0.3s, box-shadow 0.3s, transform 0.4s var(--ease-out-expo); }
+  .whom-card:hover { border-color: var(--clr-gold); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+  .whom-card h3 { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: 700; color: var(--clr-navy); margin-bottom: var(--space-3); }
+  .whom-card p { font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.65; font-weight: 300; }
+
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+  .step-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); padding: var(--space-8); }
+  .step-num { display: block; font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--clr-gold); opacity: 0.6; margin-bottom: var(--space-4); }
+  .step-card h3 { font-family: var(--font-heading); font-size: var(--text-base); font-weight: 700; color: var(--clr-white); margin-bottom: var(--space-3); }
+  .step-card p { font-size: var(--text-sm); color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 300; }
+
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-3); }
+  .faq-item { border: 1px solid var(--clr-light-gray); border-radius: var(--radius-lg); overflow: hidden; }
+  .faq-item summary { padding: var(--space-5) var(--space-6); font-size: var(--text-base); font-weight: 600; color: var(--clr-navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--clr-gold-dark); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 var(--space-6) var(--space-5); font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.7; font-weight: 300; }
+
+  .lp-cta { background: linear-gradient(135deg, var(--clr-navy), #3a4037); padding: var(--space-24) var(--gutter); }
+  .lp-cta__inner { text-align: center; max-width: 700px; margin: 0 auto; }
+  .lp-cta__inner h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--clr-white); line-height: 1.1; margin-bottom: var(--space-5); }
+  .lp-cta__inner h2 em { font-style: italic; color: var(--clr-gold); }
+  .lp-cta__inner p { font-size: var(--text-base); color: rgba(255,255,255,0.75); font-weight: 300; line-height: 1.7; margin-bottom: var(--space-8); }
+  .lp-cta__btns { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
+
+  .btn--whatsapp { background: #25D366; color: #fff; padding: 12px 24px; border-radius: var(--radius-pill); font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; transition: all 0.3s ease; }
+  .btn--whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  @media (max-width: 1024px) { .whom-grid { grid-template-columns: repeat(2, 1fr); } .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .whom-grid { grid-template-columns: 1fr; } .steps-grid { grid-template-columns: 1fr; } .lp-hero__ctas, .lp-cta__btns { flex-direction: column; width: 100%; } .btn { width: 100%; justify-content: center; } }
+</style>

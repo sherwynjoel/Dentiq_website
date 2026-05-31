@@ -1,0 +1,189 @@
+---
+const symptoms = [
+  { label: "Jaw Pain", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5.5 5 7l2 1 2-1c3-1.5 5-4 5-7a7 7 0 0 0-7-7z"/><path d="M9 9h6M9 12h6"/></svg>` },
+  { label: "Facial Pain", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M7 14c-2 1-3 3-3 4h16c0-1-1-3-3-4"/><path d="M9 7l1 2 2-3 2 3 1-2"/></svg>` },
+  { label: "Headaches", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a8 8 0 0 0-8 8c0 3 1.5 5.5 4 7v3h8v-3c2.5-1.5 4-4 4-7a8 8 0 0 0-8-8z"/><path d="M12 6v4l2 2"/></svg>` },
+  { label: "Ear Symptoms", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8a6 6 0 0 1 12 0c0 3-2 5-2 8H8c0-3-2-5-2-8z"/><path d="M10 20h4"/><path d="M9 16c0 1.5.5 3 3 3s3-1.5 3-3"/></svg>` },
+  { label: "Neck Pain", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="3"/><path d="M12 8v6M9 22l3-8 3 8"/><path d="M7 14c-1.5 0-2.5 1-2.5 2.5S5.5 19 7 19h10c1.5 0 2.5-1 2.5-2.5S18.5 14 17 14"/></svg>` },
+  { label: "Clicking Jaw", icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h3l2-7 4 14 3-10 2 3h4"/></svg>` },
+];
+---
+
+<section id="tmj-authority" class="tmj-authority">
+  <div class="tmj-authority__inner">
+    <div class="tmj-authority__left">
+      <span class="section__label section__label--light">DentiQ TMJ Centre</span>
+      <h2 class="tmj-authority__heading">Persistent Jaw Pain, Headaches or <em>Clicking Sounds?</em></h2>
+      <p class="tmj-authority__sub">
+        These may be signs of a Temporomandibular Joint Disorder (TMJ/TMD) — one of the most commonly misdiagnosed conditions in dentistry.
+      </p>
+      <p class="tmj-authority__body">
+        Dr. T. Balamurugan holds a Fellowship in Temporo Mandibular Disorders &amp; Oro-Facial Pain (USA) — one of the very few specialists in Tamil Nadu with dedicated TMJ training and USA credentials. Most patients with TMJ have seen multiple doctors without a clear diagnosis. We change that.
+      </p>
+      <a href="/tmj-treatment-erode" class="btn btn--primary tmj-authority__cta" data-cursor-hover>
+        Book TMJ Evaluation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="tmj-authority__right">
+      <p class="tmj-authority__symptoms-label">Do You Experience Any of These?</p>
+      <div class="tmj-symptoms">
+        {symptoms.map(s => (
+          <div class="tmj-symptom">
+            <div class="tmj-symptom__icon" set:html={s.icon}></div>
+            <span>{s.label}</span>
+          </div>
+        ))}
+      </div>
+      <div class="tmj-authority__callout">
+        <strong>Most TMJ cases are misdiagnosed as migraines or ear infections.</strong>
+        A proper specialist evaluation is the first step to lasting relief.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tmj-authority {
+    background: linear-gradient(135deg, var(--clr-navy) 0%, #3a4037 100%);
+    padding: var(--space-32) var(--gutter);
+    position: relative;
+    overflow: hidden;
+  }
+  .tmj-authority::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(206,196,167,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .tmj-authority__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Left */
+  .tmj-authority__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--clr-white);
+    line-height: 1.15;
+    margin-bottom: var(--space-5);
+  }
+  .tmj-authority__heading em { font-style: italic; color: var(--clr-gold); }
+
+  .tmj-authority__sub {
+    font-size: var(--text-lg);
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+  .tmj-authority__body {
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+  }
+  .tmj-authority__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  /* Right */
+  .tmj-authority__symptoms-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--clr-gold);
+    margin-bottom: var(--space-6);
+  }
+
+  .tmj-symptoms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .tmj-symptom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .tmj-symptom:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--clr-gold);
+  }
+  .tmj-symptom__icon { color: var(--clr-gold); }
+  .tmj-symptom span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .tmj-authority__callout {
+    background: rgba(206,196,167,0.12);
+    border-left: 3px solid var(--clr-gold);
+    padding: var(--space-5) var(--space-6);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-size: var(--text-sm);
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .tmj-authority__callout strong {
+    display: block;
+    color: var(--clr-white);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+
+  @media (max-width: 960px) {
+    .tmj-authority__inner { grid-template-columns: 1fr; gap: var(--space-12); }
+    .tmj-symptoms { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .tmj-symptoms { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.tmj-authority__left > *', {
+    scrollTrigger: { trigger: '#tmj-authority', start: 'top 80%' },
+    y: 40, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out'
+  });
+  gsap.from('.tmj-symptom', {
+    scrollTrigger: { trigger: '.tmj-symptoms', start: 'top 85%' },
+    y: 30, opacity: 0, stagger: 0.08, duration: 0.7, ease: 'power3.out'
+  });
+  gsap.from('.tmj-authority__callout', {
+    scrollTrigger: { trigger: '.tmj-authority__callout', start: 'top 88%' },
+    y: 20, opacity: 0, duration: 0.6, ease: 'power2.out'
+  });
+</script>
