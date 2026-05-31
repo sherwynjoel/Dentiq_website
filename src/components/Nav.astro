@@ -1,4 +1,7 @@
 ---
+import { treatmentsData } from '../data/treatmentsData.js';
+import { doctorsData } from '../data/doctorsData.js';
+
 const pathname = Astro.url?.pathname ?? '/';
 const isHome      = pathname === '/' || pathname === '';
 const isImplants  = pathname.startsWith('/dental-implants');
@@ -7,6 +10,7 @@ const isAligners  = pathname.startsWith('/clear-aligners');
 const isResults   = pathname.startsWith('/results');
 const isAbout     = pathname.startsWith('/doctors') || pathname.startsWith('/about');
 const isContact   = pathname.startsWith('/contact');
+const isTreatments = pathname.startsWith('/treatments');
 ---
 
 <header id="nav" class={isHome ? 'is-home-nav' : ''} role="banner">
@@ -33,11 +37,45 @@ const isContact   = pathname.startsWith('/contact');
 
     <ul class="nav__links" role="list">
       <li><a href="/"                        class={isHome     ? 'nav__active' : ''}>Home</a></li>
-      <li><a href="/dental-implants-erode"   class={isImplants ? 'nav__active' : ''}>Dental Implants</a></li>
-      <li><a href="/tmj-treatment-erode"     class={isTMJ      ? 'nav__active' : ''}>TMJ &amp; Orofacial Pain</a></li>
-      <li><a href="/clear-aligners-erode"    class={isAligners ? 'nav__active' : ''}>Clear Aligners</a></li>
+      <li><a href="/implants-tmj-erode" class={isImplants || isTMJ || isAligners ? 'nav__active' : ''}>Implants, TMJ &amp; Aligners</a></li>
       <li><a href="/results"                 class={isResults  ? 'nav__active' : ''}>Patient Results</a></li>
-      <li><a href="/doctors/dr-dilip"        class={isAbout    ? 'nav__active' : ''}>About Doctor</a></li>
+      <li class="nav__dropdown">
+        <a href="/doctors" class={`nav__dropdown-toggle ${isAbout ? 'nav__active' : ''}`}>
+          Our Doctors
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown-menu nav__dropdown-menu--doctors">
+          <div class="nav__dropdown-inner">
+            {doctorsData.map((d) => (
+              <a href={`/doctors/${d.id}`} class="nav__dropdown-item">
+                <strong>{d.name}</strong>
+                <span>{d.qualifications}</span>
+              </a>
+            ))}
+            <a href="/doctors" class="nav__dropdown-item nav__dropdown-item--all">
+              <strong>View All Doctors →</strong>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="nav__dropdown">
+        <a href="/treatments" class={`nav__dropdown-toggle ${isTreatments ? 'nav__active' : ''}`}>
+          All Treatments
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="margin-left: 4px;"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+        <div class="nav__dropdown-menu">
+          <div class="nav__dropdown-inner">
+            {treatmentsData.map((t) => (
+              <a href={`/treatments/${t.id}`} class="nav__dropdown-item">
+                <strong>{t.name}</strong>
+              </a>
+            ))}
+            <a href="/treatments" class="nav__dropdown-item nav__dropdown-item--all">
+              <strong>View All Treatments →</strong>
+            </a>
+          </div>
+        </div>
+      </li>
       <li><a href="/contact" class={isContact ? 'nav__active' : ''}>Contact</a></li>
       <li>
         <a href="#contact" class="nav__cta" data-cursor-hover>Book Consultation</a>
@@ -54,11 +92,32 @@ const isContact   = pathname.startsWith('/contact');
   <div class="drawer__inner">
     <ul role="list">
       <li><a href="/"                       class="drawer__link">Home</a></li>
-      <li><a href="/dental-implants-erode"  class="drawer__link">Dental Implants</a></li>
-      <li><a href="/tmj-treatment-erode"    class="drawer__link">TMJ &amp; Orofacial Pain</a></li>
-      <li><a href="/clear-aligners-erode"   class="drawer__link">Clear Aligners</a></li>
+      <li><a href="/implants-tmj-erode" class="drawer__link">Implants, TMJ &amp; Aligners</a></li>
       <li><a href="/results"                class="drawer__link">Patient Results</a></li>
-      <li><a href="/doctors/dr-dilip"       class="drawer__link">About Doctor</a></li>
+      <li class="drawer__item--dropdown">
+        <button class="drawer__link drawer__toggle" id="drawer-doctors-toggle">
+          Our Doctors
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="drawer__submenu" id="drawer-doctors-submenu">
+          {doctorsData.map((d) => (
+            <a href={`/doctors/${d.id}`} class="drawer__sub-link">{d.name}</a>
+          ))}
+          <a href="/doctors" class="drawer__sub-link drawer__sub-link--all">View All Doctors</a>
+        </div>
+      </li>
+      <li class="drawer__item--dropdown">
+        <button class="drawer__link drawer__toggle" id="drawer-treatments-toggle">
+          All Treatments
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="drawer__toggle-icon"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="drawer__submenu" id="drawer-treatments-submenu">
+          {treatmentsData.map((t) => (
+            <a href={`/treatments/${t.id}`} class="drawer__sub-link">{t.name}</a>
+          ))}
+          <a href="/treatments" class="drawer__sub-link drawer__sub-link--all">View All Treatments</a>
+        </div>
+      </li>
       <li><a href="/contact"                class="drawer__link">Contact</a></li>
     </ul>
     <a href="#contact" class="drawer__cta">Book Consultation</a>
@@ -162,6 +221,118 @@ const isContact   = pathname.startsWith('/contact');
   .nav__links a.nav__active { color: var(--clr-white); }
   .nav__links a.nav__active::after { width: 100%; background: var(--clr-gold); }
 
+  /* Dropdown */
+  .nav__dropdown { position: relative; height: 100%; display: flex; align-items: center; }
+  .nav__dropdown-toggle { display: flex; align-items: center; cursor: pointer; }
+  .nav__dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--clr-white);
+    width: 560px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--clr-light-gray);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: all 0.3s var(--ease-out-expo);
+    padding: var(--space-2) var(--space-3) var(--space-3);
+    padding-top: calc(var(--space-2) + 8px);
+    z-index: 1100;
+  }
+  #nav.is-scrolled .nav__dropdown-menu { background: var(--clr-navy); border-color: rgba(255,255,255,0.1); }
+  .nav__dropdown:hover .nav__dropdown-menu,
+  .nav__dropdown:focus-within .nav__dropdown-menu {
+    opacity: 1; pointer-events: all; transform: translateY(0);
+  }
+  .nav__dropdown-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+  .nav__dropdown-item {
+    display: flex; flex-direction: column;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .nav__dropdown-item strong { font-size: 0.8rem; color: var(--clr-navy); display: block; line-height: 1.3; white-space: normal; }
+  #nav.is-scrolled .nav__dropdown-item strong { color: var(--clr-white); }
+  .nav__dropdown-item:hover { background: var(--clr-off-white); }
+  #nav.is-scrolled .nav__dropdown-item:hover { background: rgba(255,255,255,0.07); }
+  .nav__dropdown-item--all { grid-column: span 2; border-top: 1px solid var(--clr-light-gray); margin-top: var(--space-1); padding-top: var(--space-3); }
+  .nav__dropdown-item--all strong { color: var(--clr-gold-dark) !important; }
+  #nav.is-scrolled .nav__dropdown-item--all { border-top-color: rgba(255,255,255,0.1); }
+
+  .nav__dropdown-menu--sm { width: 300px; }
+  .nav__dropdown-inner--single { grid-template-columns: 1fr; }
+
+  .nav__dropdown-menu--doctors {
+    width: 280px;
+    left: 0;
+    right: auto;
+    transform: translateY(4px);
+    overflow: hidden;
+    background: var(--clr-navy) !important;
+    border-color: rgba(255,255,255,0.1) !important;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item:last-child {
+    border-bottom: none;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--clr-white) !important;
+    font-size: 0.78rem;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    color: rgba(255,255,255,0.5) !important;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item:hover {
+    background: rgba(255,255,255,0.08) !important;
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-item--all strong {
+    color: var(--clr-gold) !important;
+  }
+  .nav__dropdown:hover .nav__dropdown-menu--doctors,
+  .nav__dropdown:focus-within .nav__dropdown-menu--doctors {
+    transform: translateY(0);
+  }
+  .nav__dropdown-menu--doctors .nav__dropdown-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px;
+  }
+
+  .nav__dropdown-divider {
+    grid-column: span 1;
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--clr-text-mid);
+    padding: var(--space-3) 14px var(--space-1);
+    border-top: 1px solid var(--clr-light-gray);
+    margin-top: var(--space-1);
+  }
+  #nav.is-scrolled .nav__dropdown-divider { color: rgba(255,255,255,0.35); border-top-color: rgba(255,255,255,0.1); }
+
+  .nav__dropdown-item--city strong { font-size: 0.72rem; color: var(--clr-text-mid); }
+  #nav.is-scrolled .nav__dropdown-item--city strong { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 1080px) { .nav__dropdown-menu { width: min(500px, calc(100vw - 2rem)); right: 0; left: auto; } }
+
   .nav__cta {
     background: var(--clr-gold) !important;
     color: var(--clr-navy) !important;
@@ -215,6 +386,38 @@ const isContact   = pathname.startsWith('/contact');
   }
   .drawer__link:hover { color: var(--clr-gold); }
 
+  .drawer__toggle-icon { transition: transform 0.3s ease; color: var(--clr-gold); }
+  .drawer__toggle.is-active .drawer__toggle-icon { transform: rotate(180deg); }
+
+  .drawer__submenu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    padding-left: var(--space-4);
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+  }
+  .drawer__submenu.is-active {
+    max-height: 1000px;
+    opacity: 1;
+    pointer-events: all;
+  }
+  .drawer__sub-link {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    padding: 8px 0;
+    display: block;
+    transition: color 0.2s ease;
+  }
+  .drawer__sub-link:hover { color: var(--clr-gold); }
+  .drawer__sub-link--all {
+    font-weight: 700;
+    color: var(--clr-gold);
+    margin-top: var(--space-2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: var(--space-3);
+  }
+
   .drawer__cta {
     margin-top: var(--space-8);
     display: inline-block;
@@ -239,6 +442,8 @@ const isContact   = pathname.startsWith('/contact');
   const nav    = document.getElementById('nav')!;
   const toggle = document.getElementById('nav-toggle')!;
   const drawer = document.getElementById('nav-drawer')!;
+  const treatmentsToggle  = document.getElementById('drawer-treatments-toggle')!;
+  const treatmentsSubmenu = document.getElementById('drawer-treatments-submenu')!;
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('is-scrolled', window.scrollY > 60);
@@ -250,6 +455,19 @@ const isContact   = pathname.startsWith('/contact');
     drawer.classList.toggle('is-open', open);
     drawer.setAttribute('aria-hidden', String(!open));
     document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  const doctorsToggle  = document.getElementById('drawer-doctors-toggle')!;
+  const doctorsSubmenu = document.getElementById('drawer-doctors-submenu')!;
+
+  [
+    [treatmentsToggle, treatmentsSubmenu],
+    [doctorsToggle,    doctorsSubmenu],
+  ].forEach(([btn, menu]) => {
+    btn?.addEventListener('click', () => {
+      const open = btn.classList.toggle('is-active');
+      menu.classList.toggle('is-active', open);
+    });
   });
 
   drawer.querySelectorAll('a').forEach(a => {

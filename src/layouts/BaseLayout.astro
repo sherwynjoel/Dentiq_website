@@ -30,6 +30,24 @@ const {
   </body>
 </html>
 
+<script>
+  // When user navigates back via browser (bfcache restore),
+  // GSAP scroll animations are frozen. This clears all inline
+  // styles GSAP set so elements become visible again.
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      document.querySelectorAll<HTMLElement>('[style]').forEach(el => {
+        const style = el.getAttribute('style') || '';
+        if (style.includes('opacity') || style.includes('transform')) {
+          el.style.opacity = '';
+          el.style.transform = '';
+          el.style.visibility = '';
+        }
+      });
+    }
+  });
+</script>
+
 <style is:global>
   /* ─── Design Tokens ─────────────────────────────────────────── */
   :root {

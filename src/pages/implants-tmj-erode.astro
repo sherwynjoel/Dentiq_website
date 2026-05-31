@@ -1,0 +1,487 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+import Contact from '../components/Contact.astro';
+
+const implantTypes = [
+  {
+    title: "Single Tooth Implant",
+    desc: "A single titanium post with a ceramic crown replaces one missing tooth — without affecting neighbouring teeth."
+  },
+  {
+    title: "Multiple Tooth Implants",
+    desc: "Two or more implants support a fixed bridge, replacing several missing teeth in a row permanently."
+  },
+  {
+    title: "Full Arch Rehabilitation",
+    desc: "All-on-4 or All-on-6 implants restore an entire jaw with a fixed prosthesis — often completed in one visit."
+  },
+  {
+    title: "Zygomatic Implants",
+    desc: "For patients with severely resorbed bone where standard implants are not possible. Anchored in the cheekbone (zygoma) — an advanced technique Dr. Balamurugan teaches to other surgeons."
+  },
+  {
+    title: "Pterygoid & Basal Implants",
+    desc: "Immediate-load implants anchored in the pterygoid or basal cortical bone. Suitable for patients who have been told they cannot have implants."
+  },
+  {
+    title: "Implant-Supported Dentures",
+    desc: "Removable overdentures that snap onto implants for stability — eliminating the slipping and discomfort of conventional dentures."
+  }
+];
+
+const tmjCauses = [
+  "Bruxism (teeth grinding or clenching)",
+  "Disc displacement within the joint",
+  "Jaw trauma or facial injury",
+  "Malocclusion (bad bite alignment)",
+  "Stress-related jaw muscle tension",
+  "Degenerative joint conditions like arthritis"
+];
+
+const tmjSymptoms = [
+  "Jaw pain or soreness",
+  "Clicking or popping sounds",
+  "Chronic headaches or migraines",
+  "Ear pain or a feeling of fullness",
+  "Neck and shoulder pain",
+  "Facial pain or fatigue",
+  "Difficulty opening or closing mouth",
+  "Teeth grinding or clenching"
+];
+
+const tmjTreatments = [
+  { title: "Occlusal Splint Therapy", desc: "Custom-fabricated night guards or daytime splints to reduce joint loading, relax muscles and correct bite position." },
+  { title: "Physiotherapy & Exercises", desc: "Targeted jaw exercises and physiotherapy to restore normal muscle function and joint range of motion." },
+  { title: "Trigger Point Injections", desc: "Precise injections into overactive jaw muscles to relieve chronic pain and reduce clenching forces." },
+  { title: "Arthrocentesis", desc: "A minimally invasive joint lavage procedure to remove inflammatory fluid and restore disc mobility — done under local anaesthesia." },
+  { title: "Occlusal Correction", desc: "Bite adjustments through selective reshaping, orthodontics or restorations to remove the underlying cause of joint strain." },
+  { title: "Dental Sleep Medicine", desc: "For patients with TMJ-related sleep disturbances, Dr. Balamurugan offers specialist appliance therapy as a non-CPAP option." }
+];
+
+const alignerProcess = [
+  { num: "01", title: "Digital Smile Scan", desc: "An intraoral scan captures a precise 3D model of your teeth in minutes — no messy impressions." },
+  { num: "02", title: "Treatment Simulation", desc: "You see a preview of how your teeth will move and your final result before committing to treatment." },
+  { num: "03", title: "Custom Tray Fabrication", desc: "A series of clear, precision-made aligner trays is manufactured specifically for your tooth map." },
+  { num: "04", title: "Wear & Progress", desc: "Change trays every 1–2 weeks. Regular check-ins every 6–8 weeks ensure your teeth are tracking correctly." },
+  { num: "05", title: "Retention", desc: "At the end of active treatment, custom retainers preserve your results long-term." }
+];
+
+const faqs = [
+  {
+    q: "What makes Dr. Balamurugan's TMJ treatment different from a general dentist?",
+    a: "Dr. Balamurugan holds a Fellowship in Temporo-Mandibular Disorders and Oro-Facial Pain from the USA — a post-doctoral, internationally recognised credential that very few dentists in Tamil Nadu possess. General dentists are not trained to diagnose and manage TMJ disorders at this level."
+  },
+  {
+    q: "I have very little bone left — can I still get implants?",
+    a: "Yes. Dr. Balamurugan is trained in Zygomatic, Pterygoid and Basal (Bicortex) implants — advanced techniques specifically developed for patients with severely resorbed bone. These implants bypass the deficient area and anchor in denser bone, allowing fixed teeth without bone grafting in most cases."
+  },
+  {
+    q: "How long does the full implant process take?",
+    a: "Standard single implants take 3–6 months from placement to final crown. Full arch cases (All-on-4) can deliver fixed teeth within 24–48 hours of surgery. Zygomatic and basal implant cases are often immediate-load, meaning you leave with teeth on the same day."
+  },
+  {
+    q: "Are clear aligners suitable for adults?",
+    a: "Yes — the majority of our aligner patients are adults and working professionals. Aligners are ideal for adults who want effective teeth straightening without the social visibility of metal braces. They are removable for eating, drinking and social occasions."
+  },
+  {
+    q: "Can aligners fix my bite, not just the appearance?",
+    a: "Clear aligners can correct mild to moderate bite issues including overbite, underbite, crossbite and open bite. For complex skeletal discrepancies, Dr. Balamurugan will advise whether aligners alone suffice or whether a combined orthodontic-surgical approach is needed."
+  },
+  {
+    q: "Can TMJ disorder be completely cured?",
+    a: "Many patients achieve complete symptom resolution with proper conservative treatment. Others require long-term management. The key is accurate diagnosis — most patients who have not responded to previous treatment simply had the wrong diagnosis or the wrong treatment approach."
+  },
+  {
+    q: "Do you treat patients travelling from Coimbatore, Salem or Tirupur?",
+    a: "Yes. A significant number of our patients travel from Coimbatore, Salem, Tirupur and Namakkal — specifically for Dr. Balamurugan's specialisation in TMJ, advanced implants and aligner therapy. We accommodate outstation patients with consolidated appointment scheduling."
+  }
+];
+---
+
+<BaseLayout
+  title="Dental Implants, TMJ Treatment & Clear Aligners in Erode | DentiQ"
+  description="Advanced dental implants (including Zygomatic & Pterygoid), TMJ & orofacial pain specialist, and clear aligners in Erode. Dr. T. Balamurugan — MDS, F.I.C.O.I.(USA), F.T.O.D.(USA). Serving Erode, Coimbatore, Salem, Tirupur, Namakkal."
+>
+  <Cursor />
+  <Nav />
+  <main>
+
+    <!-- HERO -->
+    <section class="lp-hero">
+      <div class="lp-hero__bg"></div>
+      <div class="lp-hero__content">
+        <span class="section__label section__label--light">DentiQ Superspeciality · Erode</span>
+        <h1 class="lp-hero__heading">Implants, TMJ &amp; <em>Clear Aligners</em></h1>
+        <p class="lp-hero__sub">
+          Superspeciality care for missing teeth, jaw pain and smile alignment — by a fellowship-trained specialist with USA credentials in both Implantology and TMJ & Orofacial Pain. Serving Erode, Coimbatore, Salem, Tirupur and Namakkal.
+        </p>
+        <div class="lp-hero__ctas">
+          <a href="#implants" class="btn btn--primary">Missing Teeth</a>
+          <a href="#tmj" class="btn btn--outline-light">Jaw Pain / Headaches</a>
+          <a href="#aligners" class="btn btn--outline-light">Crooked Teeth</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── IMPLANTS ─── -->
+    <section id="implants" class="lp-section lp-section--light">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label">Advanced Implant Centre</span>
+          <h2 class="lp-heading">Permanent Tooth Replacement — <em>Including Zygomatic & Pterygoid Implants</em></h2>
+          <p class="lp-sub">Dr. T. Balamurugan is a Fellow of the International Congress of Oral Implantologists (USA) — trained in the full spectrum of implant solutions, including advanced techniques for patients with severe bone loss who have previously been told implants are not possible.</p>
+        </div>
+
+        <div class="implant-types-grid">
+          {implantTypes.map((t, i) => (
+            <div class={`implant-card ${i === 3 || i === 4 ? 'implant-card--highlight' : ''}`}>
+              <span class="implant-card__num">0{i + 1}</span>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+              {(i === 3 || i === 4) && <span class="implant-card__badge">Advanced Technique</span>}
+            </div>
+          ))}
+        </div>
+
+        <div class="implant-process">
+          <h3 class="process-title">The Implant Journey</h3>
+          <div class="process-steps-row">
+            {[
+              { num: "01", title: "3D Imaging & Planning", desc: "CBCT scan maps bone volume, nerve pathways and ideal implant position for surgical precision." },
+              { num: "02", title: "Implant Placement", desc: "Titanium post placed under local anaesthesia. Minimally invasive and comfortable." },
+              { num: "03", title: "Osseointegration", desc: "The implant fuses with your jawbone over 8–12 weeks. A temporary tooth is provided." },
+              { num: "04", title: "Final Crown", desc: "A custom ceramic crown matched to your natural tooth colour completes your smile." }
+            ].map(s => (
+              <div class="ps-step">
+                <span class="ps-num">{s.num}</span>
+                <h4>{s.title}</h4>
+                <p>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="lp-section-cta">
+          <a href="#contact" class="btn btn--primary">Book Implant Consultation</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TMJ ─── -->
+    <section id="tmj" class="lp-section lp-section--dark">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label section__label--light">TMJ & Orofacial Pain Centre</span>
+          <h2 class="lp-heading lp-heading--light">Jaw Pain, Headaches & Facial Pain — <em>Properly Diagnosed</em></h2>
+          <p class="lp-sub lp-sub--light">
+            Temporomandibular Joint (TMJ) disorders affect the jaw joint, muscles and surrounding structures. They are among the most commonly misdiagnosed conditions in medicine — often treated for years as migraines, ear infections or cervical pain without relief. Dr. Balamurugan holds a Fellowship in TMJ & Oro-Facial Pain from the USA, one of very few in Tamil Nadu.
+          </p>
+        </div>
+
+        <div class="tmj-two-col">
+          <div class="tmj-col">
+            <h3 class="tmj-col__title">Common Causes</h3>
+            <ul class="tmj-list">
+              {tmjCauses.map(c => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="tmj-col">
+            <h3 class="tmj-col__title">Symptoms to Watch For</h3>
+            <ul class="tmj-list">
+              {tmjSymptoms.map(s => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="tmj-callout">
+          <strong>TMJ disorders affect approximately 10% of the population</strong> — yet most go undiagnosed or mismanaged for years. If you have seen multiple doctors without a clear answer, a specialist TMJ evaluation may be the missing step.
+        </div>
+
+        <div class="lp-header" style="margin-top: var(--space-14); margin-bottom: var(--space-8);">
+          <h3 class="lp-heading lp-heading--light" style="font-size: clamp(1.4rem, 2.5vw, 2rem);">Treatment Options at DentiQ</h3>
+        </div>
+
+        <div class="tmj-treatments-grid">
+          {tmjTreatments.map(t => (
+            <div class="tmj-treatment-card">
+              <h4>{t.title}</h4>
+              <p>{t.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="lp-section-cta">
+          <a href="#contact" class="btn btn--primary">Book TMJ Evaluation</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CLEAR ALIGNERS ─── -->
+    <section id="aligners" class="lp-section lp-section--off">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label">Clear Aligner Therapy</span>
+          <h2 class="lp-heading">Straighten Your Teeth <em>Without Metal Braces</em></h2>
+          <p class="lp-sub">
+            Clear aligners use a series of precision-fabricated, removable plastic trays to move teeth gradually into the correct position. Each tray shifts teeth by approximately 0.2–0.3mm. Treatment typically takes 6–18 months depending on complexity.
+          </p>
+        </div>
+
+        <div class="aligners-two-col">
+          <div class="aligners-who">
+            <h3>Who Is It Suitable For?</h3>
+            <ul>
+              <li><strong>Adults &amp; working professionals</strong> who want discreet treatment</li>
+              <li><strong>Crowded or widely spaced teeth</strong></li>
+              <li><strong>Overbite, underbite, crossbite</strong> and open bite (mild to moderate)</li>
+              <li><strong>Relapse cases</strong> — teeth that have shifted after previous orthodontic treatment</li>
+              <li><strong>Patients who have had braces</strong> and want further refinement</li>
+            </ul>
+            <p class="aligners-note">Not suitable for severe skeletal discrepancies, which require combined orthodontic-surgical management. Dr. Balamurugan will advise the right approach at your assessment.</p>
+          </div>
+          <div class="aligners-vs">
+            <h3>Aligners vs Braces</h3>
+            <table class="compare-table">
+              <thead>
+                <tr><th></th><th>Clear Aligners</th><th>Metal Braces</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Visibility</td><td>✓ Nearly invisible</td><td>✗ Visible</td></tr>
+                <tr><td>Removable</td><td>✓ Yes</td><td>✗ No</td></tr>
+                <tr><td>Diet restrictions</td><td>✓ None</td><td>✗ Several</td></tr>
+                <tr><td>Oral hygiene</td><td>✓ Easier</td><td>✗ More difficult</td></tr>
+                <tr><td>Complex cases</td><td>Moderate</td><td>✓ Severe</td></tr>
+                <tr><td>Comfort</td><td>✓ Smooth plastic</td><td>Wires &amp; brackets</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3 class="process-title" style="margin-top: var(--space-12);">The Aligner Process</h3>
+        <div class="process-steps-row">
+          {alignerProcess.map(s => (
+            <div class="ps-step ps-step--light">
+              <span class="ps-num ps-num--light">{s.num}</span>
+              <h4>{s.title}</h4>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="lp-section-cta">
+          <a href="#contact" class="btn btn--primary">Book Smile Assessment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── DOCTOR ─── -->
+    <section class="lp-section lp-section--light">
+      <div class="lp-container lp-credentials">
+        <div class="lp-credentials__img">
+          <img src="/WhatsApp Image 2026-05-31 at 2.09.38 PM.jpeg" alt="Dr. T. Balamurugan — Implant & TMJ Specialist Erode" />
+        </div>
+        <div class="lp-credentials__text">
+          <span class="section__label">Your Specialist</span>
+          <h2 class="lp-heading">Dr. T. Balamurugan <em>MDS, F.I.C.O.I.(USA), F.T.O.D.(USA)</em></h2>
+          <p>Dr. Balamurugan is one of Tamil Nadu's very few specialists with dual fellowship credentials from the USA — in both Advanced Implantology and TMJ & Orofacial Pain. This combination is rare: most clinics have neither. At DentiQ, patients with complex needs — bone loss, undiagnosed jaw pain, bite collapse — receive a level of specialist evaluation that is otherwise unavailable in this region.</p>
+          <ul class="cred-list">
+            <li>Fellow International Congress of Oral Implantologists — F.I.C.O.I. (USA)</li>
+            <li>Fellow Temporo Mandibular Disorders &amp; Orofacial Pain — F.T.O.D. (USA)</li>
+            <li>Master of Dental Surgery (MDS) — Oral &amp; Maxillofacial Surgery</li>
+            <li>Implantologist · Prosthodontist · Maxillofacial Prosthetist</li>
+            <li>Conducts Advanced Zygomatic Implant courses for postgraduate surgeons</li>
+          </ul>
+          <div class="cred-btns">
+            <a href="#contact" class="btn btn--primary">Book Consultation</a>
+            <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section class="lp-section lp-section--off">
+      <div class="lp-container">
+        <div class="lp-header">
+          <span class="section__label">Common Questions</span>
+          <h2 class="lp-heading">Frequently Asked <em>Questions</em></h2>
+        </div>
+        <div class="faq-list">
+          {faqs.map(f => (
+            <details class="faq-item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA ─── -->
+    <section class="lp-cta">
+      <div class="lp-container lp-cta__inner">
+        <h2>Get the Right Diagnosis <em>Before Choosing Treatment</em></h2>
+        <p>Book a consultation with Dr. Balamurugan. Whether you have missing teeth, persistent jaw pain, or want straighter teeth — an accurate specialist assessment is the first step.</p>
+        <div class="lp-cta__btns">
+          <a href="#contact" class="btn btn--primary">Book Consultation</a>
+          <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .lp-container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+  .lp-header { text-align: center; margin-bottom: var(--space-12); max-width: 820px; margin-left: auto; margin-right: auto; }
+  .lp-heading { font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; color: var(--clr-navy); line-height: 1.15; margin-bottom: var(--space-4); }
+  .lp-heading em { font-style: italic; color: var(--clr-gold-dark); }
+  .lp-heading--light { color: var(--clr-white); }
+  .lp-heading--light em { color: var(--clr-gold); }
+  .lp-sub { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.8; }
+  .lp-sub--light { color: rgba(255,255,255,0.72); }
+  .lp-section { padding: var(--space-24) var(--gutter); }
+  .lp-section--light { background: var(--clr-white); }
+  .lp-section--off   { background: var(--clr-off-white); }
+  .lp-section--dark  { background: var(--clr-navy); }
+  .lp-section-cta { text-align: center; margin-top: var(--space-12); display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+  #implants, #tmj, #aligners { scroll-margin-top: 120px; }
+
+  /* Hero */
+  .lp-hero { position: relative; background: linear-gradient(135deg, var(--clr-navy) 0%, #3a4037 100%); padding: 14rem var(--gutter) 10rem; text-align: center; }
+  .lp-hero__bg { position: absolute; inset: 0; background-image: radial-gradient(rgba(206,196,167,0.1) 1px, transparent 1px); background-size: 32px 32px; }
+  .lp-hero__content { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .lp-hero__heading { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; color: var(--clr-white); line-height: 1.1; }
+  .lp-hero__heading em { font-style: italic; color: var(--clr-gold); }
+  .lp-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 68ch; }
+  .lp-hero__ctas { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+  .btn--outline-light { background: transparent; border: 1px solid rgba(255,255,255,0.4); color: var(--clr-white); padding: 12px 24px; border-radius: var(--radius-pill); font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; transition: all 0.3s ease; }
+  .btn--outline-light:hover { background: rgba(255,255,255,0.1); border-color: var(--clr-gold); }
+
+  /* Implant types grid */
+  .implant-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-bottom: var(--space-14); }
+  .implant-card { background: var(--clr-off-white); border: 1px solid var(--clr-light-gray); border-radius: var(--radius-xl); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-2); transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+  .implant-card:hover { border-color: var(--clr-gold); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+  .implant-card--highlight { background: var(--clr-navy); border-color: var(--clr-gold); }
+  .implant-card__num { font-family: var(--font-heading); font-size: 0.7rem; font-weight: 800; color: var(--clr-gold-dark); letter-spacing: 0.1em; opacity: 0.6; }
+  .implant-card--highlight .implant-card__num { color: var(--clr-gold); opacity: 1; }
+  .implant-card h3 { font-family: var(--font-heading); font-size: var(--text-base); font-weight: 700; color: var(--clr-navy); line-height: 1.3; }
+  .implant-card--highlight h3 { color: var(--clr-white); }
+  .implant-card p { font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.65; font-weight: 300; flex: 1; }
+  .implant-card--highlight p { color: rgba(255,255,255,0.65); }
+  .implant-card__badge { display: inline-block; margin-top: var(--space-3); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--clr-gold); border: 1px solid rgba(206,196,167,0.4); padding: 3px 10px; border-radius: var(--radius-pill); width: fit-content; }
+
+  /* Process steps */
+  .process-title { font-family: var(--font-heading); font-size: var(--text-xl); font-weight: 700; color: var(--clr-navy); margin-bottom: var(--space-6); text-align: center; }
+  .process-steps-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-5); }
+  .ps-step { background: var(--clr-white); border: 1px solid var(--clr-light-gray); border-radius: var(--radius-xl); padding: var(--space-6); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .ps-step--light { background: var(--clr-white); }
+  .ps-num { display: inline-flex; align-items: center; justify-content: center; width: 2.8rem; height: 2.8rem; background: var(--clr-gold); color: var(--clr-navy); font-family: var(--font-heading); font-size: 0.85rem; font-weight: 800; border-radius: 50%; margin-bottom: var(--space-4); flex-shrink: 0; }
+  .ps-num--light { background: var(--clr-navy); color: var(--clr-gold); }
+  .ps-step h4 { font-family: var(--font-heading); font-size: var(--text-sm); font-weight: 700; color: var(--clr-navy); margin-bottom: var(--space-2); }
+  .ps-step p { font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.6; font-weight: 300; }
+
+  /* TMJ */
+  .tmj-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); margin-bottom: var(--space-8); }
+  .tmj-col__title { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: 700; color: var(--clr-gold); margin-bottom: var(--space-5); }
+  .tmj-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+  .tmj-list li { display: flex; align-items: flex-start; gap: var(--space-3); font-size: var(--text-sm); color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .tmj-list li svg { color: var(--clr-gold); flex-shrink: 0; margin-top: 2px; }
+  .tmj-callout { background: rgba(206,196,167,0.1); border-left: 3px solid var(--clr-gold); padding: var(--space-6) var(--space-8); border-radius: 0 var(--radius-md) var(--radius-md) 0; font-size: var(--text-sm); color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; }
+  .tmj-callout strong { display: block; color: var(--clr-white); font-weight: 700; margin-bottom: var(--space-2); font-size: var(--text-base); }
+  .tmj-treatments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .tmj-treatment-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--space-6); transition: background 0.3s, border-color 0.3s; }
+  .tmj-treatment-card:hover { background: rgba(255,255,255,0.1); border-color: var(--clr-gold); }
+  .tmj-treatment-card h4 { font-family: var(--font-heading); font-size: var(--text-sm); font-weight: 700; color: var(--clr-gold); margin-bottom: var(--space-3); }
+  .tmj-treatment-card p { font-size: var(--text-sm); color: rgba(255,255,255,0.65); line-height: 1.65; font-weight: 300; }
+
+  /* Aligners */
+  .aligners-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); margin-bottom: var(--space-10); }
+  .aligners-who h3, .aligners-vs h3 { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: 700; color: var(--clr-navy); margin-bottom: var(--space-5); }
+  .aligners-who ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-6); }
+  .aligners-who li { font-size: var(--text-sm); color: var(--clr-text-body); padding-left: var(--space-5); position: relative; line-height: 1.5; }
+  .aligners-who li::before { content: '✓'; position: absolute; left: 0; color: var(--clr-gold-dark); font-weight: 700; }
+  .aligners-note { font-size: var(--text-sm); color: var(--clr-text-mid); font-style: italic; line-height: 1.65; border-left: 2px solid var(--clr-gold); padding-left: var(--space-4); }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+  .compare-table th { background: var(--clr-navy); color: var(--clr-white); padding: var(--space-3) var(--space-4); text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .compare-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--clr-light-gray); color: var(--clr-text-body); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+
+  /* Doctor */
+  .lp-credentials { display: grid; grid-template-columns: 340px 1fr; gap: var(--space-14); align-items: center; }
+  .lp-credentials__img img { width: 100%; border-radius: var(--radius-xl); border: 2px solid var(--clr-gold); object-fit: cover; aspect-ratio: 3/4; }
+  .lp-credentials__text p { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.8; margin-bottom: var(--space-6); }
+  .cred-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-8); }
+  .cred-list li { font-size: var(--text-sm); color: var(--clr-text-mid); padding-left: var(--space-5); position: relative; line-height: 1.5; }
+  .cred-list li::before { content: '—'; position: absolute; left: 0; color: var(--clr-gold-dark); }
+  .cred-btns { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+
+  /* FAQ */
+  .faq-list { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-3); }
+  .faq-item { border: 1px solid var(--clr-light-gray); border-radius: var(--radius-lg); overflow: hidden; background: var(--clr-white); }
+  .faq-item summary { padding: var(--space-5) var(--space-6); font-size: var(--text-base); font-weight: 600; color: var(--clr-navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--clr-gold-dark); flex-shrink: 0; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 var(--space-6) var(--space-5); font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.75; font-weight: 300; }
+
+  /* CTA */
+  .lp-cta { background: linear-gradient(135deg, var(--clr-navy), #3a4037); padding: var(--space-24) var(--gutter); }
+  .lp-cta__inner { text-align: center; max-width: 700px; margin: 0 auto; }
+  .lp-cta__inner h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--clr-white); line-height: 1.1; margin-bottom: var(--space-5); }
+  .lp-cta__inner h2 em { font-style: italic; color: var(--clr-gold); }
+  .lp-cta__inner p { font-size: var(--text-base); color: rgba(255,255,255,0.75); font-weight: 300; line-height: 1.7; margin-bottom: var(--space-8); }
+  .lp-cta__btns { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
+
+  .btn--whatsapp { background: #25D366; color: #fff; padding: 12px 24px; border-radius: var(--radius-pill); font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; transition: all 0.3s ease; }
+  .btn--whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+  .btn--whatsapp-sm { background: #25D366; color: #fff; padding: 10px 20px; border-radius: var(--radius-pill); font-weight: 600; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s ease; }
+  .btn--whatsapp-sm:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  @media (max-width: 1024px) {
+    .implant-types-grid { grid-template-columns: repeat(2, 1fr); }
+    .tmj-treatments-grid { grid-template-columns: repeat(2, 1fr); }
+    .lp-credentials { grid-template-columns: 1fr; }
+    .lp-credentials__img { max-width: 280px; }
+    .aligners-two-col { grid-template-columns: 1fr; }
+    .tmj-two-col { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .implant-types-grid { grid-template-columns: 1fr; }
+    .tmj-treatments-grid { grid-template-columns: 1fr; }
+    .lp-hero__ctas, .lp-cta__btns, .lp-section-cta, .cred-btns { flex-direction: column; width: 100%; }
+    .btn, .btn--whatsapp-sm { width: 100%; justify-content: center; }
+  }
+</style>
