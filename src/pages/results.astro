@@ -5,13 +5,236 @@ import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
 import Contact from '../components/Contact.astro';
 
-const placeholders = [
-  { id: 1, tag: "Treatment Type" },
-  { id: 2, tag: "Treatment Type" },
-  { id: 3, tag: "Treatment Type" },
-  { id: 4, tag: "Treatment Type" },
-  { id: 5, tag: "Treatment Type" },
-  { id: 6, tag: "Treatment Type" },
+const cases = [
+
+  // ── CONSERVATIVE DENTISTRY ─────────────────────────────────────────
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Back Tooth Restoration",
+    desc: "Composite tooth-coloured filling replacing old amalgam, restoring natural appearance and full chewing function.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%201/IMG_5348.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%201/IMG_5352.webp" },
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Back Tooth Restoration",
+    desc: "Multi-surface tooth-coloured filling on posterior teeth with seamless colour matching.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%202/IMG_1250.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%202/IMG_1259.webp" },
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Back Tooth Restoration",
+    desc: "Deep cavity restored with composite resin, preserving maximum healthy tooth structure.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%203/IMG_1626.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Back%20Tooth/Case%203/IMG_1645.webp" },
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Front Teeth Restoration",
+    desc: "Anterior composite bonding restoring chipped front teeth to their natural shape and shine.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%201/IMG_3721.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%201/IMG_3740.webp" },
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Front Teeth Restoration",
+    desc: "Tooth-coloured filling closing an incisor chip with precise shade matching for an invisible result.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%202/IMG_7555.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%202/IMG_7562.webp" },
+  { category: "Conservative Dentistry", tag: "Tooth Coloured Fillings", title: "Front Teeth Restoration",
+    desc: "Direct composite restoration on upper front teeth, completed in a single visit with zero drilling discomfort.",
+    before: "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%203/IMG_4014.webp",
+    after:  "/gallery/Conservative%20Dentistry/Tooth%20Coloured%20fillings/Front%20Teeth/Case%203/IMG_4029.webp" },
+
+  // ── COSMETIC DENTISTRY ─────────────────────────────────────────────
+  { category: "Cosmetic Dentistry", tag: "Dental Bleaching", title: "Teeth Whitening",
+    desc: "Professional in-office bleaching achieving multiple shades of improvement in a single session.",
+    before: "/gallery/Cosmetic%20Dentistry/Dental%20Bleaching/Case%201/IMG_93931.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Dental%20Bleaching/Case%201/IMG_93951.webp" },
+  { category: "Cosmetic Dentistry", tag: "Dental Bleaching", title: "Teeth Whitening",
+    desc: "Laser-assisted bleaching removing deep staining, restoring a naturally bright, healthy smile.",
+    before: "/gallery/Cosmetic%20Dentistry/Dental%20Bleaching/Case%202/IMG_1412.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Dental%20Bleaching/Case%202/IMG_1415.webp" },
+  { category: "Cosmetic Dentistry", tag: "Diastema Correction", title: "Midline Gap Closure",
+    desc: "Composite bonding used to close the central gap between upper front teeth — no drilling, no anaesthesia.",
+    before: "/gallery/Cosmetic%20Dentistry/Midline%20Diastema%20Correction/IMG_6045.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Midline%20Diastema%20Correction/IMG_6052.webp" },
+  { category: "Cosmetic Dentistry", tag: "Orthognathic Surgery", title: "Jaw Correction Surgery",
+    desc: "Orthognathic surgery correcting skeletal jaw misalignment, improving bite function and facial profile.",
+    before: "/gallery/Cosmetic%20Dentistry/Orthognathic%20Surgery/Case%201/IMG_0688.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Orthognathic%20Surgery/Case%201/IMG_4238.webp" },
+  { category: "Cosmetic Dentistry", tag: "Orthognathic Surgery", title: "Jaw Correction Surgery",
+    desc: "Combined upper and lower jaw surgery restoring balanced facial symmetry and comfortable bite.",
+    before: "/gallery/Cosmetic%20Dentistry/Orthognathic%20Surgery/Case%202/IMG_0220.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Orthognathic%20Surgery/Case%202/IMG_7768.webp" },
+  { category: "Cosmetic Dentistry", tag: "Smile Correction", title: "Smile Makeover",
+    desc: "Full smile makeover combining multiple cosmetic procedures for a dramatic, lasting transformation.",
+    before: "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case1/IMG_0147.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case1/IMG_9763.webp" },
+  { category: "Cosmetic Dentistry", tag: "Smile Correction", title: "Smile Makeover",
+    desc: "Comprehensive smile redesign addressing colour, shape, and alignment in a coordinated treatment plan.",
+    before: "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%202/IMG_1660.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%202/IMG_2484.webp" },
+  { category: "Cosmetic Dentistry", tag: "Smile Correction", title: "Smile Makeover",
+    desc: "Intraoral and facial smile correction with visible improvement in gum-to-tooth ratio and symmetry.",
+    before: "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%203/Wide%20Smile%20closeup%20Preop.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%203/Widesmile%20Closeup%20Postop.webp" },
+  { category: "Cosmetic Dentistry", tag: "Smile Correction", title: "Smile Makeover",
+    desc: "Smile correction for a patient with uneven tooth lengths, delivering a uniform, confident smile.",
+    before: "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%204/IMG_8661.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%204/IMG_8839.webp" },
+  { category: "Cosmetic Dentistry", tag: "Smile Correction", title: "Smile Makeover",
+    desc: "Minimally invasive smile enhancement restoring harmony between teeth, gums, and lips.",
+    before: "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%205/IMG_3780.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Smile%20Correction/Case%205/IMG_5234.webp" },
+  { category: "Cosmetic Dentistry", tag: "Tooth Size & Shape", title: "Tooth Size & Shape",
+    desc: "Composite reshaping of undersized lateral incisors to achieve proportionate, balanced smile aesthetics.",
+    before: "/gallery/Cosmetic%20Dentistry/Tooth%20Size,Shape%20modification/Case%201/IMG_3026.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Tooth%20Size,Shape%20modification/Case%201/IMG_3038.webp" },
+  { category: "Cosmetic Dentistry", tag: "Tooth Size & Shape", title: "Tooth Size & Shape",
+    desc: "Contouring and reshaping of irregularly shaped teeth without removing healthy enamel.",
+    before: "/gallery/Cosmetic%20Dentistry/Tooth%20Size,Shape%20modification/Case%202/IMG_3884.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Tooth%20Size,Shape%20modification/Case%202/IMG_3894.webp" },
+  { category: "Cosmetic Dentistry", tag: "Veneers", title: "Porcelain Veneers",
+    desc: "Ultra-thin porcelain veneers transforming discoloured and worn front teeth into a flawless smile.",
+    before: "/gallery/Cosmetic%20Dentistry/Veneers/Case%201/IMG_6467.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Veneers/Case%201/IMG_6566.webp" },
+  { category: "Cosmetic Dentistry", tag: "Veneers", title: "Porcelain Veneers",
+    desc: "Six upper veneers correcting spacing, discolouration, and shape to deliver a Hollywood smile.",
+    before: "/gallery/Cosmetic%20Dentistry/Veneers/Case%202/IMG_0769.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Veneers/Case%202/IMG_4223.webp" },
+  { category: "Cosmetic Dentistry", tag: "Veneers", title: "Porcelain Veneers",
+    desc: "Minimal-prep veneers placed on four anterior teeth, preserving natural tooth structure throughout.",
+    before: "/gallery/Cosmetic%20Dentistry/Veneers/Case%203/IMG_1638.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Veneers/Case%203/IMG_1728.webp" },
+  { category: "Cosmetic Dentistry", tag: "Veneers", title: "Porcelain Veneers",
+    desc: "Full upper arch veneer rehabilitation restoring a youthful, symmetrical, and radiant smile.",
+    before: "/gallery/Cosmetic%20Dentistry/Veneers/Case%204/IMG_3789.webp",
+    after:  "/gallery/Cosmetic%20Dentistry/Veneers/Case%204/IMG_4074.webp" },
+
+  // ── DENTAL IMPLANTS ────────────────────────────────────────────────
+  { category: "Dental Implants", tag: "Basal Implants", title: "Basal Implants — Immediate Loading",
+    desc: "Basal implants placed and loaded immediately — teeth on the same day with no waiting period.",
+    before: "/gallery/Dental%20Implants/Basal%20Implants%20-Teeth%20Immediately%20-%20No%20waiting/IMPLANT-PLACED.webp",
+    after:  "/gallery/Dental%20Implants/Basal%20Implants%20-Teeth%20Immediately%20-%20No%20waiting/POST-IMPLANTATION.webp" },
+  { category: "Dental Implants", tag: "Full Arch Implants", title: "Full Arch Implant Prosthesis",
+    desc: "Complete upper arch rehabilitation with implant-supported fixed prosthesis replacing all missing teeth.",
+    before: "/gallery/Dental%20Implants/Full%20arch%20Implant%20supported%20Fixed%20Prosthesis/IMG_1140.webp",
+    after:  "/gallery/Dental%20Implants/Full%20arch%20Implant%20supported%20Fixed%20Prosthesis/IMG_1172.webp" },
+  { category: "Dental Implants", tag: "Full Arch Implants", title: "Full Arch Implant Prosthesis",
+    desc: "Lower arch fully restored with an implant-supported bridge, restoring function and aesthetics.",
+    before: "/gallery/Dental%20Implants/Full%20arch%20Implant%20supported%20Fixed%20Prosthesis/IMG_1193.webp",
+    after:  "/gallery/Dental%20Implants/Full%20arch%20Implant%20supported%20Fixed%20Prosthesis/IMG_1504.webp" },
+  { category: "Dental Implants", tag: "Implant Overdenture", title: "Implant Overdenture",
+    desc: "Implant-retained overdenture providing superior stability compared to conventional dentures.",
+    before: "/gallery/Dental%20Implants/Implant%20Overdenture/IMG_4274.webp",
+    after:  "/gallery/Dental%20Implants/Implant%20Overdenture/IMG_9736.webp" },
+  { category: "Dental Implants", tag: "Multiple Tooth Implants", title: "Multiple Tooth Implants",
+    desc: "Multiple implants replacing a full posterior segment, restoring chewing ability and jawbone health.",
+    before: "/gallery/Dental%20Implants/Multiple%20Tooth%20Implants/IMG_3400%20c.webp",
+    after:  "/gallery/Dental%20Implants/Multiple%20Tooth%20Implants/IMG_9514.webp" },
+  { category: "Dental Implants", tag: "Single Tooth Implant", title: "Single Tooth Implant",
+    desc: "Single implant crown replacing a missing incisor — indistinguishable from the natural adjacent teeth.",
+    before: "/gallery/Dental%20Implants/Single%20tooth%20Implants/Case%201/IMG_1689.webp",
+    after:  "/gallery/Dental%20Implants/Single%20tooth%20Implants/Case%201/IMG_9837.webp" },
+  { category: "Dental Implants", tag: "Single Tooth Implant", title: "Single Tooth Implant",
+    desc: "Implant-supported crown on a molar site, restoring full bite force with a natural-looking result.",
+    before: "/gallery/Dental%20Implants/Single%20tooth%20Implants/Case%202/IMG_0814.webp",
+    after:  "/gallery/Dental%20Implants/Single%20tooth%20Implants/Case%202/IMG_5589.webp" },
+
+  // ── LASER DENTISTRY ────────────────────────────────────────────────
+  { category: "Laser Dentistry", tag: "Laser Gingivectomy", title: "Gingival Shaping for Filling",
+    desc: "Diode laser used to reshape gum tissue before composite filling — bloodless, stitch-free, same-day healing.",
+    before: "/gallery/Laser%20Dentistry/Laser%20%20Gingival%20shaping(Gingivectomy)%20for%20filling/IMG_9838.webp",
+    after:  "/gallery/Laser%20Dentistry/Laser%20%20Gingival%20shaping(Gingivectomy)%20for%20filling/post-op.webp" },
+  { category: "Laser Dentistry", tag: "Laser Frenectomy", title: "Laser Frenectomy",
+    desc: "Laser frenectomy releasing tongue-tie in a paediatric patient — no bleeding, no sutures required.",
+    before: "/gallery/Laser%20Dentistry/Laser%20Frenectomy/Case1/IMG_5354.webp",
+    after:  "/gallery/Laser%20Dentistry/Laser%20Frenectomy/Case1/IMG_5357.webp" },
+  { category: "Laser Dentistry", tag: "Laser Frenectomy", title: "Laser Frenectomy",
+    desc: "Upper labial frenectomy performed with laser, eliminating the diastema-causing frenum attachment.",
+    before: "/gallery/Laser%20Dentistry/Laser%20Frenectomy/Case2/IMG_4924.webp",
+    after:  "/gallery/Laser%20Dentistry/Laser%20Frenectomy/Case2/IMG_4935.webp" },
+  { category: "Laser Dentistry", tag: "Laser Operculectomy", title: "Laser Operculectomy",
+    desc: "Laser removal of tissue flap over a partially erupted wisdom tooth — immediate relief, no stitches.",
+    before: "/gallery/Laser%20Dentistry/Laser%20Operculectomy/IMG_4199.webp",
+    after:  "/gallery/Laser%20Dentistry/Laser%20Operculectomy/IMG_4205.webp" },
+  { category: "Laser Dentistry", tag: "Pregnancy Gingival Hyperplasia", title: "Pregnancy Gingival Hyperplasia",
+    desc: "Laser treatment for pregnancy-induced gum overgrowth — safe, targeted, and healing without sutures.",
+    before: "/gallery/Laser%20Dentistry/Pregnancy%20Gingival%20Hyperplasia/IMG_0720.webp",
+    after:  "/gallery/Laser%20Dentistry/Pregnancy%20Gingival%20Hyperplasia/IMG_1290.webp" },
+
+  // ── ORAL & MAXILLOFACIAL SURGERY ──────────────────────────────────
+  { category: "Oral & Maxillofacial Surgery", tag: "Cleft Lip & Palate", title: "Cleft Lip & Palate Correction",
+    desc: "Surgical correction of cleft lip restoring natural facial anatomy and dramatically improving quality of life.",
+    before: "/gallery/Oral%20&%20Mallofacial%20Surgery/Cleft%20Lip%20&%20Palate/IMG_0574.webp",
+    after:  "/gallery/Oral%20&%20Mallofacial%20Surgery/Cleft%20Lip%20&%20Palate/IMG_6491.webp" },
+
+  // ── ORTHODONTICS ──────────────────────────────────────────────────
+  { category: "Orthodontics", tag: "Ceramic Braces", title: "Ceramic Braces",
+    desc: "Tooth-coloured ceramic brackets delivering the precision of traditional braces with a discreet appearance.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Ceramic%20Braces/Ceramic%20Braces.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Ceramic%20Braces/Ceramic%20Braces.webp",
+    single: true },
+  { category: "Orthodontics", tag: "Invisible Braces", title: "Invisible Braces (Clear Aligners)",
+    desc: "Virtually invisible clear aligners straightening teeth comfortably — removable for eating and brushing.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Invisible%20Braces/Invisible%20Braces.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Invisible%20Braces/Invisible%20Braces.webp",
+    single: true },
+  { category: "Orthodontics", tag: "Lingual Braces", title: "Lingual Braces",
+    desc: "Braces placed on the inner surfaces of teeth — completely hidden from view throughout treatment.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Lingual%20Braces/Lingual%20Braces.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Lingual%20Braces/Lingual%20Braces.webp",
+    single: true },
+  { category: "Orthodontics", tag: "Rapid Maxillary Expansion", title: "Rapid Maxillary Expansion",
+    desc: "Palatal expander widening the upper jaw to correct crossbite and create space for erupting teeth.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Rapid%20Maxillary%20Expansion/IMG_0682.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Rapid%20Maxillary%20Expansion/IMG_6389.webp" },
+  { category: "Orthodontics", tag: "Removable Appliances", title: "Removable Orthodontic Appliance",
+    desc: "Custom removable appliance correcting mild misalignment and guiding proper jaw development in growing patients.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Removable%20Appliances/IMG_5253.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Removable%20Appliances/IMG_6224.webp" },
+  { category: "Orthodontics", tag: "Habit Appliance", title: "Thumb Sucking Habit Appliance",
+    desc: "Fixed habit-breaking appliance eliminating thumb-sucking to prevent long-term dental and jaw deformity.",
+    before: "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Removable%20Appliances/Thumb%20Sucking%20Appliance/IMG_4437.webp",
+    after:  "/gallery/Orthodontics%20&%20Dentofacial%20Orthopedics/Removable%20Appliances/Thumb%20Sucking%20Appliance/IMG_4451.webp" },
+
+  // ── PEDODONTICS ───────────────────────────────────────────────────
+  { category: "Pedodontics", tag: "Space Maintainer", title: "Paediatric Space Maintainer",
+    desc: "Fixed space maintainer placed after early milk tooth loss, guiding the permanent tooth into correct position.",
+    before: "/gallery/Pedodontics/Space%20Maintainer/IMG_5604.webp",
+    after:  "/gallery/Pedodontics/Space%20Maintainer/IMG_5631.webp" },
+
+  // ── PERIODONTICS ──────────────────────────────────────────────────
+  { category: "Periodontics", tag: "Frenectomy", title: "Periodontal Frenectomy",
+    desc: "Surgical frenectomy releasing an abnormal frenum causing gum recession and periodontal pocket formation.",
+    before: "/gallery/Periodontics/Frenectomy/IMG_6430.webp",
+    after:  "/gallery/Periodontics/Frenectomy/IMG_6435.webp" },
+
+  // ── PROSTHODONTICS ────────────────────────────────────────────────
+  { category: "Prosthodontics", tag: "BPS Dentures", title: "BPS Precision Dentures",
+    desc: "Swiss BPS dentures fabricated using Ivoclar Vivadent materials for superior fit, aesthetics, and longevity.",
+    before: "/gallery/Prosthodontics%20&%20Gerodontics/BPS%20Dentures/Case%201/IMG_0611.webp",
+    after:  "/gallery/Prosthodontics%20&%20Gerodontics/BPS%20Dentures/Case%201/IMG_0616.webp" },
+  { category: "Prosthodontics", tag: "BPS Dentures", title: "BPS Precision Dentures",
+    desc: "Complete denture rehabilitation using BPS system, restoring natural chewing function and smile aesthetics.",
+    before: "/gallery/Prosthodontics%20&%20Gerodontics/BPS%20Dentures/Case%202/IMG_5672.webp",
+    after:  "/gallery/Prosthodontics%20&%20Gerodontics/BPS%20Dentures/Case%202/IMG_5682.webp" },
+  { category: "Prosthodontics", tag: "CAD/CAM Zirconia Crowns", title: "CAD/CAM Zirconia Crowns",
+    desc: "Computer-milled zirconia crowns delivering exceptional strength and natural translucency in a single visit.",
+    before: "/gallery/Prosthodontics%20&%20Gerodontics/CAD%20CAM%20Zirconia%20Crowns(Computer%20Milled)/IMG_3785.webp",
+    after:  "/gallery/Prosthodontics%20&%20Gerodontics/CAD%20CAM%20Zirconia%20Crowns(Computer%20Milled)/IMG_4065.webp" },
+  { category: "Prosthodontics", tag: "Anterior Crowns", title: "CAD/CAM Anterior Crowns",
+    desc: "Front tooth crowns milled from high-translucency zirconia, perfectly matched to surrounding natural teeth.",
+    before: "/gallery/Prosthodontics%20&%20Gerodontics/CAD%20CAM%20Zirconia%20Crowns(Computer%20Milled)/Anterior%20Crowns/IMG_4793.webp",
+    after:  "/gallery/Prosthodontics%20&%20Gerodontics/CAD%20CAM%20Zirconia%20Crowns(Computer%20Milled)/Anterior%20Crowns/IMG_4985.webp" },
+
+  // ── SPORTS DENTISTRY ──────────────────────────────────────────────
+  { category: "Sports Dentistry", tag: "Fractured Tooth", title: "Fractured Tooth Management",
+    desc: "Sports injury fracture repaired using composite bonding — full form and function restored in one visit.",
+    before: "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%201/Fractured%20tooth%20Management%201.webp",
+    after:  "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%201/Fractured%20tooth%20management%204.webp" },
+  { category: "Sports Dentistry", tag: "Fractured Tooth", title: "Fractured Tooth Management",
+    desc: "Crown fracture with pulp exposure managed with single-visit root canal followed by composite restoration.",
+    before: "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%203/IMG_4676.webp",
+    after:  "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%203/IMG_4687.webp" },
+  { category: "Sports Dentistry", tag: "Fractured Tooth", title: "Fractured Tooth Management",
+    desc: "Multiple fractured anterior teeth from a sports collision rehabilitated with composite and ceramic restorations.",
+    before: "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%204/IMG_0620.webp",
+    after:  "/gallery/Sports%20Dentistry/Fractured%20Tooth%20management/Case%204/IMG_0628.webp" },
+];
+
+const categories = [
+  "All", "Conservative Dentistry", "Cosmetic Dentistry", "Dental Implants",
+  "Laser Dentistry", "Oral & Maxillofacial Surgery", "Orthodontics",
+  "Pedodontics", "Periodontics", "Prosthodontics", "Sports Dentistry"
 ];
 ---
 
@@ -30,7 +253,7 @@ const placeholders = [
         <span class="section__label section__label--light">Real Patients. Real Results.</span>
         <h1 class="results-hero__heading">Smile Transformations That <em>Speak for Themselves</em></h1>
         <p class="results-hero__sub">
-          Every smile in our gallery belongs to a real DentiQ patient — life-changing results our superspecialists deliver every day in Erode.
+          Every case in our gallery belongs to a real DentiQ patient — life-changing results our superspecialists deliver every day in Erode.
         </p>
         <div class="results-hero__ctas">
           <a href="#cases" class="btn btn--primary">See the Results</a>
@@ -39,47 +262,56 @@ const placeholders = [
       </div>
     </section>
 
-    <!-- BEFORE / AFTER GALLERY -->
+    <!-- GALLERY -->
     <section id="cases" class="cases section">
       <div class="container">
         <div class="section-header">
           <span class="section__label">Transformations</span>
           <h2 class="section__heading">Before &amp; After <em>Gallery</em></h2>
-          <p class="section-sub">Real results from real patients. Images coming soon.</p>
+          <p class="section-sub">Real results across all 10 treatment specialities at DentiQ Erode.</p>
         </div>
 
-        <div class="cases__grid">
-          {placeholders.map((item) => (
-            <div class="case-card">
+        <!-- Filter tabs -->
+        <div class="filters">
+          {categories.map((cat, i) => (
+            <button class={`filter-btn${i === 0 ? ' active' : ''}`} data-cat={cat}>{cat}</button>
+          ))}
+        </div>
+
+        <p class="results-count"><span id="visible-count">{cases.length}</span> cases</p>
+
+        <div class="cases__grid" id="cases-grid">
+          {cases.map((item) => (
+            <div class="case-card" data-cat={item.category}>
               <div class="case-card__img-box">
-                <div class="before-after">
-                  <div class="before-after__half">
-                    <!-- BEFORE IMAGE: replace src with actual image path -->
-                    <div class="img-placeholder">
-                      <span>Before</span>
+                {item.single ? (
+                  <div class="single-img">
+                    <img src={item.before} alt={item.title} loading="lazy" />
+                    <div class="case-card__overlay">
+                      <span class="case-card__tag">{item.tag}</span>
                     </div>
-                    <span class="ba-label ba-label--before">Before</span>
                   </div>
-                  <div class="before-after__divider"></div>
-                  <div class="before-after__half">
-                    <!-- AFTER IMAGE: replace src with actual image path -->
-                    <div class="img-placeholder">
-                      <span>After</span>
+                ) : (
+                  <div class="before-after">
+                    <div class="before-after__half">
+                      <img src={item.before} alt={`Before — ${item.title}`} loading="lazy" />
+                      <span class="ba-label ba-label--before">Before</span>
                     </div>
-                    <span class="ba-label ba-label--after">After</span>
+                    <div class="before-after__divider"></div>
+                    <div class="before-after__half">
+                      <img src={item.after} alt={`After — ${item.title}`} loading="lazy" />
+                      <span class="ba-label ba-label--after">After</span>
+                    </div>
+                    <div class="case-card__overlay">
+                      <span class="case-card__tag">{item.tag}</span>
+                    </div>
                   </div>
-                  <div class="case-card__overlay">
-                    <span class="case-card__tag">{item.tag}</span>
-                  </div>
-                </div>
+                )}
               </div>
               <div class="case-card__content">
-                <div class="case-card__meta">
-                  <span class="case-card__category">Category</span>
-                  <span class="case-card__duration">Duration</span>
-                </div>
-                <h3 class="case-card__title">Case Title</h3>
-                <p class="case-card__desc">Patient description goes here.</p>
+                <span class="case-card__category">{item.category}</span>
+                <h3 class="case-card__title">{item.title}</h3>
+                <p class="case-card__desc">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -95,7 +327,7 @@ const placeholders = [
 
 <style>
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-  .section-header { text-align: center; margin-bottom: var(--space-16); max-width: 800px; margin-left: auto; margin-right: auto; }
+  .section-header { text-align: center; margin-bottom: var(--space-10); max-width: 800px; margin-left: auto; margin-right: auto; }
   .section__heading { font-family: var(--font-heading); font-size: var(--text-3xl); margin-bottom: var(--space-6); color: inherit; line-height: 1.1; }
   .section__heading em { font-style: italic; color: var(--clr-gold-dark); }
   .section-sub { font-size: var(--text-lg); opacity: 0.8; font-weight: 300; color: inherit; line-height: 1.6; }
@@ -107,201 +339,78 @@ const placeholders = [
     padding: 14rem var(--gutter) 12rem;
     text-align: center;
   }
-  .results-hero__bg {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(206, 196, 167, 0.1) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-  .results-hero__content {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-6);
-  }
-  .results-hero__heading {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 600;
-    color: var(--clr-white);
-    line-height: 1.1;
-  }
+  .results-hero__bg { position: absolute; inset: 0; background-image: radial-gradient(rgba(206,196,167,0.1) 1px, transparent 1px); background-size: 32px 32px; }
+  .results-hero__content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+  .results-hero__heading { font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 600; color: var(--clr-white); line-height: 1.1; }
   .results-hero__heading em { color: var(--clr-gold); font-style: italic; }
-  .results-hero__sub {
-    font-size: var(--text-lg);
-    font-weight: 300;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.8;
-    max-width: 68ch;
-  }
+  .results-hero__sub { font-size: var(--text-lg); font-weight: 300; color: rgba(255,255,255,0.8); line-height: 1.8; max-width: 68ch; }
   .results-hero__ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; }
 
-  /* Cases grid */
-  .cases__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-8);
+  /* Filters */
+  .filters { display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center; margin-bottom: var(--space-4); }
+  .filter-btn {
+    padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill);
+    border: 1.5px solid var(--clr-light-gray); background: var(--clr-white);
+    color: var(--clr-text-mid); font-size: var(--text-sm); font-weight: 600;
+    cursor: pointer; transition: all 0.2s ease; font-family: var(--font-body);
   }
+  .filter-btn:hover { border-color: var(--clr-gold); color: var(--clr-navy); }
+  .filter-btn.active { background: var(--clr-navy); color: var(--clr-gold); border-color: var(--clr-navy); }
 
+  .results-count { text-align: center; font-size: var(--text-sm); color: var(--clr-text-mid); margin-bottom: var(--space-10); font-weight: 300; }
+
+  /* Grid */
+  .cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
   .case-card {
-    background: var(--clr-white);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
+    background: var(--clr-white); border-radius: var(--radius-xl); overflow: hidden;
     border: 1px solid var(--clr-light-gray);
     transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease, border-color 0.3s ease;
   }
-  .case-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--clr-gold);
-  }
+  .case-card.hidden { display: none; }
+  .case-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--clr-gold); }
 
-  .case-card__img-box {
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: var(--clr-off-white);
-  }
+  .case-card__img-box { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--clr-off-white); }
 
-  /* Before/After split */
-  .before-after {
-    position: absolute;
-    inset: 0;
-    display: flex;
-  }
-  .before-after__half {
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-  }
-  .before-after__half img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s ease;
-  }
-  .case-card:hover .before-after__half img {
-    transform: scale(1.06);
-  }
-  .before-after__divider {
-    width: 2px;
-    background: rgba(255,255,255,0.7);
-    z-index: 3;
-    flex-shrink: 0;
-  }
+  /* Before/After */
+  .before-after { position: absolute; inset: 0; display: flex; }
+  .before-after__half { position: relative; flex: 1; overflow: hidden; }
+  .before-after__half img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+  .case-card:hover .before-after__half img { transform: scale(1.06); }
+  .before-after__divider { width: 2px; background: rgba(255,255,255,0.7); z-index: 3; flex-shrink: 0; }
 
-  /* Image placeholder */
-  .img-placeholder {
-    width: 100%;
-    height: 100%;
-    background: var(--clr-off-white);
-    border: 2px dashed var(--clr-light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .img-placeholder span {
-    font-size: var(--text-xs);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--clr-text-mid);
-    opacity: 0.5;
-  }
+  /* Single image */
+  .single-img { position: absolute; inset: 0; }
+  .single-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+  .case-card:hover .single-img img { transform: scale(1.06); }
 
   .ba-label {
-    position: absolute;
-    top: var(--space-3);
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.55);
-    color: #fff;
-    font-size: 0.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    padding: 3px 8px;
-    border-radius: var(--radius-pill);
-    backdrop-filter: blur(4px);
-    white-space: nowrap;
-    z-index: 4;
+    position: absolute; top: var(--space-3); left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.55); color: #fff; font-size: 0.6rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em; padding: 3px 8px;
+    border-radius: var(--radius-pill); backdrop-filter: blur(4px); white-space: nowrap; z-index: 4;
   }
-
   .case-card__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(45,53,42,0.45), transparent 60%);
-    display: flex;
-    align-items: flex-end;
-    padding: var(--space-4);
-    z-index: 2;
-    pointer-events: none;
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(45,53,42,0.45), transparent 60%);
+    display: flex; align-items: flex-end; padding: var(--space-4); z-index: 2; pointer-events: none;
   }
   .case-card__tag {
-    background: var(--clr-gold);
-    color: var(--clr-navy);
-    padding: 5px 14px;
-    border-radius: var(--radius-pill);
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    background: var(--clr-gold); color: var(--clr-navy); padding: 5px 14px;
+    border-radius: var(--radius-pill); font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
   }
 
-  .case-card__content {
-    padding: var(--space-6) var(--space-8) var(--space-8);
-  }
-  .case-card__meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-3);
-  }
-  .case-card__category {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--clr-gold-dark);
-    opacity: 0.5;
-  }
-  .case-card__duration {
-    font-size: 0.65rem;
-    font-weight: 600;
-    color: var(--clr-text-mid);
-    background: var(--clr-off-white);
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    opacity: 0.5;
-  }
-  .case-card__title {
-    font-family: var(--font-heading);
-    font-size: var(--text-lg);
-    font-weight: 600;
-    color: var(--clr-navy);
-    margin-bottom: var(--space-3);
-    opacity: 0.4;
-  }
-  .case-card__desc {
-    font-size: var(--text-sm);
-    line-height: 1.7;
-    color: var(--clr-text-mid);
-    font-weight: 300;
-    opacity: 0.4;
-  }
+  .case-card__content { padding: var(--space-6) var(--space-8) var(--space-8); }
+  .case-card__category { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--clr-gold-dark); margin-bottom: var(--space-2); }
+  .case-card__title { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: 600; color: var(--clr-navy); margin-bottom: var(--space-3); }
+  .case-card__desc { font-size: var(--text-sm); line-height: 1.7; color: var(--clr-text-mid); font-weight: 300; }
 
-  /* Responsive */
-  @media (max-width: 1100px) {
-    .cases__grid { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 1100px) { .cases__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
     .cases__grid { grid-template-columns: 1fr; }
     .results-hero__ctas { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
+    .filters { gap: var(--space-2); }
+    .filter-btn { font-size: 0.7rem; padding: var(--space-1) var(--space-3); }
   }
 </style>
 
@@ -310,12 +419,28 @@ const placeholders = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.results-hero__content > *', {
-    y: 24, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power2.out'
-  });
-
+  gsap.from('.results-hero__content > *', { y: 24, opacity: 0, stagger: 0.1, duration: 0.7, ease: 'power2.out' });
   gsap.from('.case-card', {
     scrollTrigger: { trigger: '.cases__grid', start: 'top 85%' },
-    y: 40, opacity: 0, stagger: 0.1, duration: 0.9, ease: 'power3.out'
+    y: 40, opacity: 0, stagger: 0.06, duration: 0.9, ease: 'power3.out'
+  });
+
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.case-card');
+  const countEl = document.getElementById('visible-count');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const selected = btn.dataset.cat;
+      let visible = 0;
+      cards.forEach(card => {
+        const match = selected === 'All' || card.dataset.cat === selected;
+        card.classList.toggle('hidden', !match);
+        if (match) visible++;
+      });
+      if (countEl) countEl.textContent = String(visible);
+    });
   });
 </script>
