@@ -375,7 +375,7 @@ import { doctorsData } from '../data/doctorsData.js';
 
   /* Hero */
   .about-hero {
-    background: linear-gradient(135deg, rgba(78, 72, 50, 0.95) 0%, rgba(91, 84, 60, 0.98) 100%), url('/modern-studio-bg.png') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(78, 72, 50, 0.95) 0%, rgba(91, 84, 60, 0.98) 100%), url('/hero-bg-1.webp') center/cover no-repeat;
     padding: 14rem var(--gutter) 12rem !important;
     text-align: center;
     border-radius: 0;
@@ -498,7 +498,7 @@ import { doctorsData } from '../data/doctorsData.js';
   gsap.from('.about-hero__content > *', { y: 20, opacity: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' });
 
   // Scroll animations
-  const fadeUp = (selector) => {
+  const fadeUp = (selector: string) => {
     gsap.from(selector, {
       scrollTrigger: { trigger: selector, start: 'top 90%', once: true },
       y: 30, opacity: 0, duration: 0.8, ease: 'power2.out'

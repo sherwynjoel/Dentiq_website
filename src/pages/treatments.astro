@@ -102,8 +102,8 @@ const tagMap: Record<string, string> = {
                 {cat.catchy && <p class="t-card__catchy">{cat.catchy}</p>}
                 <p class="t-card__desc">{cat.desc}</p>
                 <div class="t-card__pills">
-                  {cat.services.slice(0, 3).map((s: string) => (
-                    <span class="t-card__pill">{s}</span>
+                  {cat.services.slice(0, 3).map((s) => (
+                    <span class="t-card__pill">{typeof s === 'string' ? s : s.name}</span>
                   ))}
                   {cat.services.length > 3 && (
                     <span class="t-card__pill t-card__pill--more">+{cat.services.length - 3} more</span>
@@ -457,7 +457,6 @@ const tagMap: Record<string, string> = {
 
   // Filter logic
   const filters = document.querySelectorAll<HTMLButtonElement>('.t-filter');
-  const grid = document.getElementById('t-grid')!;
   const empty = document.getElementById('t-empty')!;
   const search = document.getElementById('t-search') as HTMLInputElement;
 
