@@ -322,20 +322,25 @@ const categories = [
         </div>
         <div class="reels-grid">
           {[
-            "Dental Implants",
-            "Smile Makeover",
-            "Clear Aligners",
-            "TMJ Treatment",
-            "Laser Dentistry",
-            "Teeth Whitening",
-          ].map((label) => (
-            <div class="reel-card">
+            { label: "Dental Implants",   url: "#" }, // ← Replace # with video link
+            { label: "Smile Makeover",    url: "#" }, // ← Replace # with video link
+            { label: "Clear Aligners",    url: "#" }, // ← Replace # with video link
+            { label: "TMJ Treatment",     url: "#" }, // ← Replace # with video link
+            { label: "Laser Dentistry",   url: "#" }, // ← Replace # with video link
+            { label: "Teeth Whitening",   url: "#" }, // ← Replace # with video link
+          ].map((reel) => (
+            <a
+              href={reel.url}
+              target="_blank"
+              rel="noopener"
+              class={`reel-card${reel.url === '#' ? ' reel-card--placeholder' : ''}`}
+            >
               <div class="reel-card__inner">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="reel-card__play"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
-                <p class="reel-card__label">{label}</p>
-                <span class="reel-card__badge">Coming Soon</span>
+                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="reel-card__play"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+                <p class="reel-card__label">{reel.label}</p>
+                <span class="reel-card__badge">{reel.url === '#' ? 'Coming Soon' : 'Watch Now'}</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -431,10 +436,15 @@ const categories = [
     border: 1px dashed rgba(206,196,167,0.3);
     overflow: hidden;
     transition: border-color 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
   }
-  .reel-card:hover {
+  .reel-card--placeholder { cursor: default; pointer-events: none; }
+  .reel-card:not(.reel-card--placeholder):hover {
     border-color: var(--clr-gold);
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
   }
   .reel-card__inner {
     width: 100%; height: 100%;
