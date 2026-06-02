@@ -33,6 +33,7 @@ const implantTypes = [
 ];
 
 const tmjCauses = [
+  "Myofascial Pain",
   "Bruxism (teeth grinding or clenching)",
   "Disc displacement within the joint",
   "Jaw trauma or facial injury",
@@ -45,7 +46,7 @@ const tmjSymptoms = [
   "Jaw pain or soreness",
   "Clicking or popping sounds",
   "Chronic headaches or migraines",
-  "Ear pain or a feeling of fullness",
+  "Ear pain, ringing sound or a feeling of fullness",
   "Neck and shoulder pain",
   "Facial pain or fatigue",
   "Difficulty opening or closing mouth",
@@ -53,12 +54,12 @@ const tmjSymptoms = [
 ];
 
 const tmjTreatments = [
-  { title: "Occlusal Splint Therapy", desc: "Custom-fabricated night guards or daytime splints to reduce joint loading, relax muscles and correct bite position." },
-  { title: "Physiotherapy & Exercises", desc: "Targeted jaw exercises and physiotherapy to restore normal muscle function and joint range of motion." },
   { title: "Trigger Point Injections", desc: "Precise injections into overactive jaw muscles to relieve chronic pain and reduce clenching forces." },
+  { title: "Physiotherapy & Exercises", desc: "Targeted jaw exercises and physiotherapy to restore normal muscle function and joint range of motion." },
+  { title: "Occlusal Splint Therapy", desc: "Custom-fabricated night guards or daytime splints to reduce joint loading, relax muscles and correct bite position." },
   { title: "Arthrocentesis", desc: "A minimally invasive joint lavage procedure to remove inflammatory fluid and restore disc mobility — done under local anaesthesia." },
   { title: "Occlusal Correction", desc: "Bite adjustments through selective reshaping, orthodontics or restorations to remove the underlying cause of joint strain." },
-  { title: "Dental Sleep Medicine", desc: "For patients with TMJ-related sleep disturbances, Dr. Balamurugan offers specialist appliance therapy as a non-CPAP option." }
+  { title: "Dental Sleep Medicine", desc: "For patients with snoring and sleep apnea, Dr. Balamurugan offers specialist appliance therapy as a non-CPAP option." }
 ];
 
 const alignerProcess = [
@@ -116,7 +117,7 @@ const faqs = [
         <span class="section__label section__label--light">DentiQ Superspeciality · Erode</span>
         <h1 class="lp-hero__heading">Implants, TMJ &amp; <em>Clear Aligners</em></h1>
         <p class="lp-hero__sub">
-          Superspeciality care for missing teeth, jaw pain and smile alignment — by a fellowship-trained specialist with USA credentials in both Implantology and TMJ & Orofacial Pain. Serving Erode, Coimbatore, Salem, Tirupur and Namakkal.
+          Superspeciality care for missing teeth, jaw pain and smile alignment — by a US-trained Specialist with credentials in both Implantology and TMJ & Orofacial Pain. Serving Erode, Coimbatore, Salem, Tirupur and Namakkal.
         </p>
         <div class="lp-hero__ctas">
           <a href="#implants" class="btn btn--primary">Missing Teeth</a>
@@ -130,7 +131,7 @@ const faqs = [
     <section id="implants" class="lp-section lp-section--light">
       <div class="lp-container">
         <div class="lp-header">
-          <span class="section__label">Advanced Implant Centre</span>
+          <span class="section__label">Advanced Dental Implant Center</span>
           <h2 class="lp-heading">Permanent Tooth Replacement — <em>Including Zygomatic & Pterygoid Implants</em></h2>
           <p class="lp-sub">Dr. T. Balamurugan is a Fellow of the International Congress of Oral Implantologists (USA) — trained in the full spectrum of implant solutions, including advanced techniques for patients with severe bone loss who have previously been told implants are not possible.</p>
         </div>
@@ -150,8 +151,8 @@ const faqs = [
           <h3 class="process-title">The Implant Journey</h3>
           <div class="process-steps-row">
             {[
-              { num: "01", title: "3D Imaging & Planning", desc: "CBCT scan maps bone volume, nerve pathways and ideal implant position for surgical precision." },
-              { num: "02", title: "Implant Placement", desc: "Titanium post placed under local anaesthesia. Minimally invasive and comfortable." },
+              { num: "01", title: "3D Imaging & Digital Implant Planning", desc: "CBCT scan maps bone volume, nerve pathways and ideal implant position for surgical precision." },
+              { num: "02", title: "Implant Placement", desc: "Implants placed under local anaesthesia. Minimally invasive and comfortable." },
               { num: "03", title: "Osseointegration", desc: "The implant fuses with your jawbone over 8–12 weeks. A temporary tooth is provided." },
               { num: "04", title: "Final Crown", desc: "A custom ceramic crown matched to your natural tooth colour completes your smile." }
             ].map(s => (
@@ -179,24 +180,13 @@ const faqs = [
       <div class="lp-container">
         <div class="lp-header">
           <span class="section__label section__label--light">TMJ & Orofacial Pain Centre</span>
-          <h2 class="lp-heading lp-heading--light">Jaw Pain, Headaches & Facial Pain — <em>Properly Diagnosed</em></h2>
+          <h2 class="lp-heading lp-heading--light">Jaw Pain, Headaches & Facial Pain — <em>Specialist Diagnosis & Care</em></h2>
           <p class="lp-sub lp-sub--light">
-            Temporomandibular Joint (TMJ) disorders affect the jaw joint, muscles and surrounding structures. They are among the most commonly misdiagnosed conditions in medicine — often treated for years as migraines, ear infections or cervical pain without relief. Dr. Balamurugan holds a Fellowship in TMJ & Oro-Facial Pain from the USA, one of very few in Tamil Nadu.
+            Temporomandibular Joint (TMJ) disorders affect the jaw joint, muscles and surrounding structures. They are among the most commonly misdiagnosed conditions in medicine — often treated for years as migraines, ear infections or cervical pain without relief. Dr. Balamurugan holds a Fellowship in TMJ & Oro-Facial Pain from USA, one of very few in India.
           </p>
         </div>
 
         <div class="tmj-two-col">
-          <div class="tmj-col">
-            <h3 class="tmj-col__title">Common Causes</h3>
-            <ul class="tmj-list">
-              {tmjCauses.map(c => (
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
           <div class="tmj-col">
             <h3 class="tmj-col__title">Symptoms to Watch For</h3>
             <ul class="tmj-list">
@@ -204,6 +194,17 @@ const faqs = [
                 <li>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                   {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="tmj-col">
+            <h3 class="tmj-col__title">Common Causes</h3>
+            <ul class="tmj-list">
+              {tmjCauses.map(c => (
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {c}
                 </li>
               ))}
             </ul>
@@ -244,7 +245,7 @@ const faqs = [
           <span class="section__label">Clear Aligner Therapy</span>
           <h2 class="lp-heading">Straighten Your Teeth <em>Without Metal Braces</em></h2>
           <p class="lp-sub">
-            Clear aligners use a series of precision-fabricated, removable plastic trays to move teeth gradually into the correct position. Each tray shifts teeth by approximately 0.2–0.3mm. Treatment typically takes 6–18 months depending on complexity.
+            Clear aligners use a series of precision-fabricated, removable trays to move teeth gradually into the correct position. Each tray shifts teeth by approximately 0.2–0.3mm. Treatment typically takes 2–8 months depending on complexity.
           </p>
         </div>
 
@@ -271,8 +272,8 @@ const faqs = [
                 <tr><td>Removable</td><td>✓ Yes</td><td>✗ No</td></tr>
                 <tr><td>Diet restrictions</td><td>✓ None</td><td>✗ Several</td></tr>
                 <tr><td>Oral hygiene</td><td>✓ Easier</td><td>✗ More difficult</td></tr>
-                <tr><td>Complex cases</td><td>Moderate</td><td>✓ Severe</td></tr>
-                <tr><td>Comfort</td><td>✓ Smooth plastic</td><td>Wires &amp; brackets</td></tr>
+                <tr><td>Complex cases</td><td>✓ Severe</td><td>✓ Severe</td></tr>
+                <tr><td>Comfort</td><td>✓ Smooth trays</td><td>Hurting wires &amp; brackets</td></tr>
               </tbody>
             </table>
           </div>
@@ -304,13 +305,12 @@ const faqs = [
         <div class="lp-credentials__text">
           <span class="section__label">Your Specialist</span>
           <h2 class="lp-heading">Dr. T. Balamurugan <em>MDS, F.I.C.O.I.(USA), F.T.O.D.(USA)</em></h2>
-          <p>Dr. Balamurugan is one of Tamil Nadu's very few specialists with dual fellowship credentials from the USA — in both Advanced Implantology and TMJ & Orofacial Pain. This combination is rare: most clinics have neither. At DentiQ, patients with complex needs — bone loss, undiagnosed jaw pain, bite collapse — receive a level of specialist evaluation that is otherwise unavailable in this region.</p>
+          <p>Dr. Balamurugan is one of Tamil Nadu's very few specialists with dual fellowship credentials from the USA — in both Advanced Implantology and TMJ & Orofacial Pain. This combination is rare: most clinics have neither. At DentiQ, patients with complex needs — implants in heavy bone loss cases, undiagnosed jaw pain, misaligned teeth — receive a level of specialist evaluation that is otherwise unavailable in this region.</p>
           <ul class="cred-list">
             <li>Fellow International Congress of Oral Implantologists — F.I.C.O.I. (USA)</li>
             <li>Fellow Temporo Mandibular Disorders &amp; Orofacial Pain — F.T.O.D. (USA)</li>
-            <li>Master of Dental Surgery (MDS) — Oral &amp; Maxillofacial Surgery</li>
             <li>Implantologist · Prosthodontist · Maxillofacial Prosthetist</li>
-            <li>Conducts Advanced Zygomatic Implant courses for postgraduate surgeons</li>
+            <li>Conducts Advanced Zygomatic Implant courses for experienced postgraduate implant surgeons</li>
           </ul>
           <div class="cred-btns">
             <a href="#contact" class="btn btn--primary">Book Consultation</a>
@@ -440,7 +440,7 @@ const faqs = [
   .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
 
   /* Doctor */
-  .lp-credentials { display: grid; grid-template-columns: 340px 1fr; gap: var(--space-14); align-items: center; }
+  .lp-credentials { display: grid; grid-template-columns: 340px 1fr; gap: var(--space-20); align-items: center; }
   .lp-credentials__img img { width: 100%; border-radius: var(--radius-xl); border: 2px solid var(--clr-gold); object-fit: cover; aspect-ratio: 3/4; }
   .lp-credentials__text p { font-size: var(--text-base); color: var(--clr-text-body); font-weight: 300; line-height: 1.8; margin-bottom: var(--space-6); }
   .cred-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-8); }

@@ -15,7 +15,28 @@ export const doctorsData = [
       'Guest speaker at international dental conferences',
       'Awarded Best Dental Surgeon of the Year 2022'
     ],
-    schedule: 'Mon - Sat: 10:00 AM - 08:00 PM'
+    schedule: 'Mon – Sat: 9:00 AM – 7:00 PM | Sunday: Closed'
+  },
+  {
+    id: 'dr-satish-kumaran',
+    name: 'Dr. Satish Kumaran.P',
+    role: 'HoD, Oral & Maxillofacial Surgery | International Surgical Demonstrator | TMJ Surgery Specialist',
+    qualifications: 'MDS (Hons), MFDSRCPS (UK), MOMSRCPS (UK), FICOI (USA)',
+    image: '/gallery/Dr. Satish Kumaran.P.jpeg',
+    bio: 'Dr. Satish Kumaran.P is an internationally recognised oral and maxillofacial surgeon, currently serving as Head of Department at MRADC&H. With 35+ PubMed publications and international surgical demonstrations across Oral Oncosurgery and Orthognathic Surgery, he brings rare global-level expertise to DentiQ.',
+    longBio: 'Dr. Satish Kumaran.P holds MDS (Hons) with international fellowships from the UK and USA. He currently serves as Head of Department, Oral & Maxillofacial Surgery at MRADC&H. He is an International and National Surgical Demonstrator in Oral Oncosurgery and Orthognathic Surgery, and an International Speaker for CMFS. He serves as a PhD Guide for RGUHS and is a reviewer for RGUHS Journal, AMS, and BMC. With over 35 papers published on PubMed, he is an AOMSI MasterClass Speaker and TMJ Speciality Speaker. His memberships include AOMSI, AO Switzerland, IBRA Switzerland, ASHNO Japan, and FHNO.',
+    specialties: ['Surgical Oncology (Head & Neck)', 'Orthognathic Surgery', 'TMJ Surgery', 'Advanced Facial Trauma', 'Advanced Oral Implantology'],
+    experience: '35+ Publications',
+    achievements: [
+      'HoD, Oral & Maxillofacial Surgery, MRADC&H',
+      'International & National Surgical Demonstrator — Oral Oncosurgery & Orthognathic Surgery',
+      'International & National Speaker (CMFS)',
+      'RGUHS PhD Guide',
+      'Reviewer — RGUHS Journal, AMS, BMC',
+      '35+ Papers Published (PubMed)',
+      'AOMSI MasterClass Speaker & TMJ Speciality Speaker'
+    ],
+    schedule: 'By Appointment'
   },
   {
     id: 'dr-sasi-kumar',
@@ -33,27 +54,6 @@ export const doctorsData = [
       'Integrated laser dentistry into daily clinical practice',
       'Research in regenerative therapy — biocompatible materials under patent application',
       '18 high-impact publications in peer-reviewed journals'
-    ],
-    schedule: 'By Appointment'
-  },
-  {
-    id: 'dr-satish-kumaran',
-    name: 'Dr. Satish Kumaran.P',
-    role: 'HoD, Oral & Maxillofacial Surgery | International Surgical Demonstrator | TMJ Surgery Specialist',
-    qualifications: 'MDS (Hons), MFDSRCPS (UK), MOMSRCPS (UK), FICOI (USA)',
-    image: '/dr-satish-placeholder.jpg',
-    bio: 'Dr. Satish Kumaran.P is an internationally recognised oral and maxillofacial surgeon, currently serving as Head of Department at MRADC&H. With 35+ PubMed publications and international surgical demonstrations across Oral Oncosurgery and Orthognathic Surgery, he brings rare global-level expertise to DentiQ.',
-    longBio: 'Dr. Satish Kumaran.P holds MDS (Hons) with international fellowships from the UK and USA. He currently serves as Head of Department, Oral & Maxillofacial Surgery at MRADC&H. He is an International and National Surgical Demonstrator in Oral Oncosurgery and Orthognathic Surgery, and an International Speaker for CMFS. He serves as a PhD Guide for RGUHS and is a reviewer for RGUHS Journal, AMS, and BMC. With over 35 papers published on PubMed, he is an AOMSI MasterClass Speaker and TMJ Speciality Speaker. His memberships include AOMSI, AO Switzerland, IBRA Switzerland, ASHNO Japan, and FHNO.',
-    specialties: ['Surgical Oncology (Head & Neck)', 'Orthognathic Surgery', 'TMJ Surgery', 'Advanced Facial Trauma', 'Advanced Oral Implantology'],
-    experience: '35+ Publications',
-    achievements: [
-      'HoD, Oral & Maxillofacial Surgery, MRADC&H',
-      'International & National Surgical Demonstrator — Oral Oncosurgery & Orthognathic Surgery',
-      'International & National Speaker (CMFS)',
-      'RGUHS PhD Guide',
-      'Reviewer — RGUHS Journal, AMS, BMC',
-      '35+ Papers Published (PubMed)',
-      'AOMSI MasterClass Speaker & TMJ Speciality Speaker'
     ],
     schedule: 'By Appointment'
   }

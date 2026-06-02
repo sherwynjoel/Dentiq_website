@@ -1,19 +1,7 @@
 ---
-const slides = [
-  '/hero-bg-1.webp',
-  '/hero-bg-2.webp',
-  '/hero-bg-3.webp',
-];
 ---
 
 <section id="hero" aria-label="Hero">
-  <!-- Slideshow Backgrounds -->
-  <div class="hero__slideshow">
-    {slides.map((src, index) => (
-      <div class={`hero__slide ${index === 0 ? 'active' : ''}`} style={`background-image: url('${src}')`}></div>
-    ))}
-  </div>
-
   <!-- Background gradient overlay -->
   <div class="hero__bg"></div>
   <div class="hero__pattern"></div>
@@ -21,30 +9,113 @@ const slides = [
   <div class="hero__grid">
     <div class="hero__left">
       <h1 class="hero__heading">
-        Dental Implants, Invisalign & TMJ Specialists <em>in Erode</em>
+        Dental Implants, Invisalign & TMJ Specialist <em>in Erode</em>
       </h1>
       <span class="section__label section__label--light">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          aria-hidden="true"
+          ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+          ></path><circle cx="12" cy="10" r="3"></circle></svg
+        >
         Palayapalayam, Erode
       </span>
       <p class="hero__sub">
-        Helping patients across Erode, Coimbatore, Tirupur, Salem and Namakkal regain comfort, confidence and quality of life through advanced implant, TMJ and smile care.
+        Helping patients across Erode, Coimbatore, Tirupur, Salem and Namakkal
+        regain comfort, confidence and quality of life through advanced implant,
+        TMJ and smile care.
       </p>
       <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary" data-magnetic data-cursor-hover>
+        <a
+          href="#contact"
+          class="btn btn--primary"
+          data-magnetic
+          data-cursor-hover
+        >
           Book Consultation
         </a>
-        <a href="https://wa.me/918489488999" target="_blank" rel="noopener" class="btn btn--whatsapp" data-cursor-hover>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        <a
+          href="https://wa.me/918489488999"
+          target="_blank"
+          rel="noopener"
+          class="btn btn--whatsapp"
+          data-cursor-hover
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="margin-right:6px;flex-shrink:0"
+            ><path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
+            ></path></svg
+          >
           WhatsApp Us
         </a>
       </div>
 
       <div class="hero__trust-bar">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Advanced Digital Dentistry</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Specialized TMJ Care</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Premium Sterilization</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Patient-Centred Comfort</span>
+        <span
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          > Advanced Digital Dentistry</span
+        >
+        <span
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          > Specialized TMJ Care</span
+        >
+        <span
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          > Premium Sterilization</span
+        >
+        <span
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          > Patient-Centered Comfort</span
+        >
+        <span
+          ><svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            ><polyline points="20 6 9 17 4 12"></polyline></svg
+          > Advanced Sterilization & Infection Control</span
+        >
       </div>
 
       <!-- Stat row -->
@@ -60,7 +131,18 @@ const slides = [
         </div>
         <div class="hero__stat-divider"></div>
         <div class="hero__stat">
-          <span class="hero__stat-num">4.9 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-top:-4px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></span>
+          <span class="hero__stat-num"
+            >4.9 <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="display:inline-block; vertical-align:middle; margin-top:-4px;"
+              ><path
+                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+              ></path></svg
+            ></span
+          >
           <span class="hero__stat-label">Google Rating</span>
         </div>
         <div class="hero__stat-divider"></div>
@@ -73,7 +155,11 @@ const slides = [
 
     <div class="hero__right">
       <div class="hero__image-wrapper">
-        <img src="/dr-dilip.webp" alt="Dr. T. Balamurugan" class="hero__doctor-img" />
+        <img
+          src="/dr-dilip.webp"
+          alt="Dr. T. Balamurugan"
+          class="hero__doctor-img"
+        />
         <div class="hero__doctor-info">
           <strong>Dr. T. Balamurugan</strong>
           <span>M.D.S., F.I.C.O.I.(USA), F.T.O.D.(USA)</span>
@@ -81,39 +167,19 @@ const slides = [
       </div>
     </div>
   </div>
-
-
 </section>
 
 <style>
   #hero {
     position: relative;
-    height: 100svh;
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding: 15rem var(--gutter) 2rem;
+    padding: 10rem var(--gutter) 6rem !important;
     overflow: hidden;
-  }
-
-  .hero__slideshow {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .hero__slide {
-    position: absolute;
-    inset: 0;
-    background-position: center;
+    background-image: url('/hero-bg-1.webp');
     background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out, transform 8s linear;
-    transform: scale(1.08);
-  }
-  .hero__slide.active {
-    opacity: 1;
-    transform: scale(1);
+    background-position: center;
   }
 
   /* Background texture */
@@ -121,16 +187,28 @@ const slides = [
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, rgba(250,246,240,0.94) 0%, rgba(250,246,240,0.85) 44%, rgba(250,246,240,0.56) 100%),
-      radial-gradient(ellipse 70% 70% at 50% 45%, rgba(250,246,240,0.34) 0%, transparent 72%),
-      linear-gradient(to bottom, rgba(45,53,42,0.03), rgba(45,53,42,0.18));
+      linear-gradient(
+        90deg,
+        rgba(250, 246, 240, 0.94) 0%,
+        rgba(250, 246, 240, 0.85) 44%,
+        rgba(250, 246, 240, 0.56) 100%
+      ),
+      radial-gradient(
+        ellipse 70% 70% at 50% 45%,
+        rgba(250, 246, 240, 0.34) 0%,
+        transparent 72%
+      ),
+      linear-gradient(to bottom, rgba(45, 53, 42, 0.03), rgba(45, 53, 42, 0.18));
     pointer-events: none;
     z-index: 0;
   }
   .hero__pattern {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(78,72,50,0.065) 1px, transparent 1px);
+    background-image: radial-gradient(
+      rgba(78, 72, 50, 0.065) 1px,
+      transparent 1px
+    );
     background-size: 32px 32px;
     pointer-events: none;
   }
@@ -155,7 +233,6 @@ const slides = [
       gap: var(--space-12);
       align-items: center;
       text-align: left;
-      margin-top: 2rem;
     }
   }
 
@@ -176,11 +253,11 @@ const slides = [
 
   .hero__heading {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 4.8vw, 4rem);
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
     font-weight: 700;
     line-height: 1.08;
     color: var(--clr-navy);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
     letter-spacing: -0.01em;
     opacity: 0;
   }
@@ -194,7 +271,7 @@ const slides = [
     font-weight: 300;
     line-height: 1.7;
     color: var(--clr-text-dark);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-3);
     max-width: 64ch;
     opacity: 0;
   }
@@ -203,7 +280,7 @@ const slides = [
     display: flex;
     justify-content: center;
     gap: var(--space-4);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-3);
     opacity: 0;
   }
 
@@ -214,7 +291,7 @@ const slides = [
   }
 
   .btn--whatsapp {
-    background: #25D366;
+    background: #25d366;
     color: #fff;
     padding: 12px 24px;
     border-radius: var(--radius-pill);
@@ -236,8 +313,8 @@ const slides = [
   .hero__trust-bar {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3) var(--space-6);
-    margin-bottom: var(--space-4);
+    gap: var(--space-2) var(--space-5);
+    margin-bottom: var(--space-3);
     opacity: 0;
   }
   .hero__trust-bar span {
@@ -250,20 +327,31 @@ const slides = [
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
-  .hero__trust-bar span svg { color: var(--clr-gold-dark); flex-shrink: 0; }
-  #nav.is-home-nav:not(.is-scrolled) ~ main .hero__trust-bar span { color: var(--clr-navy); }
+  .hero__trust-bar span svg {
+    color: var(--clr-gold-dark);
+    flex-shrink: 0;
+  }
+  #nav.is-home-nav:not(.is-scrolled) ~ main .hero__trust-bar span {
+    color: var(--clr-navy);
+  }
 
   @media (min-width: 1025px) {
-    .hero__trust-bar { justify-content: flex-start; }
+    .hero__trust-bar {
+      justify-content: flex-start;
+    }
   }
   @media (max-width: 500px) {
-    .hero__trust-bar { gap: var(--space-2) var(--space-4); }
-    .hero__trust-bar span { font-size: 0.65rem; }
+    .hero__trust-bar {
+      gap: var(--space-2) var(--space-4);
+    }
+    .hero__trust-bar span {
+      font-size: 0.65rem;
+    }
   }
 
   .btn--free-consult {
     background: transparent;
-    border: 1px solid rgba(78,72,50,0.35);
+    border: 1px solid rgba(78, 72, 50, 0.35);
     color: var(--clr-navy);
     padding: 12px 24px;
     border-radius: var(--radius-pill);
@@ -317,10 +405,10 @@ const slides = [
     opacity: 0;
     padding: var(--space-4) var(--space-6);
     background: rgba(252, 250, 246, 0.88);
-    border: 1px solid rgba(78,72,50,0.12);
+    border: 1px solid rgba(78, 72, 50, 0.12);
     border-radius: var(--radius-lg);
     backdrop-filter: blur(16px);
-    box-shadow: 0 12px 48px rgba(78,72,50,0.14);
+    box-shadow: 0 12px 48px rgba(78, 72, 50, 0.14);
   }
   .hero__stat {
     display: flex;
@@ -352,30 +440,71 @@ const slides = [
     flex-shrink: 0;
   }
 
+  /* On short desktop viewports, centering pulls content above the nav — anchor it instead */
+  @media (min-width: 1025px) and (max-height: 780px) {
+    #hero {
+      align-items: flex-start;
+    }
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
-    #hero { align-items: flex-start; padding-top: 10rem; height: auto; min-height: auto; padding-bottom: 8rem; }
-    .hero__heading { font-size: 3.5rem; line-height: 1.1; }
-    .hero__sub { font-size: 1.1rem; }
+    #hero {
+      align-items: flex-start;
+      padding-top: 10rem;
+      height: auto;
+      min-height: auto;
+      padding-bottom: 8rem;
+    }
+    .hero__heading {
+      font-size: 3.5rem;
+      line-height: 1.1;
+    }
+    .hero__sub {
+      font-size: 1.1rem;
+    }
   }
   @media (max-width: 768px) {
-    .hero__heading { font-size: 2.8rem; }
-    .hero__stats { 
-      padding: var(--space-6); 
+    .hero__heading {
+      font-size: 2.8rem;
+    }
+    .hero__stats {
+      padding: var(--space-6);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: var(--space-6) var(--space-4);
     }
-    .hero__stat-divider { display: none; }
+    .hero__stat-divider {
+      display: none;
+    }
   }
   @media (max-width: 500px) {
-    #hero { padding-top: 8rem; }
-    .hero__heading { font-size: 2.2rem; letter-spacing: -0.01em; }
-    .hero__sub { font-size: 0.95rem; line-height: 1.7; margin-bottom: var(--space-8); }
-    .hero__stat-num { font-size: 1.4rem; }
-    .hero__stat-label { font-size: 0.65rem; }
-    .hero__trust-row { justify-content: center; gap: 8px; }
-    .hero__trust-row span { font-size: 0.6rem; padding: 5px 10px; }
+    #hero {
+      padding-top: 8rem;
+    }
+    .hero__heading {
+      font-size: 2.2rem;
+      letter-spacing: -0.01em;
+    }
+    .hero__sub {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+    .hero__stat-num {
+      font-size: 1.4rem;
+    }
+    .hero__stat-label {
+      font-size: 0.65rem;
+    }
+    .hero__trust-row {
+      justify-content: center;
+      gap: 8px;
+    }
+    .hero__trust-row span {
+      font-size: 0.6rem;
+      padding: 5px 10px;
+    }
     .hero__actions {
       flex-direction: column;
       width: 100%;
@@ -407,11 +536,13 @@ const slides = [
   .hero__image-wrapper {
     position: relative;
     width: 100%;
-    max-width: 360px; /* Reduced slightly to prevent crowding on medium desktop screens */
+    max-width: 300px;
     aspect-ratio: 2.8 / 4;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-lg), 0 20px 48px rgba(45, 53, 42, 0.22);
+    box-shadow:
+      var(--shadow-lg),
+      0 20px 48px rgba(45, 53, 42, 0.22);
     border: 2px solid var(--clr-gold);
     background: var(--clr-off-white);
   }
@@ -457,50 +588,42 @@ const slides = [
 </style>
 
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  window.addEventListener('loader:complete', () => {
-    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  window.addEventListener("loader:complete", () => {
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tl
-      .to('.section__label', { opacity: 1, y: 0, duration: 0.5 })
-      .to('.hero__heading', { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-      .to('.hero__sub',     { opacity: 1, duration: 0.5 }, '-=0.4')
-      .to('.hero__actions', { opacity: 1, duration: 0.5 }, '-=0.4')
-      .to('.hero__trust-bar', { opacity: 1, duration: 0.45 }, '-=0.4')
-      .to('.hero__trust-row', { opacity: 1, duration: 0.45 }, '-=0.35')
-      .to('.hero__stats',   { opacity: 1, y: 0, duration: 0.5 }, '-=0.4')
-      .to('.hero__image-wrapper', { opacity: 1, x: 0, rotateY: 0, duration: 1 }, '-=0.8')
-      .to('.hero__doctor-info', { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-      .to('.hero__scroll-hint', { opacity: 1, duration: 0.4 }, '-=0.2');
+    tl.to(".section__label", { opacity: 1, y: 0, duration: 0.5 })
+      .to(".hero__heading", { opacity: 1, y: 0, duration: 0.6 }, "-=0.3")
+      .to(".hero__sub", { opacity: 1, duration: 0.5 }, "-=0.4")
+      .to(".hero__actions", { opacity: 1, duration: 0.5 }, "-=0.4")
+      .to(".hero__trust-bar", { opacity: 1, duration: 0.45 }, "-=0.4")
+      .to(".hero__trust-row", { opacity: 1, duration: 0.45 }, "-=0.35")
+      .to(".hero__stats", { opacity: 1, y: 0, duration: 0.5 }, "-=0.4")
+      .to(
+        ".hero__image-wrapper",
+        { opacity: 1, x: 0, rotateY: 0, duration: 1 },
+        "-=0.8",
+      )
+      .to(".hero__doctor-info", { opacity: 1, y: 0, duration: 0.6 }, "-=0.4")
+      .to(".hero__scroll-hint", { opacity: 1, duration: 0.4 }, "-=0.2");
   });
 
   // Initial state
-  gsap.set(['.hero__heading','.hero__stats'], { y: 40 });
-  gsap.set('.hero__image-wrapper', { opacity: 0, x: 30, rotateY: -10 });
-  gsap.set('.hero__doctor-info', { opacity: 0, y: 20 });
-
-  // Slideshow Logic
-  const slideElements = document.querySelectorAll('.hero__slide');
-  let currentSlide = 0;
-  if(slideElements.length > 1) {
-    setInterval(() => {
-      slideElements[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slideElements.length;
-      slideElements[currentSlide].classList.add('active');
-    }, 5000);
-  }
+  gsap.set([".hero__heading", ".hero__stats"], { y: 40 });
+  gsap.set(".hero__image-wrapper", { opacity: 0, x: 30, rotateY: -10 });
+  gsap.set(".hero__doctor-info", { opacity: 0, y: 20 });
 
   // Parallax on scroll
   ScrollTrigger.create({
-    trigger: '#hero',
-    start: 'top top',
-    end: 'bottom top',
+    trigger: "#hero",
+    start: "top top",
+    end: "bottom top",
     onUpdate(self) {
-      gsap.set('.hero__bg', { y: self.progress * 80 });
+      gsap.set(".hero__bg", { y: self.progress * 80 });
     },
   });
 </script>

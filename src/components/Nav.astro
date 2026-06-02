@@ -37,7 +37,7 @@ const isTreatments = pathname.startsWith('/treatments');
 
     <ul class="nav__links" role="list">
       <li><a href="/"                        class={isHome     ? 'nav__active' : ''}>Home</a></li>
-      <li><a href="/implants-tmj-erode" class={isImplants || isTMJ || isAligners ? 'nav__active' : ''}>Implants, TMJ &amp; Aligners</a></li>
+      <li><a href="/implants-tmj-erode" class={isImplants || isTMJ || isAligners ? 'nav__active' : ''}>Dental Implants, TMJ &amp; Aligners</a></li>
       <li><a href="/results"                 class={isResults  ? 'nav__active' : ''}>Patient Results</a></li>
       <li class="nav__dropdown">
         <a href="/doctors" class={`nav__dropdown-toggle ${isAbout ? 'nav__active' : ''}`}>
@@ -92,7 +92,7 @@ const isTreatments = pathname.startsWith('/treatments');
   <div class="drawer__inner">
     <ul role="list">
       <li><a href="/"                       class="drawer__link">Home</a></li>
-      <li><a href="/implants-tmj-erode" class="drawer__link">Implants, TMJ &amp; Aligners</a></li>
+      <li><a href="/implants-tmj-erode" class="drawer__link">Dental Implants, TMJ &amp; Aligners</a></li>
       <li><a href="/results"                class="drawer__link">Patient Results</a></li>
       <li class="drawer__item--dropdown">
         <button class="drawer__link drawer__toggle" id="drawer-doctors-toggle">
@@ -197,12 +197,12 @@ const isTreatments = pathname.startsWith('/treatments');
     gap: var(--space-6);
   }
   .nav__links a {
-    font-family: var(--font-body);
-    font-size: 0.68rem;
+    font-family: 'Nunito', var(--font-body);
+    font-size: 0.78rem;
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: none;
     color: rgba(255,255,255,0.85);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.03em;
     position: relative;
     transition: color 0.2s ease;
     white-space: nowrap;
@@ -338,9 +338,10 @@ const isTreatments = pathname.startsWith('/treatments');
     color: var(--clr-navy) !important;
     padding: 10px 20px !important;
     border-radius: var(--radius-pill) !important;
-    font-weight: 600 !important;
-    font-size: 0.65rem !important;
-    letter-spacing: 0.1em !important;
+    font-family: 'Bebas Neue', var(--font-body) !important;
+    font-weight: 400 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.14em !important;
     text-transform: uppercase !important;
     transition: background 0.25s ease, transform 0.25s ease !important;
   }
