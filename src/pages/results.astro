@@ -551,9 +551,16 @@ const categories = [
 
   @media (max-width: 1100px) { .cases__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) {
-    .cases__grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-2); }
+    .cases__grid { grid-template-columns: 1fr; gap: var(--space-4); }
+    .case-card__img { aspect-ratio: 16/9; }
+    .case-card__body { padding: var(--space-4); }
+    .case-title { font-size: var(--text-base); }
+    .case-desc { font-size: var(--text-sm); }
     .lb-images { grid-template-columns: 1fr; height: auto; }
-    .lb-panel { height: 200px; }
+    .lb-panel { height: 220px; }
+    .lb-title { font-size: var(--text-lg); }
+    .lb-prev { left: var(--space-2); }
+    .lb-next { right: var(--space-2); }
     .results-hero__ctas { flex-direction: column; width: 100%; }
     .filters { gap: var(--space-2); }
     .filter-btn { font-size: 0.7rem; padding: var(--space-1) var(--space-3); }
