@@ -56,5 +56,25 @@ export const doctorsData = [
       '18 high-impact publications in peer-reviewed journals'
     ],
     schedule: 'By Appointment'
+  },
+  {
+    id: 'dr-kesavaraj',
+    name: 'Dr. B. Kesavaraj',
+    role: 'Pediatric Dentist | Specialist in Pedodontics and Preventive Dentistry',
+    qualifications: 'M.D.S.',
+    image: '/WhatsApp Image 2026-06-06 at 8.14.55 AM.webp',
+    bio: 'Dr. B. Kesavaraj is a dedicated Pediatric Dentist specializing in fear-free, preventive, and therapeutic dental care for children. He is a research expert in herbal medicaments and non-restorative cavity control techniques.',
+    longBio: 'Dr. B. Kesavaraj is a highly accomplished Pediatric Dentist (Pedodontist) with a deep commitment to preventive and therapeutic child dental care. He completed his Bachelor of Dental Surgery (BDS) from Adhiparasakthi Dental College and Hospital, Melmaruvathur, and earned his Master of Dental Surgery (MDS) in Pedodontics and Preventive Dentistry from KSR Institute of Dental Science and Research.\n\nHe has a strong research background, focusing on the integration of natural and herbal medicaments in pediatric dentistry. His pioneering research includes a randomized controlled trial on the clinical and radiographic success of Cissus quadrangularis as a pulp capping agent, as well as the efficacy of custom-made natural tooth powders for children. An active contributor to national conferences, Dr. Kesavaraj has won multiple awards for academic and research excellence, including the Best Poster award at the 39th ISPPD Conference.',
+    specialties: ['Pediatric Dentistry', 'Preventive Dentistry', 'Myobrace System', 'Child Behavior Management', 'Pediatric Endodontics'],
+    experience: 'Award-Winning Pedodontist',
+    achievements: [
+      'Best Poster Award at the 39th ISPPD Conference (Chennai, 2017)',
+      'Third Place in Quiz at the 40th ISPPD Conference (Nagpur, 2018)',
+      'Second Place in Quiz at the 41st ISPPD Conference (Greater Noida, 2019)',
+      'Published research on the antibacterial effect of Cissus quadrangularis in SRM Journal',
+      'Published research on custom-made natural tooth powders in Journal of Ayurveda and Herbal Medicine'
+    ],
+    schedule: 'By Appointment'
   }
 ];
+
