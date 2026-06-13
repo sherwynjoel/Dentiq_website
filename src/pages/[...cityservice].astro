@@ -7,10 +7,15 @@ import Contact from '../components/Contact.astro';
 
 export function getStaticPaths() {
   const cities = [
-    { slug: 'coimbatore', name: 'Coimbatore' },
-    { slug: 'salem',      name: 'Salem' },
-    { slug: 'tirupur',    name: 'Tirupur' },
-    { slug: 'namakkal',   name: 'Namakkal' },
+    { slug: 'coimbatore',        name: 'Coimbatore',        landmark: 'Coimbatore Medical College' },
+    { slug: 'salem',             name: 'Salem',             landmark: 'Salem Steel Plant' },
+    { slug: 'tirupur',           name: 'Tirupur',           landmark: 'Tirupur Bypass' },
+    { slug: 'namakkal',          name: 'Namakkal',          landmark: 'Namakkal Fort' },
+    { slug: 'gobichettipalayam', name: 'Gobichettipalayam', landmark: 'Gobi Town Bus Stand' },
+    { slug: 'bhavani',           name: 'Bhavani',           landmark: 'Bhavani River Junction' },
+    { slug: 'perundurai',        name: 'Perundurai',        landmark: 'Perundurai Road Junction' },
+    { slug: 'karur',             name: 'Karur',             landmark: 'Karur Bypass Road' },
+    { slug: 'dharapuram',        name: 'Dharapuram',        landmark: 'Dharapuram Bus Stand' },
   ];
 
   const services = [
@@ -19,7 +24,12 @@ export function getStaticPaths() {
       name: 'Dental Implants',
       headline: (city: string) => `Dental Implants Near ${city}`,
       subheadline: (city: string) => `Advanced dental implants for patients from ${city} — at DentiQ Superspeciality Clinic, Erode. Fellowship-trained implantologist with USA credentials.`,
-      description: (city: string) => `Looking for dental implants near ${city}? Visit DentiQ Erode — just a short drive away. Dr. T. Balamurugan, F.I.C.O.I.(USA), provides advanced permanent tooth replacement for patients from ${city}, Coimbatore, Salem, Tirupur and Namakkal.`,
+      description: (city: string) => `Looking for dental implants near ${city}? Visit DentiQ Erode — a short drive away. Dr. T. Balamurugan, F.I.C.O.I.(USA), provides advanced permanent tooth replacement for patients from ${city} and all of Tamil Nadu.`,
+      faqs: (city: string) => [
+        { q: `How far is DentiQ from ${city}?`, a: `DentiQ is located in Erode at Palayapalayam, Near Perundurai Road. Patients from ${city} regularly visit us for advanced dental implant treatment unavailable closer to home.` },
+        { q: `Is dental implant surgery safe?`, a: `Yes. Dental implant surgery is a well-established procedure with over 95% long-term success. Dr. Balamurugan has performed thousands of implants with full digital planning.` },
+        { q: `Why travel from ${city} to Erode for implants?`, a: `DentiQ is a superspeciality centre — not a general clinic. Dr. Balamurugan holds FICOI(USA) fellowship credentials in implantology, rare in Tamil Nadu. Patients from ${city} choose us for expertise they can't find locally.` },
+      ],
       cta: 'Book Implant Consultation',
       link: '/dental-implants-erode',
     },
@@ -28,7 +38,12 @@ export function getStaticPaths() {
       name: 'Clear Aligners',
       headline: (city: string) => `Clear Aligners Near ${city}`,
       subheadline: (city: string) => `Invisible teeth straightening for patients from ${city} — at DentiQ Superspeciality Clinic, Erode. No metal braces, no discomfort.`,
-      description: (city: string) => `Looking for clear aligners near ${city}? DentiQ Erode offers advanced Invisalign-style aligner treatment for adults and professionals from ${city} and surrounding areas.`,
+      description: (city: string) => `Looking for clear aligners near ${city}? DentiQ Erode offers advanced Invisalign-style aligner treatment for adults and professionals from ${city} and surrounding areas. Treatment in 2–8 months.`,
+      faqs: (city: string) => [
+        { q: `Can I get clear aligners without moving to Erode?`, a: `Yes. Most aligner check-ups are spaced 4–6 weeks apart. Patients from ${city} visit us once a month — the rest of the time, you wear your aligners at home.` },
+        { q: `How long does aligner treatment take?`, a: `Most cases take 2–8 months. After your first visit from ${city}, we'll give you a precise timeline based on your teeth.` },
+        { q: `Are clear aligners better than braces?`, a: `For mild to moderate alignment issues, aligners are equally effective and far more comfortable. No wires, no brackets, no diet restrictions.` },
+      ],
       cta: 'Book Smile Assessment',
       link: '/clear-aligners-erode',
     },
@@ -37,9 +52,42 @@ export function getStaticPaths() {
       name: 'TMJ Treatment',
       headline: (city: string) => `TMJ Specialist Near ${city}`,
       subheadline: (city: string) => `Jaw pain, facial pain and TMJ disorder specialist for patients from ${city} — at DentiQ Superspeciality Clinic, Erode.`,
-      description: (city: string) => `Suffering from jaw pain or headaches near ${city}? Visit Dr. T. Balamurugan at DentiQ Erode — F.T.O.D.(USA) fellowship-trained TMJ and orofacial pain specialist — one of the very few in Tamil Nadu.`,
+      description: (city: string) => `Suffering from jaw pain or headaches near ${city}? Visit Dr. T. Balamurugan at DentiQ Erode — F.T.O.D.(USA) fellowship-trained TMJ and orofacial pain specialist — one of the very few in India.`,
+      faqs: (city: string) => [
+        { q: `Is there a TMJ specialist near ${city}?`, a: `Dr. T. Balamurugan at DentiQ Erode is one of Tamil Nadu's very few FTOD(USA) fellowship-trained TMJ specialists. Patients from ${city} regularly travel to DentiQ for specialist care they cannot find locally.` },
+        { q: `What are the symptoms of TMJ?`, a: `Common TMJ symptoms include jaw pain, clicking or popping sounds, persistent headaches, ear pain, facial pain, neck pain and difficulty opening the mouth. If you have any of these, a specialist evaluation is important.` },
+        { q: `Will I need surgery for TMJ?`, a: `Most TMJ cases are treated without surgery. Dr. Balamurugan uses conservative approaches first — splint therapy, physiotherapy and trigger point treatment. Surgery is only considered when all other options fail.` },
+      ],
       cta: 'Book TMJ Evaluation',
       link: '/tmj-treatment-erode',
+    },
+    {
+      slug: 'laser-dentistry',
+      name: 'Laser Dentistry',
+      headline: (city: string) => `Laser Dentistry Near ${city}`,
+      subheadline: (city: string) => `Painless, precise laser dental treatments for patients from ${city} — at DentiQ Superspeciality Clinic, Erode. Less pain, faster healing.`,
+      description: (city: string) => `Looking for laser dentistry near ${city}? DentiQ Erode was one of the first clinics in the region to offer laser dentistry. Prof. Dr. Sasi Kumar (MDS, PhD) leads our laser dental services — gum treatment, cavity removal and teeth whitening with minimal discomfort.`,
+      faqs: (city: string) => [
+        { q: `What is laser dentistry?`, a: `Laser dentistry uses focused light beams to treat gum disease, remove decay, and whiten teeth — with less pain and faster healing than traditional methods.` },
+        { q: `Is laser dentistry available near ${city}?`, a: `DentiQ in Erode offers advanced laser dentistry and is easily accessible from ${city}. Prof. Dr. Sasi Kumar (MDS, PhD) leads the laser dental team.` },
+        { q: `Is laser treatment painful?`, a: `Laser treatments are significantly less painful than conventional dental procedures. Most patients report minimal or no discomfort and recover much faster.` },
+      ],
+      cta: 'Book Laser Consultation',
+      link: '/implants-tmj-erode',
+    },
+    {
+      slug: 'dental-sleep-medicine',
+      name: 'Sleep Apnea & Snoring Treatment',
+      headline: (city: string) => `Sleep Apnea Specialist Near ${city}`,
+      subheadline: (city: string) => `Snoring and sleep apnea oral appliance therapy for patients from ${city} — at DentiQ Superspeciality Clinic, Erode.`,
+      description: (city: string) => `Struggling with snoring or sleep apnea near ${city}? DentiQ Erode's Dental Sleep Medicine programme offers oral appliance therapy — a CPAP-free solution for sleep-related breathing disorders. Dr. T. Balamurugan, FTOD(USA), specialises in dental sleep medicine.`,
+      faqs: (city: string) => [
+        { q: `Can a dentist treat sleep apnea near ${city}?`, a: `Yes. Dental sleep medicine uses custom oral appliances to reposition the jaw and keep the airway open during sleep — an effective alternative to CPAP for mild to moderate sleep apnea. Dr. Balamurugan at DentiQ Erode specialises in this.` },
+        { q: `What is an oral appliance for snoring?`, a: `An oral appliance is a custom-fitted device worn during sleep that gently holds the jaw forward, preventing airway collapse that causes snoring and sleep apnea.` },
+        { q: `How do I know if I need sleep apnea treatment?`, a: `If you or your partner notice loud snoring, gasping during sleep, morning headaches or excessive daytime sleepiness, a sleep medicine evaluation at DentiQ can help identify if an oral appliance is right for you.` },
+      ],
+      cta: 'Book Sleep Consultation',
+      link: '/implants-tmj-erode',
     },
   ];
 
@@ -52,11 +100,23 @@ export function getStaticPaths() {
 }
 
 const { city, service } = Astro.props;
+
+const pageFaqs = service.faqs(city.name);
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": pageFaqs.map((f: { q: string; a: string }) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <BaseLayout
   title={`${service.name} in ${city.name} | DentiQ Superspeciality Erode`}
   description={service.description(city.name)}
+  pageSchema={faqSchema}
 >
   <Cursor />
   <Nav />
@@ -106,6 +166,24 @@ const { city, service } = Astro.props;
       </div>
     </section>
 
+    <!-- CITY FAQ -->
+    <section class="city-faq">
+      <div class="city-container">
+        <div class="city-faq__header">
+          <span class="section__label">{city.name} · Questions</span>
+          <h2>Frequently Asked <em>Questions</em></h2>
+        </div>
+        <div class="city-faq__list">
+          {pageFaqs.map((f: { q: string; a: string }) => (
+            <details class="city-faq__item">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <Contact />
   </main>
   <Footer />
@@ -138,6 +216,18 @@ const { city, service } = Astro.props;
 
   .btn--whatsapp { background: #25D366; color: #fff; padding: 12px 24px; border-radius: var(--radius-pill); font-weight: 600; font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; transition: all 0.3s ease; }
   .btn--whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  .city-faq { padding: var(--space-24) var(--gutter); background: var(--clr-off-white); }
+  .city-faq__header { text-align: center; margin-bottom: var(--space-10); }
+  .city-faq__header h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 700; color: var(--clr-navy); margin-top: var(--space-3); }
+  .city-faq__header h2 em { font-style: italic; color: var(--clr-gold-dark); }
+  .city-faq__list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-3); }
+  .city-faq__item { border: 1px solid var(--clr-light-gray); border-radius: var(--radius-lg); overflow: hidden; background: var(--clr-white); }
+  .city-faq__item summary { padding: var(--space-5) var(--space-6); font-size: var(--text-base); font-weight: 600; color: var(--clr-navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  .city-faq__item summary::-webkit-details-marker { display: none; }
+  .city-faq__item summary::after { content: '+'; font-size: 1.4rem; color: var(--clr-gold-dark); }
+  .city-faq__item[open] summary::after { content: '−'; }
+  .city-faq__item p { padding: 0 var(--space-6) var(--space-5); font-size: var(--text-sm); color: var(--clr-text-mid); line-height: 1.7; font-weight: 300; }
 
   @media (max-width: 900px) { .city-why__grid { grid-template-columns: 1fr; } }
   @media (max-width: 600px) { .city-hero__ctas { flex-direction: column; width: 100%; } .btn { width: 100%; justify-content: center; } }

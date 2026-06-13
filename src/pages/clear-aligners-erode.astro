@@ -13,17 +13,28 @@ const forWhom = [
 ];
 
 const faqs = [
-  { q: "How do clear aligners work?", a: "A series of custom-made, removable plastic trays gradually shift your teeth into the correct position. You change to a new tray every 1–2 weeks, with each tray moving teeth slightly closer to the final position." },
+  { q: "How do clear aligners work?", a: "A series of custom-made, removable trays gradually shift your teeth into the correct position. You change to a new tray every 1–2 weeks, with each tray moving teeth slightly closer to the final position." },
   { q: "Are clear aligners as effective as braces?", a: "For mild to moderate alignment issues, clear aligners are equally effective. For complex cases, Dr. Balamurugan will advise whether aligners or fixed braces are more appropriate." },
-  { q: "How long does aligner treatment take?", a: "Most treatments take between 6–18 months depending on the complexity. A quick assessment gives a more accurate timeline for your specific case." },
+  { q: "How long does aligner treatment take?", a: "Most treatments take between 2–8 months depending on the complexity. A quick assessment gives a more accurate timeline for your specific case." },
   { q: "Can I eat normally with aligners?", a: "Yes — aligners are fully removable. You take them out when eating or drinking anything other than water. This means no food restrictions during treatment." },
   { q: "How much do clear aligners cost in Erode?", a: "Cost depends on the number of trays and complexity of your case. After a smile assessment, we provide a complete treatment plan with transparent pricing." }
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <BaseLayout
   title="Clear Aligners in Erode | Invisible Braces | Invisalign Specialist | DentiQ"
-  description="Straighten your teeth without metal braces. Clear aligner specialist in Erode — serving Coimbatore, Salem, Tirupur and Namakkal. Book your smile assessment today."
+  description="Straighten your teeth without metal braces. Clear aligner specialist in Erode — 2–8 months, fully removable. Serving Coimbatore, Salem, Tirupur and Namakkal."
+  pageSchema={faqSchema}
 >
   <Cursor />
   <Nav />

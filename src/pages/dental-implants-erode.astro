@@ -21,11 +21,22 @@ const faqs = [
   { q: "How long do implants last?", a: "Implants placed with proper planning and maintained with good oral hygiene can last 20–30 years or more. The crown may need replacement after 10–15 years." },
   { q: "What is the cost of dental implants in Erode?", a: "Cost varies based on the number of implants, type of crown, and any additional procedures required. We provide a transparent treatment plan with complete costs after your consultation." }
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <BaseLayout
   title="Dental Implants in Erode | Advanced Implant Specialist | DentiQ"
   description="Replace missing teeth with advanced dental implants in Erode. Dr. T. Balamurugan, F.I.C.O.I.(USA) — fellowship-trained implantologist. Serving Erode, Coimbatore, Salem, Tirupur, Namakkal."
+  pageSchema={faqSchema}
 >
   <Cursor />
   <Nav />

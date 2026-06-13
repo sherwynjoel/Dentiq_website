@@ -2,11 +2,91 @@
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  pageSchema?: Record<string, unknown>;
 }
+
 const {
-  title = 'Best Dental Hospital in Erode | DentiQ Superspeciality',
-  description = 'DentiQ Superspeciality Laser Dental Hospital in Palayapalayam, Erode. Expert dental team providing 5-star comfort and world-class sterile dental care.',
+  title = 'Best Dental Implant & TMJ Specialist in Erode | DentiQ Superspeciality',
+  description = 'DentiQ Superspeciality — Erode\'s leading dental implant, TMJ and clear aligner clinic. Dr. T. Balamurugan, FICOI(USA), FTOD(USA). Mon–Sat 9AM–7PM. Call +91 84894 88999.',
+  canonicalUrl,
+  ogImage = '/hero-bg-1.webp',
+  pageSchema,
 } = Astro.props;
+
+const siteUrl = 'https://wolfstride.in';
+const canonical = canonicalUrl ?? (siteUrl + Astro.url.pathname.replace(/\/$/, '') || '/');
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Dentist"],
+  "@id": siteUrl + "/#dentist",
+  "name": "DentiQ Superspeciality Dental Implant TMJ Headache Sleep Medicine Clinic",
+  "alternateName": "DentiQ Superspeciality",
+  "description": "Superspeciality dental clinic in Erode offering advanced dental implants, TMJ treatment, clear aligners, laser dentistry, and pediatric dentistry. Led by Dr. T. Balamurugan, FICOI(USA), FTOD(USA).",
+  "url": siteUrl,
+  "telephone": "+918489488999",
+  "email": "info@dentiqsuperspeciality.com",
+  "priceRange": "$$",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "Cash, UPI, Credit Card, Debit Card",
+  "image": siteUrl + ogImage,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Palayapalayam, Near Perundurai Road",
+    "addressLocality": "Erode",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "638011",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "11.3410",
+    "longitude": "77.7172"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "medicalSpecialty": "Dentistry",
+  "hasMap": "https://maps.google.com/?q=DentiQ+Superspeciality+Erode+Tamil+Nadu",
+  "areaServed": [
+    { "@type": "City", "name": "Erode" },
+    { "@type": "City", "name": "Coimbatore" },
+    { "@type": "City", "name": "Salem" },
+    { "@type": "City", "name": "Tirupur" },
+    { "@type": "City", "name": "Namakkal" },
+    { "@type": "City", "name": "Gobichettipalayam" },
+    { "@type": "City", "name": "Bhavani" },
+    { "@type": "City", "name": "Perundurai" },
+    { "@type": "City", "name": "Karur" }
+  ],
+  "serviceType": [
+    "Dental Implants",
+    "Zygomatic Implants",
+    "TMJ Treatment",
+    "Orofacial Pain Management",
+    "Clear Aligners",
+    "Invisalign",
+    "Laser Dentistry",
+    "Cosmetic Dentistry",
+    "Smile Makeover",
+    "Pediatric Dentistry",
+    "Dental Sleep Medicine",
+    "Full Mouth Rehabilitation"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Dr. T. Balamurugan",
+    "jobTitle": "Implantologist | TMJ & Orofacial Pain Specialist",
+    "honorificSuffix": "MDS, FICOI(USA), FTOD(USA)"
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -16,6 +96,31 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={siteUrl + ogImage} />
+    <meta property="og:site_name" content="DentiQ Superspeciality" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={siteUrl + ogImage} />
+
+    <!-- LocalBusiness Schema (every page) -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+
+    <!-- Page-specific schema (FAQ, etc.) -->
+    {pageSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)}></script>}
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

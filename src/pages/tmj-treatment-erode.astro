@@ -24,11 +24,22 @@ const faqs = [
   { q: "How long does treatment take?", a: "Duration varies by severity. Many patients experience significant relief within weeks of starting the right treatment. A proper diagnosis first is the most important step." },
   { q: "Do you see patients from outside Erode?", a: "Yes. We regularly see patients from Coimbatore, Tirupur, Salem, Namakkal and beyond. Many travel specifically for Dr. Balamurugan's TMJ expertise." }
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
 ---
 
 <BaseLayout
   title="TMJ Treatment in Erode | Jaw Pain & Orofacial Pain Specialist | DentiQ"
   description="Specialist TMJ evaluation and treatment in Erode. Dr. T. Balamurugan holds USA fellowship credentials in TMJ & Orofacial Pain. Serving Erode, Coimbatore, Salem, Tirupur, Namakkal."
+  pageSchema={faqSchema}
 >
   <Cursor />
   <Nav />
