@@ -49,9 +49,24 @@ import { doctorsData } from '../data/doctorsData.js';
               </div>
 
               <div class="doctor-profile-card__content">
-                <span class="doctor-profile-card__role">{doctor.role}</span>
-                <h3>{doctor.name}</h3>
-                <p class="doctor-profile-card__quals">{doctor.qualifications}</p>
+                {doctor.id === 'dr-dilip' ? (
+                  <div style="margin-bottom: var(--space-4);">
+                    <h3 style="margin-bottom: 4px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+                      {doctor.name}
+                      <span style="font-size: 0.8rem; font-family: var(--font-body); font-weight: 600; color: var(--clr-text-mid); letter-spacing: 0;">M.D.S.,F.I.C.O.I.,(USA),F.T.O.D.,(USA)</span>
+                    </h3>
+                    <p style="font-size: 0.75rem; color: var(--clr-text-mid); line-height: 1.3;">Fellow International Congress of Oral Implantologists (USA)</p>
+                    <p style="font-size: 0.75rem; color: var(--clr-text-mid); line-height: 1.3; margin-bottom: 8px;">Fellow Temporo Mandibular Disorders, Oro-Facial Pain, Dental Sleep Medicine (USA)</p>
+                    <span style="display: block; font-size: 0.65rem; font-weight: 700; color: var(--clr-gold-dark); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.4;">Implantologist | Prosthodontist | Maxillofacial Prosthetist | BPS Consultant</span>
+                    <span style="display: block; font-size: 0.65rem; font-weight: 700; color: var(--clr-gold-dark); text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.4;">TMJ | Facial Pain | Dental Sleep Medicine Specialist</span>
+                  </div>
+                ) : (
+                  <>
+                    <span class="doctor-profile-card__role">{doctor.role}</span>
+                    <h3>{doctor.name}</h3>
+                    <p class="doctor-profile-card__quals">{doctor.qualifications}</p>
+                  </>
+                )}
                 <p class="doctor-profile-card__bio">{doctor.bio}</p>
 
                 <div class="doctor-profile-card__tags">

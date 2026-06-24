@@ -26,16 +26,37 @@ const { doctor } = Astro.props;
       <div class="doctor-hero__inner">
         <div class="doctor-hero__content">
           <span class="section__label section__label--light">Specialist Profile</span>
-          <h1 class="doctor-hero__name">{doctor.name}</h1>
-          <p class="doctor-hero__role">{doctor.role}</p>
+          {doctor.id === 'dr-dilip' ? (
+            <div style="margin-bottom: var(--space-8);">
+              <h1 class="doctor-hero__name" style="margin-bottom: 12px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px;">
+                {doctor.name} 
+                <span style="font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 500; font-family: var(--font-body); letter-spacing: 0; color: rgba(255, 255, 255, 0.9);">
+                  M.D.S.,F.I.C.O.I.,(USA),F.T.O.D.,(USA)
+                </span>
+              </h1>
+              <p style="color: var(--clr-white); font-size: 1.15rem; margin-bottom: 4px; font-weight: 300;">Fellow International Congress of Oral Implantologists (USA)</p>
+              <p style="color: var(--clr-white); font-size: 1.15rem; margin-bottom: 16px; font-weight: 300;">Fellow Temporo Mandibular Disorders, Oro-Facial Pain, Dental Sleep Medicine (USA)</p>
+              <p style="color: var(--clr-gold); font-size: 1.1rem; margin-bottom: 4px; font-weight: 400; letter-spacing: 0.05em;">Implantologist | Prosthodontist | Maxillofacial Prosthetist | BPS Consultant</p>
+              <p style="color: var(--clr-gold); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.05em;">TMJ | Facial Pain | Dental Sleep Medicine Specialist</p>
+            </div>
+          ) : (
+            <>
+              <h1 class="doctor-hero__name">{doctor.name}</h1>
+              <p class="doctor-hero__role">{doctor.role}</p>
+            </>
+          )}
           <div class="doctor-hero__meta">
             <span class="meta-item">
               <strong>{doctor.experience}</strong> Experience
             </span>
-            <span class="meta-separator"></span>
-            <span class="meta-item">
-              <strong>{doctor.qualifications}</strong>
-            </span>
+            {doctor.id !== 'dr-dilip' && (
+              <>
+                <span class="meta-separator"></span>
+                <span class="meta-item">
+                  <strong>{doctor.qualifications}</strong>
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>

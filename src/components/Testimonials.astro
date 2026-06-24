@@ -1,11 +1,11 @@
 ---
 const testimonials = [
-  { text: "Initially I came here with TMJ issue for past 2 years. I visited other dentists but those treatments did not give me proper cure but now I am completely cured. Trust me — visit Dr. Jane and she will thoroughly analyse the issue and give you proper treatment.", name: "Harsha Baskaran", city: "Chennai", stars: 5 },
-  { text: "I had severe jaw pain and facial pains for more than 5 years. I visited many specialists — ENT, ortho, neurologist. Came to know about Dr. Jane from Instagram. After 4 weeks of treatment I am totally pain free. I have never been this happy.", name: "Deepikask", city: "Chennai", stars: 5 },
-  { text: "Doctor John is so experienced that he gave me the best solution without surgery. He was gentle and attentive. Post removal they called the next morning to check if everything was okay. None of the dental centres do this.", name: "Nadir Farhan", city: "Chennai", stars: 5 },
-  { text: "With my recent root canal treatment, each member from the reception to dental assistant played an integral role in making my experience comfortable and smooth. Thank you all.", name: "Sunilkumar Balan", city: "Chennai", stars: 5 },
-  { text: "Totally advanced X-ray technology. Laser root canal with absolutely no pain. Appointment fixed with our convenience. Overall had a great experience and will recommend this clinic.", name: "Pavithra Balachandran", city: "Chennai", stars: 5 },
-  { text: "From past 5 years I was suffering with facial pains and headaches. After 5 weeks of treatment I am totally pain free. Thanks to Dr Jane mam. They treat patients very kindly.", name: "Rizwana Amanulla", city: "Chennai", stars: 5 },
+  { text: "Initially I came here with TMJ issue for past 2 years. I visited other dentists but those treatments did not give me proper cure but now I am completely cured. Trust me — visit Dr. Dilip and he will thoroughly analyse the issue and give you proper treatment.", name: "Harsha Baskaran", city: "Erode", stars: 5 },
+  { text: "I had severe jaw pain and facial pains for more than 5 years. I visited many specialists — ENT, ortho, neurologist. Came to know about Dr. Dilip from Instagram. After 4 weeks of treatment I am totally pain free. I have never been this happy.", name: "Deepikask", city: "Coimbatore", stars: 5 },
+  { text: "Dr. Dilip is so experienced that he gave me the best solution without surgery. He was gentle and attentive. Post removal they called the next morning to check if everything was okay. None of the dental centres do this.", name: "Nadir Farhan", city: "Tirupur", stars: 5 },
+  { text: "With my recent root canal treatment, each member from the reception to dental assistant played an integral role in making my experience comfortable and smooth. Thank you all.", name: "Sunilkumar Balan", city: "Salem", stars: 5 },
+  { text: "Totally advanced X-ray technology. Laser root canal with absolutely no pain. Appointment fixed with our convenience. Overall had a great experience and will recommend this clinic.", name: "Pavithra Balachandran", city: "Namakkal", stars: 5 },
+  { text: "From past 5 years I was suffering with facial pains and headaches. After 5 weeks of treatment I am totally pain free. Thanks to Dr. Dilip. They treat patients very kindly.", name: "Rizwana Amanulla", city: "Erode", stars: 5 },
 ];
 ---
 
@@ -15,19 +15,29 @@ const testimonials = [
       <span class="section__label section__label--light">Patient Stories</span>
       <h2 class="testimonials__heading">What Our <em>Patients Say</em></h2>
       <p class="testimonials__sub">
-        250+ verified Google reviews &nbsp;·&nbsp; 4.9 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-top:-2px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> average rating
+        401 verified Google reviews &nbsp;·&nbsp; 4.8 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-top:-2px;"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg> average rating
       </p>
     </div>
 
     <div class="testi-grid">
       {testimonials.map((t, i) => (
         <blockquote class={`testi-card ${i === 0 ? 'testi-card--featured' : ''}`}>
-          <div class="testi-card__stars" aria-label="5 stars">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+            <div class="testi-card__stars" aria-label="5 stars" style="color: #fbbc04;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div class="testi-card__google-logo" title="Verified Google Review">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
+                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+              </svg>
+            </div>
           </div>
           <p class="testi-card__text">"{t.text}"</p>
           <footer class="testi-card__footer">
@@ -45,7 +55,7 @@ const testimonials = [
 
     <div class="testimonials__cta">
       <a
-        href="https://www.google.com/search?q=dr+dilip+dental+centre+chennai"
+        href="https://www.google.com/maps/search/?api=1&query=DentiQ+Superspeciality+Dental+Implant+TMJ+Headache+Sleep+Medicine+Clinic+Erode"
         target="_blank"
         rel="noopener noreferrer"
         class="btn btn--primary"
