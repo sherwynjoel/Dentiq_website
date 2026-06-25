@@ -385,9 +385,39 @@
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    btn.textContent = '✓ Request Sent!';
+
+    const nameInput = document.getElementById('cf-name') as HTMLInputElement;
+    const phoneInput = document.getElementById('cf-phone') as HTMLInputElement;
+    const emailInput = document.getElementById('cf-email') as HTMLInputElement;
+    const serviceSelect = document.getElementById('cf-service') as HTMLSelectElement;
+    const messageTextarea = document.getElementById('cf-message') as HTMLTextAreaElement;
+
+    if (!nameInput.value || !phoneInput.value) {
+      return;
+    }
+
+    const name = nameInput.value;
+    const phone = phoneInput.value;
+    const email = emailInput ? emailInput.value : '';
+    const service = serviceSelect ? serviceSelect.value : '';
+    const message = messageTextarea ? messageTextarea.value : '';
+
+    let text = `Hi DentiQ, I would like to book an appointment.\n\n`;
+    text += `*Name:* ${name}\n`;
+    text += `*Phone:* ${phone}\n`;
+    if (email) text += `*Email:* ${email}\n`;
+    if (service) text += `*Service:* ${service}\n`;
+    if (message) text += `*Message:* ${message}\n`;
+
+    const whatsappUrl = `https://wa.me/918489488999?text=${encodeURIComponent(text)}`;
+    
+    btn.textContent = '✓ Opening WhatsApp...';
     btn.style.background = '#228b45';
     btn.disabled = true;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       btn.textContent = 'Request Appointment';
       btn.style.background = '';
