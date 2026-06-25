@@ -12,6 +12,7 @@
     "@astrojs/sitemap": "^3.1.6",
     "@studio-freight/lenis": "^1.0.42",
     "astro": "^4.16.18",
+    "basic-ftp": "^6.0.1",
     "gsap": "^3.12.5",
     "sharp": "^0.34.5",
     "split-type": "^0.3.4",

@@ -106,15 +106,17 @@ const { doctor } = Astro.props;
             <div class="content-block">
               <span class="section__label">Expertise & Recognition</span>
               <h2>Key Achievements</h2>
-              <div class="achievements-grid">
-                {doctor.achievements.map(achievement => (
-                  <div class="achievement-card">
-                    <div class="achievement-icon">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-2 5L9 9l11 4-5 2zm0 0l4 8 3-12-12-3 8 4z"/></svg>
-                    </div>
-                    <p>{achievement}</p>
-                  </div>
-                ))}
+              <div class="achievements-card">
+                <ul class="achievements-list">
+                  {doctor.achievements.map(achievement => (
+                    <li class="achievement-item">
+                      <div class="achievement-icon-wrapper">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <span class="achievement-text">{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -309,39 +311,44 @@ const { doctor } = Astro.props;
     font-weight: 300;
   }
 
-  .achievements-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .achievements-card {
+    background: var(--clr-off-white);
+    border: 1px solid var(--clr-light-gray);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .achievements-list {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-4);
   }
 
-  .achievement-card {
+  .achievement-item {
     display: flex;
     align-items: flex-start;
     gap: var(--space-4);
-    padding: var(--space-6);
-    background: var(--clr-off-white);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--clr-light-gray);
   }
 
-  .achievement-icon {
+  .achievement-icon-wrapper {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     background: var(--clr-gold-pale);
     color: var(--clr-gold-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-sm);
+    border-radius: 50%;
+    margin-top: 2px;
   }
 
-  .achievement-card p {
-    font-size: var(--text-sm);
+  .achievement-text {
+    font-size: var(--text-base);
     color: var(--clr-text-body);
-    line-height: 1.5;
-    margin: 0;
+    line-height: 1.6;
+    font-weight: 300;
   }
 
   .btn--full {
@@ -372,8 +379,8 @@ const { doctor } = Astro.props;
   }
 
   @media (max-width: 600px) {
-    .achievements-grid {
-      grid-template-columns: 1fr;
+    .achievements-card {
+      padding: var(--space-6);
     }
     
     .doctor-hero__name {
