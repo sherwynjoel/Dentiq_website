@@ -22,6 +22,5 @@ yarn-error.log*
 *.sw?
 
 # Deployment and credentials
-deploy.cjs
 unzip.php
 dist.zip
